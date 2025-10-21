@@ -1,0 +1,1 @@
+export function initUI(){console.log("✅ Common UI loaded")}

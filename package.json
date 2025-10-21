@@ -1,0 +1,20 @@
+{
+  "name": "coint-2025-namu",
+  "version": "1.0.0",
+  "homepage": "https://github.com/ALL4UITeam/2025_AF_P13",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "sass": "^1.70.0",
+    "vite": "^5.0.0",
+    "vite-plugin-handlebars": "^2.0.0"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0"
+  }
+}
