@@ -23,15 +23,15 @@
         <button class="submit" title="검색"></button>
         <button class="radius" title="반경검색" data-pressed="false"></button>
       </div>
-      <nav class="filter" role="tab">
-        <button class="radius" data-pressed="false">지역</button>
-        <button class="radius" data-pressed="false">종업원 수</button>
-        <button class="radius" data-pressed="false">업종</button>
+      <nav class="filter" data-groupWrap>
+        <button class="radius" data-pressed="false" data-group="filter" data-target="address" title="지역"><span></span></button>
+        <button class="radius" data-pressed="false" data-group="filter" data-target="employee" title="종업원 수"><span></span></button>
+        <button class="radius" data-pressed="false" data-group="filter" data-target="category" title="업종"><span></span></button>
       </nav>
-      <button type="button" class="reset" disabled>초기화</button>
+      <button type="button" class="reset" data-samplescript="filterReset">초기화</button>
     </div>
-    <div class="filterWrap">
-      <div class="address">
+    <div class="filterWrap" data-show="false">
+      <div class="set address" data-title="address">
         <select title="지역 조건">
           <option>시도</option>
         </select>
@@ -39,18 +39,18 @@
           <option>시군구</option>
         </select>
       </div>
-      <div class="employee">
-        <label><input type="radio"> 5인 이상</label>
-        <label><input type="radio"> 10인 이상</label>
-        <label><input type="radio"> 50인 이상</label>
-        <label><input type="radio"> 100인 이상</label>
+      <div class="set employee" data-title="employee" data-groupWrap>
+        <button type="button" data-group="employee" data-pressed="false"> 5인 이상</button>
+        <button type="button" data-group="employee" data-pressed="false"> 10인 이상</button>
+        <button type="button" data-group="employee" data-pressed="false"> 50인 이상</button>
+        <button type="button" data-group="employee" data-pressed="false"> 100인 이상</button>
       </div>
-      <div class="category">
+      <div class="set category" data-title="category">
         <label><input type="checkbox" class="all"> 전체선택</label>
         <label><input type="checkbox" class="hmr"> HMR</label>
         <label><input type="checkbox" class="functional"> 기능성</label>
         <label><input type="checkbox" class="kimchi"> 김치</label>
-        <label><input type="checkbox" class="agri"> 농산가공</label>
+        <label><input type="checkbox" class="agricultural"> 농산가공</label>
         <label><input type="checkbox" class="seafood"> 수산가공</label>
         <label><input type="checkbox" class="dairy"> 유가공</label>
         <label><input type="checkbox" class="oil"> 유지류</label>
@@ -68,7 +68,7 @@
       </div>
       <footer>
         <button type="button">초기화</button>
-        <strong><button type="button">검색</button></strong>
+        <strong><button type="button" data-samplescript="filterApply">검색</button></strong>
       </footer>
     </div>
     <div class="result" data-folded="true">
@@ -83,9 +83,9 @@
         </dl>
         <label class="switch">입점기업 먼저보기 <input type="checkbox"></label>
       </header>
-      <ul class="items">
+      <ul class="items" data-selectWrap>
         <li>
-          <dl data-selectad="false">
+          <dl data-selected="false">
             <dt>(주) 산해수산</dt>
             <dd class="address"><span class="zip">54576</span> 강원도 강릉시 안현동 853</dd>
             <dd>
@@ -99,7 +99,7 @@
           </dl>
         </li>
         <li>
-          <dl data-selectad="false">
+          <dl data-selected="false">
             <dt>(주) 올마루</dt>
             <dd class="partner">입점기업</dd>
             <dd class="address"><span class="zip">54576</span> 강원도 강릉시 안현동 853</dd>
@@ -112,7 +112,7 @@
           </dl>
         </li>
         <li>
-          <dl data-selectad="false">
+          <dl data-selected="false">
             <dt>(주) 아날로그온</dt>
             <dd class="partner">입점기업</dd>
             <dd class="address"><span class="zip">54576</span> 강원도 강릉시 안현동 853</dd>
@@ -126,7 +126,7 @@
           </dl>
         </li>
         <li>
-          <dl data-selectad="false">
+          <dl data-selected="false">
             <dt>(주) 유니크</dt>
             <dd class="address"><span class="zip">54576</span> 강원도 강릉시 안현동 853</dd>
             <dd>
@@ -139,7 +139,7 @@
           </dl>
         </li>
         <li>
-          <dl data-selectad="false">
+          <dl data-selected="false">
             <dt>(주) 에스에프씨바이오</dt>
             <dd class="address"><span class="zip">54576</span> 강원도 강릉시 안현동 853</dd>
             <dd>
@@ -164,31 +164,31 @@
       </h2>
       <button type="button" class="back" title="뒤로"></button>
       <button type="button" class="close" title="닫기"></button>
+      <nav class="tab" data-group="detailTab">
+        <label><input type="radio" name="detailTab" class="basic" data-target="basic" checked>기본 정보</label>
+        <label><input type="radio" name="detailTab" class="more" data-target="more">상세 정보</label>
+        <label><input type="radio" name="detailTab" class="oemodm" data-target="oemodm">OEM/ODM</label>
+        <label><input type="radio" name="detailTab" class="certificate" data-target="certificate">인증분석</label>
+        <label><input type="radio" name="detailTab" class="material" data-target="material">원료소재</label>
+      </nav>
     </header>
-    <nav class="tabs">
-      <label><input type="radio" name="details-tab" class="base" checked>기본 정보</label>
-      <label><input type="radio" name="details-tab" class="more">상세 정보</label>
-      <label><input type="radio" name="details-tab" class="oemodm">OEM/ODM</label>
-      <label><input type="radio" name="details-tab" class="certificate">인증분석</label>
-      <label><input type="radio" name="details-tab" class="material">원료소재</label>
-    </nav>
-    <div class="tab base">
+    <div class="tabContents basic" data-title="basic" data-show="true">
       <div class="contents">
         <h3>기본정보</h3>
-        <dl>
-          <dt>대표자명</dt>
+        <dl class="info">
+          <dt class="president">대표자명</dt>
           <dd>홍길동</dd>
-          <dt>설립일자</dt>
+          <dt class="date">설립일자</dt>
           <dd>1982-08-10</dd>
-          <dt>업종명</dt>
+          <dt class="type">업종명</dt>
           <dd>(주) 아날로그온</dd>
-          <dt>주요품목</dt>
+          <dt class="product">주요품목</dt>
           <dd>커피</dd>
-          <dd>사업자주소</dd>
+          <dt class="address">사업자주소</dd>
           <dd>경상남도 김해시 진영읍 본산1로56번길 4</dd>
-          <dd>상시종업원 수</dd>
+          <dt class="employee">상시종업원 수</dd>
           <dd>101</dd>
-          <dd>휴폐업여부</dd>
+          <dt class="active">휴폐업여부</dd>
           <dd>-</dd>
         </dl>
       </div>
@@ -214,7 +214,6 @@
         </ul>
       </div>
       <div class="contents banner partner">
-        <img src="/images/map/banner-partener.svg" alt="배너 이미지">
         <p>
           푸드e음에 입점하시면
           시설장비, 인증분석, 전문가 매칭 등
@@ -223,18 +222,18 @@
         </p>
         <button type="button">푸드e음 입점하기</button>
       </div>
-      <footer class="toLogin">
+      <footer class="function toLogin">
         <p>로그인하시면 상세정보 확인이 가능합니다.</p>
         <button type="button" class="to">로그인 하기</button>
       </footer>
     </div>
-    <div class="tab more">
-      <div class="contents">
-        <header>
-          <h3>상세정보</h3>
-          <button type="button" class="go foodeum"><span class="logo foodeum">푸드e음</span>에서 더보기</button>
-        </header>
-        <span class="unit">단위 : 백만원</span>
+    <div class="tabContents more" data-title="more" data-show="false">
+      <header>
+        <h3>상세정보</h3>
+        <button type="button" class="go"><span class="logo foodeum">푸드e음</span>에서 더보기</button>
+      </header>
+      <div class="contents sales">
+        <p class="unit">단위 : 백만원</p>
         <table class="info">
           <caption>재무정보표</caption>
           <colgroup>
@@ -310,15 +309,15 @@
       </div>
       <div class="contents">
         <h4>등급 변동 추이</h4>
-        <nav class="tabs">
-          <label><input type="radio" name="period" checked>월별</label>
-          <label><input type="radio" name="period">분기별</label>
-          <label><input type="radio" name="period">반기별</label>
-          <label><input type="radio" name="period">연별</label>
+        <nav class="slideTab" data-group="period">
+          <button type="button" data-group="period" data-pressed="true">월별</button>
+          <button type="button" data-group="period" data-pressed="false">분기별</button>
+          <button type="button" data-group="period" data-pressed="false">반기별</button>
+          <button type="button" data-group="period" data-pressed="false">연별</button>
         </nav>
         <article class="chart">
           <header>
-            <h4>차트명</h4>
+            <h5>차트명</h5>
             <button type="button" class="full" title="확대"></button>
           </header>
           <div class="chartWrap" style="height: 140px"></div>
@@ -390,7 +389,7 @@
           </table>
           <article class="chart">
             <header>
-              <h4>신용도별 판매처 업체 수</h4>
+              <h5>신용도별 판매처 업체 수</h5>
               <button type="button" class="full" title="확대"></button>
             </header>
             <div class="chartWrap"></div>
@@ -398,7 +397,7 @@
         </div>
       </div>
     </div>
-    <div class="tab oemodm">
+    <div class="tabContents oemodm" data-title="oemodm" data-show="false">
       <div class="contents">
         <header>
           <h3>OEM/ODM</h3>
@@ -546,7 +545,7 @@
         <button type="button" class="inquiry">1:1 문의</button>
       </footer>
     </div>
-    <div class="tab certificate">
+    <div class="tabContents certificate" data-title="certificate" data-show="false">
       <div class="contents">
         <header>
           <h3>인증분석</h3>
@@ -646,7 +645,7 @@
         <button type="button" class="inquiry">1:1 문의</button>
       </footer>
     </div>
-    <div class="tab material">
+    <div class="tabContents material" data-title="material" data-show="false">
       <div class="contents">
         <header>
           <h3>원료소재</h3>
@@ -807,66 +806,74 @@
       </footer>
     </div>
   </section>
-  <aside class="sidebar">
-    <div class="top">
-      <label class="mapTupe"><input type="radio" name="options" aria-haspopup="true">지도</label>
-      <div class="popup mapType">
-        <header>
-          <h2>배경지도 선택</h2>
-          <button type="button" class="close">닫기</button>
-        </header>
-        <ul class="options">
-          <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-hitmap.png" alt="히트맵"></label>
-          <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-marker.png" alt="마커"></label>
-          <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-step.png" alt="단계"></label>
-        </ul>
-      </div>
-      <label class="measuer"><input type="radio" name="options" aria-haspopup="true">측정</label>
-      <div class="popup measuer">
-        <ul class="options">
-          <li><button type="button" data-pressed="false">선측정</button></li>
-          <li><button type="button" data-pressed="false">면측정</button></li>
-          <li><button type="button" data-pressed="false">초기화</button></li>
-        </ul>
-      </div>
-      <label class="layer"><input type="radio" name="options" aria-haspopup="true">레이어</label>
-      <div class="popup layer">
-        <header>
-          <h2>레이어 선택</h2>
-          <button type="button" class="close">닫기</button>
-        </header>
-        <div class="options">
-          <header>연구개발</header>
-          <label><input type="checkbox">대학교</label>
-          <label><input type="checkbox">대학원</label>
-          <header>혁신 지원 서비스</header>
-          <label><input type="checkbox">지자체</label>
-          <label><input type="checkbox">혁신기관</label>
-          <label><input type="checkbox">지역특화 발전특구</label>
-          <label><input type="checkbox">산업 클러스터</label>
-          <header>공간 계획</header>
-          <label><input type="checkbox">산단경계</label>
-          <label><input type="checkbox">시설용지</label>
-          <label><input type="checkbox">유치업종</label>
-          <label><input type="checkbox">상품정보</label>
+  <aside class="sidebar" data-groupWrap>
+    <ul class="top">
+      <li>
+        <button type="button" class="menu" aria-haspopup="true" data-pressed="false" data-group="sidebar" data-target="mapType" title="지도"></button>
+        <div class="popup" data-title="mapType">
+          <header>
+            <h2>배경지도 선택</h2>
+            <button type="button" class="close">닫기</button>
+          </header>
+          <ul class="options">
+            <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-hitmap.png" alt="히트맵"></label>
+            <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-marker.png" alt="마커"></label>
+            <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-step.png" alt="단계"></label>
+          </ul>
         </div>
-      </div>
-    </div>
-    <div class="bottom">
-      <label class="legends"><input type="radio" name="options" aria-haspopup="true">범례</label>
-      <div class="popup legends">
-        <header>
-          <h2>범례</h2>
-          <button type="button" class="close">닫기</button>
-        </header>
-        <ul class="items">
-          <li><figure><figcaption>기능성</figcaption></figure></li>
-          <li><figure><figcaption>수산가공</figcaption></figure></li>
-          <li><figure><figcaption>육가공</figcaption></figure></li>
-          <li><figure><figcaption>제과제빵</figcaption></figure></li>
-        </ul>
-      </div>
-    </div>
+      </li>
+      <li>
+        <button type="button" class="menu" aria-haspopup="true" data-pressed="false" data-group="sidebar" data-target="measure" title="측정"></button>
+        <div class="popup" data-title="measure">
+          <ul class="options">
+            <li><button type="button" data-pressed="false" data-group="measure">선측정</button></li>
+            <li><button type="button" data-pressed="false" data-group="measure">면측정</button></li>
+            <li><button type="button" data-pressed="false" data-group="measure">초기화</button></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <button type="button" class="menu" aria-haspopup="true" data-pressed="false" data-group="sidebar" data-target="layer" title="레이어"></button>
+        <div class="popup" data-title="layer">
+          <header>
+            <h2>레이어 선택</h2>
+            <button type="button" class="close">닫기</button>
+          </header>
+          <div class="options">
+            <header>연구개발</header>
+            <label><input type="checkbox">대학교</label>
+            <label><input type="checkbox">대학원</label>
+            <header>혁신 지원 서비스</header>
+            <label><input type="checkbox">지자체</label>
+            <label><input type="checkbox">혁신기관</label>
+            <label><input type="checkbox">지역특화 발전특구</label>
+            <label><input type="checkbox">산업 클러스터</label>
+            <header>공간 계획</header>
+            <label><input type="checkbox">산단경계</label>
+            <label><input type="checkbox">시설용지</label>
+            <label><input type="checkbox">유치업종</label>
+            <label><input type="checkbox">상품정보</label>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul class="bottom">
+      </li>
+        <button type="button" class="menu" aria-haspopup="true" data-pressed="false" data-group="sidebar" data-target="legends" title="범례"></button>
+        <div class="popup" data-title="legends">
+          <header>
+            <h2>범례</h2>
+            <button type="button" class="close">닫기</button>
+          </header>
+          <ul class="items">
+            <li><figure><figcaption>기능성</figcaption></figure></li>
+            <li><figure><figcaption>수산가공</figcaption></figure></li>
+            <li><figure><figcaption>육가공</figcaption></figure></li>
+            <li><figure><figcaption>제과제빵</figcaption></figure></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
   </aside>
 </body>
 </html>
