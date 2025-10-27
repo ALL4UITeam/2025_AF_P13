@@ -559,12 +559,12 @@ button.layerIcon {
 
   /* 필터 적용 시 */
   &[data-state='filterApplyed'] {
-    & .searchWrap {
-      height: 188px;
-      button.reset {
-        display: block;
-      }
+    & .searchWrap { height: 188px;
+      
+      button.reset { display: block; }
     }
+
+    button.folding.show { margin-bottom: -66px; }
     
     &:has(.result[data-folded='false']) {
       .searchWrap { border-radius: var(--pxExRounding); }
