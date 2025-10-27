@@ -11,7 +11,95 @@
   <script type="module" src="../js/pages/map.js"></script>
 </head>
 <body>
-  <div class="mapWrap"></div>
+  <div class="mapWrap">
+    <button class="poi" class="hmr" style="top: 10%; left: 30%;">
+      <img src="/images/map/category-hmr.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="functional" style="top: 20%; left: 30%;">
+      <img src="/images/map/category-functional.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="kimchi" style="top: 30%; left: 30%;">
+      <img src="/images/map/category-kimchi.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="agricultural" style="top: 40%; left: 30%;">
+      <img src="/images/map/category-agricultural.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="seafood" style="top: 50%; left: 30%;">
+      <img src="/images/map/category-seafood.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="dairy" style="top: 60%; left: 30%;">
+      <img src="/images/map/category-dairy.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="oil" style="top: 70%; left: 30%;">
+      <img src="/images/map/category-oil.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="drink" style="top: 80%; left: 30%;">
+      <img src="/images/map/category-drink.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="meat" style="top: 90%; left: 30%;">
+      <img src="/images/map/category-meat.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="vegetation" style="top: 10%; left: 60%;">
+      <img src="/images/map/category-vegetation.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="ginseng" style="top: 20%; left: 60%;">
+      <img src="/images/map/category-ginseng.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="traditional" style="top: 30%; left: 60%;">
+      <img src="/images/map/category-traditional.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="baking" style="top: 40%; left: 60%;">
+      <img src="/images/map/category-baking.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="alcohol" style="top: 50%; left: 60%;">
+      <img src="/images/map/category-alcohol.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="additive" style="top: 60%; left: 60%;">
+      <img src="/images/map/category-additive.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="coffee" style="top: 70%; left: 60%;">
+      <img src="/images/map/category-coffee.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="petfood" style="top: 80%; left: 60%;">
+      <img src="/images/map/category-petfood.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="poi" class="none" style="top: 90%; left: 60%;">
+      <img src="/images/map/category-none.svg">
+      <span class="tooltip">흥덕단지</span>
+    </button>
+    <button class="layerIcon" title="대학교" style="top: 40%; left: 50%;"><img src="/images/map/type-academy.svg" alt="아이콘"></button>
+    <button class="layerIcon" title="대학원" style="top: 45%; left: 50%;"><img src="/images/map/type-postgraduate .svg" alt="아이콘"></button>
+    <button class="layerIcon" title="지자체" style="top: 50%; left: 50%;"><img src="/images/map/type-government.svg" alt="아이콘"></button>
+    <button class="layerIcon" title="혁신기관" style="top: 55%; left: 50%;"><img src="/images/map/type-institution.svg" alt="아이콘"></button>
+    <button class="layerIcon" title="지역특화 발전특구" style="top: 60%; left: 50%;"><img src="/images/map/type-distict.svg" alt="아이콘"></button>
+    <button class="layerIcon" title="산업 클러스터" style="top: 65%; left: 50%;"><img src="/images/map/type-cluster.svg" alt="아이콘"></button>
+    <button class="layerIcon" title="산단경계" style="top: 70%; left: 50%;"><img src="/images/map/type-border.svg" alt="아이콘"></button>
+    <button class="layerIcon" title="시설용지" style="top: 75%; left: 50%;"><img src="/images/map/type-site.svg" alt="아이콘"></button>
+    <button class="layerIcon" title="유치업종" style="top: 80%; left: 50%;"><img src="/images/map/type-industry.svg" alt="아이콘"></button>
+    <button class="layerIcon" title="상품정보" style="top: 85%; left: 50%;"><img src="/images/map/type-product.svg" alt="아이콘"></button>
+    <article class="poiTooltip" data-samplescript="modalpopup" style="left: 50%; top: 50%;">
+      <header>흥덕단지</header>
+      <p>경기 용인시 기흥구 영덕동</p>
+      <button type="button" class="go">현황보기</button>
+    </article>
+  </div>
   <section class="list">
     <h1>
       <img src="/images/map/logo-platform.png" class="logo platform" alt="디지털식품정보플랫폼">
@@ -22,6 +110,7 @@
         <input type="text" placeholder="검색어를 입력하세요">
         <button class="submit" title="검색"></button>
         <button class="radius" title="반경검색" data-pressed="false"></button>
+        <span class="tooltip">반경검색</span>
       </div>
       <nav class="filter" data-groupWrap>
         <button class="radius" data-pressed="false" data-group="filter" data-target="address" title="지역"><span></span></button>
@@ -30,7 +119,7 @@
       </nav>
       <button type="button" class="reset" data-samplescript="filterReset">초기화</button>
     </div>
-    <div class="filterWrap" data-show="false">
+    <div class="filterWrap" data-folded="true">
       <div class="set address" data-title="address">
         <select title="지역 조건">
           <option>시도</option>
@@ -156,7 +245,7 @@
     <button type="button" class="folding show">목록보기</button>
     <button type="button" title="목록접기" class="folding hide"></button>
   </section>
-  <section class="detail">
+  <section class="detail" data-show="false">
     <header>
       <h2>
         <span class="partner">입점기업</span>
@@ -164,7 +253,7 @@
       </h2>
       <button type="button" class="back" title="뒤로"></button>
       <button type="button" class="close" title="닫기"></button>
-      <nav class="tab" data-group="detailTab">
+      <nav class="tab" data-groupWrap>
         <label><input type="radio" name="detailTab" class="basic" data-target="basic" checked>기본 정보</label>
         <label><input type="radio" name="detailTab" class="more" data-target="more">상세 정보</label>
         <label><input type="radio" name="detailTab" class="oemodm" data-target="oemodm">OEM/ODM</label>
@@ -309,7 +398,7 @@
       </div>
       <div class="contents">
         <h4>등급 변동 추이</h4>
-        <nav class="slideTab" data-group="period">
+        <nav class="slideTab" data-groupWrap>
           <button type="button" data-group="period" data-pressed="true">월별</button>
           <button type="button" data-group="period" data-pressed="false">분기별</button>
           <button type="button" data-group="period" data-pressed="false">반기별</button>
@@ -318,7 +407,7 @@
         <article class="chart">
           <header>
             <h5>차트명</h5>
-            <button type="button" class="full" title="확대"></button>
+            <button type="button" class="full" title="크게보기"></button>
           </header>
           <div class="chartWrap" style="height: 140px"></div>
         </article>
@@ -390,7 +479,7 @@
           <article class="chart">
             <header>
               <h5>신용도별 판매처 업체 수</h5>
-              <button type="button" class="full" title="확대"></button>
+              <button type="button" class="full" title="크게보기"></button>
             </header>
             <div class="chartWrap"></div>
           </article>
@@ -403,8 +492,8 @@
           <h3>OEM/ODM</h3>
           <button type="button" class="go foodeum"><span class="logo foodeum">푸드e음</span>에서 더보기</button>
         </header>
-        <h4>생산품목</h4>
         <div class="productList">
+          <h4>생산품목</h4>
           <article>
             <header>
               <ol class="category">
@@ -412,17 +501,25 @@
                 <li>커피</li>
                 <li>분말</li>
               </ol>
-              <h5>커피</h5>
+              <h5 class="name">커피</h5>
             </header>
             <dl>
               <dt>포장유형</dt>
               <dd>스틱, 벌크</dd>
+            </dl>
+            <dl>
               <dt>최소 발주량 </dt>
               <dd>100kg</dd>
+            </dl>
+            <dl>
               <dt>MOQ 리드타임</dt>
               <dd>15일</dd>
+            </dl>
+            <dl>
               <dt>평균 생산량</dt>
               <dd>1톤</dd>
+            </dl>
+            <dl>
               <dt>최대 생산량</dt>
               <dd>6톤</dd>
             </dl>
@@ -434,17 +531,25 @@
                 <li>커피</li>
                 <li>분말</li>
               </ol>
-              <h5>커피</h5>
+              <h5 class="name">커피</h5>
             </header>
             <dl>
               <dt>포장유형</dt>
               <dd>스틱, 벌크</dd>
+            </dl>
+            <dl>
               <dt>최소 발주량 </dt>
               <dd>100kg</dd>
+            </dl>
+            <dl>
               <dt>MOQ 리드타임</dt>
               <dd>15일</dd>
+            </dl>
+            <dl>
               <dt>평균 생산량</dt>
               <dd>1톤</dd>
+            </dl>
+            <dl>
               <dt>최대 생산량</dt>
               <dd>6톤</dd>
             </dl>
@@ -456,17 +561,25 @@
                 <li>커피</li>
                 <li>분말</li>
               </ol>
-              <h5>커피</h5>
+              <h5 class="name">커피</h5>
             </header>
             <dl>
               <dt>포장유형</dt>
               <dd>스틱, 벌크</dd>
+            </dl>
+            <dl>
               <dt>최소 발주량 </dt>
               <dd>100kg</dd>
+            </dl>
+            <dl>
               <dt>MOQ 리드타임</dt>
               <dd>15일</dd>
+            </dl>
+            <dl>
               <dt>평균 생산량</dt>
               <dd>1톤</dd>
+            </dl>
+            <dl>
               <dt>최대 생산량</dt>
               <dd>6톤</dd>
             </dl>
@@ -478,17 +591,25 @@
                 <li>커피</li>
                 <li>분말</li>
               </ol>
-              <h5>커피</h5>
+              <h5 class="name">커피</h5>
             </header>
             <dl>
               <dt>포장유형</dt>
               <dd>스틱, 벌크</dd>
+            </dl>
+            <dl>
               <dt>최소 발주량 </dt>
               <dd>100kg</dd>
+            </dl>
+            <dl>
               <dt>MOQ 리드타임</dt>
               <dd>15일</dd>
+            </dl>
+            <dl>
               <dt>평균 생산량</dt>
               <dd>1톤</dd>
+            </dl>
+            <dl>
               <dt>최대 생산량</dt>
               <dd>6톤</dd>
             </dl>
@@ -500,17 +621,25 @@
                 <li>커피</li>
                 <li>분말</li>
               </ol>
-              <h5>커피</h5>
+              <h5 class="name">커피</h5>
             </header>
             <dl>
               <dt>포장유형</dt>
               <dd>스틱, 벌크</dd>
+            </dl>
+            <dl>
               <dt>최소 발주량 </dt>
               <dd>100kg</dd>
+            </dl>
+            <dl>
               <dt>MOQ 리드타임</dt>
               <dd>15일</dd>
+            </dl>
+            <dl>
               <dt>평균 생산량</dt>
               <dd>1톤</dd>
+            </dl>
+            <dl>
               <dt>최대 생산량</dt>
               <dd>6톤</dd>
             </dl>
@@ -522,24 +651,32 @@
                 <li>커피</li>
                 <li>분말</li>
               </ol>
-              <h5>커피</h5>
+              <h5 class="name">커피</h5>
             </header>
             <dl>
               <dt>포장유형</dt>
               <dd>스틱, 벌크</dd>
+            </dl>
+            <dl>
               <dt>최소 발주량 </dt>
               <dd>100kg</dd>
+            </dl>
+            <dl>
               <dt>MOQ 리드타임</dt>
               <dd>15일</dd>
+            </dl>
+            <dl>
               <dt>평균 생산량</dt>
               <dd>1톤</dd>
+            </dl>
+            <dl>
               <dt>최대 생산량</dt>
               <dd>6톤</dd>
             </dl>
           </article>
         </div>
       </div>
-      <footer class="contact">
+      <footer class="function contact">
         <button type="button" class="estimate">OEM/ODM 견적요청</button>
         <button type="button" class="message">메세지</button>
         <button type="button" class="inquiry">1:1 문의</button>
@@ -551,38 +688,40 @@
           <h3>인증분석</h3>
           <button type="button" class="go foodeum"><span class="logo foodeum">푸드e음</span>에서 더보기</button>
         </header>
-        <h4>검사 항목</h4>
-        <article>
-          <h5>업무범위</h5>
-          <ul>
-            <li>위탁검사</li>
-            <li>표시검사</li>
-            <li>정밀검사</li>
-            <li>기능검사</li>
-            <li>안전검사</li>
-          </ul>
-        </article>
-        <article>
-          <h5>분야</h5>
-          <ul>
-            <li>위탁검사</li>
-            <li>건강기능식품</li>
-            <li>식품안전관리</li>
-            <li>영양성분 분석</li>
-            <li>표시검사</li>
-          </ul>
-        </article>
-        <article>
-          <h5>시험항목</h5>
-          <ul>
-            <li>미생물</li>
-            <li>기생충</li>
-          </ul>
-        </article>
+        <section class="subjectList">
+          <h4>검사 항목</h4>
+          <article>
+            <h5>업무범위</h5>
+            <ul class="keyword">
+              <li>위탁검사</li>
+              <li>표시검사</li>
+              <li>정밀검사</li>
+              <li>기능검사</li>
+              <li>안전검사</li>
+            </ul>
+          </article>
+          <article>
+            <h5>분야</h5>
+            <ul class="keyword">
+              <li>위탁검사</li>
+              <li>건강기능식품</li>
+              <li>식품안전관리</li>
+              <li>영양성분 분석</li>
+              <li>표시검사</li>
+            </ul>
+          </article>
+          <article>
+            <h5>시험항목</h5>
+            <ul class="keyword">
+              <li>미생물</li>
+              <li>기생충</li>
+            </ul>
+          </article>
+        </section>
       </div>
       <div class="contents">
-        <h4>시험 항목</h4>
-        <div class="certificateItems">
+        <section class="subjectList">
+          <h4>시험 항목</h4>
           <dl>
             <dt>미생물</dt>
             <dd>
@@ -637,10 +776,10 @@
               </ol>
             </dd>
           </dl>
-        </div>
+        </section>
       </div>
-      <footer class="contact">
-        <button type="button" class="estimate">OEM/ODM 견적요청</button>
+      <footer class="function contact">
+        <button type="button" class="estimate">인증분석 견적요청</button>
         <button type="button" class="message">메세지</button>
         <button type="button" class="inquiry">1:1 문의</button>
       </footer>
@@ -651,8 +790,8 @@
           <h3>원료소재</h3>
           <button type="button" class="go foodeum"><span class="logo foodeum">푸드e음</span>에서 더보기</button>
         </header>
-        <h4>공급품목</h4>
         <div class="productList">
+          <h4>공급품목</h4>
           <article>
             <header>
               <ol class="category">
@@ -660,44 +799,24 @@
                 <li>캡슐</li>
                 <li>연질캡슐</li>
               </ol>
-              <h5>건강식품</h5>
+              <h5 class="name">보이차</h5>
             </header>
             <dl>
-              <dt>캡슐</dt>
-              <dd>연질캡슐</dd>
-              <dt>보이차</dt>
-              <dd>녹차</dd>
               <dt>유형</dt>
               <dd>가공품</dd>
             </dl>
-            <footer>
-              <ul class="mark">
-                <li class="haccp">HACCP</li>
-                <li class="fssc">FSSC</li>
-              </ul>
-            </footer>
-          </article>
-          <article>
-            <header>
-              <ol class="category">
-                <li class="top">유형</li>
-                <li>가공품</li>
-                <li>제형</li>
-              </ol>
-              <h5>기타</h5>
-            </header>
             <dl>
               <dt>제형</dt>
               <dd>기타</dd>
+            </dl>
+            <dl>
               <dt>유통기한</dt>
               <dd>12개월</dd>
-              <dt>유통기한</dt>
-              <dd>15개월</dd>
             </dl>
             <footer>
               <ul class="mark">
-                <li class="haccp">HACCP</li>
-                <li class="fssc">FSSC</li>
+                <li class="haccp" title="HACCP"></li>
+                <li class="fssc" title="FSSC"></li>
               </ul>
             </footer>
           </article>
@@ -708,44 +827,24 @@
                 <li>캡슐</li>
                 <li>연질캡슐</li>
               </ol>
-              <h5>건강식품</h5>
+              <h5 class="name">녹차</h5>
             </header>
             <dl>
-              <dt>캡슐</dt>
-              <dd>연질캡슐</dd>
-              <dt>캐모마일</dt>
-              <dd>홍차</dd>
               <dt>유형</dt>
               <dd>가공품</dd>
             </dl>
-            <footer>
-              <ul class="mark">
-                <li class="haccp">HACCP</li>
-                <li class="fssc">FSSC</li>
-              </ul>
-            </footer>
-          </article>
-          <article>
-            <header>
-              <ol class="category">
-                <li class="top">유형</li>
-                <li>가공품</li>
-                <li>제형</li>
-              </ol>
-              <h5>기타</h5>
-            </header>
             <dl>
               <dt>제형</dt>
               <dd>기타</dd>
-              <dt>유통기한</dt>
-              <dd>12개월</dd>
+            </dl>
+            <dl>
               <dt>유통기한</dt>
               <dd>15개월</dd>
             </dl>
             <footer>
               <ul class="mark">
-                <li class="haccp">HACCP</li>
-                <li class="fssc">FSSC</li>
+                <li class="haccp" title="HACCP"></li>
+                <li class="fssc" title="FSSC"></li>
               </ul>
             </footer>
           </article>
@@ -756,50 +855,114 @@
                 <li>캡슐</li>
                 <li>연질캡슐</li>
               </ol>
-              <h5>건강식품</h5>
+              <h5 class="name">캐모마일</h5>
             </header>
             <dl>
-              <dt>캡슐</dt>
-              <dd>연질캡슐</dd>
-              <dt>보이차</dt>
-              <dd>녹차</dd>
               <dt>유형</dt>
               <dd>가공품</dd>
             </dl>
+            <dl>
+              <dt>제형</dt>
+              <dd>기타</dd>
+            </dl>
+            <dl>
+              <dt>유통기한</dt>
+              <dd>12개월</dd>
+            </dl>
             <footer>
               <ul class="mark">
-                <li class="haccp">HACCP</li>
-                <li class="fssc">FSSC</li>
+                <li class="haccp" title="HACCP"></li>
+                <li class="fssc" title="FSSC"></li>
               </ul>
             </footer>
           </article>
           <article>
             <header>
               <ol class="category">
-                <li class="top">유형</li>
-                <li>가공품</li>
-                <li>제형</li>
+                <li class="top">일반식품</li>
+                <li>캡슐</li>
+                <li>연질캡슐</li>
               </ol>
-              <h5>기타</h5>
+              <h5 class="name">홍차</h5>
             </header>
+            <dl>
+              <dt>유형</dt>
+              <dd>가공품</dd>
+            </dl>
             <dl>
               <dt>제형</dt>
               <dd>기타</dd>
-              <dt>유통기한</dt>
-              <dd>12개월</dd>
+            </dl>
+            <dl>
               <dt>유통기한</dt>
               <dd>15개월</dd>
             </dl>
             <footer>
               <ul class="mark">
-                <li class="haccp">HACCP</li>
-                <li class="fssc">FSSC</li> 
+                <li class="haccp" title="HACCP"></li>
+                <li class="fssc" title="FSSC"></li>
+              </ul>
+            </footer>
+          </article>
+          <article>
+            <header>
+              <ol class="category">
+                <li class="top">일반식품</li>
+                <li>캡슐</li>
+                <li>연질캡슐</li>
+              </ol>
+              <h5 class="name">보이차</h5>
+            </header>
+            <dl>
+              <dt>유형</dt>
+              <dd>가공품</dd>
+            </dl>
+            <dl>
+              <dt>제형</dt>
+              <dd>기타</dd>
+            </dl>
+            <dl>
+              <dt>유통기한</dt>
+              <dd>12개월</dd>
+            </dl>
+            <footer>
+              <ul class="mark">
+                <li class="haccp" title="HACCP"></li>
+                <li class="fssc" title="FSSC"></li>
+              </ul>
+            </footer>
+          </article>
+          <article>
+            <header>
+              <ol class="category">
+                <li class="top">일반식품</li>
+                <li>캡슐</li>
+                <li>연질캡슐</li>
+              </ol>
+              <h5 class="name">녹차</h5>
+            </header>
+            <dl>
+              <dt>유형</dt>
+              <dd>가공품</dd>
+            </dl>
+            <dl>
+              <dt>제형</dt>
+              <dd>기타</dd>
+            </dl>
+            <dl>
+              <dt>유통기한</dt>
+              <dd>15개월</dd>
+            </dl>
+            <footer>
+              <ul class="mark">
+                <li class="haccp" title="HACCP"></li>
+                <li class="fssc" title="FSSC"></li>
               </ul>
             </footer>
           </article>
         </div>
       </div>
-      <footer class="contact">
+      <footer class="function contact">
         <button type="button" class="estimate">원료소재 견적요청</button>
         <button type="button" class="message">메세지</button>
         <button type="button" class="inquiry">1:1 문의</button>
@@ -813,12 +976,12 @@
         <div class="popup" data-title="mapType">
           <header>
             <h2>배경지도 선택</h2>
-            <button type="button" class="close">닫기</button>
+            <button type="button" class="close" title="닫기"></button>
           </header>
           <ul class="options">
-            <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-hitmap.png" alt="히트맵"></label>
-            <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-marker.png" alt="마커"></label>
-            <li><label><input type="radio" name="mapType"> <img src="/images/map/function-type-step.png" alt="단계"></label>
+            <li><label><input type="radio" name="mapType" checked> <img src="/images/map/sidebar-type-hitmap.png" alt="히트맵 예시">히트맵</label>
+            <li><label><input type="radio" name="mapType"> <img src="/images/map/sidebar-type-marker.png" alt="마커 예시">마커</label>
+            <li><label><input type="radio" name="mapType"> <img src="/images/map/sidebar-type-step.png" alt="단계 예시">단계</label>
           </ul>
         </div>
       </li>
@@ -826,9 +989,9 @@
         <button type="button" class="menu" aria-haspopup="true" data-pressed="false" data-group="sidebar" data-target="measure" title="측정"></button>
         <div class="popup" data-title="measure">
           <ul class="options">
-            <li><button type="button" data-pressed="false" data-group="measure">선측정</button></li>
-            <li><button type="button" data-pressed="false" data-group="measure">면측정</button></li>
-            <li><button type="button" data-pressed="false" data-group="measure">초기화</button></li>
+            <li><button type="button" data-pressed="false" data-group="measure" class="line">선측정</button></li>
+            <li><button type="button" data-pressed="false" data-group="measure" class="area">면측정</button></li>
+            <li><button type="button" data-pressed="false" data-group="measure" class="reset">초기화</button></li>
           </ul>
         </div>
       </li>
@@ -837,22 +1000,22 @@
         <div class="popup" data-title="layer">
           <header>
             <h2>레이어 선택</h2>
-            <button type="button" class="close">닫기</button>
+            <button type="button" class="close" title="닫기"></button>
           </header>
           <div class="options">
             <header>연구개발</header>
-            <label><input type="checkbox">대학교</label>
-            <label><input type="checkbox">대학원</label>
+            <label><input type="checkbox"><img src="/images/map/type-academy.svg" alt="아이콘">대학교</label>
+            <label><input type="checkbox"><img src="/images/map/type-postgraduate .svg" alt="아이콘">대학원</label>
             <header>혁신 지원 서비스</header>
-            <label><input type="checkbox">지자체</label>
-            <label><input type="checkbox">혁신기관</label>
-            <label><input type="checkbox">지역특화 발전특구</label>
-            <label><input type="checkbox">산업 클러스터</label>
+            <label><input type="checkbox"><img src="/images/map/type-government.svg" alt="아이콘">지자체</label>
+            <label><input type="checkbox"><img src="/images/map/type-institution.svg" alt="아이콘">혁신기관</label>
+            <label><input type="checkbox"><img src="/images/map/type-distict.svg" alt="아이콘">지역특화 발전특구</label>
+            <label><input type="checkbox"><img src="/images/map/type-cluster.svg" alt="아이콘">산업 클러스터</label>
             <header>공간 계획</header>
-            <label><input type="checkbox">산단경계</label>
-            <label><input type="checkbox">시설용지</label>
-            <label><input type="checkbox">유치업종</label>
-            <label><input type="checkbox">상품정보</label>
+            <label><input type="checkbox"><img src="/images/map/type-border.svg" alt="아이콘">산단경계</label>
+            <label><input type="checkbox"><img src="/images/map/type-site.svg" alt="아이콘">시설용지</label>
+            <label><input type="checkbox"><img src="/images/map/type-industry.svg" alt="아이콘">유치업종</label>
+            <label><input type="checkbox"><img src="/images/map/type-product.svg" alt="아이콘">상품정보</label>
           </div>
         </div>
       </li>
@@ -863,17 +1026,46 @@
         <div class="popup" data-title="legends">
           <header>
             <h2>범례</h2>
-            <button type="button" class="close">닫기</button>
+            <button type="button" class="close" title="닫기"></button>
           </header>
           <ul class="items">
-            <li><figure><figcaption>기능성</figcaption></figure></li>
-            <li><figure><figcaption>수산가공</figcaption></figure></li>
-            <li><figure><figcaption>육가공</figcaption></figure></li>
-            <li><figure><figcaption>제과제빵</figcaption></figure></li>
+            <li><figure><img src="/images/map/category-functional.svg" alt="아이콘"><figcaption>기능성</figcaption></figure></li>
+            <li><figure><img src="/images/map/category-seafood.svg" alt="아이콘"><figcaption>수산가공</figcaption></figure></li>
+            <li><figure><img src="/images/map/category-meat.svg" alt="아이콘"><figcaption>육가공</figcaption></figure></li>
+            <li><figure><img src="/images/map/category-baking.svg" alt="아이콘"><figcaption>제과제빵</figcaption></figure></li>
           </ul>
         </div>
       </li>
     </ul>
   </aside>
+  <div class="modal" data-show="false">
+    <section class="popup" >
+      <header>
+        <h2>흥덕단지 현황</h2>
+        <button class="close" title="레이어팝업 닫기"></button>
+      </header>
+      <div class="contents">
+        <nav class="slideTab" data-groupWrap>
+          <button type="button" data-group="menu" data-pressed="true">단지 정보</button>
+          <button type="button" data-group="menu" data-pressed="false">메뉴명</button>
+          <button type="button" data-group="menu" data-pressed="false">메뉴명</button>
+        </nav>
+        <article class="chart">
+          <header>
+            <h3>차트명</h3>
+            <button type="button" class="full" title="크게보기"></button>
+          </header>
+          <div style="height: 140px"></div>
+        </article>
+        <article class="chart">
+          <header>
+            <h3>차트명</h3>
+            <button type="button" class="full" title="크게보기"></button>
+          </header>
+          <div style="height: 140px"></div>
+        </article>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
