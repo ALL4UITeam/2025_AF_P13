@@ -1,7 +1,6 @@
 .sidebar {
   display: contents; 
 
-  
   &>ul { 
     position: fixed; right: var(--pxGapWindow); z-index: 12;
     flex-flow: column; justify-content: space-between;
@@ -51,8 +50,10 @@
     --pxGap: 20px;
 
     position: absolute; right: calc(40px + var(--pxGapItem)); overflow: hidden;
+    max-width: calc(100vw - 38px - var(--pxGapWindow) * 3);
     visibility: hidden; background: #fff; border-radius: 8px; border: 1px solid #fff;
     transform: translateX(var(--pxGapItem)); opacity: 0; transition: .3s;
+
 
     &>header {
       display: flex; justify-content: space-between; align-items: center; gap: 2px;
@@ -177,4 +178,11 @@
       }
     }
   }
+}
+
+/* resposive */
+@media (max-width: 760px) {
+  .sidebar { display: block; position: fixed; top: 139px; right: var(--pxGapWindow); z-index: 12; }
+  .sidebar>ul { display: contents; }
+  body:has([data-state='filterApplyed']) .sidebar { top: 206px; }
 }
