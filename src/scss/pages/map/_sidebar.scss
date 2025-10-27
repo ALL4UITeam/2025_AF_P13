@@ -1,9 +1,15 @@
 .sidebar {
-  position: fixed; right: var(--pxGapWindow); top: var(--pxGapWindow); bottom: var(--pxGapWindow); z-index: 10;
-  display: flex; flex-flow: column; justify-content: space-between;
+  display: contents; 
 
-  :is(.top,.bottom) { display: flex; flex-direction: column; gap: var(--pxGapItem);
+  
+  &>ul { 
+    position: fixed; right: var(--pxGapWindow); z-index: 10;
+    flex-flow: column; justify-content: space-between;
+  
+    display: flex; flex-direction: column; gap: var(--pxGapItem);
     
+    &.top { top: var(--pxGapWindow); }
+    &.bottom { bottom: var(--pxGapWindow); }
     li { position: relative; }
   }
   .top .popup { top: 0; }
@@ -95,7 +101,7 @@
       }
     }
 
-    &[data-title='measure'] { right: 0; height: 40px; transform: none; width: 0; 
+    &[data-title='measure'] { right: 0; height: 40px; transform: none; width: 0; padding-right: 45px;
       &[data-show='true'] { width: 175px; }
 
       .options {
