@@ -3,7 +3,7 @@
 
   
   &>ul { 
-    position: fixed; right: var(--pxGapWindow); z-index: 10;
+    position: fixed; right: var(--pxGapWindow); z-index: 12;
     flex-flow: column; justify-content: space-between;
   
     display: flex; flex-direction: column; gap: var(--pxGapItem);

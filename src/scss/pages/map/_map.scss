@@ -114,7 +114,7 @@ nav.slideTab {
   &:has([data-pressed='true']:nth-child(10))::after { left: calc((var(--width) + var(--pxTabGap)) * (10 - 1) + 4px); }
 }
 
-.productList { display: flex; flex-flow: wrap; gap: var(--pxGapItem); 
+.productList { display: flex; flex-flow: wrap; gap: var(--pxGapItem); white-space: nowrap;
   
   h4 { flex: 0 0 100%; }
   
@@ -162,7 +162,11 @@ nav.slideTab {
     flex: 1 0 calc(50% - var(--pxGapItem) / 2);
     display: flex; flex-flow: column; gap: var(--pxGapItem); padding: 20px; border-radius: 12px; border: 1px solid var(--cG10);
     dd { order: -1;
-      .category { color: var(--cG50); font: 400 15px/18px var(--ffDefault); display: flex; text-decoration: underline; text-underline-position: 2px;
+      .category {
+        display: flex; text-decoration: underline; text-underline-offset: 2px;
+        color: var(--cG50); font: 400 15px/18px var(--ffDefault);
+        white-space: nowrap;
+        
         li:not(:first-child)::before { content: '>'; }
       }
     }
@@ -224,7 +228,8 @@ table.info {
   display: flex; flex-flow: wrap; align-items: stretch; gap: 8px; padding: 8px 0;
 
   dl {
-    flex: 1; display: flex; align-items: center; padding: 10px 20px; border-radius: var(--pxInRounding);
+    flex: 1 0 auto; display: flex; align-items: center; gap: var(--pxGapWindow);
+    padding: 10px 20px; border-radius: var(--pxInRounding);
     border: 1px solid var(--cG10);
   
     dt { flex: 0 0 auto; color: var(--cG50); font: 400 13px/16px var(--ffDefault);
@@ -521,15 +526,30 @@ button.layerIcon {
   }
 
   /* 접고 펴기 버튼 */
-  button.folding { position: absolute; transition: .3s cubic-bezier(0.8, -0.5, 0.2, 1.8); }
-  button.folding.show {
-    bottom: 0; left: 50%; margin: 0 auto -36px; transform: translateX(-50%);
-    width: auto; padding: 3px 29px 3px 15px;
-    border: 1px solid #1314164D; border-radius: 12px; background: #fff url('/images/map/result-show.svg') calc(100% - 15px) center no-repeat;
-    color: var(--cSecondary); font: 400 13px/16px var(--ffDefault); }
-  button.folding.hide {
-    right: 8px; bottom: 8px; width: 32px; height: 32px; border-radius: 50%;
-    background: var(--cSecondary) url('/images/map/result-hide.svg') center no-repeat;
+  button.folding {
+    position: absolute;
+    display: flex; align-items: stretch;
+    transition: .3s cubic-bezier(0.8, -0.5, 0.2, 1.8); 
+    
+    &::after { content: ''; background: center no-repeat; }
+
+    &.show {
+      bottom: 0; left: 50%;
+      gap: 4px; margin: 0 auto -36px; transform: translateX(-50%);
+      width: auto; padding: 3px 15px;
+      border: 1px solid #1314164D; border-radius: 12px; background: #fff;
+      color: var(--cSecondary); font: 400 13px/16px var(--ffDefault);
+      
+      &::after { flex: 0 0 10px; background-image: url('/images/map/result-show.svg'); }
+    }
+      
+    &.hide {
+      right: 8px; bottom: 8px; width: 32px; aspect-ratio: 1/1; border-radius: 50%; 
+      background: var(--cSecondary);
+      box-shadow: 0px 0px 8px 0px #00000099;
+
+      &::after { width: 100%; height: 100%; background-image: url('/images/map/result-hide.svg');}
+    }
   }
 
   &:has(.result[data-folded='true']) button.folding.hide,
@@ -553,7 +573,7 @@ button.layerIcon {
 
 .detail {
   display: flex; flex-flow: column; gap: 6px; overflow: hidden; z-index: 11;
-  width: 556px; max-width: calc(100vw - var(--pxListW) - var(--pxGapWindow) * 3); height: calc(100vh - var(--pxGapWindow) * 2); border-radius: var(--pxExRounding);
+  width: 556px; max-width: calc(100vw - var(--pxListW) - var(--pxGapWindow) * 4 - 40px); height: calc(100vh - var(--pxGapWindow) * 2); border-radius: var(--pxExRounding);
   position: fixed; left: calc(var(--pxGapWindow) * 2 + var(--pxListW)); top: var(--pxGapWindow);
   background: var(--cG05);
   transition: .5s allow-discrete; visibility: visible;
@@ -628,6 +648,8 @@ button.layerIcon {
   &>* { padding: var(--pxPadding); background-color: #fff;
     &:last-child { border-bottom: 0 none; }
   }
+
+  &>header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 0; }
   &.basic { gap: 6px;
     &>* { padding-top: 16px; padding-bottom: 16px;
       &:has(+footer.function) { margin-bottom: 6px; }
@@ -661,8 +683,9 @@ button.layerIcon {
   
   footer.function {
     position: sticky; margin: auto 12px 12px; bottom: 12px;
-    display: flex; justify-content: center; align-items: center; 
+    display: flex; justify-content: center; align-items: center; flex-flow: wrap;
     border-radius: var(--pxInRounding); box-shadow: 0px 0px 8px 0px #0000001A;
+    text-align: center; word-break: keep-all; 
     
     &.toLogin { gap: 12px; color: var(--cG40); font: 500 16px/19px var(--ffDefault); }
     &.contact {
@@ -682,11 +705,9 @@ button.layerIcon {
     }
   }
 
-  &:has(footer.function.contact:last-child)::after { 
-    content: ''; flex: 0 0 73px; display: block; background: #fff; margin-top: -73px;
-  }
+  &:has(footer.function.contact:last-child) { background-color: #fff; }
   
-  &.more .sales .summaryItems dl { flex: 1 0 calc(50% - 4px); }
+  &.more .sales .summaryItems dl { flex: 1 0 calc(50% - 4px); white-space: nowrap; }
 }
 
 /* modal */
@@ -698,13 +719,13 @@ button.layerIcon {
   section.popup {
     flex: 0 0 auto;
     position: relative;
-    width: 760px; max-width: calc(100vw - var(--pxGapWindow) * 2); max-height: 604px; overflow: auto;
-    padding: 24px; border-radius: 12px; background: #fff;
+    width: 760px; max-width: calc(100vw - var(--pxGapWindow) * 2); max-height: calc(100vh - var(--pxGapWindow) * 2); overflow: auto;
+    padding: 0 24px 24px; border-radius: 12px; background: #fff;
     transform: scale(.98); transition: .3s;
 
     &>header {
       position: sticky; top: 0; z-index: 10;
-      display: flex; justify-content: space-between; padding: 0 16px 24px;
+      display: flex; justify-content: space-between; padding: 24px 16px;
       background: #fff;
       
       h2 { color: var(--cG95); font: 700 24px/36px var(--ffDefault); }
@@ -740,9 +761,7 @@ button.layerIcon {
 
 /* */
 @media (max-width: 760px) {
-  html {
-    --pxListW: calc(100vw - var(pxGapWindow) * 3 - 38px);
-  }
+  ::-webkit-scrollbar { width: 0; }
 
   .list { display: contents;
     &>* { position: fixed; width: calc(100vw - var(--pxGapWindow) * 3 - 40px); left: var(--pxGapWindow); z-index: 9; }
@@ -764,7 +783,8 @@ button.layerIcon {
     }
     
     .result {
-      bottom: 0; border-radius: var(--pxExRounding) var(--pxExRounding) 0 0;
+      bottom: 0;
+      max-height: 100vh; border-radius: var(--pxExRounding) var(--pxExRounding) 0 0;
       background: #fff; height: 0; transition: .3s;
       
       &[data-folded='false'] { height: calc(100vh - (var(--pxGapWindow) + 46px + 136px + 128px + 22vh)); }
@@ -772,16 +792,48 @@ button.layerIcon {
       &>header { position: sticky; top: 0; z-index: 1; background: #fff; }
       
     }
+
     button.folding {
-      &.show { margin: 0 auto calc(var(--pxGapWindow) * 2); }
-      &.hide { left: auto; right: var(--pxGapWindow); bottom: calc(100vh - (var(--pxGapWindow) + 46px + 136px + 128px + 22vh + 32px)); margin-right: 4px; }
+      &::after { transform: rotate(180deg); }
+      &.show { margin: 0 auto calc(var(--pxGapWindow) * 2); z-index: 8; }
+      &.hide {
+        left: auto; right: var(--pxGapWindow); bottom: calc(100vh - (var(--pxGapWindow) + 46px + 136px + 128px + 22vh + 32px)); }
+        margin-right: 4px; visibility: visible; opacity: 1;
     }
     
-    &:not([data-state='filterApplyed']) .filterWrap[data-folded='false']+.result { max-height: 0; }
+    &:not([data-state='filterApplyed']) {
+      .filterWrap[data-folded='false']+.result { max-height: 0; }
+      .filterWrap[data-folded='false']~button.folding.hide { transform: scale(0); opacity: 0; visibility: hidden; }
+
+    }
     
   }
   
-  .detail { max-width: none; left: var(--pxGapWindow); width: calc(100vw - var(--pxGapWindow) * 2); }
+  .detail {
+    max-width: none; left: var(--pxGapWindow); width: calc(100vw - var(--pxGapWindow) * 3 - 40px);
+    
+    &[data-show='false']  { transform: translateY(var(--pxGapWindow)); }
+  }
 
   .modal section.popup { max-height: calc(100vh - var(--pxGapWindow) * 2); }
+}
+
+@media (max-width: 499px) {
+  .detail>header { flex-flow: wrap; justify-content: space-between;
+    h2 { flex: 0 0 100%; order: 0; }
+    button.close { order: -1; }
+    nav.tab { order: 1; flex-flow: wrap;
+      label { line-height: 1em; }
+    }
+  }
+
+  .tabContents footer.function.contact { padding-top: 12px; padding-bottom: 12px; gap: 12px 0;
+    &::before,
+    &::after { content: none; }
+    & :first-child { flex: 1 0 100%;
+      &::after { visibility: hidden; }
+    }
+  }
+
+  div.col2 { flex-flow: column; }
 }
