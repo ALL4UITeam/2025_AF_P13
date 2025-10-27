@@ -22,7 +22,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
   });
   _0.els(`input[type=radio][data-target]`).forEach((_tab) => {
     _tab.addEventListener(`click`, () => {
-      _0.els(`[data-group='${_tab.getAttribute(`name`)}'] input[name='${_tab.getAttribute(`name`)}']`).forEach((_siblings) => {
+      _tab.closest(`[data-groupwrap]`).querySelectorAll(`input[name='${_tab.getAttribute(`name`)}']`).forEach((_siblings) => {
         _0.el(`[data-title='${_siblings.getAttribute(`data-target`)}']`).setAttribute(`data-show`, `false`);
       });
       _0.el(`[data-title='${_tab.getAttribute(`data-target`)}']`).setAttribute(`data-show`, `true`);
@@ -55,7 +55,7 @@ document.addEventListener(`DOMContentLoaded`, () => {
     });
   });
   _0.el(`.detail header button.close`).addEventListener(`click`, () => {
-    _0.detail.hide();
+    _0.el(`section.list .result dl[data-selected='true']`).click();
   });
   _0.els(`aside.sidebar button[aria-haspopup="true"]`).forEach((_button) => {
     _button.addEventListener(`click`, () => {
