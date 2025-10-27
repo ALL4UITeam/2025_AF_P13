@@ -1,0 +1,437 @@
+<!-- @pageTitle 공지사항 -->
+<!-- @pageNote 공지사항 상세 페이지 -->
+<!-- @pageCreated 2025-10-27 -->
+<!-- @pageUpdated 2025-10-27 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- 기본 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1410">
+  
+  
+  <meta name="description" content="PC 전용 웹사이트입니다">
+  <meta name="keywords" content="키워드1, 키워드2">
+  <meta name="author" content="작성자명">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="사이트 제목">
+  <meta property="og:description" content="사이트 설명">
+  <meta property="og:image" content="https://example.com/image.jpg">
+  <meta property="og:url" content="https://example.com">
+  
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  
+  <title>식품정보24</title>  <script type="module" crossorigin src="../assets/js/main.js"></script>
+  <script type="module" crossorigin src="../assets/js/portal.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/css/common3.css">
+  <link rel="stylesheet" crossorigin href="../assets/css/common2.css">
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    
+    
+    
+    <header id="header" class="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="mi-group">
+            <a href="#" class="mi-foodpolis" title="새창 열림"><span class="sr-only">푸드폴리스</span></a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#" class="mi-dfip" title="새창 열림"><span class="sr-only">디지털식품정보플랫폼</span></a>
+          </div>
+    
+          <!-- utils -->
+          <div class="header-utils">
+            <ul class="utils-list">
+              <li><a href="#">로그인</a></li>
+              <li><a href="#">회원가입</a></li>
+              <li><a href="#">방문예약</a></li>
+            </ul>
+            <span class="divider" aria-hidden="true"></span>
+            <div class="zoom-controls">
+              <button type="button" class="zoom-btn" title="축소" aria-label="줌 아웃">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M3.81081 6.32432H8.18919C8.28162 6.32432 8.35878 6.29378 8.42068 6.2327C8.48257 6.17162 8.51351 6.09547 8.51351 6.00426C8.51351 5.91304 8.48257 5.83547 8.42068 5.77155C8.35878 5.70763 8.28162 5.67568 8.18919 5.67568H3.81081C3.71838 5.67568 3.64122 5.70622 3.57932 5.7673C3.51743 5.82838 3.48649 5.90453 3.48649 5.99574C3.48649 6.08696 3.51743 6.16453 3.57932 6.22845C3.64122 6.29236 3.71838 6.32432 3.81081 6.32432ZM1.1477 12C0.819054 12 0.545608 11.8909 0.327365 11.6726C0.109122 11.4544 0 11.1809 0 10.8523V1.1477C0 0.819054 0.109122 0.545609 0.327365 0.327365C0.545608 0.109122 0.819054 0 1.1477 0H10.8523C11.1809 0 11.4544 0.109122 11.6726 0.327365C11.8909 0.545609 12 0.819054 12 1.1477V10.8523C12 11.1809 11.8909 11.4544 11.6726 11.6726C11.4544 11.8909 11.1809 12 10.8523 12H1.1477ZM1.1477 11.3514H10.8523C10.9772 11.3514 11.0916 11.2994 11.1955 11.1955C11.2994 11.0916 11.3514 10.9772 11.3514 10.8523V1.1477C11.3514 1.02284 11.2994 0.908446 11.1955 0.804527C11.0916 0.700608 10.9772 0.648649 10.8523 0.648649H1.1477C1.02284 0.648649 0.908446 0.700608 0.804527 0.804527C0.700608 0.908446 0.648649 1.02284 0.648649 1.1477V10.8523C0.648649 10.9772 0.700608 11.0916 0.804527 11.1955C0.908446 11.2994 1.02284 11.3514 1.1477 11.3514Z" fill="#58616A"/>
+                </svg>
+              </button>
+              <span class="zoom-percentage">100%</span>
+              <button type="button" class="zoom-btn" title="확대" aria-label="줌 인">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M5.67568 6.32432V9.16216C5.67568 9.25459 5.70622 9.33176 5.7673 9.39365C5.82838 9.45554 5.90453 9.48649 5.99574 9.48649C6.08696 9.48649 6.16453 9.45554 6.22845 9.39365C6.29236 9.33176 6.32432 9.25459 6.32432 9.16216V6.32432H9.16216C9.25459 6.32432 9.33176 6.29378 9.39365 6.2327C9.45554 6.17162 9.48649 6.09547 9.48649 6.00426C9.48649 5.91304 9.45554 5.83547 9.39365 5.77155C9.33176 5.70763 9.25459 5.67568 9.16216 5.67568H6.32432V2.83784C6.32432 2.74541 6.29378 2.66824 6.2327 2.60635C6.17162 2.54446 6.09547 2.51351 6.00426 2.51351C5.91304 2.51351 5.83547 2.54446 5.77155 2.60635C5.70763 2.66824 5.67568 2.74541 5.67568 2.83784V5.67568H2.83784C2.74541 5.67568 2.66824 5.70622 2.60635 5.7673C2.54446 5.82838 2.51351 5.90453 2.51351 5.99574C2.51351 6.08696 2.54446 6.16453 2.60635 6.22845C2.66824 6.29236 2.74541 6.32432 2.83784 6.32432H5.67568ZM1.1477 12C0.819054 12 0.545608 11.8909 0.327365 11.6726C0.109122 11.4544 0 11.1809 0 10.8523V1.1477C0 0.819054 0.109122 0.545609 0.327365 0.327365C0.545608 0.109122 0.819054 0 1.1477 0H10.8523C11.1809 0 11.4544 0.109122 11.6726 0.327365C11.8909 0.545609 12 0.819054 12 1.1477V10.8523C12 11.1809 11.8909 11.4544 11.6726 11.6726C11.4544 11.8909 11.1809 12 10.8523 12H1.1477ZM1.1477 11.3514H10.8523C10.9772 11.3514 11.0916 11.2994 11.1955 11.1955C11.2994 11.0916 11.3514 10.9772 11.3514 10.8523V1.1477C11.3514 1.02284 11.2994 0.908446 11.1955 0.804527C11.0916 0.700608 10.9772 0.648649 10.8523 0.648649H1.1477C1.02284 0.648649 0.908446 0.700608 0.804527 0.804527C0.700608 0.908446 0.648649 1.02284 0.648649 1.1477V10.8523C0.648649 10.9772 0.700608 11.0916 0.804527 11.1955C0.908446 11.2994 1.02284 11.3514 1.1477 11.3514Z" fill="#58616A"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-menu">
+        <div class="container">
+          <h2 class="logo"><a href="#" title="홈으로 이동"><span class="sr-only">식품정보24</span></a></h2>
+          <nav id="nav" class="nav">
+            <ul id="gnb" class="gnb">
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#" title="새창열림" target="_blank">
+                  <span class="gnb-lv1-link-text">식품산업지도</span>
+                </a>
+              </li>
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">분석서비스</span>
+                </a>
+              </li>
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">식품데이터 제공</span>
+                </a>
+              </li>
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">식품산업 정보</span>
+                </a>
+              </li>
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">서비스 소개</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header-utils">
+            <button type="button" id="search-button" class="search-button" title="검색 창 열림">
+              <i><span class="sr-only">검색</span></i>
+            </button>
+            <button type="button" id="menu-button" class="menu-button" title="메뉴 열림">
+              <i><span class="sr-only">메뉴</span></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    
+    </header>
+    <!-- // header -->
+    <section class="subtop">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="/" title="홈으로 이동">홈</a></li>
+    
+          <li>
+              <a href="/portal/index.html" title="포털로 이동">포털</a>
+          </li>
+    
+          <li><span>공지사항</span></li>
+        </ol>
+    
+        <h1 class="subtop-title">공지사항</h1>
+      </div>
+    </section>    <style>
+.post-header {
+            border-bottom: 2px solid #212529;
+            padding: 20px 24px;
+        }
+
+        .category {
+            display: inline-block;
+            color: #28a745;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .post-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .post-info {
+            display: flex;
+            gap: 16px;
+            color: #6c757d;
+            font-size: 14px;
+            padding-top: 12px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .post-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .attachment-area {
+            background: #f8f9fa;
+            padding: 16px 24px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .attachment-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #495057;
+            font-size: 14px;
+        }
+
+        .attachment-item::before {
+            content: "📎";
+        }
+
+        .post-content {
+            padding: 32px 24px;
+            line-height: 1.8;
+            color: #212529;
+            min-height: 300px;
+        }
+
+        .post-content p {
+            margin-bottom: 16px;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 16px;
+            margin: 20px 0;
+            color: #856404;
+        }
+
+        .link-list {
+            margin-top: 24px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .link-list a {
+            display: block;
+            color: #0066cc;
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .link-list a:last-child {
+            border-bottom: none;
+        }
+
+        .link-list a:hover {
+            text-decoration: underline;
+        }
+
+        .post-nav {
+            border-top: 1px solid #dee2e6;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover {
+            background: #f8f9fa;
+        }
+
+        .nav-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-label {
+            width: 80px;
+            color: #6c757d;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .nav-title {
+            flex: 1;
+            color: #212529;
+            font-size: 14px;
+        }
+
+        .nav-date {
+            color: #6c757d;
+            font-size: 13px;
+            margin-left: 16px;
+        }
+
+        .btn-group {
+            padding: 20px 24px;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border: 1px solid #dee2e6;
+            background: white;
+            color: #495057;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+        }
+    </style>
+    <main id="content" class="content">
+      <div class="sublayout">
+        <div class="post">
+          <div class="post-header">
+            <div class="category">[식품정보 플랫폼 서비스]</div>
+            <h1 class="post-title">기술지원사업 참여기업, 협동수행기관 정산교육</h1>
+            <div class="post-info">
+              <span>작성자 시스템관리자</span>
+              <span>조회수 209</span>
+              <span>2025-06-17</span>
+            </div>
+          </div>
+
+          <div class="attachment-area">
+            <div class="attachment-item">기술지원사업 정산 교육 자료(수정본)_2025.pdf</div>
+          </div>
+
+          <div class="post-content">
+            <p>기술지원사업 참여기업, 협동수행기관 정산교육 영상 및 자료입니다.</p>
+
+            <p>공동기술개발, 소비지방출하제품개선, 기능성표시식품개발, 소소천통창구, 사업인증 사업 예산 집행에 참고 바랍니다.</p>
+
+            <div class="highlight-box">
+              자체만 사용은 주요 공지사항 중 &lt;기술지원사업 참여기업, 협동수행기관 정산기준&gt;의 첨부파일을 통해 확인하실 수 있습니다.
+            </div>
+
+            <p>본 정산기준은 신동원의 규정, 사업지침의 개정에 따라 변경될 수 있습니다.</p>
+
+            <p>교육 영상은 홈보드영상에서 시청 가능합니다.</p>
+
+            <div class="link-list">
+              <a href="#">기술지원사업 참여기업, 협동수행기관 정산교육 영상</a>
+              <a href="#">디지털 플랫폼을 활용하여 전산하는 방법에 대한 영상</a>
+            </div>
+          </div>
+
+          <div class="post-nav">
+            <div class="nav-item">
+              <div class="nav-label">이전글</div>
+              <div class="nav-title">2025년 고충처리자문단 운영안내</div>
+              <div class="nav-date">2025-06-11</div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn">목록</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- // content -->
+
+    <div class="related-sites">
+      <div class="container">
+        <button type="button" class="related-sites-button">
+          <span>관련 사이트</span>
+          <i class="icon icon-plus" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <!-- 로고 영역 -->
+        <div class="footer-logos">
+          <div class="mi-group">
+            <a href="#" class="mi-dfip" title="새창 열림"><span class="sr-only">디지털식품정보플랫폼</span></a>
+            <a href="#" class="mi-foodpolis" title="새창 열림"><span class="sr-only">푸드폴리스</span></a>
+            <a href="#" class="mi-food-e" title="새창 열림"><span class="sr-only">푸드올</span></a>
+          </div>
+        </div>
+    
+        <!-- 회사 정보 -->
+        <div class="footer-info">
+          <div class="info-row">
+            <span class="info-label">상호</span>
+            <span>한국식품산업클러스터진흥원</span>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="info-label">주소</span>
+            <span>(50112) 전라북도 익산시 왕궁로 국가식품로 100</span>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="info-label">사업자등록번호</span>
+            <span>138-82-05887</span>
+          </div>
+    
+          <div class="info-row">
+            <span class="info-label">대표전화</span>
+            <span>063-720-0500</span>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="info-label">저작심의 및 기타 문의</span>
+            <span>063-720-0500 (평일, 평일 9시 - 18시)</span>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="info-label">시스템 기술문의</span>
+            <span>1551-0511 (평일, 평일 9시 - 18시)</span>
+          </div>
+        </div>
+    
+        <!-- 링크 영역 -->
+        <div class="footer-last">
+          <div class="footer-links">
+            <a href="#" class="link-green">개인정보처리방침</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">이용약관</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">이메일주소무단수집거부</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">홈페이지개선</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">사이트맵</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">원격지원</a>
+          </div>
+          <div class="footer-copyright"> 
+            <p>© FOODPOLIS. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>  </div>
+
+  <div class="floating-buttons">
+    <!-- 메시지 버튼 -->
+    <button class="button button-message" aria-label="메시지">
+      <span class="icon">✉️</span>
+      <span class="button-tooltip">메시지</span>
+    </button>
+  
+    <!-- 안내 버튼 -->
+    <button class="button button-info" aria-label="안내">
+      <span class="icon">ℹ️</span>
+      <span class="button-tooltip">안내</span>
+    </button>
+  
+    <!-- 챗봇 버튼 -->
+    <button class="button button-chatbot" aria-label="챗봇">
+      <span class="icon">💬</span>
+      <span class="button-tooltip">챗봇</span>
+    </button>
+  
+    <!-- Top 버튼 -->
+    <button class="button button-top" aria-label="맨 위로">
+      <span class="icon">↑</span>
+    </button>
+  </div>
+
+</body>
+
+</html> 
