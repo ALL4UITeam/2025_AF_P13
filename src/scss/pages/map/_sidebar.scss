@@ -182,7 +182,7 @@
 
 /* resposive */
 @media (max-width: 760px) {
-  .sidebar { display: block; position: fixed; top: 139px; right: var(--pxGapWindow); z-index: 12; }
+  .sidebar { display: block; position: fixed; top: 139px; right: var(--pxGapWindow); z-index: 12; transition: .3s; }
   .sidebar>ul { display: contents; }
-  body:has([data-state='filterApplyed']) .sidebar { top: 206px; }
+  body:has([data-state='filterApplyed']) .sidebar { top: 188px; }
 }

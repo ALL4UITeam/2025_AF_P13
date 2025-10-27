@@ -778,12 +778,20 @@ button.layerIcon {
         input[type=text] { box-shadow: inset 0px 0px 4px 0px #00000033; }
       }
       nav.filter {
-       position: fixed; top: 136px; left: var(--pxGapWindow); right: var(--pxGapWindow); z-index: 14;
-       max-width: 320px; padding: 0 66px 0 0; margin: 0; border: 0 none; background: transparent; 
-       
+        position: fixed; top: 136px; left: var(--pxGapWindow); right: var(--pxGapWindow);
+        max-width: 320px; padding: 0 66px 0 0; margin: 0; border: 0 none; background: transparent; 
+      
+        &:has([data-pressed='true']) { z-index: 14; }
         button { background: #1B5D88cc; }
       }
-      .search button.radius { opacity: .8; }
+      
+      .search {
+        .tooltip { right: 40px; }
+        
+        button.radius { opacity: .8;
+          &:hover+.tooltip { top: 62px; }
+        }
+      }
 
       button.reset { position: absolute; top: 136px; right: var(--pxGapWindow); z-index: 14; background-color: var(--cG60); padding: 2px 20px 2px 4px;}
     }
