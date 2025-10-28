@@ -102,6 +102,7 @@
   position: absolute;
   right: calc(40px + var(--pxGapItem));
   overflow: hidden;
+  max-width: calc(100vw - 38px - var(--pxGapWindow) * 3);
   visibility: hidden;
   background: #fff;
   border-radius: 8px;
@@ -361,6 +362,23 @@
   border: 1px solid var(--cG05);
 }
 
+/* resposive */
+@media (max-width: 760px) {
+  .sidebar {
+    display: block;
+    position: fixed;
+    top: 139px;
+    right: var(--pxGapWindow);
+    z-index: 12;
+    transition: 0.3s;
+  }
+  .sidebar > ul {
+    display: contents;
+  }
+  body:has([data-state=filterApplyed]) .sidebar {
+    top: 188px;
+  }
+}
 html {
   --ffDefault: "Pretendard GOV", sans-serif;
   --pxListW: 380px;
@@ -396,6 +414,7 @@ html {
   --cMtFore: #0B9B9B;
   --cPpBack: #F5EEF7;
   --cPpFore: #6B0080;
+  overflow: hidden;
 }
 
 /* common */
@@ -1482,7 +1501,7 @@ button.layerIcon img {
   max-height: calc(100vh - var(--pxGapWindow) * 2 - 214px);
   transition-delay: 0.1s;
 }
-.list:has(.filterWrap[data-folded=false]) .searchWrap {
+.list:has(.filterWrap[data-folded=false]):has(.result[data-folded=false]) .searchWrap {
   border-radius: var(--pxExRounding) var(--pxExRounding) 0 0;
   transition-delay: 0s;
 }
@@ -1643,11 +1662,11 @@ button.layerIcon img {
 }
 .list button.folding.show {
   bottom: 0;
-  left: 50%;
+  left: 190px;
   gap: 4px;
   margin: 0 auto -36px;
   transform: translateX(-50%);
-  width: auto;
+  width: 91px;
   padding: 3px 15px;
   border: 1px solid rgba(19, 20, 22, 0.3019607843);
   border-radius: 12px;
@@ -1685,6 +1704,9 @@ button.layerIcon img {
 }
 .list[data-state=filterApplyed] .searchWrap button.reset {
   display: block;
+}
+.list[data-state=filterApplyed] button.folding.show {
+  margin-bottom: -66px;
 }
 .list[data-state=filterApplyed]:has(.result[data-folded=false]) .searchWrap {
   border-radius: var(--pxExRounding);
@@ -2102,7 +2124,7 @@ button.layerIcon img {
   transform: none;
 }
 
-/* */
+/* resposive */
 @media (max-width: 760px) {
   ::-webkit-scrollbar {
     width: 0;
@@ -2112,43 +2134,89 @@ button.layerIcon img {
   }
   .list > * {
     position: fixed;
-    width: calc(100vw - var(--pxGapWindow) * 3 - 40px);
-    left: var(--pxGapWindow);
+    left: 0;
+    right: 0;
     z-index: 9;
   }
   .list h1 {
     position: absolute;
-    top: var(--pxGapWindow);
+    top: 0;
     background: #fff;
-    border-radius: var(--pxExRounding);
-    padding: var(--pxGapWindow);
+    padding: 12px;
+    border-radius: 0;
   }
   .list .searchWrap {
-    background: transparent;
-    height: auto;
-    top: calc(var(--pxGapWindow) + 46px);
-    padding: 16px 0;
+    display: contents;
+  }
+  .list .searchWrap .search {
+    position: fixed;
+    top: 46px;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    border-top: 1px solid var(--cG10);
+    background: #fff;
+  }
+  .list .searchWrap .search input[type=text] {
+    box-shadow: inset 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
   }
   .list .searchWrap nav.filter {
-    padding: 0;
+    position: fixed;
+    top: 136px;
+    left: var(--pxGapWindow);
+    right: var(--pxGapWindow);
+    max-width: 320px;
+    padding: 0 66px 0 0;
+    margin: 0;
     border: 0 none;
+    background: transparent;
+  }
+  .list .searchWrap nav.filter:has([data-pressed=true]) {
+    z-index: 14;
   }
   .list .searchWrap nav.filter button {
     background: rgba(27, 93, 136, 0.8);
   }
+  .list .searchWrap .search .tooltip {
+    right: 40px;
+  }
   .list .searchWrap .search button.radius {
     opacity: 0.8;
   }
+  .list .searchWrap .search button.radius:hover + .tooltip {
+    top: 62px;
+  }
+  .list .searchWrap button.reset {
+    position: absolute;
+    top: 136px;
+    right: var(--pxGapWindow);
+    z-index: 14;
+    background-color: var(--cG60);
+    padding: 2px 20px 2px 4px;
+  }
   .list .filterWrap {
+    padding-top: 0;
+    margin-top: -67px;
+    overflow: auto;
     background: transparent;
     box-shadow: none;
     top: calc(var(--pxGapWindow) + 46px + 136px);
   }
+  .list .filterWrap[data-folded=false] {
+    background: #fff;
+    padding-top: 67px;
+    z-index: 13;
+  }
   .list .filterWrap :is(.set, footer) {
+    padding: var(--pxGapWindow);
+  }
+  .list .filterWrap .set {
     padding-top: 0;
-    border: 0 none;
-    padding-left: 0;
-    padding-right: 0;
+  }
+  .list .filterWrap footer {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
   }
   .list .result {
     bottom: 0;
@@ -2159,7 +2227,7 @@ button.layerIcon img {
     transition: 0.3s;
   }
   .list .result[data-folded=false] {
-    height: calc(100vh - (var(--pxGapWindow) + 46px + 136px + 128px + 22vh));
+    height: calc(100vh - (var(--pxGapWindow) + 46px + 136px + 128px + 16vh));
   }
   .list .result > header {
     position: sticky;
@@ -2167,17 +2235,24 @@ button.layerIcon img {
     z-index: 1;
     background: #fff;
   }
+  .list:not([data-state=filterApplyed]):has(.filterWrap[data-folded=false]) .result {
+    max-height: 0 !important;
+    transition: 0.3s, max-height 0s;
+  }
+  .list[data-state=filterApplyed] .filterWrap {
+    padding: 0;
+  }
   .list button.folding::after {
     transform: rotate(180deg);
   }
   .list button.folding.show {
-    margin: 0 auto calc(var(--pxGapWindow) * 2);
+    left: 50vw;
+    margin: 0 0 calc(var(--pxGapWindow) * 2);
     z-index: 8;
   }
   .list button.folding.hide {
-    left: auto;
-    right: var(--pxGapWindow);
-    bottom: calc(100vh - (var(--pxGapWindow) + 46px + 136px + 128px + 22vh + 32px));
+    left: var(--pxGapWindow);
+    bottom: calc(100vh - (var(--pxGapWindow) + 136px + 128px + 17vh + 32px));
   }
   .list button.folding {
     margin-right: 4px;
@@ -2194,8 +2269,12 @@ button.layerIcon img {
   }
   .detail {
     max-width: none;
-    left: var(--pxGapWindow);
-    width: calc(100vw - var(--pxGapWindow) * 3 - 40px);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    z-index: 15;
   }
   .detail[data-show=false] {
     transform: translateY(var(--pxGapWindow));
