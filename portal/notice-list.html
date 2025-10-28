@@ -116,54 +116,96 @@
     
     </header>
     <!-- // header -->
-    <section class="subtop">
-      <div class="container">
-        <ol class="breadcrumb">
-          <li><a href="/" title="홈으로 이동">홈</a></li>
-    
-          <li>
-              <a href="/portal/index.html" title="포털로 이동">포털</a>
-          </li>
-    
-          <li><span>공지사항</span></li>
-        </ol>
-    
-        <h1 class="subtop-title">공지사항</h1>
-      </div>
-    </section>
-    <main id="content" class="content">
-      <div class="sublayout">
+    <div class="layout-sub">
+      <section class="subtop">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="/" title="홈으로 이동">홈</a></li>
+      
+            <li>
+                <a href="##" title="서비스소개로 이동">서비스소개</a>
+            </li>
+      
+            <li><span>공지사항</span></li>
+          </ol>
+      
+          <h1 class="subtop-title">공지사항</h1>
+        </div>
+      </section>
+      <main id="content" class="sub-layout">
+        <!-- 기본 2개 필드 -->
+        <div class="board-search">
+          <div class="board-search__fields">
+            <div class="board-search__field">
+              <label>분야</label>
+              <select>
+                <option>전체</option>
+                <option>기술</option>
+                <option>디자인</option>
+              </select>
+            </div>
 
-        <div class="search-form">
-          <form class="form-search" role="search" aria-label="검색 조건 입력">
-            <fieldset>
-              <legend class="sr-only">검색 조건</legend>
+            <div class="board-search__field">
+              <label>지역</label>
+              <select>
+                <option>전체</option>
+                <option>서울</option>
+                <option>경기</option>
+              </select>
+            </div>
+          </div>
 
-              <div class="form-search-row">
-                <label for="date-start-1">등록일</label>
-                <div class="form-group">
-                  <div class="date-range" role="group" aria-labelledby="date-label-1">
-                    <span id="date-label-1" class="sr-only">등록일 범위</span>
-                    <input type="text" class="form-input date-start" id="date-start-1" placeholder="YYYY-MM-DD" aria-label="시작일" autocomplete="off">
-                    <span class="date-range-separator" aria-hidden="true">~</span>
-                    <input type="text" class="form-input date-end" id="date-end-1" placeholder="YYYY-MM-DD" aria-label="종료일" autocomplete="off">
-                  </div>
-                </div>
-              </div>
+          <div class="board-search__actions">
+            <button class="btn btn--outline btn--sm">
+              <span>초기화</span>
+            </button>
+            <button class="btn btn--primary btn--sm">
+              <span>검색</span>
+            </button>
+          </div>
+        </div>
 
-              <div class="form-search-row">
-                <label for="search-keyword-1">검색어</label>
-                <div class="form-group">
-                  <input type="search" class="form-input search-keyword" id="search-keyword-1" placeholder="검색어를 입력하세요" aria-label="검색어 입력" autocomplete="off">
-                </div>
-              </div>
+        <!-- 항목이 많을 때 -->
+        <div class="board-search">
+          <div class="board-search__fields">
+            <div class="board-search__field">
+              <label>분야</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
 
-              <div class="form-search-row">
-                <button type="submit" class="btn-search">검색</button>
-                <button type="reset" class="btn-reset">초기화</button>
-              </div>
-            </fieldset>
-          </form>
+            <div class="board-search__field">
+              <label>지역</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+
+            <div class="board-search__field">
+              <label>직급</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+
+            <div class="board-search__field">
+              <label>경력</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+
+            <div class="board-search__field">
+              <label>키워드</label>
+              <input type="text" placeholder="검색어를 입력하세요">
+            </div>
+          </div>
+
+          <div class="board-search__actions">
+            <button class="btn btn--outline btn--sm">초기화</button>
+            <button class="btn btn--primary btn--sm">검색</button>
+          </div>
         </div>
 
         <div class="category-filter" role="group" aria-label="검색 카테고리 필터">
@@ -186,10 +228,6 @@
             융합데이터
           </button>
         </div>
-
-
-
-
         <div class="search-list-top">
           <ul class="sch-info" aria-live="polite">
             <li>검색 결과 <span class="point">24</span>개</li>
@@ -197,46 +235,32 @@
         </div>
         <div class="board-list">
           <table class="table">
-            <caption class="sr-only">공지사항 목록</caption>
             <thead>
               <tr>
-                <th scope="col">순번</th>
-                <th scope="col">업무분류</th>
-                <th scope="col">제목</th>
-                <th scope="col">등록자</th>
-                <th scope="col">등록일</th>
-                <th scope="col">조회수</th>
+                <th class="col-number">번호</th>
+                <th class="col-title">제목</th>
+                <th class="col-author">작성자</th>
+                <th class="col-date">작성일</th>
+                <th class="col-views">조회</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td class="number">
-                  <span class="badge">긴급</span>
+                <td class="col-number">1</td>
+                <td class="col-title">
+                  <a href="#">공지사항입니다</a>
+                  <span class="badge badge--primary">New</span>
                 </td>
-                <td>공지사항</td>
-                <td class="subject"><a href="./notice-read.html">공지사항 제목</a></td>
-                <td class="author">홍길동</td>
-                <td class="date">2025-01-01</td>
-                <td class="view-count">100</td>
-              </tr>
-              <tr>
-                <td class="number">1</td>
-                <td>공지사항</td>
-                <td class="subject"><a href="./notice-read.html">공지사항 제목</a></td>
-                <td class="author">홍길동</td>
-                <td class="date">2025-01-01</td>
-                <td class="view-count">100</td>
-              </tr>
-              <tr>
-                <td class="empty" colspan="6">검색 결과가 없습니다.</td>
+                <td>관리자</td>
+                <td class="col-date">2025-10-28</td>
+                <td class="col-views">123</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
-    </main>
-    <!-- // content -->
-
+      </main>
+      <!-- // content -->
+    </div>
     <div class="related-sites">
       <div class="container">
         <button type="button" class="related-sites-button">
