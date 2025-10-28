@@ -1,171 +1,274 @@
 <!-- @pageTitle Page List -->
-<!-- @pageNote Index page showing all available pages -->
+<!-- @pageNote 페이지목록 -->
 <!-- @pageCreated 2025-10-12 -->
 <!-- @pageUpdated 2025-10-12 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <style>
-        @font-face {
-          font-family: 'ChosunGu';
-          src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-        }
-    </style>
-</head>
-<body>
-    <style>
-        html,
-        body{
-            background-color: #fff;
-            padding-top: 3rem;
-            font-family: 'ChosunGu';
-        }
-        h1{
-            color: #000;
-        }
-        table{
-            border-collapse: collapse;
-            background: white;
-            width: 100%;
-            margin: 0 auto;
-            position: relative;
-        }
-        table thead tr{background-color: #f8f8f8;}
-        table thead th{
-            text-align: center;
-            font-size: 14px;
-            color: #333;
-            line-height: 1.2;
-            font-weight: 500;
-        }
-        table td:first-child{
-            text-decoration: underline;
-        }
-        table td, table th {
-            border: 1px solid #ddd;   
-            padding: 7px 10px;
-            white-space: nowrap;
-            color: #000;
-        }
-        
-        table td a, table th a{
-            color: #000;
-        }
-        .link-page{
-            margin: 0 auto;
-            width: 1200px;
-        }
-        h1{
-            padding-bottom: 2rem;
-            text-align: center;
-        }
-        .search-box {
-            width: 100%;
-            margin-bottom: 2rem;
-            display: flex;
-            justify-content: flex-end;
-        }
-        .search-box input {
-            padding: 0.8rem 1rem;
-            width: 300px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1.4rem;
-            color: #000;
-            background-color: #fff;
-        }
-        .search-box button {
-            margin-left: 1rem;
-            padding: 0.8rem 1.5rem;
-            background-color: #36304a;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            font-size: 1.6rem;
-            color: #555;
-            display: none;
-        }
-    </style>
-    <h1>2025 Publish</h1>
-    
-    <div class="link-page">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search">
-            <button id="searchButton">Search</button>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>file</th>
-                    <th>page name</th>
-                    <th>created</th>
-                    <th>updated</th>
-                    <th>note</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-                {{#each pages}}
-                <tr>
-                    <td><a href="./{{name}}" target="_blank">{{name}}</a></td>
-                    <td>{{title}}</td>
-                    <td>{{created}}</td>
-                    <td>{{updated}}</td>
-                    <td>{{note}}</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-        <div class="no-results" id="noResults">
-            No results found.
-        </div>
-    </div>
 
-    <!-- <script type="module" src="/js/main.js"></script> -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
-            const tableBody = document.getElementById('tableBody');
-            const noResults = document.getElementById('noResults');
-            const rows = tableBody.querySelectorAll('tr');
-            
-            function performSearch() {
-                const searchTerm = searchInput.value.toLowerCase();
-                let resultsFound = false;
-                
-                rows.forEach(row => {
-                    const text = row.textContent.toLowerCase();
-                    if (text.includes(searchTerm)) {
-                        row.style.display = '';
-                        resultsFound = true;
-                    } else {
-                        row.style.display = 'none';
-                    }
-                });
-                
-                if (resultsFound) {
-                    noResults.style.display = 'none';
-                } else {
-                    noResults.style.display = 'block';
-                }
-            }
-            
-            searchButton.addEventListener('click', performSearch);
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-        });
-    </script>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		@font-face {
+			font-family: 'ChosunGu';
+			src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			background: #f5f7fa;
+			min-height: 100vh;
+			font-family: 'ChosunGu', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			padding: 2rem;
+		}
+
+		.container {
+			max-width: 1400px;
+			margin: 0 auto;
+		}
+
+		h1 {
+			color: #2c3e50;
+			text-align: center;
+			font-size: 2.5rem;
+			margin-bottom: 0.5rem;
+			font-weight: 600;
+		}
+
+		.subtitle {
+			text-align: center;
+			color: #7f8c8d;
+			font-size: 1rem;
+			margin-bottom: 2.5rem;
+		}
+
+		.search-box {
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 1.5rem;
+			gap: 0.5rem;
+		}
+
+		.search-box input {
+			padding: 0.75rem 1.2rem;
+			width: 320px;
+			border: 1px solid #dce4ec;
+			border-radius: 6px;
+			font-size: 0.95rem;
+			color: #2c3e50;
+			background: white;
+			transition: all 0.2s ease;
+		}
+
+		.search-box input:focus {
+			outline: none;
+			border-color: #3498db;
+			box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+		}
+
+		.search-box button {
+			padding: 0.75rem 1.5rem;
+			background: #3498db;
+			color: white;
+			border: none;
+			border-radius: 6px;
+			cursor: pointer;
+			font-size: 0.95rem;
+			font-weight: 500;
+			transition: all 0.2s ease;
+		}
+
+		.search-box button:hover {
+			background: #2980b9;
+		}
+
+		.table-wrapper {
+			background: white;
+			border-radius: 8px;
+			padding: 0;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+			overflow: hidden;
+		}
+
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		thead {
+			background: #34495e;
+		}
+
+		thead th {
+			padding: 1rem;
+			text-align: left;
+			font-size: 0.9rem;
+			color: white;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+		}
+
+		tbody tr {
+			transition: background 0.2s ease;
+			border-bottom: 1px solid #ecf0f1;
+		}
+
+		tbody tr:hover {
+			background: #f8fafb;
+		}
+
+		tbody tr:last-child {
+			border-bottom: none;
+		}
+
+		tbody td {
+			padding: 1rem;
+			color: #2c3e50;
+			font-size: 0.9rem;
+		}
+
+		tbody td:first-child a {
+			color: #3498db;
+			text-decoration: none;
+			font-weight: 500;
+			transition: color 0.2s ease;
+		}
+
+		tbody td:first-child a:hover {
+			color: #2980b9;
+			text-decoration: underline;
+		}
+
+		.no-results {
+			text-align: center;
+			padding: 3rem;
+			font-size: 1rem;
+			color: #7f8c8d;
+			display: none;
+		}
+
+		@media (max-width: 768px) {
+
+			html,
+			body {
+				padding: 1rem;
+			}
+
+			h1 {
+				font-size: 1.8rem;
+			}
+
+			.search-box {
+				flex-direction: column;
+			}
+
+			.search-box input {
+				width: 100%;
+			}
+
+			.table-wrapper {
+				overflow-x: auto;
+			}
+
+			table {
+				font-size: 0.85rem;
+			}
+
+			thead th,
+			tbody td {
+				padding: 0.75rem;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<h1>2025 식품정보24</h1>
+		
+		<div class="search-box">
+			<input type="text" id="searchInput" placeholder="페이지를 검색하세요...">
+			<button id="searchButton">검색</button>
+		</div>
+
+		<div class="table-wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>File</th>
+						<th>Page Name</th>
+						<th>Created</th>
+						<th>Updated</th>
+						<th>Note</th>
+					</tr>
+				</thead>
+				<tbody id="tableBody">
+					{{#each pages}}
+					<tr>
+						<td><a href="./{{name}}" target="_blank">{{name}}</a></td>
+						<td>{{title}}</td>
+						<td>{{created}}</td>
+						<td>{{updated}}</td>
+						<td>{{note}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+			<div class="no-results" id="noResults">
+				검색 결과가 없습니다.
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const searchInput = document.getElementById('searchInput');
+			const searchButton = document.getElementById('searchButton');
+			const tableBody = document.getElementById('tableBody');
+			const noResults = document.getElementById('noResults');
+			const rows = tableBody.querySelectorAll('tr');
+
+			function performSearch() {
+				const searchTerm = searchInput.value.toLowerCase();
+				let resultsFound = false;
+
+				rows.forEach(row => {
+					const text = row.textContent.toLowerCase();
+					if (text.includes(searchTerm)) {
+						row.style.display = '';
+						resultsFound = true;
+					} else {
+						row.style.display = 'none';
+					}
+				});
+
+				if (resultsFound) {
+					noResults.style.display = 'none';
+				} else {
+					noResults.style.display = 'block';
+				}
+			}
+
+			searchButton.addEventListener('click', performSearch);
+			searchInput.addEventListener('keypress', function (e) {
+				if (e.key === 'Enter') {
+					performSearch();
+				}
+			});
+
+			// 실시간 검색
+			searchInput.addEventListener('input', performSearch);
+		});
+	</script>
 </body>
 
 </html>
