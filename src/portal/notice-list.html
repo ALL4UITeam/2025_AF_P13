@@ -1,0 +1,164 @@
+<!-- @pageTitle 공지사항 목록 -->
+<!-- @pageNote 공지사항 목록 페이지 -->
+<!-- @pageCreated 2025-10-27 -->
+<!-- @pageUpdated 2025-10-27 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="공지사항"
+      subtop-depth1-title="서비스소개"
+      subtop-depth1-link="##"
+      subtop-depth2-title="공지사항"
+      }}
+
+      <main id="content" class="sub-layout">
+        <!-- 기본 2개 필드 -->
+        <div class="board-search">
+          <div class="board-search__fields">
+            <div class="board-search__field">
+              <label>분야</label>
+              <select>
+                <option>전체</option>
+                <option>기술</option>
+                <option>디자인</option>
+              </select>
+            </div>
+
+            <div class="board-search__field">
+              <label>지역</label>
+              <select>
+                <option>전체</option>
+                <option>서울</option>
+                <option>경기</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="board-search__actions">
+            <button class="btn btn--outline btn--sm">
+              <span>초기화</span>
+            </button>
+            <button class="btn btn--primary btn--sm">
+              <span>검색</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 항목이 많을 때 -->
+        <div class="board-search">
+          <div class="board-search__fields">
+            <div class="board-search__field">
+              <label>분야</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+
+            <div class="board-search__field">
+              <label>지역</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+
+            <div class="board-search__field">
+              <label>직급</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+
+            <div class="board-search__field">
+              <label>경력</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+
+            <div class="board-search__field">
+              <label>키워드</label>
+              <input type="text" placeholder="검색어를 입력하세요">
+            </div>
+          </div>
+
+          <div class="board-search__actions">
+            <button class="btn btn--outline btn--sm">초기화</button>
+            <button class="btn btn--primary btn--sm">검색</button>
+          </div>
+        </div>
+
+        <div class="category-filter" role="group" aria-label="검색 카테고리 필터">
+          <button type="button" class="category-btn is-active" aria-pressed="true">
+            전체
+          </button>
+          <button type="button" class="category-btn" aria-pressed="false">
+            전자민원
+          </button>
+          <button type="button" class="category-btn" aria-pressed="false">
+            시설/장비
+          </button>
+          <button type="button" class="category-btn" aria-pressed="false">
+            전문가
+          </button>
+          <button type="button" class="category-btn" aria-pressed="false">
+            일반
+          </button>
+          <button type="button" class="category-btn" aria-pressed="false">
+            융합데이터
+          </button>
+        </div>
+        <div class="search-list-top">
+          <ul class="sch-info" aria-live="polite">
+            <li>검색 결과 <span class="point">24</span>개</li>
+          </ul>
+        </div>
+        <div class="board-list">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="col-number">번호</th>
+                <th class="col-title">제목</th>
+                <th class="col-author">작성자</th>
+                <th class="col-date">작성일</th>
+                <th class="col-views">조회</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-number">1</td>
+                <td class="col-title">
+                  <a href="#">공지사항입니다</a>
+                  <span class="badge badge--primary">New</span>
+                </td>
+                <td>관리자</td>
+                <td class="col-date">2025-10-28</td>
+                <td class="col-views">123</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {{> layout/pagination }}
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script type="module" src="../js/pages/portal.js"></script>
+
+</body>
+
+</html>

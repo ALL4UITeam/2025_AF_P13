@@ -1,0 +1,16 @@
+@forward '../../abstracts/variables';
+@forward '../../abstracts/mixin';
+@forward '../../abstracts/functions';
+
+.breadcrumb{
+  display: flex;
+  align-items: center;
+  gap: 0 1.6rem;
+  li{
+    a{
+      color: #000;
+      font-size: var(--font-size-sm);
+      text-decoration: underline;
+    }
+  }
+}

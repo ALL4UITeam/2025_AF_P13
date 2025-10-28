@@ -1,0 +1,120 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixin' as *;
+@use '../abstracts/functions' as *;
+// ========================================
+// Modal
+// ========================================
+
+.modal {
+  @include fixed(0, 0, 0, 0);
+  z-index: var(--z-modal);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  overflow-y: auto;
+  
+  &.is-active {
+    display: flex;
+  }
+  
+  &--fade-in {
+    @include fade-in;
+  }
+}
+
+.modal-backdrop {
+  @include absolute(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: var(--z-modal-backdrop);
+}
+
+.modal-content {
+  position: relative;
+  z-index: var(--z-modal);
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  animation: slideInUp var(--transition-base);
+  
+  @include respond-to('md') {
+    max-width: 600px;
+  }
+}
+
+// 모달 크기
+.modal--sm .modal-content {
+  max-width: 400px;
+}
+
+.modal--md .modal-content {
+  max-width: 600px;
+}
+
+.modal--lg .modal-content {
+  max-width: 800px;
+}
+
+.modal--xl .modal-content {
+  max-width: 1000px;
+}
+
+.modal--full .modal-content {
+  max-width: 95vw;
+  max-height: 95vh;
+}
+
+// 모달 헤더
+.modal-header {
+  @include flex-between;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-gray-200);
+  
+  h2, h3, h4 {
+    margin: 0;
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-gray-900);
+  }
+}
+
+.modal-close {
+  color: var(--color-gray-500);
+  
+  &:hover {
+    color: var(--color-gray-700);
+  }
+}
+
+// 모달 바디
+.modal-body {
+  padding: var(--spacing-lg);
+  max-height: 70vh;
+  overflow-y: auto;
+  
+  @include scrollbar;
+  
+  &:first-child {
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+  }
+  
+  &:last-child {
+    border-bottom-left-radius: var(--radius-lg);
+    border-bottom-right-radius: var(--radius-lg);
+  }
+}
+
+// 모달 푸터
+.modal-footer {
+  @include flex(flex-end, center);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--color-gray-200);
+  background-color: var(--color-gray-50);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}

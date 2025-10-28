@@ -1,0 +1,269 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixin' as *;
+@use '../abstracts/functions' as *;
+// ----------------------------------------
+// Base Input
+// ----------------------------------------
+.input {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-tight);
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+
+  &::placeholder {
+    color: var(--color-gray-400);
+  }
+
+  &:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+  }
+
+  &:disabled {
+    background-color: var(--color-gray-100);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &--success {
+    border-color: var(--color-success);
+    &:focus { box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
+  }
+
+  &--warning {
+    border-color: var(--color-warning);
+    &:focus { box-shadow: 0 0 0 3px rgba(245,158,11,0.1); }
+  }
+
+  &--error {
+    border-color: var(--color-danger);
+    &:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
+  }
+
+  &--readonly {
+    background-color: var(--color-gray-50);
+    color: var(--color-gray-600);
+    cursor: default;
+  }
+}
+
+// ----------------------------------------
+// Input Sizes
+// ----------------------------------------
+.input--xs { padding: 0.25rem 0.5rem; font-size: var(--font-size-xs); }
+.input--sm { padding: 0.375rem 0.75rem; font-size: var(--font-size-sm); }
+.input--md { padding: var(--spacing-sm) var(--spacing-md); font-size: var(--font-size-base); }
+.input--lg { padding: 0.75rem 1.25rem; font-size: var(--font-size-lg); }
+.input--xl { padding: 1rem 1.5rem; font-size: var(--font-size-xl); }
+
+// ----------------------------------------
+// Select
+// ----------------------------------------
+.select {
+  @extend .input;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem 1rem;
+  padding-right: 2.5rem;
+}
+
+// ----------------------------------------
+// Textarea
+// ----------------------------------------
+.textarea {
+  @extend .input;
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+// ----------------------------------------
+// Checkbox & Radio
+// ----------------------------------------
+.checkbox,
+.radio {
+  @include size(18px);
+  appearance: none;
+  border: 2px solid var(--color-gray-300);
+  background-color: var(--color-white);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  position: relative;
+
+  &:checked {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+
+    &::after {
+      content: '';
+      position: absolute;
+      @include center-absolute;
+      width: 10px;
+      height: 10px;
+      background: var(--color-white);
+      border-radius: inherit;
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.checkbox { border-radius: var(--radius-sm); }
+.radio { border-radius: 50%; }
+
+// Small / Large variants
+.checkbox--sm, .radio--sm { @include size(14px); }
+.checkbox--lg, .radio--lg { @include size(22px); }
+
+// ----------------------------------------
+// Switch (Toggle)
+// ----------------------------------------
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .switch-slider {
+      background-color: var(--color-primary);
+      &::before { transform: translateX(20px); }
+    }
+
+    &:disabled + .switch-slider {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:focus + .switch-slider {
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+    }
+  }
+}
+
+.switch-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--color-gray-300);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    transition: transform var(--transition-fast);
+  }
+}
+
+// ----------------------------------------
+// Form Group
+// ----------------------------------------
+.form-group {
+  margin-bottom: var(--spacing-lg);
+
+  &:last-child { margin-bottom: 0; }
+
+  &--inline {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-700);
+
+  &--required::after {
+    content: '*';
+    color: var(--color-danger);
+    margin-left: 0.25rem;
+  }
+}
+
+.form-helper {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+}
+
+.form-error {
+  display: block;
+  margin-top: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-danger);
+}
+
+// ----------------------------------------
+// Input Group (icon / button 포함)
+// ----------------------------------------
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .input {
+    flex: 1;
+  }
+
+  &--icon-left {
+    .input { padding-left: 2.5rem; }
+    .input-icon { left: var(--spacing-md); }
+  }
+
+  &--icon-right {
+    .input { padding-right: 2.5rem; }
+    .input-icon { right: var(--spacing-md); }
+  }
+
+  &--button-right {
+    .btn {
+      position: absolute;
+      right: 0.25rem;
+      top: 50%;
+      transform: translateY(-50%);
+      height: calc(100% - 0.5rem);
+    }
+  }
+}
+
+.input-icon {
+  @include absolute($top: 50%);
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  svg {
+    
+  }
+}

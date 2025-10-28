@@ -1,0 +1,183 @@
+
+@forward '../../abstracts/variables';
+@forward '../../abstracts/mixin';
+@forward '../../abstracts/functions';
+
+.skip-nav {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  //transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.skip-nav:focus {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.header{border-bottom: 1px solid #CDD1D5;}
+.header-top{
+  background: #F4F5F6;
+  height: 4rem;
+  .container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.mi-group{
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  height: 100%;
+  a{
+    background-repeat: no-repeat;
+    display: block;
+  }
+  .mi-foodpolis{
+    background-image: url('/images/portal/mi-foodpolis.png');
+    width: 10.8rem;
+    height: 2rem;
+  }
+  .mi-dfip{
+    background-image: url('/images/portal/mi-dfip.png');
+    width: 16.8rem;
+    height: 1.8rem;
+  }
+
+  .mi-food-e{
+    background-image: url('/images/portal/mi-food-e.png');
+    width: 5.4rem;
+    height: 2.4rem;
+  }
+
+  .divider{
+    width: 1px;
+    height: 1.2rem;
+    background: #CDD1D5;
+  }
+}
+
+.header-utils{
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  height: 100%;
+  .utils-list {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    
+    li {
+      position: relative;
+      
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -0.8rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 1.2rem;
+        background: #CDD1D5;
+      }
+    }
+    a {
+      color: #666;
+      font-size: 1.4rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+  .divider{
+    width: 1px;
+    height: 1.2rem;
+    background: #CDD1D5;
+  }
+  .zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    .zoom-btn{
+      path{
+        transition: fill 0.3s ease;
+      }
+      &:hover,
+      &:focus{
+        svg path{
+          fill: var(--color-primary) !important;
+        }
+      }
+    }
+    .zoom-percentage {
+      color: #58616A;
+      width: 4rem;
+      text-align: center;
+    }
+  }
+}
+
+.header-menu{
+  .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .8rem 0;
+  }
+  .logo{
+    a{
+      display: block;
+      width: 11.4rem;
+      height: 4rem;
+      background: url('/images/portal/logo.svg');
+    }
+  }
+  .nav{
+    
+  }
+  #gnb{
+    display: flex;
+    align-items: center;
+  }
+  .gnb-lv1{
+  }
+  .gnb-lv1-link{
+    display: block;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    padding: 0 2.2rem;
+  }
+  .header-utils{
+    display: flex;
+    align-items: center;
+    gap:2rem;
+    #search-button{
+      width: 3.2rem;
+      height: 3.2rem;
+      background: url('/images/portal/gnb-search-icon.svg') no-repeat center center;
+    }
+    #menu-button{
+      width: 3.2rem;
+      height: 3.2rem;
+      background: url('/images/portal/gnb-open-icon.svg') no-repeat center center;
+    }
+  }
+}

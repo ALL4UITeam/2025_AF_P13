@@ -1,0 +1,47 @@
+
+@forward '../../abstracts/variables';
+@forward '../../abstracts/mixin';
+@forward '../../abstracts/functions';
+
+.layout-sub{
+  background: url('/images/portal/subtop-bg.png') no-repeat center 0;
+}
+
+.subtop{
+  height: 23rem;
+  padding-top: 6.5rem;
+  .container{
+    position: relative;
+  }
+}
+
+.subtop-title{
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  padding-top: 4rem;
+}
+
+.sub-layout{
+  padding: 6.4rem 0;
+  width: var(--container-width);
+  margin: 0 auto;
+}
+
+.subtop-utils{
+  position: absolute;
+  right: 0;
+  bottom: 5rem;
+  display: flex;
+  align-items: center;
+  gap: 0 1.6rem;
+  button{
+    display: flex;
+    width: 40px;
+    height: 40px; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FE195F;
+    border-radius: 50%;
+  }
+}

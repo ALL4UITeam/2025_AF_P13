@@ -1,0 +1,43 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixin' as *;
+@use '../abstracts/functions' as *;
+// ========================================
+// Popover (Tooltip)
+// ========================================
+.popover {
+  position: relative;
+  display: inline-block;
+
+  .popover-trigger {
+    @include button-reset;
+    @include flex-center;
+    gap: var(--spacing-xs);
+    color: var(--color-primary);
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary);
+    }
+  }
+
+  .popover-content {
+    @include absolute($top: calc(100% + 8px), $left: 50%);
+    transform: translateX(-50%);
+    min-width: 200px;
+    background-color: var(--color-gray-900);
+    color: var(--color-white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+    z-index: var(--z-tooltip);
+
+    &[data-show='true'] {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}

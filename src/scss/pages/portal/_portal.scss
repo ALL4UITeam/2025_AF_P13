@@ -1,4 +1,26 @@
+@forward '../../abstracts/variables';
+@forward '../../abstracts/mixin';
+@forward '../../abstracts/functions';
+@forward '../../base/grid';
+@forward '../../base/colors';
+@forward '../../base/helpers';
+@forward '../../components/buttons';
+@forward '../../components/form';
+@forward '../../components/table';
+@forward '../../components/board';
+@forward '../../components/modal';
+@forward '../../components/icon';
+@forward '../../components/paging';
+@forward '../../components/popover';
+@forward '../../components/dropdown';
+@forward '../../components/tab';
 
-body{
-  background: url('/images/portal/logo.png') no-repeat center center;
+/* layouts */
+@forward './header';
+@forward './footer';
+@forward './layout';
+@forward './breadcrumb';
+
+.portal{
+  //background: linear-gradient(91deg, #DBF5E2 -0.42%, #FFF8EB 40.64%, #EDE7F1 100.07%);
 }

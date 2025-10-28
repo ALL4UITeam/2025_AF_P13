@@ -9,8 +9,14 @@ export default defineConfig(({ mode }) => {
   const basePath = './'
 
   // 📂 HTML 수집
-  const htmlFiles = glob.sync('src/**/*.html', { ignore: ['src/index.html'] })
-
+  const htmlFiles = glob.sync('src/**/*.html', {
+    ignore: [
+      'src/partials/**/*.html',
+      'src/components/**/*.html',
+      'src/layout/**/*.html'
+    ]
+  })
+    
   // 📋 메타 추출
   const pageMetaList = htmlFiles.map(file => {
     const content = fs.readFileSync(file, 'utf-8')

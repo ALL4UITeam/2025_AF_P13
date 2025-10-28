@@ -1,0 +1,39 @@
+<!-- @pageTitle 포털 메인 -->
+<!-- @pageNote 포털 메인 페이지 -->
+<!-- @pageCreated 2025-10-21 -->
+<!-- @pageUpdated 2025-10-21 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+  
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    {{> layout/subtop
+      subtop-title="공지사항"
+      subtop-depth1-title="포털"
+      subtop-depth1-link="/portal/index.html"
+      subtop-depth2-title="공지사항"
+    }}
+
+    <main id="content" class="content">
+      <div class="sublayout">
+        
+      </div>
+    </main>
+    <!-- // content -->
+
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script type="module" src="../js/pages/portal.js"></script>
+</body>
+
+</html>

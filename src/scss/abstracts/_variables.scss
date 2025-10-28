@@ -1,0 +1,17 @@
+// ========================================
+// Breakpoints (전역 선언)
+// ========================================
+$breakpoints: (
+  'xs': 480px,
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  '2xl': 1536px
+) !default;
+
+$container-width: 1410px;
+$container-padding: 0px;
+
+$grid-columns: 12;
+$grid-gutter: 20px;

@@ -1,0 +1,23 @@
+<section class="subtop">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li><a href="/" title="홈으로 이동">홈</a></li>
+
+      {{#if subtop-depth1-title}}
+      <li>
+        {{#if subtop-depth1-link}}
+          <a href="{{subtop-depth1-link}}" title="{{subtop-depth1-title}}로 이동">{{subtop-depth1-title}}</a>
+        {{else}}
+          <span>{{subtop-depth1-title}}</span>
+        {{/if}}
+      </li>
+      {{/if}}
+
+      {{#if subtop-depth2-title}}
+      <li><span>{{subtop-depth2-title}}</span></li>
+      {{/if}}
+    </ol>
+
+    <h1 class="subtop-title">{{subtop-title}}</h1>
+  </div>
+</section>

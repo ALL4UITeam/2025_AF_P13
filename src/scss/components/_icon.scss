@@ -1,0 +1,147 @@
+
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixin' as *;
+@use '../abstracts/functions' as *;
+// ========================================
+// Icons
+// ========================================
+
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  // 아이콘 크기
+  &--xs {
+    width: 14px;
+    height: 14px;
+  }
+  
+  &--sm {
+    width: 16px;
+    height: 16px;
+  }
+  
+  &--md {
+    width: 20px;
+    height: 20px;
+  }
+  
+  &--lg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  &--xl {
+    width: 32px;
+    height: 32px;
+  }
+  
+  &--2xl {
+    width: 40px;
+    height: 40px;
+  }
+  
+  // 아이콘 색상
+  &--primary {
+    color: var(--color-primary);
+  }
+  
+  &--secondary {
+    color: var(--color-secondary);
+  }
+  
+  &--success {
+    color: var(--color-success);
+  }
+  
+  &--danger {
+    color: var(--color-danger);
+  }
+  
+  &--warning {
+    color: var(--color-warning);
+  }
+  
+  &--info {
+    color: var(--color-info);
+  }
+  
+  &--muted {
+    color: var(--color-gray-500);
+  }
+}
+
+// 아이콘 버튼
+.icon-btn {
+  @include icon-button;
+  
+  &--sm {
+    @include icon-button(32px, 16px);
+  }
+  
+  &--md {
+    @include icon-button(40px, 20px);
+  }
+  
+  &--lg {
+    @include icon-button(48px, 24px);
+  }
+  
+  // 아이콘 버튼 색상
+  &--primary {
+    color: var(--color-primary);
+    
+    &:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+    }
+  }
+  
+  &--danger {
+    color: var(--color-danger);
+    
+    &:hover {
+      background-color: rgba(239, 68, 68, 0.1);
+    }
+  }
+  
+  &--success {
+    color: var(--color-success);
+    
+    &:hover {
+      background-color: rgba(16, 185, 129, 0.1);
+    }
+  }
+}
+
+// 아이콘 배지
+.icon-badge {
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    @include absolute($top: 0, $right: 0);
+    @include circle(8px);
+    background-color: var(--color-danger);
+    border: 2px solid var(--color-white);
+  }
+  
+  &--dot::after {
+    @include circle(6px);
+  }
+}
+
+.icon-plus{
+  @include icon('/images/portal/icon-plus.svg', 18px, #000);
+  &:hover{
+    background-color: #000;
+  }
+}
+
+.icon-share{
+  @include icon('/images/portal/icon-share.svg', 24px, #fff);
+}
+.icon-print{
+  @include icon('/images/portal/icon-print.svg', 24px, #fff);
+}
