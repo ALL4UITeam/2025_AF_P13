@@ -145,3 +145,22 @@
 .icon-print{
   @include icon('/images/portal/icon-print.svg', 24px, #fff);
 }
+
+.icon-search{
+  @include icon('/images/portal/icon-search.png', 20px);
+}
+.icon-time{
+  @include icon('/images/portal/icon-time.png', 20px);
+}
+
+.icon-delete{
+  @include icon('/images/portal/icon-delete.svg', 20px, #6D7882);
+}
+
+.icon-help{
+  @include icon('/images/portal/icon-help.svg', 32px, #6D7882);
+}
+
+.icon-arrow-right{
+  @include icon('/images/portal/icon-arrow-right.svg', 40px, #000);
+}

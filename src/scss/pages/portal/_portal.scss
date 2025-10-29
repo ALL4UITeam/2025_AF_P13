@@ -5,6 +5,7 @@
 @forward '../../base/colors';
 @forward '../../base/helpers';
 @forward '../../components/buttons';
+@forward '../../components/badge';
 @forward '../../components/form';
 @forward '../../components/table';
 @forward '../../components/board';
@@ -20,6 +21,9 @@
 @forward './footer';
 @forward './layout';
 @forward './breadcrumb';
+
+/* pages */
+@forward './search';
 
 .portal{
   //background: linear-gradient(91deg, #DBF5E2 -0.42%, #FFF8EB 40.64%, #EDE7F1 100.07%);

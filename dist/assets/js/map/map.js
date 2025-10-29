@@ -1,11 +1,6 @@
-import "@/scss/main.scss";
-import "@/scss/pages/map/_map.scss";
-
-console.log("Map main page JS loaded");
 
 const map = {
   initialized: false,
-
   // ========================================
   // 초기화
   // ========================================
@@ -15,30 +10,25 @@ const map = {
     this.initialized = true;
     console.log("Map initialized");
   },
-
   // ========================================
   // 이벤트 바인딩
   // ========================================
   bindEvents() {
-    // 샘플 스크립트 실행
+    var _a, _b, _c;
     document.querySelectorAll("[data-samplescript]").forEach((target) => {
       target.addEventListener("click", () => {
         const fn = target.getAttribute("data-samplescript");
         if (this.sample[fn]) this.sample[fn]();
       });
     });
-
-    // data-pressed 버튼 처리
     document.querySelectorAll("[data-pressed]").forEach((target) => {
       target.addEventListener("click", () => {
         if (target.closest("[data-groupWrap].slideTab")) {
-          target.setAttribute("data-pressed", true); // slideTab은 해제 불가
+          target.setAttribute("data-pressed", true);
         } else {
           const current = target.getAttribute("data-pressed") === "true";
           target.setAttribute("data-pressed", !current);
         }
-
-        // 그룹 내 하나만 선택 가능
         const group = target.getAttribute("data-group");
         if (group) {
           const groupWrap = target.closest("[data-groupWrap]");
@@ -50,50 +40,45 @@ const map = {
         }
       });
     });
-
-    // radio tab
     document.querySelectorAll("input[type=radio][data-target]").forEach((tab) => {
       tab.addEventListener("click", () => {
+        var _a2;
         const wrap = tab.closest("[data-groupwrap]");
         if (wrap) {
           wrap.querySelectorAll(`input[name='${tab.name}']`).forEach((sib) => {
+            var _a3;
             const targetTitle = sib.getAttribute("data-target");
-            document.querySelector(`[data-title='${targetTitle}']`)?.setAttribute("data-show", "false");
+            (_a3 = document.querySelector(`[data-title='${targetTitle}']`)) == null ? void 0 : _a3.setAttribute("data-show", "false");
           });
         }
         const activeTitle = tab.getAttribute("data-target");
-        document.querySelector(`[data-title='${activeTitle}']`)?.setAttribute("data-show", "true");
+        (_a2 = document.querySelector(`[data-title='${activeTitle}']`)) == null ? void 0 : _a2.setAttribute("data-show", "true");
       });
     });
-
-    // result 펴기 / 접기
-    document.querySelector("section.list button.folding.show")?.addEventListener("click", () => {
+    (_a = document.querySelector("section.list button.folding.show")) == null ? void 0 : _a.addEventListener("click", () => {
       this.result.show();
     });
-    document.querySelector("section.list button.folding.hide")?.addEventListener("click", () => {
+    (_b = document.querySelector("section.list button.folding.hide")) == null ? void 0 : _b.addEventListener("click", () => {
+      var _a2;
       this.result.hide();
-      document.querySelector("nav.filter button[data-pressed='true']")?.click();
+      (_a2 = document.querySelector("nav.filter button[data-pressed='true']")) == null ? void 0 : _a2.click();
     });
-
-    // filter 열고 닫기
     document.querySelectorAll("section.list nav.filter button").forEach((btn) => {
       btn.addEventListener("click", () => {
+        var _a2;
         const pressed = btn.getAttribute("data-pressed") === "true";
         const wrap = document.querySelector(".filterWrap");
         if (pressed) {
-          wrap?.setAttribute("data-folded", "false");
+          wrap == null ? void 0 : wrap.setAttribute("data-folded", "false");
           document.querySelectorAll(".filterWrap .set").forEach((set) => set.setAttribute("data-show", "false"));
           const target = btn.getAttribute("data-target");
-          document.querySelector(`.filterWrap .set[data-title='${target}']`)
-            ?.setAttribute("data-show", "true");
+          (_a2 = document.querySelector(`.filterWrap .set[data-title='${target}']`)) == null ? void 0 : _a2.setAttribute("data-show", "true");
           this.result.show();
         } else {
-          wrap?.setAttribute("data-folded", "true");
+          wrap == null ? void 0 : wrap.setAttribute("data-folded", "true");
         }
       });
     });
-
-    // result 선택
     document.querySelectorAll("[data-selected]").forEach((target) => {
       target.addEventListener("click", () => {
         document.querySelectorAll("[data-selectWrap] [data-selected]").forEach((sib) => {
@@ -104,78 +89,75 @@ const map = {
         !selected ? this.detail.show() : this.detail.hide();
       });
     });
-
-    // detail 닫기
-    document.querySelector(".detail header button.close")?.addEventListener("click", () => {
-      document.querySelector("section.list .result dl[data-selected='true']")?.click();
+    (_c = document.querySelector(".detail header button.close")) == null ? void 0 : _c.addEventListener("click", () => {
+      var _a2;
+      (_a2 = document.querySelector("section.list .result dl[data-selected='true']")) == null ? void 0 : _a2.click();
     });
-
-    // sidebar 팝업 켜고 끄기
     document.querySelectorAll("aside.sidebar button[aria-haspopup='true']").forEach((btn) => {
       btn.addEventListener("click", () => {
-        document.querySelectorAll("aside.sidebar .popup").forEach((p) =>
-          p.setAttribute("data-show", false)
+        var _a2;
+        document.querySelectorAll("aside.sidebar .popup").forEach(
+          (p) => p.setAttribute("data-show", false)
         );
         const target = btn.getAttribute("data-target");
-        document.querySelector(`aside.sidebar .popup[data-title='${target}']`)
-          ?.setAttribute("data-show", btn.getAttribute("data-pressed"));
+        (_a2 = document.querySelector(`aside.sidebar .popup[data-title='${target}']`)) == null ? void 0 : _a2.setAttribute("data-show", btn.getAttribute("data-pressed"));
       });
     });
-
-    // sidebar 팝업 닫기
     document.querySelectorAll("aside.sidebar .popup button.close").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const title = btn.closest(".popup")?.getAttribute("data-title");
-        document.querySelector(`aside.sidebar button.menu[data-target='${title}']`)?.click();
+        var _a2, _b2;
+        const title = (_a2 = btn.closest(".popup")) == null ? void 0 : _a2.getAttribute("data-title");
+        (_b2 = document.querySelector(`aside.sidebar button.menu[data-target='${title}']`)) == null ? void 0 : _b2.click();
       });
     });
-
-    // modal 닫기
     document.querySelectorAll(".modal header button.close").forEach((btn) => {
       btn.addEventListener("click", () => {
-        btn.closest(".modal")?.setAttribute("data-show", "false");
+        var _a2;
+        (_a2 = btn.closest(".modal")) == null ? void 0 : _a2.setAttribute("data-show", "false");
       });
     });
   },
-
   // ========================================
   // 세부 기능
   // ========================================
   result: {
     show() {
-      document.querySelector("section.list .result")?.setAttribute("data-folded", "false");
+      var _a;
+      (_a = document.querySelector("section.list .result")) == null ? void 0 : _a.setAttribute("data-folded", "false");
     },
     hide() {
-      document.querySelector("section.list .result")?.setAttribute("data-folded", "true");
-    },
+      var _a;
+      (_a = document.querySelector("section.list .result")) == null ? void 0 : _a.setAttribute("data-folded", "true");
+    }
   },
-
   detail: {
     show() {
-      document.querySelector("section.detail")?.setAttribute("data-show", "true");
+      var _a;
+      (_a = document.querySelector("section.detail")) == null ? void 0 : _a.setAttribute("data-show", "true");
     },
     hide() {
-      document.querySelector("section.detail")?.setAttribute("data-show", "false");
-    },
+      var _a;
+      (_a = document.querySelector("section.detail")) == null ? void 0 : _a.setAttribute("data-show", "false");
+    }
   },
-
   filter: {
     reset() {
-      document.querySelectorAll("nav.filter button").forEach((b) => (b.disabled = false));
+      var _a, _b;
+      document.querySelectorAll("nav.filter button").forEach((b) => b.disabled = false);
       const active = document.querySelector("nav.filter button[data-pressed='true']");
       if (active) {
         active.classList.remove("applyed");
         active.setAttribute("data-pressed", "false");
       }
-      document.querySelector(".filterWrap")?.setAttribute("data-folded", "true");
-      document.querySelector(".list")?.setAttribute("data-state", null);
-    },
+      (_a = document.querySelector(".filterWrap")) == null ? void 0 : _a.setAttribute("data-folded", "true");
+      (_b = document.querySelector(".list")) == null ? void 0 : _b.setAttribute("data-state", null);
+    }
   },
-
   sample: {
     filterApply() {
-      document.querySelector(".list")?.setAttribute("data-state", "filterApplyed");
-      document.querySelectorAll("nav.filter button").forEach((b) => (b.disabled = true));
+      var _a;
+      (_a = document.querySelector(".list")) == null ? void 0 : _a.setAttribute("data-state", "filterApplyed");
+      document.querySelectorAll("nav.filter button").forEach((b) => b.disabled = true);
       const active = document.querySelector("nav.filter button[data-pressed='true']");
       if (active) {
         active.classList.add("applyed");
@@ -186,16 +168,12 @@ const map = {
       map.filter.reset();
     },
     modalpopup() {
-      document.querySelector(".modal")?.setAttribute("data-show", "true");
-    },
-  },
+      var _a;
+      (_a = document.querySelector(".modal")) == null ? void 0 : _a.setAttribute("data-show", "true");
+    }
+  }
 };
-
-// ========================================
-// 자동 초기화
-// ========================================
 document.addEventListener("DOMContentLoaded", () => {
   map.init();
 });
-
 window.map = map;

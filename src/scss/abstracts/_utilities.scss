@@ -1,0 +1,16 @@
+%ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  display: inline-block;
+}
+
+// 여러 줄 말줄임표가 필요하면
+%ellipsis-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 원하는 줄 수
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -6,6 +6,19 @@
 // Buttons
 // ========================================
 
+
+.fab-actions{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > div{
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    
+  }
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -27,16 +40,9 @@
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
-  }
-  
-  // 아이콘
-  svg {
-    
-  }
-  
+  }  
   &--icon-only {
     padding: var(--spacing-sm);
-    
     svg {
       margin: 0;
     }
@@ -47,10 +53,6 @@
 .btn--xs {
   padding: 0.25rem 0.625rem;
   font-size: var(--font-size-xs);
-  
-  svg {
-    
-  }
 }
 
 .btn--sm {
@@ -135,17 +137,10 @@
 // 버튼 스타일 - Outline
 .btn--outline {
   background-color: transparent;
-  
   &.btn--primary {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-    
-    &:hover {
-      color: var(--color-white);
-      background-color: var(--color-primary);
-    }
+    color: #24823F;
+    border-color: #2DA34F;
   }
-  
   &.btn--secondary {
     color: var(--color-secondary);
     border-color: var(--color-secondary);
@@ -155,7 +150,6 @@
       background-color: var(--color-secondary);
     }
   }
-  
   &.btn--success {
     color: var(--color-success);
     border-color: var(--color-success);
@@ -177,82 +171,9 @@
   }
 }
 
-// 버튼 스타일 - Ghost
-.btn--ghost {
-  background-color: transparent;
-  border-color: transparent;
-  
-  &.btn--primary {
-    color: var(--color-primary);
-    
-    &:hover {
-      background-color: rgba(59, 130, 246, 0.1);
-    }
-  }
-  
-  &.btn--danger {
-    color: var(--color-danger);
-    
-    &:hover {
-      background-color: rgba(239, 68, 68, 0.1);
-    }
-  }
-}
-
-// 버튼 스타일 - Link
-.btn--link {
-  padding: 0;
-  background: transparent;
-  border: none;
-  color: var(--color-primary);
-  
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-// 버튼 라운드
-.btn--rounded-sm {
-  border-radius: var(--radius-sm);
-}
-
-.btn--rounded-md {
-  border-radius: var(--radius-md);
-}
-
-.btn--rounded-lg {
-  border-radius: var(--radius-lg);
-}
-
-.btn--rounded-full {
-  border-radius: var(--radius-full);
-}
 
 // 버튼 풀 너비
 .btn--block {
   display: flex;
   width: 100%;
-}
-
-// 버튼 그룹
-.btn-group {
-  display: inline-flex;
-  
-  .btn {
-    border-radius: 0;
-    
-    &:first-child {
-      border-top-left-radius: var(--radius-md);
-      border-bottom-left-radius: var(--radius-md);
-    }
-    
-    &:last-child {
-      border-top-right-radius: var(--radius-md);
-      border-bottom-right-radius: var(--radius-md);
-    }
-    
-    &:not(:last-child) {
-      border-right: none;
-    }
-  }
 }

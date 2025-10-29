@@ -1,0 +1,267 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixin' as *;
+
+// Badge Mixins
+@mixin badge-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-full);
+  transition: var(--transition-fast);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+@mixin badge-size($size) {
+  @if $size == 'sm' {
+    height: 2rem;
+    padding: 0 0.8rem;
+    font-size: 1.2rem;
+    line-height: 1;
+  } @else if $size == 'md' {
+    height: 2.4rem;
+    padding: 0 1rem;
+    font-size: 1.4rem;
+    line-height: 1;
+  } @else if $size == 'lg' {
+    height: 4rem;
+    padding: 0 2.2rem;
+    //font-size: 1.6rem;
+    line-height: 1;
+  }
+}
+
+@mixin badge-variant-filled($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: 1px solid transparent;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+@mixin badge-variant-outline($border-color, $text-color) {
+  background-color: transparent;
+  color: $text-color;
+  border: 1px solid $border-color;
+
+  &:hover {
+    background-color: rgba($border-color, 0.05);
+  }
+}
+
+// Badge Component
+.badge {
+  @include badge-base;
+  @include badge-size('md'); // 기본 사이즈
+
+  // Sizes
+  &--sm {
+    @include badge-size('sm');
+  }
+
+  &--md {
+    @include badge-size('md');
+  }
+
+  &--lg {
+    @include badge-size('lg');
+  }
+
+  // Filled Variants
+  &--filled {
+    &.badge--primary {
+      @include badge-variant-filled(var(--color-brand-primary), var(--color-white));
+    }
+ 
+    &.badge--secondary {
+      @include badge-variant-filled(#F4F5F6, #8A949E);
+    }
+
+    &.badge--success {
+      @include badge-variant-filled(#DBF5E2, #299347);
+    }
+
+    &.badge--danger {
+      @include badge-variant-filled(#FCDFD9, #DE3412);
+    }
+
+    &.badge--warning {
+      @include badge-variant-filled(var(--color-warning), var(--color-white));
+    }
+
+    &.badge--info {
+      @include badge-variant-filled(var(--color-info), var(--color-white));
+    }
+
+    &.badge--dark {
+      @include badge-variant-filled(var(--color-gray-900), var(--color-white));
+    }
+
+    &.badge--light {
+      @include badge-variant-filled(var(--color-gray-200), var(--color-gray-900));
+    }
+  }
+
+  // Outline Variants
+  &--outline {
+    &.badge--primary {
+      @include badge-variant-outline(var(--color-brand-primary), var(--color-brand-primary));
+    }
+
+    &.badge--secondary {
+      @include badge-variant-outline(var(--color-gray-500), var(--color-gray-700));
+    }
+
+    &.badge--success {
+      @include badge-variant-outline(var(--color-success), var(--color-success-dark));
+    }
+
+    &.badge--danger {
+      @include badge-variant-outline(var(--color-danger), var(--color-danger-dark));
+    }
+
+    &.badge--warning {
+      @include badge-variant-outline(var(--color-warning), var(--color-warning-dark));
+    }
+
+    &.badge--info {
+      @include badge-variant-outline(var(--color-info), var(--color-info-dark));
+    }
+
+    &.badge--dark {
+      @include badge-variant-outline(var(--color-gray-900), var(--color-gray-900));
+    }
+
+    &.badge--light {
+      @include badge-variant-outline(var(--color-gray-400), var(--color-gray-700));
+    }
+  }
+
+  // Rounded Variants
+  &--rounded {
+    border-radius: var(--radius-md);
+  }
+
+  &--square {
+    border-radius: var(--radius-sm);
+  }
+}
+
+// Badge Group
+.badge-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm); // 8px 기본 간격
+  flex-wrap: wrap;
+
+  // Gap Variants
+  &--gap-xs {
+    gap: var(--spacing-xs); // 4px
+  }
+
+  &--gap-sm {
+    gap: var(--spacing-sm); // 8px
+  }
+
+  &--gap-md {
+    gap: var(--spacing-md); // 16px
+  }
+
+  &--gap-lg {
+    gap: var(--spacing-lg); // 24px
+  }
+
+  // Alignment
+  &--start {
+    justify-content: flex-start;
+  }
+
+  &--center {
+    justify-content: center;
+  }
+
+  &--end {
+    justify-content: flex-end;
+  }
+
+  // Vertical alignment
+  &--v-start {
+    align-items: flex-start;
+  }
+
+  &--v-center {
+    align-items: center;
+  }
+
+  &--v-end {
+    align-items: flex-end;
+  }
+}
+
+// Badge with Icon
+.badge {
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.4rem;
+    
+    &--right {
+      margin-right: 0;
+      margin-left: 0.4rem;
+    }
+
+    svg {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  }
+
+  &--sm &__icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  &--lg &__icon svg {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+// Removable Badge (X 버튼 있는 경우)
+.badge {
+  &--removable {
+    padding-right: 0.6rem;
+  }
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.4rem;
+    padding: 0.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition-fast);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+
+  &--sm#{&}--removable {
+    padding-right: 0.4rem;
+  }
+
+  &--lg#{&}--removable {
+    padding-right: 0.8rem;
+  }
+}

@@ -1,0 +1,450 @@
+<!-- @pageTitle 서비스소개-공지사항-목록 -->
+<!-- @pageNote 미완성 -->
+<!-- @pageCreated 2025-10-27 -->
+<!-- @pageUpdated 2025-10-27 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub search">
+      <main id="content" class="sub-layout">
+        <div class="search-header">
+          <!-- 검색 오버레이 -->
+          <div class="search-research">
+            <div class="form-check">
+              <input type="checkbox" id="search-research" class="checkbox search-research-checkbox">
+              <label for="search-research">결과 내 재검색</label>
+            </div>
+          </div>
+
+          <div class="search-section">
+            <!-- 검색 입력 영역 -->
+            <div class="search-input-section">
+              <div class="search-input-wrapper">
+                <input type="text" class="search-input" placeholder="식품" value="식품">
+                <button type="button" class="search-btn" aria-label="검색">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    aria-hidden="true">
+                    <path
+                      d="M19.8984 10.8984C19.8984 12.9138 19.2334 14.7736 18.1143 16.2734L21.1201 19.2793L21.21 19.3779C21.598 19.8544 21.5975 20.5421 21.209 21.0186L21.1201 21.1172C20.6124 21.6249 19.7889 21.6249 19.2812 21.1172L16.2764 18.1123C14.7759 19.2327 12.915 19.8984 10.8984 19.8984C5.92787 19.8984 1.89844 15.869 1.89844 10.8984C1.89844 5.92787 5.92787 1.89844 10.8984 1.89844C15.869 1.89844 19.8984 5.92787 19.8984 10.8984ZM17.2988 10.8984C17.2988 7.36382 14.4331 4.49805 10.8984 4.49805C7.36382 4.49805 4.49805 7.36382 4.49805 10.8984C4.49805 14.4331 7.36382 17.2988 10.8984 17.2988C12.5568 17.2988 14.0644 16.6648 15.2021 15.6289C15.255 15.5429 15.3193 15.4629 15.3926 15.3896L15.4697 15.3184C15.5217 15.2742 15.576 15.234 15.6328 15.1992C16.6667 14.062 17.2988 12.5553 17.2988 10.8984Z"
+                      fill="url(#paint0_linear_2059_7289)" />
+                    <defs>
+                      <linearGradient id="paint0_linear_2059_7289" x1="1.89844" y1="11.6982" x2="21.5007" y2="11.6982"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2DA34F" />
+                        <stop offset="1" stop-color="#1B5D88" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- is-active -->
+            <div class="search-dropdown">
+              <!-- 자동완성 제안 -->
+              <div class="search-suggestions">
+                <div class="suggestion-item">
+                  <i class="icon-search" aria-hidden="true"></i>
+                  <span class="suggestion-text"><b class="highlight">식품</b>산업</span>
+                </div>
+                <div class="suggestion-item">
+                  <i class="icon-search" aria-hidden="true"></i>
+                  <span class="suggestion-text"><b class="highlight">식품</b>산업기업</span>
+                </div>
+                <div class="suggestion-item">
+                  <i class="icon-search" aria-hidden="true"></i>
+                  <span class="suggestion-text"><b class="highlight">식품</b>안전</span>
+                </div>
+              </div>
+
+              <!-- 자동완성 설정 -->
+              <div class="search-settings">
+                <div class="setting-item">
+                  <span class="setting-label">
+                    <label for="search-autocomplete-toggle" class="setting-label-text">자동완성</label>
+                    <label class="switch"><input type="checkbox" id="search-autocomplete-toggle" checked><span
+                        class="switch-slider"></span></label>
+                  </span>
+                  <button type="button" class="close-btn" data-close="searchOverlay">닫기</button>
+                </div>
+              </div>
+
+              <!-- 검색 기록 -->
+              <div class="search-history">
+                <div class="setting-item">
+                  <span class="setting-label">
+                    <label for="search-history-toggle" class="setting-label-text">검색기록</label>
+                    <label class="switch"><input type="checkbox" id="search-history-toggle" checked><span
+                        class="switch-slider"></span></label>
+                  </span>
+                  <button type="button" class="clear-btn">전체삭제</button>
+                </div>
+
+                <div class="history-item">
+                  <i class="icon-time" aria-hidden="true"></i>
+                  <span class="history-text">식품</span>
+                  <button type="button" class="delete-btn">
+                    <i class="icon-delete" aria-hidden="true"></i>
+                    <span class="sr-only">삭제</span>
+                  </button>
+                </div>
+
+                <div class="history-item">
+                  <i class="icon-time" aria-hidden="true"></i>
+                  <span class="history-text">식품</span>
+                  <button type="button" class="delete-btn">
+                    <i class="icon-delete" aria-hidden="true"></i>
+                    <span class="sr-only">삭제</span>
+                  </button>
+                </div>
+
+                <div class="history-item">
+                  <i class="icon-time" aria-hidden="true"></i>
+                  <span class="history-text">식품</span>
+                  <button type="button" class="delete-btn">
+                    <i class="icon-delete" aria-hidden="true"></i>
+                    <span class="sr-only">삭제</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-detail-btn-wrapper">
+            <button type="button" class="search-detail-btn">
+              <i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M9.08203 2C12.9939 2 16.1658 5.17114 16.166 9.08301C16.166 10.7975 15.5557 12.3694 14.542 13.5947L17.3057 16.3574C17.566 16.6178 17.566 17.0404 17.3057 17.3008C17.0453 17.5611 16.6227 17.5611 16.3623 17.3008L13.5996 14.5371C12.3733 15.5539 10.7995 16.167 9.08203 16.167C5.17016 16.1668 1.99902 12.9949 1.99902 9.08301C1.9992 5.17125 5.17027 2.00018 9.08203 2ZM9.08203 3.33301C5.90665 3.33318 3.33221 5.90763 3.33203 9.08301C3.33203 12.2585 5.90654 14.8328 9.08203 14.833C10.5963 14.833 11.9731 14.2468 13 13.29C13.0312 13.2281 13.0704 13.1689 13.1221 13.1172C13.1736 13.0657 13.2323 13.0262 13.2939 12.9951C14.2476 11.9688 14.832 10.5945 14.832 9.08301C14.8319 5.90752 12.2576 3.33301 9.08203 3.33301ZM9.08594 5.91406C9.45413 5.91406 9.75293 6.21286 9.75293 6.58105V8.41406H11.585C11.953 8.41424 12.251 8.71297 12.251 9.08105C12.2508 9.44899 11.9529 9.74689 11.585 9.74707H9.75293V11.5811C9.75275 11.9491 9.45402 12.2471 9.08594 12.2471C8.71801 12.2469 8.4201 11.949 8.41992 11.5811V9.74707H6.58496C6.21688 9.74707 5.91814 9.44909 5.91797 9.08105C5.91797 8.71286 6.21677 8.41406 6.58496 8.41406H8.41992V6.58105C8.41992 6.21297 8.7179 5.91424 9.08594 5.91406Z"
+                    fill="white" />
+                </svg>
+              </i>
+              <span class="text">상세검색</span>
+            </button>
+          </div>
+          <div class="ranking">
+            <ol id="rankingList">
+              <li><span class="num">1</span><span class="word up">식품산업</span></li>
+              <!-- <li><span class="num">1</span><span class="word down">식품산업</span></li>
+              <li><span class="num">1</span><span class="word same">식품산업</span></li> -->
+            </ol>
+          </div>
+        </div>
+        <div class="search-category">
+          <div class="swiper tabSwiper" role="tablist">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide active" role="tab" aria-selected="true" tabindex="0">
+                <button type="button" role="tab">전체 (999)</button>
+              </div>
+              <div class="swiper-slide" role="tab" aria-selected="false" tabindex="-1">
+                <button type="button" role="tab">식품기업지원 (111)</button>
+              </div>
+              <div class="swiper-slide" role="tab" aria-selected="false" tabindex="-1">
+                <button type="button" role="tab">식품기업현황 (444)</button>
+              </div>
+              <div class="swiper-slide" role="tab" aria-selected="false" tabindex="-1">
+                <button type="button" role="tab">식품산업데이터 (222)</button>
+              </div>
+              <div class="swiper-slide" role="tab" aria-selected="false" tabindex="-1">
+                <button type="button" role="tab">게시물정보 (222)</button>
+              </div>
+            </div>
+            <button class="swiper-button-prev" aria-label="이전 탭" type="button"></button>
+            <button class="swiper-button-next" aria-label="다음 탭" type="button"></button>
+          </div>
+        </div>
+
+        <div class="search-info">
+          <span class="search-keyword">식품</span>에 대해
+          <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
+        </div>
+
+        <div class="accordion-container">
+          <div class="accordion-header" onclick="toggleAccordion()">
+            <h2 class="accordion-title">AI 사용자 맞춤 추천</h2>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"
+              class="accordion-icon" id="accordionIcon">
+              <rect width="40" height="40" rx="20" fill="white" fill-opacity="0.5" />
+              <path
+                d="M20.0001 25.086L10.5771 15.6631L12.0684 14.1719L20.0001 22.1035L27.9317 14.1719L29.423 15.6631L20.0001 25.086Z"
+                fill="#58616A" />
+            </svg>
+
+          </div>
+
+          <div class="accordion-content" id="accordionContent">
+            <div class="card">
+              <div class="card-badge">
+                <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+              </div>
+              <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+              <div class="card-content">
+                <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                <div class="card-subtext">
+                  <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <span class="badge badge--filled badge--success badge--rounded">진행중</span>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-badge">
+                <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+              </div>
+              <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+              <div class="card-content">
+                <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                <div class="card-subtext">
+                  <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <span class="badge badge--filled badge--success badge--rounded">진행중</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- // ai -->
+
+        <div class="search-result-list">
+          <div class="section">
+            <div class="section-header">
+              <h2 class="section-title">식품산업데이터 <button type="button" title="도움말 열림"><i aria-hidden="true"
+                    class="icon-help"></i><span class="sr-only">도움말</span></button></h2>
+              <div class="section-count" aria-live="polite" aria-atomic="true">
+                검색결과 <span class="number">222</span>건
+              </div>
+            </div>
+
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+                
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <span class="badge badge--filled badge--success badge--rounded">진행중</span>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+                
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <span class="badge badge--filled badge--danger badge--rounded">오늘마감</span>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+                
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <span class="badge badge--filled badge--secondary badge--rounded">접수마감</span>
+                </div>
+              </div>
+
+            </div>
+
+            <a class="more-link" href="#">
+              <span class="more-link-text">식품산업데이터 더보기 <i class="icon-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="search-detail-filter">
+          <div class="filter-content">
+            <div class="filter-row">
+              <h3 class="filter-title">카테고리</h3>
+              <div class="filter-column">
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-all" class="checkbox">
+                  <label for="checkbox-all">전체</label>
+                </div>
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-1" class="checkbox">
+                  <label for="checkbox-1">식물기관지원</label>
+                </div>
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-2" class="checkbox">
+                  <label for="checkbox-2">식물기관활성</label>
+                </div>
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-3" class="checkbox">
+                  <label for="checkbox-3">식물신약바이오</label>
+                </div>
+              </div>
+            </div>
+            <div class="filter-row">
+              <h3 class="filter-title">콘텐츠</h3>
+              <div class="filter-column">
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-content-all" class="checkbox">
+                  <label for="checkbox-content-all">전체</label>
+                </div>
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-content-1" class="checkbox">
+                  <label for="checkbox-content-1">교육지원공고</label>
+                </div>
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-content-2" class="checkbox">
+                  <label for="checkbox-content-2">진로개고</label>
+                </div>
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-content-3" class="checkbox">
+                  <label for="checkbox-content-3">지원사업공고</label>
+                </div>
+                <div class="form-checkbox">
+                  <input type="checkbox" id="checkbox-content-4" class="checkbox">
+                  <label for="checkbox-content-4">정부사업정보</label>
+                </div>
+              </div>
+            </div>
+            <div class="filter-row">
+              <h3 class="filter-title">기간 설정</h3>
+              <div class="filter-column">
+                <div class="form-radio">
+                  <input type="radio" id="radio-period-all" name="radio-period" class="radio">
+                  <label for="radio-period-all">전체</label>
+                </div>
+                <div class="form-radio">
+                  <input type="radio" id="radio-period-1" name="radio-period" class="radio">
+                  <label for="radio-period-1">최근 1주일</label>
+                </div>
+                <div class="form-radio">
+                  <input type="radio" id="radio-period-2" name="radio-period" class="radio">
+                  <label for="radio-period-2">최근 1개월</label>
+                </div>
+                <div class="form-radio">
+                  <input type="radio" id="radio-period-3" name="radio-period" class="radio">
+                  <label for="radio-period-3">최근 3개월</label>
+                </div>
+                <div class="form-radio">
+                  <input type="radio" id="radio-period-4" name="radio-period" class="radio">
+                  <label for="radio-period-4">최근 6개월</label>
+                </div>
+                <div class="form-radio">
+                  <input type="radio" id="radio-period-5" name="radio-period" class="radio">
+                  <label for="radio-period-5">최근 1년</label>
+                </div>
+              </div>
+            </div>
+            <div class="filter-row">
+              <h3 class="filter-title">범위 설정</h3>
+              <div class="filter-column">
+                <div class="form-radio">
+                  <input type="radio" id="radio-scope-all" name="radio-scope" class="radio">
+                  <label for="radio-scope-all">전체</label>
+                </div>
+                <div class="form-radio">
+                  <input type="radio" id="radio-scope-1" name="radio-scope" class="radio">
+                  <label for="radio-scope-1">제목</label>
+                </div>
+                <div class="form-radio">
+                  <input type="radio" id="radio-scope-3" name="radio-scope" class="radio">
+                  <label for="radio-scope-3">내용</label>
+                </div>
+              </div>
+            </div>
+            <div class="filter-row">
+              <h3 class="filter-title">단어 중 1개 이상 포함</h3>
+              <input type="text" class="input input--md" placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 입력)">
+            </div>
+            <div class="filter-row">
+              <h3 class="filter-title">다음 단어 모두 포함</h3>
+              <input type="text" class="input input--md" placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 AND 검색)">
+            </div>
+            <div class="filter-row">
+              <h3 class="filter-title">다음 단어 모두 제외</h3>
+              <input type="text" class="input input--md" placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 NOT 검색)">
+            </div>
+          </div>
+          <div class="filter-footer fab-actions">
+            <div class="l">
+              <button type="button" class="btn btn--outline-tertiary btn--md">취소</button>
+            </div>
+            <div class="r">
+              <button type="button" class="btn btn--outline btn--tertiary btn--md">초기화</button>
+              <button type="button" class="btn btn--primary btn--md">검색</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script type="module" src="../js/pages/portal.js"></script>
+  <script>
+    // Swiper 탭
+    new Swiper(".tabSwiper", {
+      slidesPerView: "auto",
+      spaceBetween: 0,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    function toggleAccordion() {
+      const content = document.getElementById('accordionContent');
+      const icon = document.getElementById('accordionIcon');
+
+      content.classList.toggle('open');
+      icon.classList.toggle('open');
+    }
+
+  </script>
+
+</html>

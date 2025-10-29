@@ -107,10 +107,11 @@
       content: '';
       position: absolute;
       @include center-absolute;
-      width: 10px;
-      height: 10px;
-      background: var(--color-white);
-      border-radius: inherit;
+      width: 5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
     }
   }
 
@@ -137,17 +138,16 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 44px;
-  height: 24px;
+  width: 28px;
+  height: 16px;
 
   input {
     opacity: 0;
     width: 0;
-    height: 0;
-
+    height: 0; 
     &:checked + .switch-slider {
-      background-color: var(--color-primary);
-      &::before { transform: translateX(20px); }
+      background-color: var(--color-brand-primary);
+      &::before { transform: translateX(12px); opacity: 1;}
     }
 
     &:disabled + .switch-slider {
@@ -165,20 +165,20 @@
   position: absolute;
   cursor: pointer;
   inset: 0;
-  background-color: var(--color-gray-300);
   border-radius: var(--radius-full);
-  transition: background-color var(--transition-fast);
-
+  transition: all var(--transition-fast);
+  background: var(--color-gray-300);
   &::before {
     content: '';
     position: absolute;
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background-color: var(--color-white);
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+    background:#fff url('/images/portal/switch-slider.svg') no-repeat center center;
     border-radius: 50%;
     transition: transform var(--transition-fast);
+    opacity: 0.4;
   }
 }
 
@@ -187,14 +187,18 @@
 // ----------------------------------------
 .form-group {
   margin-bottom: var(--spacing-lg);
-
   &:last-child { margin-bottom: 0; }
-
   &--inline {
     display: flex;
     align-items: center;
     gap: var(--spacing-md);
   }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
 }
 
 .form-label {
