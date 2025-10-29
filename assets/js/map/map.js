@@ -7,7 +7,6 @@ const map = {
   init() {
     if (this.initialized) return;
     this.bindEvents();
-    this.zoom.init();
     this.initialized = true;
     console.log("Map initialized");
   },
@@ -171,66 +170,6 @@ const map = {
     modalpopup() {
       var _a;
       (_a = document.querySelector(".modal")) == null ? void 0 : _a.setAttribute("data-show", "true");
-    }
-  },
-  // ========================================
-  // 줌 컨트롤
-  // ========================================
-  zoom: {
-    zoomLevel: 100,
-    minZoom: 50,
-    maxZoom: 200,
-    step: 10,
-    buttons: {},
-    display: null,
-    init() {
-      this.buttons.out = document.querySelector('.zoom-btn[aria-label="줌 아웃"]');
-      this.buttons.in = document.querySelector('.zoom-btn[aria-label="줌 인"]');
-      this.display = document.querySelector(".zoom-percentage");
-      this.bind();
-      this.update();
-    },
-    bind() {
-      var _a, _b;
-      (_a = this.buttons.out) == null ? void 0 : _a.addEventListener("click", () => this.out());
-      (_b = this.buttons.in) == null ? void 0 : _b.addEventListener("click", () => this.in());
-      document.addEventListener("keydown", (e) => this.key(e));
-    },
-    key(e) {
-      if (!e.ctrlKey) return;
-      if (["+", "="].includes(e.key)) {
-        e.preventDefault();
-        this.in();
-      } else if (e.key === "-") {
-        e.preventDefault();
-        this.out();
-      } else if (e.key === "0") {
-        e.preventDefault();
-        this.reset();
-      }
-    },
-    in() {
-      if (this.zoomLevel < this.maxZoom) {
-        this.zoomLevel = Math.min(this.zoomLevel + this.step, this.maxZoom);
-        this.apply();
-      }
-    },
-    out() {
-      if (this.zoomLevel > this.minZoom) {
-        this.zoomLevel = Math.max(this.zoomLevel - this.step, this.minZoom);
-        this.apply();
-      }
-    },
-    reset() {
-      this.zoomLevel = 100;
-      this.apply();
-    },
-    apply() {
-      document.body.style.zoom = `${this.zoomLevel}%`;
-      this.update();
-    },
-    update() {
-      if (this.display) this.display.textContent = `${this.zoomLevel}%`;
     }
   }
 };
