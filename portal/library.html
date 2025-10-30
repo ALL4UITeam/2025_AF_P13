@@ -1,4 +1,4 @@
-<!-- @pageTitle 서비스소개-공지사항-상세 -->
+<!-- @pageTitle 서비스소개-자료실-목록 -->
 <!-- @pageNote 미완성 -->
 <!-- @pageCreated 2025-10-27 -->
 <!-- @pageUpdated 2025-10-27 -->
@@ -108,57 +108,162 @@
     </header>
     <!-- // header -->
     <div class="layout-sub">
-    <section class="subtop">
-      <div class="container">
-        <ol class="breadcrumb">
-          <li><a href="/" title="홈으로 이동">홈</a></li>
-          <li>
-              <a href="/portal/index.html" title="포털로 이동">포털</a>
-          </li>
-          <li><span>공지사항</span></li>
-        </ol>
-        <h1 class="subtop-title">공지사항</h1>
-      </div>
-    </section>    <main id="content" class="sub-layout">
-        <div class="post">
-          <div class="post-header">
-            <div class="category">[식품정보 플랫폼 서비스]</div>
-            <h1 class="post-title">기술지원사업 참여기업, 협동수행기관 정산교육</h1>
-            <div class="post-info">
-              <span>작성자 시스템관리자</span>
-              <span>조회수 209</span>
-              <span>2025-06-17</span>
+      <section class="subtop">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="/" title="홈으로 이동">홈</a></li>
+            <li>
+                <a href="##" title="서비스소개로 이동">서비스소개</a>
+            </li>
+            <li><span>자료실</span></li>
+          </ol>
+          <h1 class="subtop-title">자료실</h1>
+        </div>
+      </section>
+      <main id="content" class="sub-layout">
+        <!-- 기본 2개 필드 -->
+        <div class="board-search">
+          <div class="board-search__fields">
+            <div class="board-search__field">
+              <label>분야</label>
+              <select>
+                <option>전체</option>
+                <option>기술</option>
+                <option>디자인</option>
+              </select>
+            </div>
+            <div class="board-search__field">
+              <label>지역</label>
+              <select>
+                <option>전체</option>
+                <option>서울</option>
+                <option>경기</option>
+              </select>
             </div>
           </div>
-          <div class="attachment-area">
-            <div class="attachment-item">기술지원사업 정산 교육 자료(수정본)_2025.pdf</div>
-          </div>
-          <div class="post-content">
-            <p>기술지원사업 참여기업, 협동수행기관 정산교육 영상 및 자료입니다.</p>
-            <p>공동기술개발, 소비지방출하제품개선, 기능성표시식품개발, 소소천통창구, 사업인증 사업 예산 집행에 참고 바랍니다.</p>
-            <div class="highlight-box">
-              자체만 사용은 주요 공지사항 중 &lt;기술지원사업 참여기업, 협동수행기관 정산기준&gt;의 첨부파일을 통해 확인하실 수 있습니다.
-            </div>
-            <p>본 정산기준은 신동원의 규정, 사업지침의 개정에 따라 변경될 수 있습니다.</p>
-            <p>교육 영상은 홈보드영상에서 시청 가능합니다.</p>
-            <div class="link-list">
-              <a href="#">기술지원사업 참여기업, 협동수행기관 정산교육 영상</a>
-              <a href="#">디지털 플랫폼을 활용하여 전산하는 방법에 대한 영상</a>
-            </div>
-          </div>
-          <div class="post-nav">
-            <div class="nav-item">
-              <div class="nav-label">이전글</div>
-              <div class="nav-title">2025년 고충처리자문단 운영안내</div>
-              <div class="nav-date">2025-06-11</div>
-            </div>
-          </div>
-          <div class="btn-group">
-            <button class="btn">목록</button>
+          <div class="board-search__actions">
+            <button class="btn btn--outline btn--sm">
+              <span>초기화</span>
+            </button>
+            <button class="btn btn--primary btn--sm">
+              <span>검색</span>
+            </button>
           </div>
         </div>
-    </main>
-    <!-- // content -->
+        <!-- 항목이 많을 때 -->
+        <div class="board-search">
+          <div class="board-search__fields">
+            <div class="board-search__field">
+              <label>분야</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+            <div class="board-search__field">
+              <label>지역</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+            <div class="board-search__field">
+              <label>직급</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+            <div class="board-search__field">
+              <label>경력</label>
+              <select>
+                <option>전체</option>
+              </select>
+            </div>
+            <div class="board-search__field">
+              <label>키워드</label>
+              <input type="text" placeholder="검색어를 입력하세요">
+            </div>
+          </div>
+          <div class="board-search__actions">
+            <button class="btn btn--outline btn--sm">초기화</button>
+            <button class="btn btn--primary btn--sm">검색</button>
+          </div>
+        </div>
+        <div class="scroll-tab-container">
+          <button class="scroll-tab-nav-btn prev" type="button" disabled="">‹</button>
+          <div class="scroll-tab-wrapper">
+            <div class="scroll-tab-list">
+              <button class="scroll-tab-item active">전체</button>
+              <button class="scroll-tab-item">전자민원</button>
+              <button class="scroll-tab-item">시설/장비</button>
+              <button class="scroll-tab-item">전문가</button>
+              <button class="scroll-tab-item">일반</button>
+              <button class="scroll-tab-item">융합데이터</button>
+            </div>
+          </div>
+          <button class="scroll-tab-nav-btn next" type="button" disabled="">›</button>
+        </div>
+        <div class="search-info search-board-info">
+          <div class="search-info-inner">
+            <span class="search-keyword">식품</span>에 대해
+            <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
+          </div>
+          <div class="search-info-filter">
+            <div class="filter-sort-bar" data-filter-sort-bar="">
+              <!-- 목록 표시 개수 -->
+              <div class="filter-group">
+                <span class="filter-label">목록 표시 개수</span>
+                <select class="filter-select" id="itemCount">
+                  <option value="12" selected="">12개</option>
+                  <option value="24">24개</option>
+                  <option value="36">36개</option>
+                  <option value="48">48개</option>
+                </select>
+              </div>
+              <div class="divider"></div>
+              <!-- 정렬 기준 -->
+              <div class="sort-group">
+                <span class="sort-label">정렬기준</span>
+                <!-- PC용 버튼 -->
+                <div class="sort-buttons">
+                  <button class="sort-btn active" data-sort="relevance">관련도순</button>
+                  <button class="sort-btn" data-sort="latest">최신순</button>
+                </div>
+                <!-- 모바일용 셀렉트 -->
+                <select class="sort-select-mobile" id="sortSelectMobile">
+                  <option value="relevance" selected="">관련도순</option>
+                  <option value="latest">최신순</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="board-list">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="col-number">번호</th>
+                <th class="col-title">제목</th>
+                <th class="col-author">작성자</th>
+                <th class="col-date">작성일</th>
+                <th class="col-views">조회</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-number">1</td>
+                <td class="col-title">
+                  <a href="#">공지사항입니다</a>
+                  <span class="badge badge--primary">New</span>
+                </td>
+                <td>관리자</td>
+                <td class="col-date">2025-10-28</td>
+                <td class="col-views">123</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+      <!-- // content -->
+    </div>
     <div class="related-sites">
       <div class="container">
         <button type="button" class="related-sites-button">
@@ -370,4 +475,4 @@
     </button>
   </div>
 </body>
-</html> 
+</html>
