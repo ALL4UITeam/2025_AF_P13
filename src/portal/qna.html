@@ -1,10 +1,9 @@
-<!-- @pageTitle 서비스소개-공지사항-목록 -->
+<!-- @pageTitle 서비스소개-문의게시판-목록 -->
 <!-- @pageNote 미완성 -->
-<!-- @pageCreated 2025-10-27 -->
-<!-- @pageUpdated 2025-10-27 -->
+<!-- @pageCreated 2025-10-30 -->
+<!-- @pageUpdated 2025-10-30 -->
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   {{> layout/meta }}
 </head>
@@ -16,10 +15,10 @@
     <!-- // header -->
     <div class="layout-sub">
       {{> layout/subtop
-      subtop-title="공지사항"
+      subtop-title="질문과 답변"
       subtop-depth1-title="서비스소개"
       subtop-depth1-link="##"
-      subtop-depth2-title="공지사항"
+      subtop-depth2-title="질문과 답변"
       }}
 
       <main id="content" class="sub-layout">
@@ -117,6 +116,7 @@
         </div>
 
 
+
         <div class="search-info search-board-info">
           <div class="search-info-inner">
             <span class="search-keyword">식품</span>에 대해
@@ -157,32 +157,23 @@
           </div>
         </div>
 
-
-        <div class="board-list">
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="col-number">번호</th>
-                <th class="col-title">제목</th>
-                <th class="col-author">작성자</th>
-                <th class="col-date">작성일</th>
-                <th class="col-views">조회</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="col-number">1</td>
-                <td class="col-title">
-                  <a href="#">공지사항입니다</a>
-                  <span class="badge badge--primary">New</span>
-                </td>
-                <td>관리자</td>
-                <td class="col-date">2025-10-28</td>
-                <td class="col-views">123</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- list -->
+        <div class="board-list-card">
+          <div>
+            <a class="card-item" href="#">
+              <div class="card-item_cate">일반문의</div><strong class="card-item_title">분석 관련 문의드립니다.</strong>
+              <div class="card-item_stat"><i class="cs-icon-lock">비밀글</i></div>
+              <div class="card-item_auth">
+                <div class="card-item_user"><i class="cs-icon-user"></i>박세진</div>
+                <div class="card-item_regdage">2025-10-13</div>
+              </div>
+              <div class="card-item_answer"><strong>디지털식품정보플랫폼 관리자</strong><span class="cs-tag cs-tag-blue">답변완료</span>
+              </div>
+            </a>
+          </div>
         </div>
+        <!-- // -->
+
         {{> layout/pagination }}
       </main>
       <!-- // content -->

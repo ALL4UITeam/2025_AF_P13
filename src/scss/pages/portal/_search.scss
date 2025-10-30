@@ -2,12 +2,153 @@
 @forward "../../abstracts/mixin";
 @forward "../../abstracts/functions";
 @forward "../../abstracts/utilities";
-.search {
-  &.layout-sub {
-    background-image: url("/images/portal/search-bg.png");
+
+.search-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  &.is-active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('/images/portal/search-modal-overlay.svg') center no-repeat;
+  }
+  
+  &__container {
+      position: relative;
+      z-index: 10000;
+  }
+  
+  &__header {
+      text-align: center;
+      margin-bottom: 30px;
+  }
+  
+  &__title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      font-family: var(--font-family-secondary);
+      font-size: 52px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i{
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 0;
+        width: 60px;height: 60px;
+        background: url('/images/portal/icon-search-title.svg') center no-repeat;
+      }
+  }
+  &__search-bar {
+    .search-input-section .search-input-wrapper input{
+      width: 540px;
+    }
+  }
+  &__content {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+  }
+  
+  &__section {
+    padding: 32px;
+    border-radius: 12px;
+    background: #DBF5E2;
+    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.20);
+    margin-top: 24px;
+  }
+  
+  &__section-title {
+    color: var(--primary, #2DA34F);
+    font-family: var(--font-family-secondary);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 15px;
+  }
+  
+  &__list,
+  &__ranking-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap:  8px;
+  }
+  
+  &__list-item,
+  .ranking-list .ranking-item {
+    display: flex;
+    height: 32px;
+    padding: 0 12px;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: var(--g-00, #FFF);
+  }
+
+  &__list-item{
+    button{
+      display: flex;
+      align-items: center;
+      gap: 0 4px;
+      color: #131416;
+      font-size: 15px;
+    }
+    .hash{
+      color: #81C895;
+    }
+
+  }
+  
+  .ranking-list .ranking-item {
+      .num{
+        background-color: #F4F5F6;
+        color: #131416;
+        font-family: var(--font-family-secondary);
+        font-size: 15px;
+        font-weight: 900;
+      }
+      .word{
+        color: var(--color-primary);
+      }
+  }
+  
+  &__close-btn {
+      display: block;
+      margin: 10vh auto 0;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+      width: 56px;
+      height: 56px;
+      gap: 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.30);
+      background: rgba(255, 255, 255, 0.10) url('/images/portal/search-modal-close.svg') center no-repeat;
+      &:hover {
+          transform: rotate(90deg);
+      }
   }
 }
-
 // ========================================
 // 검색 입력 영역
 // ========================================
@@ -172,8 +313,6 @@
   }
 }
 
-.search-detail-btn-wrapper {
-}
 .search-detail-btn {
   display: flex;
   align-items: center;
@@ -191,10 +330,12 @@
   }
 }
 
-#rankingList {
-  li {
-    display: flex;
-    align-items: center;
+.ranking-list {
+  .ranking-item {
+    button{
+      display: flex;
+      align-items: center;
+    }
     .num {
       display: flex;
       width: 24px;
@@ -260,7 +401,7 @@
       height: 68px;
       width: 100%;
       font-size: 19px;
-      &[aria-selected="true"] {
+      &[aria-pressed="true"] {
         border-radius: 12px;
         background-color: var(--color-brand-primary);
         color: #fff;
@@ -271,12 +412,17 @@
 }
 
 .search-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 24px 0;
-  color: #fff;
-  font-size: 1.9rem;
-  span {
-    font-weight: 700;
-    font-size: 25px;
+  .search-info-inner {
+    color: #fff;
+    font-size: 1.9rem;
+    span {
+      font-weight: 700;
+      font-size: 25px;
+    }
   }
 }
 
@@ -329,7 +475,6 @@
     max-height: 1000px;
     margin-top: 16px;
   }
-
 }
 
 .search-result-list {
@@ -337,12 +482,11 @@
   flex-direction: column;
   margin-top: 36px;
   gap: 32px;
-  .section{
+  .section {
     border-radius: 12px;
-    border: 1px solid #E6E8EA;
+    border: 1px solid #e6e8ea;
     background: #fff;
   }
-  
 
   .section-header {
     display: flex;
@@ -357,7 +501,7 @@
   }
 
   .section-count {
-    color: #58616A;
+    color: #58616a;
     font-size: 19px;
   }
 
@@ -368,23 +512,26 @@
   }
 }
 
-.card-grid{
+.card-grid {
   padding: 0 52px 32px 52px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
+  &.full-width {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }
 
 .card {
   background: #fff;
-  border: 1px solid #CDD1D5;
+  border: 1px solid #cdd1d5;
   border-radius: 12px;
   padding: 32px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   gap: 12px;
-  .card-badge{
+  .card-badge {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -395,29 +542,29 @@
     font-size: 19px;
     font-weight: 700;
     line-height: 1;
-    a{
-        @extend %ellipsis;
+    a {
+      @extend %ellipsis;
     }
   }
 
   .card-subtitle {
     line-height: 1;
   }
-  .card-subtext{
+  .card-subtext {
     display: flex;
     flex-direction: column;
     gap: 4px 0;
     padding-top: 12px;
-    .item{
+    .item {
       display: flex;
       align-items: center;
       gap: 4px;
-      b{
+      b {
         font-weight: 400;
         color: var(--color-tertiary);
         font-size: 1.5rem;
       }
-      em{
+      em {
         color: var(--color-secondary);
         font-style: normal;
       }
@@ -429,24 +576,23 @@
     justify-content: flex-end;
     align-items: center;
     padding-top: 16px;
-    border-top: 1px solid #E6E8EA;
+    border-top: 1px solid #e6e8ea;
   }
 }
 
-
-.more-link{
+.more-link {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px 0;
-  border-top: 1px solid #E6E8EA;
+  border-top: 1px solid #e6e8ea;
   &-text {
     display: flex;
     align-items: center;
     gap: 3px;
     font-size: 19px;
     transition: all 0.3s ease;
-    i{
+    i {
       transition: all 0.3s ease;
       transform: translateX(0);
     }
@@ -454,13 +600,70 @@
   &:hover,
   &:focus {
     text-decoration: underline;
-    .icon-arrow-right{
+    .icon-arrow-right {
       transform: translateX(4px);
     }
   }
 }
 
-.search-detail-filter{
-  max-width: 812px;
-  
+.search-detail-filter {
+  width: 812px;
+}
+
+.filter-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px 0;
+  .divider {
+    background-color: #e6e8ea;
+    height: 1px;
+  }
+  .filter-row {
+    display: flex;
+    align-items: center;
+    .filter-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      width: 160px;
+      padding: 7px 0;
+      flex-shrink: 0;
+      font-weight: 600;
+      background: #f4f5f6;
+      border-radius: 8px;
+      font-size: 1.7rem;
+    }
+    .filter-column {
+      position: relative;
+      padding-left: 32px;
+      display: flex;
+      flex: 1;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 16px;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: #e6e8ea;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+.filter-footer {
+  padding-top: 40px;
+  border-top: 1px solid #e6e8ea;
+}
+
+.form-checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  flex: 1;
+  gap: 8px 0;
+  &.length-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
 }

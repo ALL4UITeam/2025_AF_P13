@@ -33,13 +33,11 @@
 .modal-content {
   position: relative;
   z-index: var(--z-modal);
-  width: 100%;
+  //width: 100%;
   max-width: 500px;
-  background-color: var(--color-white);
-  border-radius: var(--radius-lg);
+  border-radius: 12px;
   box-shadow: var(--shadow-xl);
   animation: slideInUp var(--transition-base);
-  
   @include respond-to('md') {
     max-width: 600px;
   }
@@ -70,20 +68,24 @@
 // 모달 헤더
 .modal-header {
   @include flex-between;
-  padding: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-gray-200);
-  
+  border-radius: 12px 12px 0 0;
+  background: var(--gradient-1, linear-gradient(90deg, #2DA34F 0%, #1B5D88 100%));
+  overflow: hidden;
+  padding: 24px 40px;
   h2, h3, h4 {
     margin: 0;
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-gray-900);
+    color: #fff;
+    line-height: 1;
+    font-size: 23px;
   }
 }
 
 .modal-close {
   color: var(--color-gray-500);
-  
+  @include flex-center;
+  padding: 0;
+  background: url('/images/portal/icon-modal-close.svg') center no-repeat;
+  width: 32px;height: 32px;
   &:hover {
     color: var(--color-gray-700);
   }
@@ -94,7 +96,7 @@
   padding: var(--spacing-lg);
   max-height: 70vh;
   overflow-y: auto;
-  
+  background-color: #fff;
   @include scrollbar;
   
   &:first-child {

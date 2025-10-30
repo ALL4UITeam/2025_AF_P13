@@ -57,9 +57,145 @@
         <span class="divider" aria-hidden="true"></span>
         <a href="#">원격지원</a>
       </div>
-      <div class="footer-copyright"> 
+      <div class="footer-copyright">
         <p>© FOODPOLIS. All rights reserved.</p>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- 통합 검색 모달 - BODY 맨 아래 -->
+<div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+  <div class="search-modal__overlay"></div>
+
+  <div class="search-modal__container">
+    <div class="search-modal__header">
+      <h2 id="searchTitle" class="search-modal__title">통합 검색 <i></i></h2>
+    </div>
+    <div class="search-modal__search-bar">
+      <div class="search-header">
+        <!-- 검색 오버레이 -->
+        <div class="search-section">
+          <!-- 검색 입력 영역 -->
+          <div class="search-input-section">
+            <div class="search-input-wrapper">
+              <input type="text" class="search-input" placeholder="식품" value="식품">
+              <button type="button" class="search-btn" aria-label="검색">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  aria-hidden="true">
+                  <path
+                    d="M19.8984 10.8984C19.8984 12.9138 19.2334 14.7736 18.1143 16.2734L21.1201 19.2793L21.21 19.3779C21.598 19.8544 21.5975 20.5421 21.209 21.0186L21.1201 21.1172C20.6124 21.6249 19.7889 21.6249 19.2812 21.1172L16.2764 18.1123C14.7759 19.2327 12.915 19.8984 10.8984 19.8984C5.92787 19.8984 1.89844 15.869 1.89844 10.8984C1.89844 5.92787 5.92787 1.89844 10.8984 1.89844C15.869 1.89844 19.8984 5.92787 19.8984 10.8984ZM17.2988 10.8984C17.2988 7.36382 14.4331 4.49805 10.8984 4.49805C7.36382 4.49805 4.49805 7.36382 4.49805 10.8984C4.49805 14.4331 7.36382 17.2988 10.8984 17.2988C12.5568 17.2988 14.0644 16.6648 15.2021 15.6289C15.255 15.5429 15.3193 15.4629 15.3926 15.3896L15.4697 15.3184C15.5217 15.2742 15.576 15.234 15.6328 15.1992C16.6667 14.062 17.2988 12.5553 17.2988 10.8984Z"
+                    fill="url(#paint0_linear_2059_7289)" />
+                  <defs>
+                    <linearGradient id="paint0_linear_2059_7289" x1="1.89844" y1="11.6982" x2="21.5007" y2="11.6982"
+                      gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#2DA34F" />
+                      <stop offset="1" stop-color="#1B5D88" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- is-active -->
+          <div class="search-dropdown">
+            <!-- 자동완성 제안 -->
+            <div class="search-suggestions">
+              <div class="suggestion-item">
+                <i class="icon-search" aria-hidden="true"></i>
+                <span class="suggestion-text"><b class="highlight">식품</b>산업</span>
+              </div>
+              <div class="suggestion-item">
+                <i class="icon-search" aria-hidden="true"></i>
+                <span class="suggestion-text"><b class="highlight">식품</b>산업기업</span>
+              </div>
+              <div class="suggestion-item">
+                <i class="icon-search" aria-hidden="true"></i>
+                <span class="suggestion-text"><b class="highlight">식품</b>안전</span>
+              </div>
+            </div>
+
+            <!-- 자동완성 설정 -->
+            <div class="search-settings">
+              <div class="setting-item">
+                <span class="setting-label">
+                  <label for="search-autocomplete-toggle" class="setting-label-text">자동완성</label>
+                  <label class="switch"><input type="checkbox" id="search-autocomplete-toggle" checked><span
+                      class="switch-slider"></span></label>
+                </span>
+                <button type="button" class="close-btn" data-close="searchOverlay">닫기</button>
+              </div>
+            </div>
+
+            <!-- 검색 기록 -->
+            <div class="search-history">
+              <div class="setting-item">
+                <span class="setting-label">
+                  <label for="search-history-toggle" class="setting-label-text">검색기록</label>
+                  <label class="switch"><input type="checkbox" id="search-history-toggle" checked><span
+                      class="switch-slider"></span></label>
+                </span>
+                <button type="button" class="clear-btn">전체삭제</button>
+              </div>
+
+              <div class="history-item">
+                <i class="icon-time" aria-hidden="true"></i>
+                <span class="history-text">식품</span>
+                <button type="button" class="delete-btn">
+                  <i class="icon-delete" aria-hidden="true"></i>
+                  <span class="sr-only">삭제</span>
+                </button>
+              </div>
+
+              <div class="history-item">
+                <i class="icon-time" aria-hidden="true"></i>
+                <span class="history-text">식품</span>
+                <button type="button" class="delete-btn">
+                  <i class="icon-delete" aria-hidden="true"></i>
+                  <span class="sr-only">삭제</span>
+                </button>
+              </div>
+
+              <div class="history-item">
+                <i class="icon-time" aria-hidden="true"></i>
+                <span class="history-text">식품</span>
+                <button type="button" class="delete-btn">
+                  <i class="icon-delete" aria-hidden="true"></i>
+                  <span class="sr-only">삭제</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-modal__content">
+      <div class="search-modal__section">
+        <div class="search-modal__section-title">
+          <h3>최근 검색어</h3>
+        </div>
+        <div class="search-modal__list">
+          <div class="search-modal__list-item"><button type="button"><i class="hash">#</i><span class="search-modal__list-item-text">식품</span></button></div>
+        </div>
+      </div>
+      <div class="search-modal__section">
+        <div class="search-modal__section-title">
+          <h3>인기 검색어</h3>
+        </div>
+        <ol class="search-modal__ranking-list ranking-list">
+          <li class="ranking-item"><button type="button"><span class="num">1</span><span class="word up">식품산업</span></button></li>
+          <li class="ranking-item"><button type="button"><span class="num">2</span><span class="word down">식품산업</span></button></li>
+          <li class="ranking-item"><button type="button"><span class="num">3</span><span class="word same">식품산업</span></button></li>
+          <li class="ranking-item"><button type="button"><span class="num">4</span><span class="word same">식품산업</span></button></li>
+          <li class="ranking-item"><button type="button"><span class="num">5</span><span class="word up">식품산업</span></button></li>
+        </ol>
+      </div>
+    </div>
+
+    <button class="search-modal__close-btn">
+      <span class="sr-only">검색 닫기</span>
+    </button>
+  </div>
+</div>

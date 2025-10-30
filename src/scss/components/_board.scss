@@ -1,38 +1,120 @@
 // _board.scss - 게시판 전용 스타일
 
+.search-info.search-board-info{
+  .search-info-inner{
+    color: #000;
+    font-size: 15px;
+    .search-keyword{
+      font-size: 1em;
+      color: #000;
+    }
+    .search-result-count{
+      font-size: 1em;
+      color: var(--color-brand-primary);
+      font-weight: 700;
+    }
+  }
+  .search-info-filter{
+    font-size: 15px;
+    .filter-label{color: #000;font-size: 1em;}
+    .divider{
+      background-color: #000;
+    }
+    .sort-label{color: #000;font-size: 1em;}
+    .filter-select{color: #000;font-size: 1em;}
+    .sort-btn{color: #000;font-size: 1em;}
+  }
+}
 // ========================================
 // 게시판 목록
 // ========================================
 .board-list {
   .table {
-    // 게시판 목록 특화 스타일
-    th {
-      &.col-number { width: 80px; text-align: center; }
-      &.col-title { width: auto; }
-      &.col-author { width: 120px; }
-      &.col-date { width: 120px; text-align: center; }
-      &.col-views { width: 80px; text-align: center; }
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+
+    thead {
+      background: #f8f9fa;
+      border-top: 2px solid #343a40;
+      border-bottom: 1px solid #dee2e6;
     }
-    
-    td {
-      &.col-number { text-align: center; color: var(--color-gray-600); }
+
+    th {
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #343a40;
+      text-align: left;
+
+      &.col-number { 
+        width: 80px; 
+        text-align: center; 
+      }
       &.col-title { 
-        font-weight: var(--font-weight-medium);
+        width: auto; 
+      }
+      &.col-author { 
+        width: 120px; 
+      }
+      &.col-date { 
+        width: 120px; 
+        text-align: center; 
+      }
+      &.col-views { 
+        width: 80px; 
+        text-align: center; 
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #e9ecef;
+        transition: background 0.2s;
+
+        &:hover {
+          background: #f8f9fa;
+        }
+      }
+    }
+
+    td {
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #212529;
+
+      &.col-number { 
+        text-align: center; 
+        color: #6c757d; 
+      }
+
+      &.col-title { 
+        font-weight: 500;
         
         a {
-          color: var(--color-gray-900);
+          color: #212529;
           text-decoration: none;
           
           &:hover {
-            color: var(--color-primary);
+            color: #0066ff;
             text-decoration: underline;
           }
         }
         
-        .badge { margin-left: var(--spacing-xs); }
+        .badge { 
+          margin-left: 8px; 
+        }
       }
-      &.col-date { text-align: center; color: var(--color-gray-600); }
-      &.col-views { text-align: center; color: var(--color-gray-600); }
+
+      &.col-date { 
+        text-align: center; 
+        color: #6c757d; 
+      }
+
+      &.col-views { 
+        text-align: center; 
+        color: #6c757d; 
+      }
     }
   }
 }
@@ -40,40 +122,227 @@
 // ========================================
 // 게시판 상세
 // ========================================
-.board-detail {
-  background-color: var(--color-white);
-  border: 1px solid var(--color-gray-200);
-  border-radius: var(--radius-lg);
-  
-  &__header {
-    padding: var(--spacing-xl);
-    border-bottom: 1px solid var(--color-gray-200);
-    
-    .title {
-      font-size: var(--font-size-2xl);
-      font-weight: var(--font-weight-bold);
-      margin-bottom: var(--spacing-sm);
-    }
-    
-    .meta {
-      display: flex;
-      gap: var(--spacing-md);
-      color: var(--color-gray-600);
-      font-size: var(--font-size-sm);
-    }
+.post {
+  overflow: hidden;
+}
+
+.post-header {
+  padding: 40px 40px 30px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.category {
+  display: inline-block;
+  padding: 6px 14px;
+  background: #f0f7ff;
+  color: #0066cc;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.post-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin: 0 0 20px;
+}
+
+.post-info {
+  display: flex;
+  gap: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.post-info span {
+  position: relative;
+}
+
+.post-info span:not(:last-child)::after {
+  content: '|';
+  position: absolute;
+  right: -11px;
+  color: #ddd;
+}
+
+.attachment-area {
+  padding: 20px 40px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+.attachment-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.attachment-item::before {
+  content: '📎';
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.attachment-item:hover {
+  border-color: #0066cc;
+  background: #f8fbff;
+}
+
+.post-content {
+  padding: 40px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.post-content p {
+  margin: 0 0 20px;
+}
+
+.highlight-box {
+  padding: 20px 24px;
+  background: #fff9e6;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+  margin: 30px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #5a4a00;
+}
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.link-list a {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 18px;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  color: #0066cc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.link-list a::before {
+  content: '▶';
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.link-list a:hover {
+  background: #e7f3ff;
+  border-color: #0066cc;
+  transform: translateX(4px);
+}
+
+.post-nav {
+  padding: 0 40px;
+  border-top: 1px solid #eee;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-item:hover {
+  background: #fafafa;
+}
+
+.nav-label {
+  font-size: 13px;
+  color: #999;
+  font-weight: 600;
+  min-width: 60px;
+}
+
+.nav-title {
+  flex: 1;
+  font-size: 15px;
+  color: #333;
+}
+
+.nav-date {
+  font-size: 13px;
+  color: #999;
+}
+
+.btn-group {
+  padding: 30px 40px 40px;
+  text-align: center;
+}
+
+.btn {
+  padding: 12px 40px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #f8f9fa;
+  border-color: #999;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .post {
+    border-radius: 0;
+    box-shadow: none;
   }
-  
-  &__content {
-    padding: var(--spacing-xl);
-    min-height: 300px;
-    line-height: 1.8;
+
+  .post-header,
+  .attachment-area,
+  .post-content,
+  .post-nav,
+  .btn-group {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  
-  &__footer {
-    padding: var(--spacing-lg);
-    border-top: 1px solid var(--color-gray-200);
-    display: flex;
-    justify-content: space-between;
+
+  .post-title {
+    font-size: 22px;
+  }
+
+  .post-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .post-info span::after {
+    display: none;
+  }
+
+  .nav-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 
@@ -122,9 +391,6 @@
   }
 }
 
-// ========================================
-// 게시판 검색
-// ========================================
 // ========================================
 // 게시판 검색
 // ========================================
@@ -234,6 +500,141 @@
     &__actions {
       margin-left: 0;
       justify-content: flex-end;
+    }
+  }
+}
+
+// ========================================
+// 게시판 카드
+// ========================================
+.board-list-card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  .card-item {
+    position: relative;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+      content: "";
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      transition: border-color 0.25s;
+      box-sizing: border-box;
+    }
+
+    &:hover::after {
+      border: 2px solid var(--brand-color);
+    }
+
+    .card-item_cate {
+      font-size: 14px;
+      margin-bottom: 10px;
+      line-height: 1.25em;
+    }
+
+    .card-item_title {
+      font-size: 18px;
+      line-height: 1.1em;
+      max-height: 2.2em;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: auto;
+    }
+
+    .card-item_stat {
+      position: absolute;
+      right: 25px;
+      top: 20px;
+    }
+
+    .card-item_thumn, .card-image-thumn {
+      margin-top: 15px;
+    }
+
+    .card-item_summary {
+      font-size: 16px;
+      margin-top: 15px;
+      line-height: 1.25em;
+      font-weight: normal;
+      overflow: hidden;
+      box-sizing: border-box;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      text-overflow: ellipsis;
+      height: auto;
+    }
+
+    .card-item_auth, .card-item_auth2 {
+      border-bottom: 1px solid #e1e1e1;
+      padding-top: 30px;
+      display: flex;
+      padding-bottom: 15px;
+      margin-top: auto;
+      margin-bottom: 0;
+
+      .card-item_user {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+
+        i { margin-right: 6px; }
+      }
+
+      .card-item_regdage {
+        margin-left: auto;
+        margin-right: 0;
+        font-size: 14px;
+        color: #616161;
+        font-weight: normal;
+      }
+    }
+
+    .card-item_auth2 {
+      border-bottom: 0;
+      padding-bottom: 0;
+      padding-top: 10px;
+
+      .card-item_regdage {
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+
+    .card-item_answer {
+      display: flex;
+      min-height: 28px;
+      padding-top: 15px;
+      align-items: center;
+
+      span {
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .card-item {
+      flex: 0 0 calc(50% - 18px);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .card-item {
+      flex: 0 0 100%;
     }
   }
 }

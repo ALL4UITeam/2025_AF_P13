@@ -18,7 +18,7 @@ const portal = {
       if (!block) return;
       navigator.clipboard.writeText(block.innerText).then(() => {
         const originalText = btn.textContent;
-        btn.textContent = "✅ 복사됨";
+        btn.textContent = "복사됨";
         setTimeout(() => {
           btn.textContent = originalText;
         }, 1200);
@@ -60,7 +60,9 @@ const portal = {
       el.classList.add("is-active");
       el.setAttribute("aria-hidden", "false");
       this.activeModal = el;
-      const focusable = el.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      const focusable = el.querySelector(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      );
       if (focusable) focusable.focus();
       if (typeof callback === "function") callback(el);
     },
@@ -187,7 +189,9 @@ const portal = {
     initForm(form) {
       const dateStart = form.querySelector(".date-start");
       const dateEnd = form.querySelector(".date-end");
-      const searchInput = form.querySelector("#search-keyword, .search-keyword");
+      const searchInput = form.querySelector(
+        "#search-keyword, .search-keyword"
+      );
       if (dateStart) dateStart.type = "date";
       if (dateEnd) dateEnd.type = "date";
       if (dateStart) {
@@ -272,8 +276,12 @@ const portal = {
       this.updateZoomDisplay();
     },
     cacheElements() {
-      this.buttons.zoomOut = document.querySelector('.zoom-btn[aria-label="줌 아웃"]');
-      this.buttons.zoomIn = document.querySelector('.zoom-btn[aria-label="줌 인"]');
+      this.buttons.zoomOut = document.querySelector(
+        '.zoom-btn[aria-label="줌 아웃"]'
+      );
+      this.buttons.zoomIn = document.querySelector(
+        '.zoom-btn[aria-label="줌 인"]'
+      );
       this.display = document.querySelector(".zoom-percentage");
     },
     bindEvents() {
@@ -338,8 +346,179 @@ const portal = {
     }
   },
   // ========================================
-  // 검색 오버레이 기능
+  // 검색 오버레이 기능 (portal 네임스페이스에 추가)
   // ========================================
+  searchOverlay: {
+    modal: null,
+    overlay: null,
+    closeBtn: null,
+    input: null,
+    searchBtn: null,
+    previousFocus: null,
+    init() {
+      this.cacheElements();
+      if (!this.modal) return;
+      this.bindEvents();
+    },
+    cacheElements() {
+      this.modal = document.getElementById("searchModal");
+      if (!this.modal) return;
+      this.overlay = this.modal.querySelector(".search-modal__overlay");
+      this.closeBtn = this.modal.querySelector(".search-modal__close-btn");
+      this.input = this.modal.querySelector(".search-modal__input");
+      this.searchBtn = this.modal.querySelector(".search-modal__search-btn");
+    },
+    bindEvents() {
+      if (this.closeBtn) {
+        this.closeBtn.addEventListener("click", () => this.close());
+      }
+      if (this.overlay) {
+        this.overlay.addEventListener("click", () => this.close());
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && this.isOpen()) {
+          this.close();
+        }
+      });
+      if (this.searchBtn) {
+        this.searchBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          this.handleSearch();
+        });
+      }
+      if (this.input) {
+        this.input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            this.handleSearch();
+          }
+        });
+      }
+      this.modal.addEventListener("click", (e) => {
+        const keywordBtn = e.target.closest(".search-modal__keyword-btn");
+        if (keywordBtn) {
+          this.handleKeywordClick(keywordBtn);
+        }
+      });
+    },
+    open() {
+      if (!this.modal) return;
+      this.modal.classList.add("is-active");
+      this.modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      this.previousFocus = document.activeElement;
+      setTimeout(() => {
+        if (this.input) this.input.focus();
+      }, 100);
+    },
+    close() {
+      if (!this.modal) return;
+      this.modal.classList.remove("is-active");
+      this.modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      if (this.previousFocus) {
+        this.previousFocus.focus();
+      }
+    },
+    isOpen() {
+      var _a;
+      return ((_a = this.modal) == null ? void 0 : _a.classList.contains("is-active")) || false;
+    },
+    handleSearch() {
+      var _a;
+      const keyword = (_a = this.input) == null ? void 0 : _a.value.trim();
+      if (!keyword) return;
+      const event = new CustomEvent("search:overlay", {
+        detail: { keyword },
+        bubbles: true
+      });
+      this.modal.dispatchEvent(event);
+      console.log("통합 검색:", keyword);
+    },
+    handleKeywordClick(btn) {
+      const keyword = btn.textContent.trim();
+      if (this.input) {
+        this.input.value = keyword;
+      }
+      this.handleSearch();
+    }
+  },
+  // ========================================
+  // 스크롤 탭 컴포넌트 (다중 인스턴스 대응)
+  // ========================================
+  scrollTab: {
+    init() {
+      const containers = document.querySelectorAll(".scroll-tab-container");
+      if (!containers.length) return;
+      containers.forEach((container) => this.mount(container));
+    },
+    mount(container) {
+      const list = container.querySelector(".scroll-tab-list");
+      if (!list) return;
+      const prevBtn = container.querySelector(".scroll-tab-nav-btn.prev");
+      const nextBtn = container.querySelector(".scroll-tab-nav-btn.next");
+      const items = container.querySelectorAll(".scroll-tab-item");
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          items.forEach((i) => i.classList.remove("active"));
+          item.classList.add("active");
+        });
+      });
+      const scrollBy = (direction) => {
+        const amount = 250;
+        list.scrollLeft += direction * amount;
+      };
+      prevBtn && prevBtn.addEventListener("click", () => scrollBy(-1));
+      nextBtn && nextBtn.addEventListener("click", () => scrollBy(1));
+      const updateButtons = () => {
+        if (!prevBtn || !nextBtn) return;
+        if (window.innerWidth <= 1024) {
+          const maxScroll = list.scrollWidth - list.clientWidth;
+          prevBtn.disabled = list.scrollLeft <= 0;
+          nextBtn.disabled = list.scrollLeft >= maxScroll - 5;
+        } else {
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
+        }
+      };
+      list.addEventListener("scroll", updateButtons);
+      window.addEventListener("resize", updateButtons);
+      updateButtons();
+    }
+  },
+  // portal 객체에 추가할 filterSort 모듈
+  // ========================================
+  // Filter & Sort 기능
+  // ========================================
+  filterSort: {
+    init() {
+      const containers = document.querySelectorAll("[data-filter-sort-bar]");
+      if (!containers.length) return;
+      containers.forEach((container) => this.mount(container));
+    },
+    mount(container) {
+      const sortButtons = container.querySelectorAll(".sort-btn");
+      sortButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          sortButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          console.log("정렬 변경:", btn.getAttribute("data-sort"));
+        });
+      });
+      const itemCountSelect = container.querySelector(".filter-select");
+      if (itemCountSelect) {
+        itemCountSelect.addEventListener("change", (e) => {
+          console.log("표시 개수:", e.target.value);
+        });
+      }
+      const sortSelectMobile = container.querySelector(".sort-select-mobile");
+      if (sortSelectMobile) {
+        sortSelectMobile.addEventListener("change", (e) => {
+          console.log("정렬 변경 (모바일):", e.target.value);
+        });
+      }
+    }
+  },
   // ========================================
   // 초기화
   // ========================================
@@ -353,11 +532,18 @@ const portal = {
     this.scroll.init();
     this.zoom.init();
     this.searchForm.init();
+    this.searchOverlay.init();
+    this.scrollTab.init();
+    this.filterSort.init();
     this.initialized = true;
     console.log("Portal initialized");
   }
 };
 document.addEventListener("DOMContentLoaded", () => {
   portal.init();
+  const searchButton = document.querySelector(".search-button");
+  searchButton.addEventListener("click", function() {
+    portal.searchOverlay.open();
+  });
 });
 window.portal = portal;

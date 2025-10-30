@@ -5,6 +5,9 @@
 
 .layout-sub{
   background: url('/images/portal/subtop-bg.png') no-repeat center 0;
+  &.search{
+    background-image: url('/images/portal/subtop-bg.svg');
+  }
 }
 
 .subtop{

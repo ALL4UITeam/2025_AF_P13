@@ -119,7 +119,7 @@
             </div>
           </div>
           <div class="search-detail-btn-wrapper">
-            <button type="button" class="search-detail-btn">
+            <button type="button" class="search-detail-btn" data-open="detailSearchModal">
               <i>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path
@@ -131,30 +131,29 @@
             </button>
           </div>
           <div class="ranking">
-            <ol id="rankingList">
-              <li><span class="num">1</span><span class="word up">식품산업</span></li>
-              <!-- <li><span class="num">1</span><span class="word down">식품산업</span></li>
-              <li><span class="num">1</span><span class="word same">식품산업</span></li> -->
+            <ol id="rankingList" class="ranking-list">
+              <li class="ranking-item"><button type="button"><span class="num">1</span><span
+                    class="word up">식품산업</span></button></li>
             </ol>
           </div>
         </div>
         <div class="search-category">
-          <div class="swiper tabSwiper" role="tablist">
+          <div class="swiper tabSwiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide active" role="tab" aria-selected="true" tabindex="0">
-                <button type="button" role="tab">전체 (999)</button>
+              <div class="swiper-slide active">
+                <button type="button" class="search-category-btn" aria-pressed="true">전체 (999)</button>
               </div>
-              <div class="swiper-slide" role="tab" aria-selected="false" tabindex="-1">
-                <button type="button" role="tab">식품기업지원 (111)</button>
+              <div class="swiper-slide">
+                <button type="button" class="search-category-btn" aria-pressed="false">식품기업지원 (111)</button>
               </div>
-              <div class="swiper-slide" role="tab" aria-selected="false" tabindex="-1">
-                <button type="button" role="tab">식품기업현황 (444)</button>
+              <div class="swiper-slide">
+                <button type="button" class="search-category-btn" aria-pressed="false">식품기업현황 (444)</button>
               </div>
-              <div class="swiper-slide" role="tab" aria-selected="false" tabindex="-1">
-                <button type="button" role="tab">식품산업데이터 (222)</button>
+              <div class="swiper-slide">
+                <button type="button" class="search-category-btn" aria-pressed="false">식품산업데이터 (222)</button>
               </div>
-              <div class="swiper-slide" role="tab" aria-selected="false" tabindex="-1">
-                <button type="button" role="tab">게시물정보 (222)</button>
+              <div class="swiper-slide">
+                <button type="button" class="search-category-btn" aria-pressed="false">게시물정보 (222)</button>
               </div>
             </div>
             <button class="swiper-button-prev" aria-label="이전 탭" type="button"></button>
@@ -163,8 +162,43 @@
         </div>
 
         <div class="search-info">
-          <span class="search-keyword">식품</span>에 대해
-          <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
+          <div class="search-info-inner">
+            <span class="search-keyword">식품</span>에 대해
+            <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
+          </div>
+          <div class="search-info-filter">
+            <div class="filter-sort-bar" data-filter-sort-bar>
+              <!-- 목록 표시 개수 -->
+              <div class="filter-group">
+                <span class="filter-label">목록 표시 개수</span>
+                <select class="filter-select" id="itemCount">
+                  <option value="12" selected>12개</option>
+                  <option value="24">24개</option>
+                  <option value="36">36개</option>
+                  <option value="48">48개</option>
+                </select>
+              </div>
+
+              <div class="divider"></div>
+
+              <!-- 정렬 기준 -->
+              <div class="sort-group">
+                <span class="sort-label">정렬기준</span>
+
+                <!-- PC용 버튼 -->
+                <div class="sort-buttons">
+                  <button class="sort-btn active" data-sort="relevance">관련도순</button>
+                  <button class="sort-btn" data-sort="latest">최신순</button>
+                </div>
+
+                <!-- 모바일용 셀렉트 -->
+                <select class="sort-select-mobile" id="sortSelectMobile">
+                  <option value="relevance" selected>관련도순</option>
+                  <option value="latest">최신순</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="accordion-container">
@@ -178,7 +212,6 @@
                 d="M20.0001 25.086L10.5771 15.6631L12.0684 14.1719L20.0001 22.1035L27.9317 14.1719L29.423 15.6631L20.0001 25.086Z"
                 fill="#58616A" />
             </svg>
-
           </div>
 
           <div class="accordion-content" id="accordionContent">
@@ -218,6 +251,7 @@
         <!-- // ai -->
 
         <div class="search-result-list">
+          <!-- // 전체 검색용 -->
           <div class="section">
             <div class="section-header">
               <h2 class="section-title">식품산업데이터 <button type="button" title="도움말 열림"><i aria-hidden="true"
@@ -237,7 +271,7 @@
                     <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
                   </div>
                 </div>
-                
+
                 <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
                 <div class="card-content">
                   <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
@@ -259,7 +293,7 @@
                     <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
                   </div>
                 </div>
-                
+
                 <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
                 <div class="card-content">
                   <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
@@ -280,7 +314,7 @@
                     <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
                   </div>
                 </div>
-                
+
                 <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
                 <div class="card-content">
                   <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
@@ -299,123 +333,102 @@
               <span class="more-link-text">식품산업데이터 더보기 <i class="icon-arrow-right" aria-hidden="true"></i></span>
             </a>
           </div>
-        </div>
+          <!-- // 상세 검색용 -->
+          <div class="section">
+            <div class="section-header">
+              <h2 class="section-title">식품산업데이터 <button type="button" title="도움말 열림"><i aria-hidden="true"
+                    class="icon-help"></i><span class="sr-only">도움말</span></button></h2>
+              <div class="section-count" aria-live="polite" aria-atomic="true">
+                검색결과 <span class="number">222</span>건
+              </div>
+            </div>
 
-        <div class="search-detail-filter">
-          <div class="filter-content">
-            <div class="filter-row">
-              <h3 class="filter-title">카테고리</h3>
-              <div class="filter-column">
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-all" class="checkbox">
-                  <label for="checkbox-all">전체</label>
+            <div class="scroll-tab-container">
+              <button class="scroll-tab-nav-btn prev" type="button">‹</button>
+
+              <div class="scroll-tab-wrapper">
+                <div class="scroll-tab-list">
+                  <button class="scroll-tab-item active">교육지원금공고 <span class="scroll-tab-badge">(60)</span></button>
+                  <button class="scroll-tab-item">진로가교 <span class="scroll-tab-badge">(6)</span></button>
+                  <button class="scroll-tab-item">공공서비스명 <span class="scroll-tab-badge">(5)</span></button>
+                  <button class="scroll-tab-item">지원사업공고 <span class="scroll-tab-badge">(10)</span></button>
+                  <button class="scroll-tab-item">청구지원사업 <span class="scroll-tab-badge">(20)</span></button>
+                  <button class="scroll-tab-item">시설정비현황 <span class="scroll-tab-badge">(11)</span></button>
                 </div>
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-1" class="checkbox">
-                  <label for="checkbox-1">식물기관지원</label>
+              </div>
+
+              <button class="scroll-tab-nav-btn next" type="button">›</button>
+            </div>
+
+            <div class="card-grid full-width">
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
                 </div>
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-2" class="checkbox">
-                  <label for="checkbox-2">식물기관활성</label>
+
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
                 </div>
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-3" class="checkbox">
-                  <label for="checkbox-3">식물신약바이오</label>
+                <div class="card-footer">
+                  <span class="badge badge--filled badge--success badge--rounded">진행중</span>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <span class="badge badge--filled badge--danger badge--rounded">오늘마감</span>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <span class="badge badge--filled badge--secondary badge--rounded">접수마감</span>
                 </div>
               </div>
             </div>
-            <div class="filter-row">
-              <h3 class="filter-title">콘텐츠</h3>
-              <div class="filter-column">
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-content-all" class="checkbox">
-                  <label for="checkbox-content-all">전체</label>
-                </div>
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-content-1" class="checkbox">
-                  <label for="checkbox-content-1">교육지원공고</label>
-                </div>
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-content-2" class="checkbox">
-                  <label for="checkbox-content-2">진로개고</label>
-                </div>
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-content-3" class="checkbox">
-                  <label for="checkbox-content-3">지원사업공고</label>
-                </div>
-                <div class="form-checkbox">
-                  <input type="checkbox" id="checkbox-content-4" class="checkbox">
-                  <label for="checkbox-content-4">정부사업정보</label>
-                </div>
-              </div>
-            </div>
-            <div class="filter-row">
-              <h3 class="filter-title">기간 설정</h3>
-              <div class="filter-column">
-                <div class="form-radio">
-                  <input type="radio" id="radio-period-all" name="radio-period" class="radio">
-                  <label for="radio-period-all">전체</label>
-                </div>
-                <div class="form-radio">
-                  <input type="radio" id="radio-period-1" name="radio-period" class="radio">
-                  <label for="radio-period-1">최근 1주일</label>
-                </div>
-                <div class="form-radio">
-                  <input type="radio" id="radio-period-2" name="radio-period" class="radio">
-                  <label for="radio-period-2">최근 1개월</label>
-                </div>
-                <div class="form-radio">
-                  <input type="radio" id="radio-period-3" name="radio-period" class="radio">
-                  <label for="radio-period-3">최근 3개월</label>
-                </div>
-                <div class="form-radio">
-                  <input type="radio" id="radio-period-4" name="radio-period" class="radio">
-                  <label for="radio-period-4">최근 6개월</label>
-                </div>
-                <div class="form-radio">
-                  <input type="radio" id="radio-period-5" name="radio-period" class="radio">
-                  <label for="radio-period-5">최근 1년</label>
-                </div>
-              </div>
-            </div>
-            <div class="filter-row">
-              <h3 class="filter-title">범위 설정</h3>
-              <div class="filter-column">
-                <div class="form-radio">
-                  <input type="radio" id="radio-scope-all" name="radio-scope" class="radio">
-                  <label for="radio-scope-all">전체</label>
-                </div>
-                <div class="form-radio">
-                  <input type="radio" id="radio-scope-1" name="radio-scope" class="radio">
-                  <label for="radio-scope-1">제목</label>
-                </div>
-                <div class="form-radio">
-                  <input type="radio" id="radio-scope-3" name="radio-scope" class="radio">
-                  <label for="radio-scope-3">내용</label>
-                </div>
-              </div>
-            </div>
-            <div class="filter-row">
-              <h3 class="filter-title">단어 중 1개 이상 포함</h3>
-              <input type="text" class="input input--md" placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 입력)">
-            </div>
-            <div class="filter-row">
-              <h3 class="filter-title">다음 단어 모두 포함</h3>
-              <input type="text" class="input input--md" placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 AND 검색)">
-            </div>
-            <div class="filter-row">
-              <h3 class="filter-title">다음 단어 모두 제외</h3>
-              <input type="text" class="input input--md" placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 NOT 검색)">
-            </div>
-          </div>
-          <div class="filter-footer fab-actions">
-            <div class="l">
-              <button type="button" class="btn btn--outline-tertiary btn--md">취소</button>
-            </div>
-            <div class="r">
-              <button type="button" class="btn btn--outline btn--tertiary btn--md">초기화</button>
-              <button type="button" class="btn btn--primary btn--md">검색</button>
-            </div>
+            <a class="more-link" href="#">
+              <span class="more-link-text">식품산업데이터 더보기 <i class="icon-arrow-right" aria-hidden="true"></i></span>
+            </a>
           </div>
         </div>
       </main>
@@ -425,17 +438,293 @@
 
   {{> layout/floating }}
 
+  <div id="detailSearchModal" class="modal modal--xl" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="detailSearchModal"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>상세검색</h3>
+        <button class="modal-close btn btn--icon-only" type="button" data-close="detailSearchModal">
+          <span class="sr-only">닫기</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="search-detail-filter">
+          <form id="detailSearchForm" class="filter-content">
+            <div class="filter-row">
+              <h3 class="filter-title">카테고리</h3>
+              <div class="filter-column">
+                <div class="form-checkbox-group">
+                  <div class="form-check">
+                    <input type="checkbox" id="checkbox-all" class="checkbox">
+                    <label for="checkbox-all">전체</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="checkbox-1" class="checkbox">
+                    <label for="checkbox-1">식물기관지원</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="checkbox-2" class="checkbox">
+                    <label for="checkbox-2">식물기관활성</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="checkbox-3" class="checkbox">
+                    <label for="checkbox-3">식물신약바이오</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="filter-row">
+              <h3 class="filter-title">콘텐츠</h3>
+              <div class="filter-column">
+                <div class="form-checkbox-group length-5">
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con1" class="checkbox">
+                    <label for="ch-con1">전체</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con2" class="checkbox">
+                    <label for="ch-con2">교육지원공고</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con3" class="checkbox">
+                    <label for="ch-con3">전문가공고</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con4" class="checkbox">
+                    <label for="ch-con4">지원사업공고</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con5" class="checkbox">
+                    <label for="ch-con5">공유시설정보</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con6" class="checkbox">
+                    <label for="ch-con6">외부지원사업</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con7" class="checkbox">
+                    <label for="ch-con7">시설장비정보</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con8" class="checkbox">
+                    <label for="ch-con8">원료소재</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con9" class="checkbox">
+                    <label for="ch-con9">시설장비</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con10" class="checkbox">
+                    <label for="ch-con10">인증분석</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con11" class="checkbox">
+                    <label for="ch-con11">ODM/OEM</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con12" class="checkbox">
+                    <label for="ch-con12">전문가</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con13" class="checkbox">
+                    <label for="ch-con13">협력업체</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con14" class="checkbox">
+                    <label for="ch-con14">개방데이터</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con15" class="checkbox">
+                    <label for="ch-con15">특허정보</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con16" class="checkbox">
+                    <label for="ch-con16">논문정보</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con17" class="checkbox">
+                    <label for="ch-con17">식품기업정보</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con18" class="checkbox">
+                    <label for="ch-con18">식품수출입정보</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con19" class="checkbox">
+                    <label for="ch-con19">식품판매정보</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con20" class="checkbox">
+                    <label for="ch-con20">해외시장정보</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con21" class="checkbox">
+                    <label for="ch-con21">발간보고서</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con22" class="checkbox">
+                    <label for="ch-con22">카드뉴스/소식지</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con23" class="checkbox">
+                    <label for="ch-con23">공지사항</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con24" class="checkbox">
+                    <label for="ch-con24">FAQ</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con25" class="checkbox">
+                    <label for="ch-con25">Q&A</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="ch-con26" class="checkbox">
+                    <label for="ch-con26">자료실</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="filter-row">
+              <h3 class="filter-title">기간 설정</h3>
+              <div class="filter-column">
+                <div class="form-area">
+                  <div class="form-radio">
+                    <input type="radio" id="radio-period-all" name="radio-period" class="radio">
+                    <label for="radio-period-all">전체</label>
+                  </div>
+                  <div class="form-radio">
+                    <input type="radio" id="radio-period-1" name="radio-period" class="radio">
+                    <label for="radio-period-1">최근 1주일</label>
+                  </div>
+                  <div class="form-radio">
+                    <input type="radio" id="radio-period-2" name="radio-period" class="radio">
+                    <label for="radio-period-2">최근 1개월</label>
+                  </div>
+                  <div class="form-radio">
+                    <input type="radio" id="radio-period-3" name="radio-period" class="radio">
+                    <label for="radio-period-3">최근 3개월</label>
+                  </div>
+                  <div class="form-radio">
+                    <input type="radio" id="radio-period-4" name="radio-period" class="radio">
+                    <label for="radio-period-4">최근 6개월</label>
+                  </div>
+                  <div class="form-radio">
+                    <input type="radio" id="radio-period-5" name="radio-period" class="radio">
+                    <label for="radio-period-5">최근 1년</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="filter-row">
+              <h3 class="filter-title">범위 설정</h3>
+              <div class="filter-column">
+                <div class="form-area">
+                  <div class="form-radio">
+                    <input type="radio" id="radio-scope-all" name="radio-scope" class="radio">
+                    <label for="radio-scope-all">전체</label>
+                  </div>
+                  <div class="form-radio">
+                    <input type="radio" id="radio-scope-1" name="radio-scope" class="radio">
+                    <label for="radio-scope-1">제목</label>
+                  </div>
+                  <div class="form-radio">
+                    <input type="radio" id="radio-scope-3" name="radio-scope" class="radio">
+                    <label for="radio-scope-3">내용</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="filter-row">
+              <h3 class="filter-title">단어 중 1개 이상 포함</h3>
+              <div class="filter-column">
+                <input type="text" name="include-any" class="input input--md" placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 입력)">
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="filter-row">
+              <h3 class="filter-title">다음 단어 모두 포함</h3>
+              <div class="filter-column">
+                <input type="text" name="include-all" class="input input--md"
+                  placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 AND 검색)">
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="filter-row">
+              <h3 class="filter-title">다음 단어 모두 제외</h3>
+              <div class="filter-column">
+                <input type="text" name="exclude" class="input input--md" placeholder="예의 단어 입력시 쉼표 (, )로 구분하여 NOT 검색)">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="l">
+          <button type="button" class="btn btn--outline btn--tertiary btn--md"
+            data-close="detailSearchModal">취소</button>
+        </div>
+        <div class="r">
+          <button type="button" class="btn btn--outline btn--primary btn--md" id="resetDetailSearch">초기화</button>
+          <button type="submit" form="detailSearchForm" class="btn btn--primary btn--md">검색</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script type="module" src="../js/pages/portal.js"></script>
   <script>
     // Swiper 탭
-    new Swiper(".tabSwiper", {
-      slidesPerView: "auto",
-      spaceBetween: 0,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+    (function () {
+      const swiperEl = document.querySelector('.tabSwiper');
+      const slides = swiperEl ? swiperEl.querySelectorAll('.swiper-slide') : [];
+      const slideCount = slides.length;
+
+      // 데스크톱(>1024): 최대 5개 고정, 부족하면 실제 개수만큼 표시
+      // 1024 이하: 자동 너비로 무제한
+      const desktopCount = Math.min(slideCount, 5);
+
+      const tabSwiper = new Swiper('.tabSwiper', {
+        slidesPerView: desktopCount || 1,
+        spaceBetween: 0,
+        watchOverflow: true,
+        breakpoints: {
+          0: {
+            slidesPerView: slideCount > 5 ? 'auto' : desktopCount || 1,
+            freeMode: slideCount > 5,
+          },
+          1025: {
+            slidesPerView: desktopCount || 1,
+            freeMode: false,
+          }
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+
+      // 탭 클릭 처리: active 슬라이드/aria-pressed 갱신
+      swiperEl.addEventListener('click', function (e) {
+        const btn = e.target.closest('.search-category-btn');
+        if (!btn) return;
+
+        // 전부 초기화
+        swiperEl.querySelectorAll('.search-category-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
+        swiperEl.querySelectorAll('.swiper-slide').forEach(slide => slide.classList.remove('active'));
+
+        // 현재 버튼/슬라이드 활성화
+        btn.setAttribute('aria-pressed', 'true');
+        const slideEl = btn.closest('.swiper-slide');
+        if (slideEl) slideEl.classList.add('active');
+
+        // 보기로 스크롤 이동
+        const index = Array.from(swiperEl.querySelectorAll('.swiper-slide')).indexOf(slideEl);
+        if (index > -1 && tabSwiper) tabSwiper.slideTo(index);
+      });
+    })();
 
     function toggleAccordion() {
       const content = document.getElementById('accordionContent');
@@ -444,6 +733,17 @@
       content.classList.toggle('open');
       icon.classList.toggle('open');
     }
+
+    // 초기화
+    document.getElementById('resetDetailSearch').addEventListener('click', function () {
+      document.getElementById('detailSearchForm').reset();
+    });
+
+    document.getElementById('detailSearchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      portal.modal.close('detailSearchModal');
+    });
+
 
   </script>
 
