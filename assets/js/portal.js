@@ -486,6 +486,26 @@ const portal = {
       updateButtons();
     }
   },
+  // ========================================
+  // Date Range Picker 기능
+  // ========================================
+  dateRangePicker: {
+    init() {
+      const dateInputs = document.querySelectorAll("#dateRangePicker");
+      if (!dateInputs.length) return;
+      dateInputs.forEach((input) => {
+        flatpickr(input, {
+          mode: "range",
+          dateFormat: "Y.m.d",
+          locale: "ko",
+          defaultDate: [/* @__PURE__ */ new Date(), /* @__PURE__ */ new Date()],
+          onChange: function(selectedDates, dateStr, instance) {
+            console.log("선택된 날짜:", dateStr);
+          }
+        });
+      });
+    }
+  },
   // portal 객체에 추가할 filterSort 모듈
   // ========================================
   // Filter & Sort 기능
@@ -520,6 +540,66 @@ const portal = {
     }
   },
   // ========================================
+  // 헤더 네비게이션 메뉴 기능
+  // ========================================
+  headerNav: {
+    header: null,
+    headerMenu: null,
+    hoverTimeout: null,
+    init() {
+      this.header = document.getElementById("header");
+      this.headerMenu = document.querySelector(".header-menu");
+      if (!this.header || !this.headerMenu) return;
+      this.bindEvents();
+    },
+    bindEvents() {
+      this.headerMenu.addEventListener("mouseenter", () => {
+        this.handleEnter();
+      });
+      this.headerMenu.addEventListener("mouseleave", () => {
+        this.handleLeave();
+      });
+      const menuLinks = this.headerMenu.querySelectorAll(".gnb-lv1-link");
+      menuLinks.forEach((link) => {
+        link.addEventListener("focus", () => {
+          this.handleEnter();
+        });
+      });
+      const dropmenuLinks = this.headerMenu.querySelectorAll(".dropmenu a");
+      dropmenuLinks.forEach((link) => {
+        link.addEventListener("focus", () => {
+          this.handleEnter();
+        });
+      });
+      document.addEventListener("click", (e) => {
+        if (!this.header.contains(e.target)) {
+          this.closeAll();
+        }
+      });
+    },
+    handleEnter() {
+      if (this.hoverTimeout) {
+        clearTimeout(this.hoverTimeout);
+        this.hoverTimeout = null;
+      }
+      this.headerMenu.classList.add("is-active");
+      this.header.classList.add("has-dropdown");
+    },
+    handleLeave() {
+      this.hoverTimeout = setTimeout(() => {
+        this.closeAll();
+      }, 200);
+    },
+    closeAll() {
+      this.headerMenu.classList.remove("is-active");
+      this.header.classList.remove("has-dropdown");
+      if (this.hoverTimeout) {
+        clearTimeout(this.hoverTimeout);
+        this.hoverTimeout = null;
+      }
+    }
+  },
+  // ========================================
   // 초기화
   // ========================================
   init() {
@@ -535,6 +615,8 @@ const portal = {
     this.searchOverlay.init();
     this.scrollTab.init();
     this.filterSort.init();
+    this.headerNav.init();
+    this.dateRangePicker.init();
     this.initialized = true;
     console.log("Portal initialized");
   }

@@ -23,7 +23,10 @@
   <title>식품정보24</title>
   <script src="../lib/jquery/jquery-3.7.1.min.js"></script>
   <script src="../lib/swiper/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="../lib/swiper/swiper-bundle.min.css">  <script src="../assets/js/main.js"></script>
+  <link rel="stylesheet" href="../lib/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>  <script src="../assets/js/main.js"></script>
   <script src="../assets/js/portal.js"></script>
   <link rel="stylesheet" href="../assets/css/common3.css">
   <link rel="stylesheet" href="../assets/css/common2.css">
@@ -69,29 +72,84 @@
             <ul id="gnb" class="gnb">
               <li class="gnb-lv1">
                 <a class="gnb-lv1-link" href="#" title="새창열림" target="_blank">
-                  <span class="gnb-lv1-link-text">식품산업지도</span>
+                  <span class="gnb-lv1-link-text">식품정보</span>
                   <i class="gnb-lv1-link-icon" aria-hidden="true"></i>
                 </a>
+                <div class="dropmenu allin-menu">
+                  <a href="#" class="allin-menu-link1">
+                    식품정보의 모든 데이터를 한눈에!식품정보24 바로가기
+                  </a>
+                </div>
               </li>
               <li class="gnb-lv1">
                 <a class="gnb-lv1-link" href="#">
-                  <span class="gnb-lv1-link-text">분석서비스</span>
+                  <span class="gnb-lv1-link-text">비즈니스 매칭</span>
+                  <i class="gnb-lv1-link-icon" aria-hidden="true"></i>
                 </a>
+                <div class="dropmenu allin-menu">
+                  <a href="#" class="allin-menu-link2">식품산업 최적의  비즈니스 매칭은 디정플에서!! 비즈니스매칭 바로가기</a>
+                </div>
+              </li>
+              <!-- <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">식품산업지도</span>
+                </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">식품산업지도</a></li>
+                  </ul>
+                </div>
+              </li> -->
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">분석 서비스</span>
+                </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">트랜드 분석</a></li>
+                    <li><a href="#">융합데이터 분석</a></li>
+                    <li><a href="#">키워드 분석</a></li>
+                  </ul>
+                </div>
               </li>
               <li class="gnb-lv1">
                 <a class="gnb-lv1-link" href="#">
                   <span class="gnb-lv1-link-text">식품데이터 제공</span>
                 </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">오픈 API</a></li>
+                    <li><a href="#">데이터 시각화</a></li>
+                    <li><a href="#">데이터 신청</a></li>
+                  </ul>
+                </div>
               </li>
               <li class="gnb-lv1">
                 <a class="gnb-lv1-link" href="#">
                   <span class="gnb-lv1-link-text">식품산업 정보</span>
                 </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">식품산업 관련 정보</a></li>
+                    <li><a href="#">정책지원 사업</a></li>
+                    <li><a href="#">발간 보고서</a></li>
+                    <li><a href="#">법률/규제 알림</a></li>
+                  </ul>
+                </div>
               </li>
               <li class="gnb-lv1">
                 <a class="gnb-lv1-link" href="#">
                   <span class="gnb-lv1-link-text">서비스 소개</span>
                 </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">서비스 소개</a></li>
+                    <li><a href="#">서비스 활용</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">질문과 답변</a></li>
+                    <li><a href="#">자료실</a></li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </nav>
@@ -105,10 +163,27 @@
           </div>
         </div>
       </div>
+      <div class="header-bg"></div>
     </header>
     <!-- // header -->
     <div class="layout-sub search">
       <main id="content" class="sub-layout">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="/" title="홈으로 이동">홈</a></li>
+            <li>
+                <a href="/portal/index.html" title="포털로 이동">포털</a>
+            </li>
+            <li><span>공지사항</span></li>
+          </ol>
+          <div class="subtop-title-wrap">
+            <h1 class="subtop-title">공지사항</h1>
+            <div class="document-utils">
+              <button class="document-utils-share" title="공유"><i class="icon-share icon"></i></button>
+              <button class="document-utils-print" title="프린트"><i class="icon-print icon"></i></button>
+            </div>
+          </div>
+        </div>
         <div class="search-header">
           <!-- 검색 오버레이 -->
           <div class="search-research">
@@ -224,7 +299,8 @@
           </div>
         </div>
         <div class="search-category">
-          <div class="swiper tabSwiper">
+          <div class="tabSwiper">
+          <div class="swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide active">
                 <button type="button" class="search-category-btn" aria-pressed="true">전체 (999)</button>
@@ -242,8 +318,9 @@
                 <button type="button" class="search-category-btn" aria-pressed="false">게시물정보 (222)</button>
               </div>
             </div>
-            <button class="swiper-button-prev" aria-label="이전 탭" type="button"></button>
-            <button class="swiper-button-next" aria-label="다음 탭" type="button"></button>
+          </div>
+          <button class="swiper-button-prev" aria-label="이전 탭" type="button"></button>
+          <button class="swiper-button-next" aria-label="다음 탭" type="button"></button>
           </div>
         </div>
         <div class="search-info">
@@ -327,7 +404,7 @@
         </div>
         <!-- // ai -->
         <div class="search-result-list">
-          <!-- // 전체 검색용 -->
+          <!-- 식품기업지원 // -->
           <div class="section">
             <div class="section-header">
               <h2 class="section-title">식품산업데이터 <button type="button" title="도움말 열림"><i aria-hidden="true"
@@ -354,7 +431,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <span class="badge badge--filled badge--success badge--rounded">진행중</span>
+                  <span class="badge badge--filled badge--success badge--square">진행중</span>
                 </div>
               </div>
               <div class="card">
@@ -374,16 +451,16 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <span class="badge badge--filled badge--danger badge--rounded">오늘마감</span>
+                  <span class="badge badge--filled badge--danger badge--square">오늘마감</span>
                 </div>
               </div>
               <div class="card">
                 <div class="card-badge">
                   <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
                   <div class="r">
-                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
-                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
-                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                    <span class="badge badge--filled badge--warning badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--purple badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--light-green badge--rounded"># 인증분석</span>
                   </div>
                 </div>
                 <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
@@ -394,7 +471,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <span class="badge badge--filled badge--secondary badge--rounded">접수마감</span>
+                  <span class="badge badge--filled badge--secondary badge--square">접수마감</span>
                 </div>
               </div>
             </div>
@@ -402,6 +479,141 @@
               <span class="more-link-text">식품산업데이터 더보기 <i class="icon-arrow-right" aria-hidden="true"></i></span>
             </a>
           </div>
+          <!-- // 식품기업지원 -->
+          <!-- 식품기업매칭 // -->
+          <div class="section">
+            <div class="section-header">
+              <h2 class="section-title">식품기업매칭 <button type="button" title="도움말 열림"><i aria-hidden="true"
+                    class="icon-help"></i><span class="sr-only">도움말</span></button></h2>
+              <div class="section-count" aria-live="polite" aria-atomic="true">
+                검색결과 <span class="number">222</span>건
+              </div>
+            </div>
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>생산품목:</b><em>매콤바삭한치킨파우더</em></span>
+                    <span class="item"><b>기관 전화번호:</b><em>031-313-1234</em></span>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="more-link" href="#">
+              <span class="more-link-text">식품기업매칭 더보기 <i class="icon-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+          <!-- // 식품기업매칭 -->
+          <!-- 게시물정보 // -->
+          <div class="section">
+            <div class="section-header">
+              <h2 class="section-title">게시물정보 <button type="button" title="도움말 열림"><i aria-hidden="true"
+                    class="icon-help"></i><span class="sr-only">도움말</span></button></h2>
+              <div class="section-count" aria-live="polite" aria-atomic="true">
+                검색결과 <span class="number">222</span>건
+              </div>
+            </div>
+            <div class="card-grid">
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">발간보고서</span></div>
+                  <div class="r">
+                    <span class="badge badge--outline badge--secondary badge--square">카드뉴스</span>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="#">식품 정보 보고서</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>생산품목:</b><em>매콤바삭한치킨파우더</em></span>
+                    <span class="item"><b>기관 전화번호:</b><em>031-313-1234</em></span>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-badge">
+                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                  <div class="r">
+                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                <div class="card-content">
+                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                  <div class="card-subtext">
+                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="more-link" href="#">
+              <span class="more-link-text">식품기업매칭 더보기 <i class="icon-arrow-right" aria-hidden="true"></i></span>
+            </a>
+          </div>
+          <!-- // 식품기업매칭 -->
           <!-- // 상세 검색용 -->
           <div class="section">
             <div class="section-header">
@@ -427,23 +639,28 @@
             </div>
             <div class="card-grid full-width">
               <div class="card">
-                <div class="card-badge">
-                  <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
-                  <div class="r">
-                    <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
-                    <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
-                    <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
-                  </div>
+                <div class="card-thumbnail">
+                  <img src="https://picsum.photos/200/300" alt="">
                 </div>
-                <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
-                <div class="card-content">
-                  <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
-                  <div class="card-subtext">
-                    <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                <div class="card-inner">
+                  <div class="card-badge">
+                    <div class="l"><span class="badge badge--outline badge--primary badge--lg">교육지원</span></div>
+                    <div class="r">
+                      <span class="badge badge--filled badge--success badge--rounded">OEM/ODM</span>
+                      <span class="badge badge--filled badge--success badge--rounded">외식경제</span>
+                      <span class="badge badge--filled badge--success badge--rounded">협조요청</span>
+                    </div>
                   </div>
-                </div>
-                <div class="card-footer">
-                  <span class="badge badge--filled badge--success badge--rounded">진행중</span>
+                  <h3 class="card-title"><a href="#">[교육팀] 2025년 [서울실무교육] 식품기업 경영자를 위한 노동법 실무</a></h3>
+                  <div class="card-content">
+                    <p class="card-subtitle"><a href="#">중소, 중견 식품기업 경영자를 위한 노동법 실무</a></p>
+                    <div class="card-subtext">
+                      <span class="item"><b>교육장소:</b><em>전북특별자치시도</em></span>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <span class="badge badge--filled badge--success badge--rounded">진행중</span>
+                  </div>
                 </div>
               </div>
               <div class="card">
@@ -488,11 +705,28 @@
               </div>
             </div>
             <a class="more-link" href="#">
-              <span class="more-link-text">식품산업데이터 더보기 <i class="icon-arrow-right" aria-hidden="true"></i></span>
+              <span class="more-link-text"><i class="icon-back" aria-hidden="true"></i> 전체목록으로 돌아가기</span>
             </a>
           </div>
         </div>
-      </main>
+        <ul class="pagination">
+          <li>
+            <button class="page-item prev">
+              <span class="text">이전</span>
+            </button></li>
+          <li><button class="page-item">1</button></li>
+          <li><button class="page-item active">2</button></li>
+          <li><button class="page-item">3</button></li>
+          <li><button class="page-item">3</button></li>
+          <li><button class="page-item">3</button></li>
+          <li><button class="page-item ellipsis">생략</button></li>
+          <li><button class="page-item">99</button></li>
+          <li>
+            <button class="page-item next">
+              <span class="text">다음</span>
+            </button>
+          </li>
+        </ul>       </main>
     </div>
     <div class="related-sites">
       <div class="container">
@@ -941,49 +1175,6 @@
     </div>
   </div>
   <script>
-    // Swiper 탭
-    (function () {
-      const swiperEl = document.querySelector('.tabSwiper');
-      const slides = swiperEl ? swiperEl.querySelectorAll('.swiper-slide') : [];
-      const slideCount = slides.length;
-      // 데스크톱(>1024): 최대 5개 고정, 부족하면 실제 개수만큼 표시
-      // 1024 이하: 자동 너비로 무제한
-      const desktopCount = Math.min(slideCount, 5);
-      const tabSwiper = new Swiper('.tabSwiper', {
-        slidesPerView: desktopCount || 1,
-        spaceBetween: 0,
-        watchOverflow: true,
-        breakpoints: {
-          0: {
-            slidesPerView: slideCount > 5 ? 'auto' : desktopCount || 1,
-            freeMode: slideCount > 5,
-          },
-          1025: {
-            slidesPerView: desktopCount || 1,
-            freeMode: false,
-          }
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-      // 탭 클릭 처리: active 슬라이드/aria-pressed 갱신
-      swiperEl.addEventListener('click', function (e) {
-        const btn = e.target.closest('.search-category-btn');
-        if (!btn) return;
-        // 전부 초기화
-        swiperEl.querySelectorAll('.search-category-btn').forEach(b => b.setAttribute('aria-pressed', 'false'));
-        swiperEl.querySelectorAll('.swiper-slide').forEach(slide => slide.classList.remove('active'));
-        // 현재 버튼/슬라이드 활성화
-        btn.setAttribute('aria-pressed', 'true');
-        const slideEl = btn.closest('.swiper-slide');
-        if (slideEl) slideEl.classList.add('active');
-        // 보기로 스크롤 이동
-        const index = Array.from(swiperEl.querySelectorAll('.swiper-slide')).indexOf(slideEl);
-        if (index > -1 && tabSwiper) tabSwiper.slideTo(index);
-      });
-    })();
     function toggleAccordion() {
       const content = document.getElementById('accordionContent');
       const icon = document.getElementById('accordionIcon');
@@ -998,5 +1189,68 @@
       e.preventDefault();
       portal.modal.close('detailSearchModal');
     });
+  </script>
+<script>
+  (function () {
+    const swiperEl = document.querySelector('.tabSwiper .swiper');
+    const slides = swiperEl ? swiperEl.querySelectorAll('.swiper-slide') : [];
+    const slideCount = slides.length;
+    const tabSwiper = new Swiper('.tabSwiper .swiper', {
+      slidesPerView: slideCount, // PC 기본값: 균등 분할
+      spaceBetween: 0,
+      watchOverflow: true,
+      breakpoints: {
+        0: {
+          slidesPerView: 'auto', // 모바일: 자유 너비
+          freeMode: true,
+        },
+        1200: {
+          slidesPerView: slideCount, // PC: 균등 분할
+          freeMode: false,
+        }
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on: {
+        init: function() {
+          updateNavigation(this);
+        },
+        resize: function() {
+          updateNavigation(this);
+        }
+      }
+    });
+    function updateNavigation(swiper) {
+      const nextBtn = document.querySelector('.swiper-button-next');
+      const prevBtn = document.querySelector('.swiper-button-prev');
+      if (window.innerWidth >= 1200) {
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+      } else {
+        if (nextBtn) nextBtn.style.display = '';
+        if (prevBtn) prevBtn.style.display = '';
+      }
+    }
+    swiperEl.addEventListener('click', function (e) {
+      const btn = e.target.closest('.search-category-btn');
+      if (!btn) return;
+      swiperEl.querySelectorAll('.search-category-btn').forEach(b =>
+        b.setAttribute('aria-pressed', 'false')
+      );
+      swiperEl.querySelectorAll('.swiper-slide').forEach(slide =>
+        slide.classList.remove('active')
+      );
+      btn.setAttribute('aria-pressed', 'true');
+      const slideEl = btn.closest('.swiper-slide');
+      if (slideEl) slideEl.classList.add('active');
+      const index = Array.from(swiperEl.querySelectorAll('.swiper-slide')).indexOf(slideEl);
+      if (index > -1 && tabSwiper) tabSwiper.slideTo(index);
+    });
+    window.addEventListener('resize', function() {
+      updateNavigation(tabSwiper);
+    });
+  })();
   </script>
 </html>
