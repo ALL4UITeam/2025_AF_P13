@@ -186,286 +186,384 @@
         </div>
       </section>
       <main id="content" class="sub-layout">
-        <nav class="tabs">
-          <a href="#" class="tab current">키워드 검색</a>
-          <a href="#" class="tab">인기 키워드</a>
-        </nav>
-        <div class="keyword-search" id="p1">
-          <div class="keyword-selector">
-            <h3>키워드분석</h3>
-            <div class="keyword-selector-utils">
-              <div class="info-text">자동 번역으로 빠르게 이해하기 <i></i></div>
-              <div class="divider"></div>
-              <div class="auto">
-                <span class="">Pubmed 번역</span>
-                <label class="switch"><input type="checkbox" checked="" aria-label="Switch"><span
-                    class="switch-slider"></span></label>
+        <div class="keyword">
+          <nav class="tabs">
+            <a href="#" class="tab current">키워드 검색</a>
+            <a href="#" class="tab">인기 키워드</a>
+          </nav>
+          <div class="keyword-search" id="p1">
+            <div class="keyword-selector">
+              <h3>키워드분석</h3>
+              <div class="keyword-selector-utils">
+                <div class="info-text">자동 번역으로 빠르게 이해하기 <i></i></div>
+                <div class="divider"></div>
+                <div class="auto">
+                  <span class="">Pubmed 번역</span>
+                  <label class="switch"><input type="checkbox" checked="" aria-label="Switch"><span
+                      class="switch-slider"></span></label>
+                </div>
               </div>
+            </div>
+            <form action="#">
+              <fieldset>
+                <legend class="sr-only">키워드 검색 폼</legend>
+                <div class="keyword-search-form">
+                  <div class="search-bar-wraps">
+                    <div class="in">
+                      <select name="" id="">
+                        <option value="all">전체</option>
+                      </select>
+                      <div class="diver"></div>
+                      <input type="text">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn-search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                      <path
+                        d="M18 10.8984C18 12.9138 17.335 14.7736 16.2158 16.2734L19.2217 19.2793L19.3115 19.3779C19.6996 19.8544 19.6991 20.5421 19.3105 21.0186L19.2217 21.1172C18.714 21.6249 17.8905 21.6249 17.3828 21.1172L14.3779 18.1123C12.8775 19.2327 11.0165 19.8984 9 19.8984C4.02944 19.8984 0 15.869 0 10.8984C0 5.92787 4.02944 1.89844 9 1.89844C13.9706 1.89844 18 5.92787 18 10.8984ZM15.4004 10.8984C15.4004 7.36382 12.5346 4.49805 9 4.49805C5.46538 4.49805 2.59961 7.36382 2.59961 10.8984C2.59961 14.4331 5.46538 17.2988 9 17.2988C10.6584 17.2988 12.166 16.6648 13.3037 15.6289C13.3565 15.5429 13.4209 15.4629 13.4941 15.3896L13.5713 15.3184C13.6233 15.2742 13.6776 15.234 13.7344 15.1992C14.7682 14.062 15.4004 12.5553 15.4004 10.8984Z"
+                        fill="white" />
+                    </svg><span class="text">검색</span></button>
+                </div>
+                <div class="recommand-keywords">
+                  <strong>연관 키워드</strong>
+                  <ul>
+                    <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
+                    <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
+                    <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
+                    <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
+                    <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
+                    <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
+                  </ul>
+                </div>
+              </fieldset>
+            </form>
+            <div class="keyword-category is-open">
+              <button type="button" class="selected keyword-category-btn">
+                <div class="icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                    <path
+                      d="M11 37H21.779V26.221H11V37ZM26.221 37H37V26.221H26.221V37ZM11 21.779H21.779V11H11V21.779ZM26.221 21.779H37V11H26.221V21.779Z"
+                      fill="#464C53" />
+                  </svg>
+                </div>
+                <span class="text">전체</span>
+                <span>(499)</span>
+              </button>
+              <button type="button" class="keyword-category-btn">
+                <div class="icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="33" viewBox="0 0 25 33" fill="none">
+                    <path
+                      d="M8.76625 18.3142L10.1858 13.7567L6.46792 10.9679H11.0242L12.5 6.25L13.9342 10.9679H18.5321L14.83 13.7567L16.2083 18.3142L12.5 15.5L8.76625 18.3142ZM3.45208 32.8846V21.0992C2.25542 19.9006 1.38097 18.5556 0.82875 17.0642C0.27625 15.5728 0 14.0514 0 12.5C0 8.97861 1.20306 6.015 3.60917 3.60917C6.015 1.20306 8.97861 0 12.5 0C16.0214 0 18.985 1.20306 21.3908 3.60917C23.7969 6.015 25 8.97861 25 12.5C25 14.0514 24.7238 15.5728 24.1712 17.0642C23.619 18.5556 22.7446 19.9006 21.5479 21.0992V32.8846L12.5 29.9929L3.45208 32.8846ZM12.4979 23.1087C15.4629 23.1087 17.9726 22.0822 20.0271 20.0292C22.0815 17.9758 23.1087 15.4668 23.1087 12.5021C23.1087 9.53708 22.0822 7.02736 20.0292 4.97292C17.9758 2.91847 15.4668 1.89125 12.5021 1.89125C9.53708 1.89125 7.02736 2.91778 4.97292 4.97083C2.91847 7.02417 1.89125 9.5332 1.89125 12.4979C1.89125 15.4629 2.91778 17.9726 4.97083 20.0271C7.02417 22.0815 9.5332 23.1087 12.4979 23.1087ZM5.34292 30.2821L12.5 28.0704L19.6571 30.2821V22.66C18.5993 23.4656 17.4503 24.0569 16.21 24.4342C14.9694 24.8114 13.7328 25 12.5 25C11.2672 25 10.0306 24.8114 8.79 24.4342C7.54972 24.0569 6.4007 23.4656 5.34292 22.66V30.2821Z"
+                      fill="#464C53" />
+                  </svg>
+                </div>
+                <span class="text">특허정보</span>
+                <span>(168)</span>
+              </button>
+              <button type="button" class="keyword-category-btn">
+                <div class="icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="32" viewBox="0 0 25 32" fill="none">
+                    <path
+                      d="M2.40375 31.6667C1.75014 31.6667 1.18611 31.4294 0.711667 30.955C0.237222 30.4806 0 29.9165 0 29.2629V2.40375C0 1.75014 0.237222 1.18611 0.711667 0.711667C1.18611 0.237223 1.75014 0 2.40375 0H16.8846L25 8.11542V29.2629C25 29.9165 24.7628 30.4806 24.2883 30.955C23.8139 31.4294 23.2499 31.6667 22.5962 31.6667H2.40375ZM15.9392 8.96792V1.89125H2.40375C2.27569 1.89125 2.15819 1.94458 2.05125 2.05125C1.94458 2.15819 1.89125 2.27569 1.89125 2.40375V29.2629C1.89125 29.391 1.94458 29.5085 2.05125 29.6154C2.15819 29.7221 2.27569 29.7754 2.40375 29.7754H22.5962C22.7243 29.7754 22.8418 29.7221 22.9488 29.6154C23.0554 29.5085 23.1087 29.391 23.1087 29.2629V8.96792H15.9392Z"
+                      fill="#464C53" />
+                    <path
+                      d="M12.5321 21.8013L18.8142 18.1925L12.5321 14.5833L6.25 18.1925L12.5321 21.8013ZM12.5321 26.7246L16.9871 24.1537V20.9425L12.5321 23.545L8.07708 20.9425V24.1537L12.5321 26.7246Z"
+                      fill="#464C53" />
+                  </svg>
+                </div>
+                <span class="text">논문정보</span>
+                <span>(168)</span>
+              </button>
+              <button type="button" class="keyword-category-btn">
+                <div class="icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="30" viewBox="0 0 36 30" fill="none">
+                    <path
+                      d="M0 29.1667V22.2083H1.89083V27.2758H6.95833V29.1667H0ZM28.8496 29.1667V27.2758H33.9167V22.2083H35.8075V29.1667H28.8496ZM4.37167 24.8621V4.27875H7.705V24.8621H4.37167ZM9.3975 24.8621V4.27875H11.1313V24.8621H9.3975ZM14.4646 24.8621V4.27875H17.8908V24.8621H14.4646ZM19.6092 24.8621V4.27875H24.6508V24.8621H19.6092ZM26.3687 24.8621V4.27875H28.1025V24.8621H26.3687ZM29.795 24.8621V4.27875H31.4104V24.8621H29.795ZM0 6.95833V0H6.95833V1.89083H1.89083V6.95833H0ZM33.9167 6.95833V1.89083H28.8496V0H35.8075V6.95833H33.9167Z"
+                      fill="#464C53" />
+                  </svg>
+                </div>
+                <span class="text">식품판매정보</span>
+                <span>(168)</span>
+              </button>
+              <button type="button" class="keyword-category-btn">
+                <div class="icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="35" viewBox="0 0 32 35" fill="none">
+                    <path
+                      d="M6.86542 20.0896L10.035 11.8204H3.69208L1.43875 15.125H0L1.455 10.0321L0 4.965H1.43875L3.69208 8.26917H10.035L6.86542 0H8.75625L14.5542 8.26917H20.0221C20.5201 8.26917 20.9454 8.44125 21.2979 8.78542C21.6504 9.1293 21.8267 9.54486 21.8267 10.0321C21.8267 10.5299 21.6504 10.9524 21.2979 11.2996C20.9454 11.6468 20.5201 11.8204 20.0221 11.8204H14.5542L8.75625 20.0896H6.86542ZM22.9358 35L17.1217 26.7146H11.6537C11.1665 26.7146 10.7467 26.541 10.3942 26.1938C10.0414 25.8465 9.865 25.424 9.865 24.9263C9.865 24.439 10.0414 24.0235 10.3942 23.6796C10.7467 23.3354 11.1665 23.1633 11.6537 23.1633H17.1217L22.9358 14.9104H24.8267L21.615 23.1633H27.9837L30.2371 19.875H31.6504L30.1954 24.9263L31.6504 30.035H30.2371L27.9837 26.7146H21.615L24.8267 35H22.9358Z"
+                      fill="#464C53" />
+                  </svg>
+                </div>
+                <span class="text">식품수출입정보</span>
+                <span>(168)</span>
+              </button>
+              <button type="button" class="keyword-category-btn">
+                <div class="icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M25 12.0391C26.2875 12.1413 27.5104 12.4439 28.668 12.9463C30.1213 13.577 31.3911 14.4358 32.4775 15.5225C33.5642 16.6089 34.423 17.8787 35.0537 19.332C35.6844 20.7855 36 22.3417 36 24C36 25.6453 35.6844 27.1982 35.0537 28.6582C34.423 30.1181 33.5642 31.3911 32.4775 32.4775C31.3911 33.5642 30.1213 34.423 28.668 35.0537C27.2145 35.6844 25.6583 36 24 36C22.3547 36 20.8018 35.6844 19.3418 35.0537C17.8819 34.423 16.6089 33.5642 15.5225 32.4775C14.4358 31.3911 13.577 30.1181 12.9463 28.6582C12.3156 27.1982 12 25.6453 12 24H13.8945C13.8945 24.4744 13.9274 24.9432 13.9922 25.4062C14.0568 25.8694 14.15 26.3161 14.2715 26.7451H18.9668C18.8874 26.2758 18.8297 25.8153 18.7939 25.3643C18.7762 25.1387 18.7628 24.9119 18.7539 24.6846L18.7412 24H20.6357C20.6357 24.4744 20.6529 24.9331 20.6885 25.376C20.7243 25.8189 20.7822 26.2756 20.8613 26.7451H27.1387C27.2178 26.2756 27.2757 25.8189 27.3115 25.376C27.3471 24.9331 27.3643 24.4744 27.3643 24C27.3643 23.5256 27.3471 23.0669 27.3115 22.624C27.2757 22.1811 27.2178 21.7244 27.1387 21.2549H25V19.3604H26.7041C26.4108 18.3044 26.0421 17.3313 25.5977 16.4414C25.4139 16.0736 25.2138 15.715 25 15.3643V12.0391ZM21.2959 28.6396C21.5892 29.7036 21.9524 30.6704 22.3848 31.54C22.8169 32.4097 23.3554 33.2557 24 34.0781C24.6446 33.2232 25.1875 32.3608 25.6279 31.4912C26.0683 30.6216 26.4271 29.6711 26.7041 28.6396H21.2959ZM15.0654 28.6396C15.7326 29.9514 16.6277 31.0539 17.75 31.9463C18.8722 32.8384 20.1402 33.4336 21.5537 33.7314C21.0695 33.0367 20.6345 32.2462 20.249 31.3613C19.8636 30.4764 19.5642 29.5692 19.3506 28.6396H15.0654ZM28.6494 28.6396C28.3951 29.5773 28.0749 30.489 27.6895 31.374C27.3042 32.2589 26.89 33.045 26.4463 33.7314C27.8598 33.4336 29.1278 32.8384 30.25 31.9463C31.3723 31.0539 32.2674 29.9514 32.9346 28.6396H28.6494ZM29.0332 21.2549C29.1126 21.7242 29.1703 22.1847 29.2061 22.6357C29.2416 23.0867 29.2588 23.5417 29.2588 24C29.2588 24.4583 29.2416 24.9133 29.2061 25.3643C29.1703 25.8153 29.1126 26.2758 29.0332 26.7451H33.7285C33.85 26.3161 33.9432 25.8694 34.0078 25.4062C34.0726 24.9432 34.1055 24.4744 34.1055 24C34.1055 23.5256 34.0726 23.0568 34.0078 22.5938C33.9432 22.1306 33.85 21.6839 33.7285 21.2549H29.0332ZM26.4463 14.2568C26.9304 14.9919 27.3611 15.796 27.7383 16.6689C28.1157 17.5418 28.4195 18.4389 28.6494 19.3604H32.9346C32.2594 18.0324 31.3707 16.9299 30.2686 16.0537C29.1665 15.1778 27.8923 14.5792 26.4463 14.2568Z"
+                      fill="#464C53" />
+                    <path
+                      d="M7.93781 21.769C7.34681 21.769 6.84331 21.5608 6.42731 21.1445C6.01098 20.7285 5.80281 20.2252 5.80281 19.6345V11.769H8.07231V19.4995H20.8028V11.769H23.0723V19.6345C23.0723 20.2252 22.8641 20.7285 22.4478 21.1445C22.0318 21.5608 21.5285 21.769 20.9378 21.769H7.93781ZM6.08781 12.269C5.43715 12.269 4.90015 12.0087 4.47681 11.488C4.05315 10.9673 3.91181 10.3752 4.05281 9.7115L4.85281 5.7115C4.96081 5.2215 5.20915 4.81367 5.59781 4.488C5.98681 4.16267 6.43348 4 6.93781 4H21.9378C22.4421 4 22.8886 4.16267 23.2773 4.488C23.6663 4.81367 23.9146 5.2215 24.0223 5.7115L24.8223 9.7115C24.9633 10.3752 24.8222 10.9673 24.3988 11.488C23.9752 12.0087 23.4381 12.269 22.7878 12.269H14.4378H6.08781ZM6.32631 10H22.5493L21.7953 6.269H7.07981L6.32631 10Z"
+                      fill="#464C53" />
+                  </svg>
+                </div>
+                <span class="text">해외시장정보</span>
+                <span>(168)</span>
+              </button>
+              <button type="button" class="keyword-category-btn">
+                <div class="icon-wrap">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="33" height="30" viewBox="0 0 33 30" fill="none">
+                    <path
+                      d="M0 29.1667V0H15.5288V6.81083H32.115V29.1667H0ZM1.89083 27.2754H13.6375V22.3396H1.89083V27.2754ZM1.89083 20.4487H13.6375V15.5287H1.89083V20.4487ZM1.89083 13.6375H13.6375V8.70166H1.89083V13.6375ZM1.89083 6.81083H13.6375V1.89083H1.89083V6.81083ZM15.5288 27.2754H30.2242V8.70166H15.5288V27.2754ZM19.1825 15.5287V13.6375H25.4967V15.5287H19.1825ZM19.1825 22.3396V20.4487H25.4967V22.3396H19.1825Z"
+                      fill="#464C53" />
+                  </svg>
+                </div>
+                <span class="text">식품기업정보</span>
+                <span>(168)</span>
+              </button>
+            </div>
+            <div class="keyword-card-buttons">
+              <button class="btn btn--outline btn--secondary selected">전체</button>
+              <button class="btn btn--outline btn--secondary">KIPRIS 국내외특허</button>
+              <button class="btn btn--outline btn--secondary">KIPRIS 국내외특허</button>
+              <button class="btn btn--outline btn--secondary">전통식품</button>
             </div>
           </div>
           <form action="#">
             <fieldset>
-              <legend class="sr-only">키워드 검색 폼</legend>
-              <div class="keyword-search-form">
-                <div class="search-bar-wraps">
-                  <div class="in">
-                    <select name="" id="">
-                      <option value="all">전체</option>
+              <legend>검색 조건</legend>
+              <div class="board-search mix">
+                <div class="board-search__fields">
+                  <div class="board-search__field">
+                    <label class="label">분석방법</label>
+                    <div class="form-group--inline">
+                      <div class="form-radio">
+                        <input type="radio" id="radio-method-1" name="radio-method" class="radio">
+                        <label for="radio-method-1">분석방법1</label>
+                      </div>
+                      <div class="form-radio">
+                        <input type="radio" id="radio-method-2" name="radio-method" class="radio">
+                        <label for="radio-method-2">분석방법2</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board-search__field">
+                    <label class="label">판매채널</label>
+                    <select class="select">
+                      <option>전체</option>
                     </select>
-                    <div class="diver"></div>
-                    <input type="text">
+                  </div>
+                  <div class="board-search__field mix-field">
+                    <label class="label">분류</label>
+                    <div class="input-group">
+                      <select class="select">
+                        <option>전체</option>
+                      </select>
+                      <select class="select">
+                        <option>전체</option>
+                      </select>
+                      <select class="select">
+                        <option>전체</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-                <button type="submit" class="btn-search">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                    <path
-                      d="M18 10.8984C18 12.9138 17.335 14.7736 16.2158 16.2734L19.2217 19.2793L19.3115 19.3779C19.6996 19.8544 19.6991 20.5421 19.3105 21.0186L19.2217 21.1172C18.714 21.6249 17.8905 21.6249 17.3828 21.1172L14.3779 18.1123C12.8775 19.2327 11.0165 19.8984 9 19.8984C4.02944 19.8984 0 15.869 0 10.8984C0 5.92787 4.02944 1.89844 9 1.89844C13.9706 1.89844 18 5.92787 18 10.8984ZM15.4004 10.8984C15.4004 7.36382 12.5346 4.49805 9 4.49805C5.46538 4.49805 2.59961 7.36382 2.59961 10.8984C2.59961 14.4331 5.46538 17.2988 9 17.2988C10.6584 17.2988 12.166 16.6648 13.3037 15.6289C13.3565 15.5429 13.4209 15.4629 13.4941 15.3896L13.5713 15.3184C13.6233 15.2742 13.6776 15.234 13.7344 15.1992C14.7682 14.062 15.4004 12.5553 15.4004 10.8984Z"
-                      fill="white" />
-                  </svg><span class="text">검색</span></button>
-              </div>
-              <div class="recommand-keywords">
-                <strong>연관 키워드</strong>
-                <ul>
-                  <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
-                  <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
-                  <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
-                  <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
-                  <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
-                  <li><a href="#" class="tags badge badge-sm"><em>#</em>홍삼</a></li>
-                </ul>
+                <div class="board-search__fields">
+                  <div class="board-search__field">
+                    <label class="label">기준연월</label>
+                    <div class="date-range-wrapper">
+                      <input type="text" class="input date-input date-month-picker" placeholder="2025.11" readonly>
+                    </div>
+                  </div>
+                  <div class="board-search__field mix-field">
+                    <label class="label">지역</label>
+                    <div class="input-group">
+                      <select class="select">
+                        <option>전체</option>
+                      </select>
+                      <select class="select">
+                        <option>전체</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="board-search__actions footer-sticky">
+                  <button class="btn btn--outline btn--tertiary btn--sm"><i
+                      class="icon icon-reset"></i><span>초기화</span></button>
+                  <button class="btn btn--primary btn--sm"><i
+                      class="icon icon-input-search"></i><span>검색</span></button>
+                </div>
               </div>
             </fieldset>
           </form>
-          <div class="keyword-category is-open">
-            <button type="button" class="selected keyword-category-btn">
-              <div class="icon-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                  <path
-                    d="M11 37H21.779V26.221H11V37ZM26.221 37H37V26.221H26.221V37ZM11 21.779H21.779V11H11V21.779ZM26.221 21.779H37V11H26.221V21.779Z"
-                    fill="#464C53" />
-                </svg>
-              </div>
-              <span class="text">전체</span>
-              <span>(499)</span>
-            </button>
-            <button type="button" class="keyword-category-btn">
-              <div class="icon-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="33" viewBox="0 0 25 33" fill="none">
-                  <path
-                    d="M8.76625 18.3142L10.1858 13.7567L6.46792 10.9679H11.0242L12.5 6.25L13.9342 10.9679H18.5321L14.83 13.7567L16.2083 18.3142L12.5 15.5L8.76625 18.3142ZM3.45208 32.8846V21.0992C2.25542 19.9006 1.38097 18.5556 0.82875 17.0642C0.27625 15.5728 0 14.0514 0 12.5C0 8.97861 1.20306 6.015 3.60917 3.60917C6.015 1.20306 8.97861 0 12.5 0C16.0214 0 18.985 1.20306 21.3908 3.60917C23.7969 6.015 25 8.97861 25 12.5C25 14.0514 24.7238 15.5728 24.1712 17.0642C23.619 18.5556 22.7446 19.9006 21.5479 21.0992V32.8846L12.5 29.9929L3.45208 32.8846ZM12.4979 23.1087C15.4629 23.1087 17.9726 22.0822 20.0271 20.0292C22.0815 17.9758 23.1087 15.4668 23.1087 12.5021C23.1087 9.53708 22.0822 7.02736 20.0292 4.97292C17.9758 2.91847 15.4668 1.89125 12.5021 1.89125C9.53708 1.89125 7.02736 2.91778 4.97292 4.97083C2.91847 7.02417 1.89125 9.5332 1.89125 12.4979C1.89125 15.4629 2.91778 17.9726 4.97083 20.0271C7.02417 22.0815 9.5332 23.1087 12.4979 23.1087ZM5.34292 30.2821L12.5 28.0704L19.6571 30.2821V22.66C18.5993 23.4656 17.4503 24.0569 16.21 24.4342C14.9694 24.8114 13.7328 25 12.5 25C11.2672 25 10.0306 24.8114 8.79 24.4342C7.54972 24.0569 6.4007 23.4656 5.34292 22.66V30.2821Z"
-                    fill="#464C53" />
-                </svg>
-              </div>
-              <span class="text">특허정보</span>
-              <span>(168)</span>
-            </button>
-            <button type="button" class="keyword-category-btn">
-              <div class="icon-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="32" viewBox="0 0 25 32" fill="none">
-                  <path
-                    d="M2.40375 31.6667C1.75014 31.6667 1.18611 31.4294 0.711667 30.955C0.237222 30.4806 0 29.9165 0 29.2629V2.40375C0 1.75014 0.237222 1.18611 0.711667 0.711667C1.18611 0.237223 1.75014 0 2.40375 0H16.8846L25 8.11542V29.2629C25 29.9165 24.7628 30.4806 24.2883 30.955C23.8139 31.4294 23.2499 31.6667 22.5962 31.6667H2.40375ZM15.9392 8.96792V1.89125H2.40375C2.27569 1.89125 2.15819 1.94458 2.05125 2.05125C1.94458 2.15819 1.89125 2.27569 1.89125 2.40375V29.2629C1.89125 29.391 1.94458 29.5085 2.05125 29.6154C2.15819 29.7221 2.27569 29.7754 2.40375 29.7754H22.5962C22.7243 29.7754 22.8418 29.7221 22.9488 29.6154C23.0554 29.5085 23.1087 29.391 23.1087 29.2629V8.96792H15.9392Z"
-                    fill="#464C53" />
-                  <path
-                    d="M12.5321 21.8013L18.8142 18.1925L12.5321 14.5833L6.25 18.1925L12.5321 21.8013ZM12.5321 26.7246L16.9871 24.1537V20.9425L12.5321 23.545L8.07708 20.9425V24.1537L12.5321 26.7246Z"
-                    fill="#464C53" />
-                </svg>
-              </div>
-              <span class="text">논문정보</span>
-              <span>(168)</span>
-            </button>
-            <button type="button" class="keyword-category-btn">
-              <div class="icon-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="30" viewBox="0 0 36 30" fill="none">
-                  <path
-                    d="M0 29.1667V22.2083H1.89083V27.2758H6.95833V29.1667H0ZM28.8496 29.1667V27.2758H33.9167V22.2083H35.8075V29.1667H28.8496ZM4.37167 24.8621V4.27875H7.705V24.8621H4.37167ZM9.3975 24.8621V4.27875H11.1313V24.8621H9.3975ZM14.4646 24.8621V4.27875H17.8908V24.8621H14.4646ZM19.6092 24.8621V4.27875H24.6508V24.8621H19.6092ZM26.3687 24.8621V4.27875H28.1025V24.8621H26.3687ZM29.795 24.8621V4.27875H31.4104V24.8621H29.795ZM0 6.95833V0H6.95833V1.89083H1.89083V6.95833H0ZM33.9167 6.95833V1.89083H28.8496V0H35.8075V6.95833H33.9167Z"
-                    fill="#464C53" />
-                </svg>
-              </div>
-              <span class="text">식품판매정보</span>
-              <span>(168)</span>
-            </button>
-            <button type="button" class="keyword-category-btn">
-              <div class="icon-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="35" viewBox="0 0 32 35" fill="none">
-                  <path
-                    d="M6.86542 20.0896L10.035 11.8204H3.69208L1.43875 15.125H0L1.455 10.0321L0 4.965H1.43875L3.69208 8.26917H10.035L6.86542 0H8.75625L14.5542 8.26917H20.0221C20.5201 8.26917 20.9454 8.44125 21.2979 8.78542C21.6504 9.1293 21.8267 9.54486 21.8267 10.0321C21.8267 10.5299 21.6504 10.9524 21.2979 11.2996C20.9454 11.6468 20.5201 11.8204 20.0221 11.8204H14.5542L8.75625 20.0896H6.86542ZM22.9358 35L17.1217 26.7146H11.6537C11.1665 26.7146 10.7467 26.541 10.3942 26.1938C10.0414 25.8465 9.865 25.424 9.865 24.9263C9.865 24.439 10.0414 24.0235 10.3942 23.6796C10.7467 23.3354 11.1665 23.1633 11.6537 23.1633H17.1217L22.9358 14.9104H24.8267L21.615 23.1633H27.9837L30.2371 19.875H31.6504L30.1954 24.9263L31.6504 30.035H30.2371L27.9837 26.7146H21.615L24.8267 35H22.9358Z"
-                    fill="#464C53" />
-                </svg>
-              </div>
-              <span class="text">식품수출입정보</span>
-              <span>(168)</span>
-            </button>
-            <button type="button" class="keyword-category-btn">
-              <div class="icon-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M25 12.0391C26.2875 12.1413 27.5104 12.4439 28.668 12.9463C30.1213 13.577 31.3911 14.4358 32.4775 15.5225C33.5642 16.6089 34.423 17.8787 35.0537 19.332C35.6844 20.7855 36 22.3417 36 24C36 25.6453 35.6844 27.1982 35.0537 28.6582C34.423 30.1181 33.5642 31.3911 32.4775 32.4775C31.3911 33.5642 30.1213 34.423 28.668 35.0537C27.2145 35.6844 25.6583 36 24 36C22.3547 36 20.8018 35.6844 19.3418 35.0537C17.8819 34.423 16.6089 33.5642 15.5225 32.4775C14.4358 31.3911 13.577 30.1181 12.9463 28.6582C12.3156 27.1982 12 25.6453 12 24H13.8945C13.8945 24.4744 13.9274 24.9432 13.9922 25.4062C14.0568 25.8694 14.15 26.3161 14.2715 26.7451H18.9668C18.8874 26.2758 18.8297 25.8153 18.7939 25.3643C18.7762 25.1387 18.7628 24.9119 18.7539 24.6846L18.7412 24H20.6357C20.6357 24.4744 20.6529 24.9331 20.6885 25.376C20.7243 25.8189 20.7822 26.2756 20.8613 26.7451H27.1387C27.2178 26.2756 27.2757 25.8189 27.3115 25.376C27.3471 24.9331 27.3643 24.4744 27.3643 24C27.3643 23.5256 27.3471 23.0669 27.3115 22.624C27.2757 22.1811 27.2178 21.7244 27.1387 21.2549H25V19.3604H26.7041C26.4108 18.3044 26.0421 17.3313 25.5977 16.4414C25.4139 16.0736 25.2138 15.715 25 15.3643V12.0391ZM21.2959 28.6396C21.5892 29.7036 21.9524 30.6704 22.3848 31.54C22.8169 32.4097 23.3554 33.2557 24 34.0781C24.6446 33.2232 25.1875 32.3608 25.6279 31.4912C26.0683 30.6216 26.4271 29.6711 26.7041 28.6396H21.2959ZM15.0654 28.6396C15.7326 29.9514 16.6277 31.0539 17.75 31.9463C18.8722 32.8384 20.1402 33.4336 21.5537 33.7314C21.0695 33.0367 20.6345 32.2462 20.249 31.3613C19.8636 30.4764 19.5642 29.5692 19.3506 28.6396H15.0654ZM28.6494 28.6396C28.3951 29.5773 28.0749 30.489 27.6895 31.374C27.3042 32.2589 26.89 33.045 26.4463 33.7314C27.8598 33.4336 29.1278 32.8384 30.25 31.9463C31.3723 31.0539 32.2674 29.9514 32.9346 28.6396H28.6494ZM29.0332 21.2549C29.1126 21.7242 29.1703 22.1847 29.2061 22.6357C29.2416 23.0867 29.2588 23.5417 29.2588 24C29.2588 24.4583 29.2416 24.9133 29.2061 25.3643C29.1703 25.8153 29.1126 26.2758 29.0332 26.7451H33.7285C33.85 26.3161 33.9432 25.8694 34.0078 25.4062C34.0726 24.9432 34.1055 24.4744 34.1055 24C34.1055 23.5256 34.0726 23.0568 34.0078 22.5938C33.9432 22.1306 33.85 21.6839 33.7285 21.2549H29.0332ZM26.4463 14.2568C26.9304 14.9919 27.3611 15.796 27.7383 16.6689C28.1157 17.5418 28.4195 18.4389 28.6494 19.3604H32.9346C32.2594 18.0324 31.3707 16.9299 30.2686 16.0537C29.1665 15.1778 27.8923 14.5792 26.4463 14.2568Z"
-                    fill="#464C53" />
-                  <path
-                    d="M7.93781 21.769C7.34681 21.769 6.84331 21.5608 6.42731 21.1445C6.01098 20.7285 5.80281 20.2252 5.80281 19.6345V11.769H8.07231V19.4995H20.8028V11.769H23.0723V19.6345C23.0723 20.2252 22.8641 20.7285 22.4478 21.1445C22.0318 21.5608 21.5285 21.769 20.9378 21.769H7.93781ZM6.08781 12.269C5.43715 12.269 4.90015 12.0087 4.47681 11.488C4.05315 10.9673 3.91181 10.3752 4.05281 9.7115L4.85281 5.7115C4.96081 5.2215 5.20915 4.81367 5.59781 4.488C5.98681 4.16267 6.43348 4 6.93781 4H21.9378C22.4421 4 22.8886 4.16267 23.2773 4.488C23.6663 4.81367 23.9146 5.2215 24.0223 5.7115L24.8223 9.7115C24.9633 10.3752 24.8222 10.9673 24.3988 11.488C23.9752 12.0087 23.4381 12.269 22.7878 12.269H14.4378H6.08781ZM6.32631 10H22.5493L21.7953 6.269H7.07981L6.32631 10Z"
-                    fill="#464C53" />
-                </svg>
-              </div>
-              <span class="text">해외시장정보</span>
-              <span>(168)</span>
-            </button>
-            <button type="button" class="keyword-category-btn">
-              <div class="icon-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="30" viewBox="0 0 33 30" fill="none">
-                  <path
-                    d="M0 29.1667V0H15.5288V6.81083H32.115V29.1667H0ZM1.89083 27.2754H13.6375V22.3396H1.89083V27.2754ZM1.89083 20.4487H13.6375V15.5287H1.89083V20.4487ZM1.89083 13.6375H13.6375V8.70166H1.89083V13.6375ZM1.89083 6.81083H13.6375V1.89083H1.89083V6.81083ZM15.5288 27.2754H30.2242V8.70166H15.5288V27.2754ZM19.1825 15.5287V13.6375H25.4967V15.5287H19.1825ZM19.1825 22.3396V20.4487H25.4967V22.3396H19.1825Z"
-                    fill="#464C53" />
-                </svg>
-              </div>
-              <span class="text">식품기업정보</span>
-              <span>(168)</span>
-            </button>
-          </div>
-        </div>
-        <div class="search-info default">
-          <div class="search-info-inner">
-            <span class="search-keyword">식품</span>에 대해
-            <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
-          </div>
-          <div class="search-info-filter">
-            <div class="filter-sort-bar" data-filter-sort-bar="">
-              <!-- 목록 표시 개수 -->
-              <div class="filter-group">
-                <span class="filter-label">목록 표시 개수</span>
-                <select class="filter-select" id="itemCount">
-                  <option value="12" selected="">12개</option>
-                  <option value="24">24개</option>
-                  <option value="36">36개</option>
-                  <option value="48">48개</option>
-                </select>
-              </div>
-              <div class="divider"></div>
-              <!-- 정렬 기준 -->
-              <div class="sort-group">
-                <span class="sort-label">정렬기준</span>
-                <!-- PC용 버튼 -->
-                <div class="sort-buttons">
-                  <button class="sort-btn active" data-sort="relevance">관련도순</button>
-                  <button class="sort-btn" data-sort="latest">최신순</button>
+          <div class="search-info default">
+            <div class="search-info-inner">
+              <span class="search-keyword">식품</span>에 대해
+              <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
+            </div>
+            <div class="search-info-filter">
+              <div class="filter-sort-bar" data-filter-sort-bar="">
+                <!-- 목록 표시 개수 -->
+                <div class="filter-group">
+                  <span class="filter-label">목록 표시 개수</span>
+                  <select class="filter-select" id="itemCount">
+                    <option value="12" selected="">12개</option>
+                    <option value="24">24개</option>
+                    <option value="36">36개</option>
+                    <option value="48">48개</option>
+                  </select>
+                </div>
+                <div class="divider"></div>
+                <!-- 정렬 기준 -->
+                <div class="sort-group">
+                  <span class="sort-label">정렬기준</span>
+                  <!-- PC용 버튼 -->
+                  <div class="sort-buttons">
+                    <button class="sort-btn active" data-sort="relevance">관련도순</button>
+                    <button class="sort-btn" data-sort="latest">최신순</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="search-result-wrap">
-          <div class="section">
-            <div class="section-header">
-              <h4>특허정보</h4>
-              <div class="section-header-right">
-                검색결과 <span class="count" aria-live="polite">999</span>건
-                <a href="#" class="more"><span>더보기</span><i class="icon icon-arrow-right-bold"></i></a>
-              </div>
-            </div>
-            <!-- // section-header -->
-            <div class="section-content">
-              <div class="keyword-card">
-                <div class="logo-area"><a href="#"><img src="../images/portal/logo-test.svg" alt="logo"></a></div>
-                <div class="subeject"><a href="#">인삼 유래의 엑소좀-유사 나노베지클의 제조 방법</a></div>
-                <div class="info">
-                  <dl>
-                    <dt>작성기관</dt>
-                    <dd>경희대학교 산학협력단</dd>
-                    <dt>교육기간</dt>
-                    <dd>경희대학교 산학협력단</dd>
-                    <dt>공개여부</dt>
-                    <dd>경희대학교 산학협력단</dd>
-                  </dl>
-                </div>
-                <div class="link-area">
-                  <span>특허정보</span>
-                  <a href="#">KIPRIS 국내외특허 <i class="icon icon-blank"></i></a>
+          <div class="search-result-wrap">
+            <div class="section">
+              <div class="section-header">
+                <h4>특허정보</h4>
+                <div class="section-header-right">
+                  검색결과 <span class="count" aria-live="polite">999</span>건
+                  <a href="#" class="more"><span>더보기</span><i class="icon icon-arrow-right-bold"></i></a>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="section">
-            <div class="section-header">
-              <h4>해외시장정보 <em>자세한 통계 정보는 ‘해외시장정보’에서 확인할 수 있습니다.</em></h4>
-              <div class="section-header-right">
-                검색결과 <span class="count" aria-live="polite">999</span>건
-                <a href="#" class="more"><span>더보기</span><i class="icon icon-arrow-right-bold"></i></a>
-              </div>
-            </div>
-            <!-- // section-header -->
-            <div class="section-content">
-              <div class="keyword-card">
-                <div class="logo-area"><a href="#"><img src="../images/portal/logo-test.svg" alt="logo"></a></div>
-                <div class="subeject"><a href="#">인삼 유래의 엑소좀-유사 나노베지클의 제조 방법</a></div>
-                <div class="info">
-                  <dl>
-                    <dt>작성기관</dt>
-                    <dd>경희대학교 산학협력단</dd>
-                    <dt>교육기간</dt>
-                    <dd>경희대학교 산학협력단</dd>
-                    <dt>공개여부</dt>
-                    <dd>경희대학교 산학협력단</dd>
-                  </dl>
-                </div>
-                <div class="link-area">
-                  <span>특허정보</span>
-                  <a href="#">KIPRIS 국내외특허 <i class="icon icon-blank"></i></a>
+              <!-- // section-header -->
+              <div class="section-content">
+                <div class="keyword-card">
+                  <div class="logo-area"><a href="#"><img src="../images/portal/logo-test.svg" alt="logo"></a></div>
+                  <div class="subeject"><a href="#">인삼 유래의 엑소좀-유사 나노베지클의 제조 방법</a></div>
+                  <div class="info">
+                    <dl>
+                      <dt>작성기관</dt>
+                      <dd>경희대학교 산학협력단</dd>
+                      <dt>교육기간</dt>
+                      <dd>경희대학교 산학협력단</dd>
+                      <dt>공개여부</dt>
+                      <dd>경희대학교 산학협력단</dd>
+                    </dl>
+                  </div>
+                  <div class="link-area">
+                    <span>특허정보</span>
+                    <a href="#">KIPRIS 국내외특허 <i class="icon icon-blank"></i></a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="popular-container">
-          <div class="l popular-ranks">
-            <header class="popular-header">
-              <strong>인기키워드</strong>
-              <span class="date">10.02 기준</span>
-            </header>
-            <ol class="ranking-list keyword-ranking">
-              <li class="ranking-item"><button type="button"><span class="num">1</span><span class="word up">식품산업</span></button></li>
-              <li class="ranking-item"><button type="button"><span class="num">2</span><span class="word down">식품산업</span></button></li>
-              <li class="ranking-item"><button type="button"><span class="num">3</span><span class="word same">식품산업</span></button></li>
-              <li class="ranking-item"><button type="button"><span class="num">4</span><span class="word same">식품산업</span></button></li>
-              <li class="ranking-item"><button type="button"><span class="num">5</span><span class="word up">식품산업</span></button></li>
-            </ol>
-          </div>
-          <div class="r popular-hits">
-            <header class="popular-header">
-              <strong>인기키워드</strong>
-              <span class="date">10.02 기준</span>
-            </header>
-            <div class="popular-hits-list">
-              <ol class="popular-hits-rows">
-                <li>
-                  <span class="num">1</span>
-                  <span class="tags">rydbrwldnjs</span>
-                  <a href="#" class="text">daajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklaf</a>
-                  <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                </li>
-                <li>
-                  <span class="num">1</span>
-                  <span class="tags">rydbrwldnjs</span>
-                  <a href="#" class="text">daajhsdfakldfjssklaf</a>
-                  <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                </li>
-                <li>
-                  <span class="num">1</span>
-                  <span class="tags">rydbrwldnjs</span>
-                  <a href="#" class="text">daajhsdfakldfjssklaf</a>
-                  <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                </li>
-                <li>
-                  <span class="num">1</span>
-                  <span class="tags">rydbrwldnjs</span>
-                  <a href="#" class="text">daajhsdfakldfjssklaf</a>
-                  <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                </li>
-                <li>
-                  <span class="num">1</span>
-                  <span class="tags">rydbrwldnjs</span>
-                  <a href="#" class="text">daajhsdfakldfjssklaf</a>
-                  <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                </li>
+            <div class="section">
+              <div class="section-header">
+                <h4>해외시장정보 <em>자세한 통계 정보는 ‘해외시장정보’에서 확인할 수 있습니다.</em></h4>
+                <div class="section-header-right">
+                  검색결과 <span class="count" aria-live="polite">999</span>건
+                  <a href="#" class="more"><span>더보기</span><i class="icon icon-arrow-right-bold"></i></a>
+                </div>
+              </div>
+              <!-- // section-header -->
+              <div class="section-content">
+                <div class="keyword-card">
+                  <div class="logo-area"><a href="#"><img src="../images/portal/logo-test.svg" alt="logo"></a></div>
+                  <div class="subeject"><a href="#">인삼 유래의 엑소좀-유사 나노베지클의 제조 방법</a></div>
+                  <div class="info">
+                    <dl>
+                      <dt>작성기관</dt>
+                      <dd>경희대학교 산학협력단</dd>
+                      <dt>교육기간</dt>
+                      <dd>경희대학교 산학협력단</dd>
+                      <dt>공개여부</dt>
+                      <dd>경희대학교 산학협력단</dd>
+                    </dl>
+                  </div>
+                  <div class="link-area">
+                    <span>특허정보</span>
+                    <a href="#">KIPRIS 국내외특허 <i class="icon icon-blank"></i></a>
+                  </div>
+                </div>
+                <div class="source-info"><a href="#">&lt;
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="15" viewBox="0 0 19 15" fill="none">
+                    <path d="M6.26925 14.846C5.85675 14.846 5.50358 14.6992 5.20975 14.4055C4.91608 14.1117 4.76925 13.7585 4.76925 13.346V10.8463H7.65375V8.096C7.04475 8.146 6.4425 8.07133 5.847 7.872C5.2515 7.67267 4.73708 7.35125 4.30375 6.90775V5.65375H3.01925L0 2.6345C0.587167 1.98967 1.28392 1.52333 2.09025 1.2355C2.89675 0.947668 3.71792 0.803751 4.55375 0.803751C5.09925 0.803751 5.6295 0.866 6.1445 0.9905C6.65967 1.11483 7.16275 1.31992 7.65375 1.60575V0H18.6538V12.346C18.6538 13.0448 18.4118 13.6362 17.9278 14.12C17.4438 14.604 16.8524 14.846 16.1538 14.846H6.26925ZM9.15375 10.8463H15.1538V12.346C15.1538 12.6293 15.2496 12.8668 15.4413 13.0585C15.6329 13.2502 15.8704 13.346 16.1538 13.346C16.4371 13.346 16.6746 13.2502 16.8663 13.0585C17.0579 12.8668 17.1538 12.6293 17.1538 12.346V1.5H9.15375V2.6L14.9038 8.35V9.40375H13.85L10.9038 6.45775L10.521 6.84025C10.307 7.05442 10.0884 7.24033 9.86525 7.398C9.64225 7.55567 9.40508 7.6845 9.15375 7.7845V10.8463ZM3.6575 4.15375H5.80375V6.20775C6.07425 6.37958 6.33708 6.49683 6.59225 6.5595C6.84742 6.62233 7.10258 6.65375 7.35775 6.65375C7.77692 6.65375 8.15667 6.58583 8.497 6.45C8.83733 6.31417 9.16392 6.08983 9.47675 5.777L9.85 5.40375L8.27675 3.83075C7.76775 3.32175 7.19725 2.94 6.56525 2.6855C5.93325 2.431 5.26275 2.30375 4.55375 2.30375C4.14342 2.30375 3.74825 2.348 3.36825 2.4365C2.98808 2.525 2.63192 2.64492 2.29975 2.79625L3.6575 4.15375ZM13.6538 12.346H6.26925V13.346H13.8808C13.7988 13.2025 13.7404 13.0463 13.7058 12.8775C13.6711 12.7088 13.6538 12.5317 13.6538 12.346Z" fill="#58616A"/>
+                  </svg>
+                  제공 출처 : 한국과학기술연구원(KISTI), 특허청(KIPRIS) &gt;</a>
+                </div>
+              </div>
+            </div>
+            <ul class="pagination">
+              <li>
+                <button class="page-item prev">
+                  <span class="text">이전</span>
+                </button></li>
+              <li><button class="page-item">1</button></li>
+              <li><button class="page-item active">2</button></li>
+              <li><button class="page-item">3</button></li>
+              <li><button class="page-item">3</button></li>
+              <li><button class="page-item">3</button></li>
+              <li><button class="page-item ellipsis">생략</button></li>
+              <li><button class="page-item">99</button></li>
+              <li>
+                <button class="page-item next">
+                  <span class="text">다음</span>
+                </button>
+              </li>
+            </ul>           </div>
+          <div class="popular-container">
+            <div class="l popular-ranks">
+              <header class="popular-header">
+                <strong>인기키워드</strong>
+                <span class="date">10.02 기준</span>
+              </header>
+              <ol class="ranking-list keyword-ranking">
+                <li class="ranking-item"><button type="button"><span class="num">1</span><span class="word up">식품산업</span></button></li>
+                <li class="ranking-item"><button type="button"><span class="num">2</span><span class="word down">식품산업</span></button></li>
+                <li class="ranking-item"><button type="button"><span class="num">3</span><span class="word same">식품산업</span></button></li>
+                <li class="ranking-item"><button type="button"><span class="num">4</span><span class="word same">식품산업</span></button></li>
+                <li class="ranking-item"><button type="button"><span class="num">5</span><span class="word up">식품산업</span></button></li>
               </ol>
+            </div>
+            <div class="r popular-hits">
+              <header class="popular-header">
+                <strong>인기키워드</strong>
+                <span class="date">10.02 기준</span>
+              </header>
+              <div class="popular-hits-list">
+                <ol class="popular-hits-rows">
+                  <li>
+                    <span class="num">1</span>
+                    <span class="tags">rydbrwldnjs</span>
+                    <a href="#" class="text">daajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklaf</a>
+                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
+                  </li>
+                  <li>
+                    <span class="num">1</span>
+                    <span class="tags">rydbrwldnjs</span>
+                    <a href="#" class="text">daajhsdfakldfjssklaf</a>
+                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
+                  </li>
+                  <li>
+                    <span class="num">1</span>
+                    <span class="tags">rydbrwldnjs</span>
+                    <a href="#" class="text">daajhsdfakldfjssklaf</a>
+                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
+                  </li>
+                  <li>
+                    <span class="num">1</span>
+                    <span class="tags">rydbrwldnjs</span>
+                    <a href="#" class="text">daajhsdfakldfjssklaf</a>
+                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
+                  </li>
+                  <li>
+                    <span class="num">1</span>
+                    <span class="tags">rydbrwldnjs</span>
+                    <a href="#" class="text">daajhsdfakldfjssklaf</a>
+                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
+                  </li>
+                </ol>
+              </div>
             </div>
           </div>
         </div>

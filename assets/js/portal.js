@@ -491,19 +491,53 @@ const portal = {
   // ========================================
   dateRangePicker: {
     init() {
-      const dateInputs = document.querySelectorAll("#dateRangePicker");
-      if (!dateInputs.length) return;
-      dateInputs.forEach((input) => {
-        flatpickr(input, {
-          mode: "range",
-          dateFormat: "Y.m.d",
-          locale: "ko",
-          defaultDate: [/* @__PURE__ */ new Date(), /* @__PURE__ */ new Date()],
-          onChange: function(selectedDates, dateStr, instance) {
-            console.log("선택된 날짜:", dateStr);
-          }
+      const dateRangeInputs = document.querySelectorAll(".date-range-picker");
+      if (dateRangeInputs.length) {
+        dateRangeInputs.forEach((input) => {
+          flatpickr(input, {
+            mode: "range",
+            dateFormat: "Y.m.d",
+            locale: "ko",
+            defaultDate: [/* @__PURE__ */ new Date(), /* @__PURE__ */ new Date()],
+            onChange: function(selectedDates, dateStr, instance) {
+              console.log("선택된 날짜:", dateStr);
+            }
+          });
         });
-      });
+      }
+      const dateMonthInputs = document.querySelectorAll(".date-month-picker");
+      if (dateMonthInputs.length) {
+        dateMonthInputs.forEach((input) => {
+          flatpickr(input, {
+            mode: "single",
+            dateFormat: "Y.m",
+            locale: "ko",
+            onChange: function(selectedDates, dateStr, instance) {
+              if (selectedDates.length) {
+                const selectedDate = selectedDates[0];
+                const year = selectedDate.getFullYear();
+                const month = String(selectedDate.getMonth() + 1).padStart(2, "0");
+                const formattedDate = `${year}.${month}`;
+                instance.input.value = formattedDate;
+                console.log("선택된 월:", formattedDate);
+              }
+            },
+            onDayCreate: function(dObj, dStr, fp, dayElem) {
+              dayElem.addEventListener("click", function(e) {
+                e.preventDefault();
+                if (!dayElem.classList.contains("flatpickr-disabled") && dObj) {
+                  const date = new Date(dObj);
+                  const year = date.getFullYear();
+                  const month = date.getMonth();
+                  const firstDayOfMonth = new Date(year, month, 1);
+                  fp.setDate(firstDayOfMonth, false);
+                  fp.close();
+                }
+              });
+            }
+          });
+        });
+      }
     }
   },
   // portal 객체에 추가할 filterSort 모듈

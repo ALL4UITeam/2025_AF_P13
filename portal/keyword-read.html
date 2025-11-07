@@ -1,7 +1,7 @@
-<!-- @pageTitle 서비스소개-공지사항-목록 -->
-<!-- @pageNote 종료 -->
-<!-- @pageCreated 2025-10-27 -->
-<!-- @pageUpdated 2025-10-27 -->
+<!-- @pageTitle 키워드검색 -->
+<!-- @pageNote 기능 구현 완료 -->
+<!-- @pageCreated 2025-11-03 -->
+<!-- @pageUpdated 2025-11-03 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -172,12 +172,12 @@
           <ol class="breadcrumb">
             <li><a href="/" title="홈으로 이동">홈</a></li>
             <li>
-                <a href="##" title="서비스소개로 이동">서비스소개</a>
+                <a href="##" title="키워드검색로 이동">키워드검색</a>
             </li>
-            <li><span>공지사항</span></li>
+            <li><span>키워드검색</span></li>
           </ol>
           <div class="subtop-title-wrap">
-            <h1 class="subtop-title">공지사항</h1>
+            <h1 class="subtop-title">키워드검색</h1>
             <div class="document-utils">
               <button class="document-utils-share" title="공유"><i class="icon-share icon"></i></button>
               <button class="document-utils-print" title="프린트"><i class="icon-print icon"></i></button>
@@ -186,284 +186,125 @@
         </div>
       </section>
       <main id="content" class="sub-layout">
-        <div class="board-wrap">
-          <!-- 기본 2개 필드 -->
-          <form action="#">
-            <fieldset>
-              <legend>검색 조건</legend>
-              <div class="board-search">
-                <div class="board-search__fields">
-                  <div class="board-search__field">
-                    <label class="label">분야</label>
-                    <select class="select">
-                      <option>전체</option>
-                      <option>기술</option>
-                      <option>디자인</option>
-                    </select>
-                  </div>
-                  <div class="board-search__field">
-                    <label class="label">지역</label>
-                    <select class="select">
-                      <option>전체</option>
-                      <option>서울</option>
-                      <option>경기</option>
-                    </select>
-                  </div>
-                  <div class="board-search__field">
-                    <label class="label">지역</label>
-                    <select class="select">
-                      <option>전체</option>
-                      <option>서울</option>
-                      <option>경기</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="board-search__actions">
-                  <button class="btn btn--outline btn--tertiary btn--sm"><i
-                      class="icon icon-reset"></i><span>초기화</span></button>
-                  <button class="btn btn--primary btn--sm"><i
-                      class="icon icon-input-search"></i><span>검색</span></button>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-          <!-- 항목이 많을 때 -->
-          <form action="#">
-            <fieldset>
-              <legend>검색 조건</legend>
-              <div class="board-search">
-                <div class="board-search__fields">
-                  <div class="board-search__field">
-                    <label class="label">등록일</label>
-                    <div class="date-range-wrapper">
-                      <input type="text" class="input date-input date-range-picker"
-                        placeholder="2025.11.06 ~ 2025.11.06" readonly>
-                    </div>
-                  </div>
-                  <div class="board-search__field mix-field">
-                    <label class="label">직급</label>
-                    <div class="input-group">
-                      <select class="select">
-                        <option>전체</option>
-                      </select>
-                      <input type="text" placeholder="검색어를 입력하세요" class="input" title="검색어를 입력하세요">
-                    </div>
-                  </div>
-                </div>
-                <div class="board-search__actions">
-                  <button class="btn btn--outline btn--tertiary btn--sm"><i
-                      class="icon icon-reset"></i><span>초기화</span></button>
-                  <button class="btn btn--primary btn--sm"><i
-                      class="icon icon-input-search"></i><span>검색</span></button>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-          <form action="#">
-            <fieldset>
-              <legend>검색 조건</legend>
-              <div class="board-search mix">
-                <div class="board-search__fields">
-                  <div class="board-search__field">
-                    <label class="label">직급</label>
-                    <select class="select">
-                      <option>전체</option>
-                    </select>
-                  </div>
-                  <div class="board-search__field">
-                    <label class="label">직급</label>
-                    <select class="select">
-                      <option>전체</option>
-                    </select>
-                  </div>
-                  <div class="board-search__field">
-                    <label class="label">직급</label>
-                    <select class="select">
-                      <option>전체</option>
-                    </select>
-                  </div>
-                  <div class="board-search__field">
-                    <label class="label">직급</label>
-                    <select class="select">
-                      <option>전체</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="board-search__actions footer-sticky">
-                  <button class="btn btn--outline btn--tertiary btn--sm"><i
-                      class="icon icon-reset"></i><span>초기화</span></button>
-                  <button class="btn btn--primary btn--sm"><i
-                      class="icon icon-input-search"></i><span>검색</span></button>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-          <nav class="tabs">
-            <button class="tab">전체</button>
-            <button class="tab current">전자민원</button>
-            <button class="tab">시설/장비</button>
-            <button class="tab">전문가</button>
-            <button class="tab">일반</button>
-            <button class="tab">융합데이터</button>
-          </nav>
-          <div class="search-info search-board-info" style="display: none;">
-            <div class="search-info-inner">
-              <span class="search-keyword">식품</span>에 대해
-              <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
+        <div class="read-wrap">
+          <div class="read-patent">
+            <h2>Effects of heat-killed Lactiplantibacillus plantarum TWK10 on exercise performance, fatigue, and muscle growth</h2>
+            <div class="link-area">
+              <a href="#">KIPRIS 원문으로 이동</a>
+              <i class="icon icon-blank2"></i>
             </div>
-            <div class="search-info-filter">
-              <div class="filter-sort-bar" data-filter-sort-bar="">
-                <!-- 목록 표시 개수 -->
-                <div class="filter-group">
-                  <span class="filter-label">목록 표시 개수</span>
-                  <select class="filter-select" id="itemCount">
-                    <option value="12" selected="">12개</option>
-                    <option value="24">24개</option>
-                    <option value="36">36개</option>
-                    <option value="48">48개</option>
-                  </select>
+          </div>
+          <div class="read-section">
+            <div class="read-section-header">
+              <h3>특허정보</h3>
+            </div>
+            <div class="read-section-content">
+              <div class="text">
+                To develop a value-added product from individually quick-frozen oyster Crassostrea gigas extract (IQFOE), we prepared two types of oyster sauce (OS): bottled OS (BOS) and retort pouched OS (ROS). We investigated processing conditions, quality metrics and flavor compounds in each type of sauce. We found that the most appropriate base formular for both BOS and ROS consisted of 40.0% IQFOE (Brix 30°), 15.0% sugar, 6.0% salt, 4.0% monosodium glutamate, 4.0% soy sauce, 3.5% starch, 3.0% yeast extract, 3.5% wheat flour and 21.0% water. The crude protein, salinity and amino-nitrogen contents of the BOS and ROS were 8.2 and 8.3%, 9.3 and 9.2%, and 539.2 and 535.2 mg/100 g, respectively. In commercial oyster sauces (COS), these values were 4.7-6.5%, 9.7-12.0%, and 244.7-504.2 mg/100 g, respectively. The total free amino acids content of ROS was 7,346.9 mg/100 g, and the main free amino acids were glutamic acid, taurine, proline, glycine and alanine. The inosinic monophosphate (IMP) content of the ROS was 131.6 mg/100 g, and the primary inorganic ions were Na, K, S and P. The present BOS and ROS have favorable organoleptic qualities and storage stability compared with COS, and are suitable for commercialization as high-flavor seasoning sauces.
+              </div>
+              <div class="info-cards-grid">
+                <div class="info-card">
+                  <span class="info-card-label">출원인</span>
+                  <span class="info-card-value">A회사</span>
                 </div>
-                <div class="divider"></div>
-                <!-- 정렬 기준 -->
-                <div class="sort-group">
-                  <span class="sort-label">정렬기준</span>
-                  <!-- PC용 버튼 -->
-                  <div class="sort-buttons">
-                    <button class="sort-btn active" data-sort="relevance">관련도순</button>
-                    <button class="sort-btn" data-sort="latest">최신순</button>
-                  </div>
-                  <!-- 모바일용 셀렉트 -->
-                  <select class="sort-select-mobile" id="sortSelectMobile">
-                    <option value="relevance" selected="">관련도순</option>
-                    <option value="latest">최신순</option>
-                  </select>
+                <div class="info-card">
+                  <span class="info-card-label">출원일자</span>
+                  <span class="info-card-value">2022.01.18</span>
+                </div>
+                <div class="info-card">
+                  <span class="info-card-label">등록일자</span>
+                  <span class="info-card-value">2025.12.10</span>
+                </div>
+                <div class="info-card">
+                  <span class="info-card-label">등록번호</span>
+                  <span class="info-card-value">4564</span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="board-list">
-            <div class="search-info search-board-info">
-              <div class="search-info-inner">
-                <span class="search-keyword">식품</span>에 대해
-                <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
-              </div>
-              <div class="search-info-filter">
-                <div class="filter-sort-bar" data-filter-sort-bar="">
-                  <!-- 목록 표시 개수 -->
-                  <div class="filter-group">
-                    <span class="filter-label">목록 표시 개수</span>
-                    <select class="filter-select" id="itemCount">
-                      <option value="12" selected="">12개</option>
-                      <option value="24">24개</option>
-                      <option value="36">36개</option>
-                      <option value="48">48개</option>
-                    </select>
-                  </div>
-                  <div class="divider"></div>
-                  <!-- 정렬 기준 -->
-                  <div class="sort-group">
-                    <span class="sort-label">정렬기준</span>
-                    <!-- PC용 버튼 -->
-                    <div class="sort-buttons">
-                      <button class="sort-btn active" data-sort="relevance">관련도순</button>
-                      <button class="sort-btn" data-sort="latest">최신순</button>
-                    </div>
-                    <!-- 모바일용 셀렉트 -->
-                    <select class="sort-select-mobile" id="sortSelectMobile">
-                      <option value="relevance" selected="">관련도순</option>
-                      <option value="latest">최신순</option>
-                    </select>
-                  </div>
-                </div>
+          <!-- // read-section -->
+          <div class="read-section">
+            <div class="read-section-header">
+              <h3>관련 특허 목록</h3>
+            </div>
+            <div class="read-section-content">
+              <div>
+                <table class="table">
+                  <caption class="sr-only">관련 특허 목록</caption>
+                  <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 40%;">
+                    <col style="width: 20%;">
+                    <col style="width: 20%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">구분</th>
+                      <th scope="col">특허출원명</th>
+                      <th scope="col">출원번호</th>
+                      <th scope="col">출원일자</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="badge badge--outline badge--primary badge--lg">국내특허</span>
+                      </td>
+                      <td class="text-left">신규한 흑홍삼 및 이의 추출물의 제조방법 및 이를 함유하는 조성물</td>
+                      <td>10-2025-0000000</td>
+                      <td>2025-01-01</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="col-number">번호</th>
-                  <th class="col-category">분야</th>
-                  <th class="col-title">제목</th>
-                  <th class="col-author">작성자</th>
-                  <th class="col-date">작성일</th>
-                  <th class="col-views">조회</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="col-number">
-                    <span class="badge badge--filled badge--lg badge--notice">
-                      주요공지
-                      <i class="icon icon-notice"></i>
-                    </span>
-                  </td>
-                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
-                  <td class="col-title">
-                    <div class="subject-content">
-                      <span class="subject-text">시제품을 개발해보고자 합니다. 어디에 문의를 드릴수 있을까요?</span>
-                      <div class="subject-status">
-                        <span class="badge badge--filled badge--warning">N</span>
-                        <i class="icon icon-lock"></i>
-                        <span class="badge badge--filled badge--light">답변대기</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>관리자</td>
-                  <td class="col-date">2025-10-28</td>
-                  <td class="col-views">123</td>
-                </tr>
-                <tr>
-                  <td class="col-number">2</td>
-                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
-                  <td class="col-title">
-                    <div class="subject-content">
-                      <span class="subject-text">시제품을 개발해보고자 합니다. 어디에 문의를 드릴수 있을까요?</span>
-                      <div class="subject-status">
-                        <i class="icon icon-lock"></i>
-                        <span class="badge badge--filled badge--light">답변대기</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>홍길동</td>
-                  <td class="col-date">2025-11-06</td>
-                  <td class="col-views">45</td>
-                </tr>
-                <tr>
-                  <td class="col-number">3</td>
-                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
-                  <td class="col-title">
-                    <div class="subject-content">
-                      <span class="subject-text">문의드립니다문의드립니다문의드립니다문의드립니다문의드립니다문의드립니다</span>
-                      <div class="subject-status">
-                        <i class="icon icon-lock"></i>
-                        <span class="badge badge--filled badge--purple">답변완료</span>
-                      </div>
-                    </div>
-                  </td>
-                  <td>김철수</td>
-                  <td class="col-date">2025-11-05</td>
-                  <td class="col-views">78</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
-          <ul class="pagination">
-            <li>
-              <button class="page-item prev">
-                <span class="text">이전</span>
-              </button></li>
-            <li><button class="page-item">1</button></li>
-            <li><button class="page-item active">2</button></li>
-            <li><button class="page-item">3</button></li>
-            <li><button class="page-item">3</button></li>
-            <li><button class="page-item">3</button></li>
-            <li><button class="page-item ellipsis">생략</button></li>
-            <li><button class="page-item">99</button></li>
-            <li>
-              <button class="page-item next">
-                <span class="text">다음</span>
-              </button>
-            </li>
-          </ul>         </div>
+          <!-- // read-section -->
+          <div class="read-section">
+            <div class="read-section-header">
+              <h3>관련 특허 목록</h3>
+            </div>
+            <div class="read-section-content">
+              <div>
+                <table class="table">
+                  <caption class="sr-only">관련 특허 목록</caption>
+                  <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 40%;">
+                    <col style="width: 20%;">
+                    <col style="width: 20%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">구분</th>
+                      <th scope="col">특허출원명</th>
+                      <th scope="col">출원번호</th>
+                      <th scope="col">위치보기</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="badge badge--outline badge--primary badge--lg">국내특허</span>
+                      </td>
+                      <td class="text-left">신규한 흑홍삼 및 이의 추출물의 제조방법 및 이를 함유하는 조성물</td>
+                      <td>10-2025-0000000</td>
+                      <td>
+                        <a href="#" class="link-text">위치보기 <i class="icon icon-map"></i></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="fab-actions align-center">
+            <a href="#" class="btn btn--outline btn--secondary">목록으로 가기</a>
+          </div>
+          <div>
+            <button class="btn btn--outline btn--secondary" data-open="demoModal">모달 호출 테스트</button>
+          </div>
+        </div>
       </main>
       <!-- // content -->
     </div>
@@ -676,6 +517,25 @@
     <button class="button button-top" aria-label="맨 위로">
       <span class="icon">↑</span>
     </button>
+  </div>
+  <div id="demoModal" class="modal modal--md" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="demoModal"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>모달 제목</h3>
+        <button class="modal-close" aria-label="닫기" data-close="demoModal"></button>
+      </div>
+      <div class="modal-body">
+        모달 본문입니다. 크기는 <code>.modal--sm/md/lg/xl/full</code> 등으로 조절.
+      </div>
+      <div class="modal-footer">
+        <div class="l"><button class="btn btn--outline btn--secondary" data-close="demoModal">취소</button></div>
+        <div class="r">
+          <button class="btn btn--outline btn--primary">초기화</button>
+          <button class="btn btn--primary">검색</button>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

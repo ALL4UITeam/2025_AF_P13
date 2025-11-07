@@ -294,6 +294,7 @@
             <li><a href="#badges">Badges</a></li>
             <li><a href="#icons">Icons</a></li>
             <li><a href="#forms">Forms</a></li>
+            <li><a href="#datepicker">Date Picker</a></li>
             <li><a href="#tables">Tables</a></li>
             <li><a href="#pagination">Pagination</a></li>
             <li><a href="#modal">Modal</a></li>
@@ -783,6 +784,45 @@
             </div>
           </div>
         </div>
+      </section>
+      <!-- DATE PICKER -->
+      <section id="datepicker" class="guide-card">
+        <div class="guide-card__head">
+          <h2 class="guide-card__title">Date Picker</h2>
+          <div class="guide-actions"><button class="guide-btn" data-copy="code-datepicker">📋 코드복사</button></div>
+        </div>
+        <div class="guide-preview vstack">
+          <div class="guide-subtitle">날짜 범위 선택 (Range)</div>
+          <div class="form-group">
+            <label class="form-label">등록일</label>
+            <div class="date-range-wrapper">
+              <input type="text" class="input date-input date-range-picker" placeholder="2025.11.06 ~ 2025.11.06" readonly>
+            </div>
+            <span class="form-helper">시작일과 종료일을 선택할 수 있습니다.</span>
+          </div>
+          <div class="guide-subtitle">월 선택 (Month Only)</div>
+          <div class="form-group">
+            <label class="form-label">기준연월</label>
+            <div class="date-range-wrapper">
+              <input type="text" class="input date-input date-month-picker" placeholder="2025.11" readonly>
+            </div>
+            <span class="form-helper">월만 선택할 수 있습니다. (keyword 페이지 전용)</span>
+          </div>
+          <div class="guide-subtitle">사용법</div>
+          <div class="vstack" style="gap: 8px;">
+            <p style="font-size: 14px; color: #666; margin: 0;"><strong>날짜 범위 선택:</strong> <code>.date-range-picker</code> 클래스를 사용합니다.</p>
+            <p style="font-size: 14px; color: #666; margin: 0;"><strong>월 선택:</strong> <code>.date-month-picker</code> 클래스를 사용합니다.</p>
+            <p style="font-size: 14px; color: #666; margin: 0;"><strong>주의:</strong> id 대신 class를 사용하여 여러 인스턴스를 지원합니다.</p>
+          </div>
+        </div>
+        <pre class="guide-code" id="code-datepicker"><code>&lt;!-- 날짜 범위 선택 --&gt;
+&lt;div class="date-range-wrapper"&gt;
+  &lt;input type="text" class="input date-input date-range-picker" placeholder="2025.11.06 ~ 2025.11.06" readonly&gt;
+&lt;/div&gt;
+&lt;!-- 월 선택 (keyword 페이지 전용) --&gt;
+&lt;div class="date-range-wrapper"&gt;
+  &lt;input type="text" class="input date-input date-month-picker" placeholder="2025.11" readonly&gt;
+&lt;/div&gt;</code></pre>
       </section>
       <!-- TABLES -->
       <section id="tables" class="guide-card">
