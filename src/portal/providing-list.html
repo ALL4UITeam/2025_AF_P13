@@ -1,0 +1,88 @@
+<!-- @pageTitle 서비스소개-공지사항-목록 -->
+<!-- @pageNote 종료 -->
+<!-- @pageCreated 2025-10-27 -->
+<!-- @pageUpdated 2025-10-27 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="식품산업정보"
+      subtop-depth1-title="식품산업정보"
+      subtop-depth1-link="##"
+      subtop-depth2-title="발간보고서"
+      }}
+
+      <main id="content" class="sub-layout">
+        <div class="board-wrap">
+
+          <!-- 항목이 많을 때 -->
+          <form action="#">
+            <fieldset>
+              <legend>검색 조건</legend>
+              <div class="board-search">
+                <div class="board-search__fields">
+                  <div class="board-search__field">
+                    <label class="label">등록일</label>
+                    <div class="date-range-wrapper">
+                      <input type="text" class="input date-input date-range-picker"
+                        placeholder="2025.11.06 ~ 2025.11.06" readonly>
+                    </div>
+                  </div>
+                  <div class="board-search__field mix-field">
+                    <label class="label">직급</label>
+                    <div class="input-group">
+                      <select class="select">
+                        <option>전체</option>
+                      </select>
+                      <input type="text" placeholder="검색어를 입력하세요" class="input" title="검색어를 입력하세요">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="board-search__actions">
+                  <button class="btn btn--outline btn--tertiary btn--sm"><i
+                      class="icon icon-reset"></i><span>초기화</span></button>
+                  <button class="btn btn--primary btn--sm"><i
+                      class="icon icon-input-search"></i><span>검색</span></button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
+          <div class="board-card-list">
+            <div class="providing-card">
+              <div class="left-cont">
+                <div class="thumbnail">
+                  <img src="https://picsum.photos/530/740" alt="">
+                </div>
+              </div>
+              <div class="right-cont">
+                
+              </div>
+            </div>
+          </div>
+          {{> layout/pagination }}
+        </div>
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script type="module" src="../js/pages/portal.js"></script>
+
+</body>
+
+</html>

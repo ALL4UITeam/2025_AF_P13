@@ -149,6 +149,10 @@
 .icon-search{
   @include icon('/images/portal/icon-search.png', 20px);
 }
+.icon-search2{
+  @include icon('/images/portal/icon-search2.svg', 24px, #fff);
+}
+
 .icon-time{
   @include icon('/images/portal/icon-time.png', 20px);
 }
@@ -163,4 +167,55 @@
 
 .icon-arrow-right{
   @include icon('/images/portal/icon-arrow-right.svg', 40px, #000);
+}
+
+.icon-arrow-right-bold{
+  @include icon('/images/portal/icon-arrow-right-bold.svg', 40px, #000);
+}
+
+.icon-hit{
+  @include icon('/images/portal/icon-hit.svg', 24px, #58616A);
+}
+
+.icon-blank{
+  @include icon('/images/portal/icon-blank.svg', 10px, #9940E2);
+}
+
+.icon-blank2{
+  @include icon('/images/portal/icon-blank2.svg', 24px, #1D1D1D);
+}
+
+.icon-input-search{
+  @include icon('/images/portal/icon-input-search.svg', 20px, #fff);
+}
+
+.icon-reset{
+  @include icon('/images/portal/icon-reset.svg', 20px, #131416);
+}
+.icon-lock{
+  @include icon('/images/portal/lock.svg', 20px, #58616A);
+}
+.icon-back{
+  @include icon('/images/portal/icon-back.svg', 40px, #131416);
+}
+.icon-notice{
+  @include icon('/images/portal/icon-notice.svg', 12px, #fff);
+}
+.icon-arrow-left{
+  @include icon('/images/portal/icon-arrow-left.svg', 26px, #58616A, 12px);
+}
+.icon-arrow-right2{
+  @include icon('/images/portal/icon-arrow-right2.svg', 26px, #58616A, 12px);
+}
+
+.icon-map{
+  @include icon('/images/portal/icon-map.svg', 18px, #58616A);
+}
+
+.icon-arrow-brandly{
+  @include icon('/images/portal/icon-arrow-brandly.svg', 16px, #811FD0);
+}
+
+.icon-arrow-left-w{
+  @include icon('/images/portal/icon-arrow-left-w.svg', 16px, #58616A);
 }

@@ -1,5 +1,5 @@
-<!-- @pageTitle 서비스소개-자료실-목록 -->
-<!-- @pageNote 미완성 -->
+<!-- @pageTitle 서비스소개-공지사항-목록 -->
+<!-- @pageNote 종료 -->
 <!-- @pageCreated 2025-10-27 -->
 <!-- @pageUpdated 2025-10-27 -->
 <!DOCTYPE html>
@@ -16,174 +16,290 @@
     <!-- // header -->
     <div class="layout-sub">
       {{> layout/subtop
-      subtop-title="자료실"
+      subtop-title="공지사항"
       subtop-depth1-title="서비스소개"
       subtop-depth1-link="##"
-      subtop-depth2-title="자료실"
+      subtop-depth2-title="공지사항"
       }}
 
       <main id="content" class="sub-layout">
-        <!-- 기본 2개 필드 -->
-        <div class="board-search">
-          <div class="board-search__fields">
-            <div class="board-search__field">
-              <label>분야</label>
-              <select>
-                <option>전체</option>
-                <option>기술</option>
-                <option>디자인</option>
-              </select>
-            </div>
+        <div class="board-wrap">
+          <!-- 기본 2개 필드 -->
+          <form action="#">
+            <fieldset>
+              <legend>검색 조건</legend>
+              <div class="board-search">
+                <div class="board-search__fields">
+                  <div class="board-search__field">
+                    <label class="label">분야</label>
+                    <select class="select">
+                      <option>전체</option>
+                      <option>기술</option>
+                      <option>디자인</option>
+                    </select>
+                  </div>
 
-            <div class="board-search__field">
-              <label>지역</label>
-              <select>
-                <option>전체</option>
-                <option>서울</option>
-                <option>경기</option>
-              </select>
-            </div>
-          </div>
+                  <div class="board-search__field">
+                    <label class="label">지역</label>
+                    <select class="select">
+                      <option>전체</option>
+                      <option>서울</option>
+                      <option>경기</option>
+                    </select>
+                  </div>
 
-          <div class="board-search__actions">
-            <button class="btn btn--outline btn--sm">
-              <span>초기화</span>
-            </button>
-            <button class="btn btn--primary btn--sm">
-              <span>검색</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 항목이 많을 때 -->
-        <div class="board-search">
-          <div class="board-search__fields">
-            <div class="board-search__field">
-              <label>분야</label>
-              <select>
-                <option>전체</option>
-              </select>
-            </div>
-
-            <div class="board-search__field">
-              <label>지역</label>
-              <select>
-                <option>전체</option>
-              </select>
-            </div>
-
-            <div class="board-search__field">
-              <label>직급</label>
-              <select>
-                <option>전체</option>
-              </select>
-            </div>
-
-            <div class="board-search__field">
-              <label>경력</label>
-              <select>
-                <option>전체</option>
-              </select>
-            </div>
-
-            <div class="board-search__field">
-              <label>키워드</label>
-              <input type="text" placeholder="검색어를 입력하세요">
-            </div>
-          </div>
-
-          <div class="board-search__actions">
-            <button class="btn btn--outline btn--sm">초기화</button>
-            <button class="btn btn--primary btn--sm">검색</button>
-          </div>
-        </div>
-        <div class="scroll-tab-container">
-          <button class="scroll-tab-nav-btn prev" type="button" disabled="">‹</button>
-
-
-
-          <div class="scroll-tab-wrapper">
-            <div class="scroll-tab-list">
-              <button class="scroll-tab-item active">전체</button>
-              <button class="scroll-tab-item">전자민원</button>
-              <button class="scroll-tab-item">시설/장비</button>
-              <button class="scroll-tab-item">전문가</button>
-              <button class="scroll-tab-item">일반</button>
-              <button class="scroll-tab-item">융합데이터</button>
-            </div>
-          </div>
-
-          <button class="scroll-tab-nav-btn next" type="button" disabled="">›</button>
-        </div>
-
-
-        <div class="search-info search-board-info">
-          <div class="search-info-inner">
-            <span class="search-keyword">식품</span>에 대해
-            <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
-          </div>
-          <div class="search-info-filter">
-            <div class="filter-sort-bar" data-filter-sort-bar="">
-              <!-- 목록 표시 개수 -->
-              <div class="filter-group">
-                <span class="filter-label">목록 표시 개수</span>
-                <select class="filter-select" id="itemCount">
-                  <option value="12" selected="">12개</option>
-                  <option value="24">24개</option>
-                  <option value="36">36개</option>
-                  <option value="48">48개</option>
-                </select>
-              </div>
-
-              <div class="divider"></div>
-
-              <!-- 정렬 기준 -->
-              <div class="sort-group">
-                <span class="sort-label">정렬기준</span>
-
-                <!-- PC용 버튼 -->
-                <div class="sort-buttons">
-                  <button class="sort-btn active" data-sort="relevance">관련도순</button>
-                  <button class="sort-btn" data-sort="latest">최신순</button>
+                  <div class="board-search__field">
+                    <label class="label">지역</label>
+                    <select class="select">
+                      <option>전체</option>
+                      <option>서울</option>
+                      <option>경기</option>
+                    </select>
+                  </div>
                 </div>
 
-                <!-- 모바일용 셀렉트 -->
-                <select class="sort-select-mobile" id="sortSelectMobile">
-                  <option value="relevance" selected="">관련도순</option>
-                  <option value="latest">최신순</option>
-                </select>
+                <div class="board-search__actions">
+                  <button class="btn btn--outline btn--tertiary btn--sm"><i
+                      class="icon icon-reset"></i><span>초기화</span></button>
+                  <button class="btn btn--primary btn--sm"><i
+                      class="icon icon-input-search"></i><span>검색</span></button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+          <!-- 항목이 많을 때 -->
+          <form action="#">
+            <fieldset>
+              <legend>검색 조건</legend>
+              <div class="board-search">
+                <div class="board-search__fields">
+                  <div class="board-search__field">
+                    <label class="label">등록일</label>
+                    <div class="date-range-wrapper">
+                      <input type="text" class="input date-input date-range-picker"
+                        placeholder="2025.11.06 ~ 2025.11.06" readonly>
+                    </div>
+                  </div>
+                  <div class="board-search__field mix-field">
+                    <label class="label">직급</label>
+                    <div class="input-group">
+                      <select class="select">
+                        <option>전체</option>
+                      </select>
+                      <input type="text" placeholder="검색어를 입력하세요" class="input" title="검색어를 입력하세요">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="board-search__actions">
+                  <button class="btn btn--outline btn--tertiary btn--sm"><i
+                      class="icon icon-reset"></i><span>초기화</span></button>
+                  <button class="btn btn--primary btn--sm"><i
+                      class="icon icon-input-search"></i><span>검색</span></button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
+          <form action="#">
+            <fieldset>
+              <legend>검색 조건</legend>
+              <div class="board-search mix">
+                <div class="board-search__fields">
+                  <div class="board-search__field">
+                    <label class="label">직급</label>
+                    <select class="select">
+                      <option>전체</option>
+                    </select>
+                  </div>
+                  <div class="board-search__field">
+                    <label class="label">직급</label>
+                    <select class="select">
+                      <option>전체</option>
+                    </select>
+                  </div>
+                  <div class="board-search__field">
+                    <label class="label">직급</label>
+                    <select class="select">
+                      <option>전체</option>
+                    </select>
+                  </div>
+                  <div class="board-search__field">
+                    <label class="label">직급</label>
+                    <select class="select">
+                      <option>전체</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="board-search__actions footer-sticky">
+                  <button class="btn btn--outline btn--tertiary btn--sm"><i
+                      class="icon icon-reset"></i><span>초기화</span></button>
+                  <button class="btn btn--primary btn--sm"><i
+                      class="icon icon-input-search"></i><span>검색</span></button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
+          <nav class="tabs">
+            <button class="tab">전체</button>
+            <button class="tab current">전자민원</button>
+            <button class="tab">시설/장비</button>
+            <button class="tab">전문가</button>
+            <button class="tab">일반</button>
+            <button class="tab">융합데이터</button>
+          </nav>
+          <div class="search-info search-board-info" style="display: none;">
+            <div class="search-info-inner">
+              <span class="search-keyword">식품</span>에 대해
+              <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
+            </div>
+            <div class="search-info-filter">
+              <div class="filter-sort-bar" data-filter-sort-bar="">
+                <!-- 목록 표시 개수 -->
+                <div class="filter-group">
+                  <span class="filter-label">목록 표시 개수</span>
+                  <select class="filter-select" id="itemCount">
+                    <option value="12" selected="">12개</option>
+                    <option value="24">24개</option>
+                    <option value="36">36개</option>
+                    <option value="48">48개</option>
+                  </select>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- 정렬 기준 -->
+                <div class="sort-group">
+                  <span class="sort-label">정렬기준</span>
+
+                  <!-- PC용 버튼 -->
+                  <div class="sort-buttons">
+                    <button class="sort-btn active" data-sort="relevance">관련도순</button>
+                    <button class="sort-btn" data-sort="latest">최신순</button>
+                  </div>
+
+                  <!-- 모바일용 셀렉트 -->
+                  <select class="sort-select-mobile" id="sortSelectMobile">
+                    <option value="relevance" selected="">관련도순</option>
+                    <option value="latest">최신순</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
+          <div class="board-list">
+            <div class="search-info search-board-info">
+              <div class="search-info-inner">
+                <span class="search-keyword">식품</span>에 대해
+                <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
+              </div>
+              <div class="search-info-filter">
+                <div class="filter-sort-bar" data-filter-sort-bar="">
+                  <!-- 목록 표시 개수 -->
+                  <div class="filter-group">
+                    <span class="filter-label">목록 표시 개수</span>
+                    <select class="filter-select" id="itemCount">
+                      <option value="12" selected="">12개</option>
+                      <option value="24">24개</option>
+                      <option value="36">36개</option>
+                      <option value="48">48개</option>
+                    </select>
+                  </div>
+  
+                  <div class="divider"></div>
+  
+                  <!-- 정렬 기준 -->
+                  <div class="sort-group">
+                    <span class="sort-label">정렬기준</span>
+  
+                    <!-- PC용 버튼 -->
+                    <div class="sort-buttons">
+                      <button class="sort-btn active" data-sort="relevance">관련도순</button>
+                      <button class="sort-btn" data-sort="latest">최신순</button>
+                    </div>
+  
+                    <!-- 모바일용 셀렉트 -->
+                    <select class="sort-select-mobile" id="sortSelectMobile">
+                      <option value="relevance" selected="">관련도순</option>
+                      <option value="latest">최신순</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="col-number">번호</th>
+                  <th class="col-category">분야</th>
+                  <th class="col-title">제목</th>
+                  <th class="col-author">작성자</th>
+                  <th class="col-date">작성일</th>
+                  <th class="col-views">조회</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-number">
+                    <span class="badge badge--filled badge--lg badge--notice">
+                      주요공지
+                      <i class="icon icon-notice"></i>
+                    </span>
+                  </td>
+                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
+                  <td class="col-title">
+                    <div class="subject-content">
+                      <span class="subject-text">시제품을 개발해보고자 합니다. 어디에 문의를 드릴수 있을까요?</span>
+                      <div class="subject-status">
+                        <span class="badge badge--filled badge--warning">N</span>
+                        <i class="icon icon-lock"></i>
+                        <span class="badge badge--filled badge--light">답변대기</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>관리자</td>
+                  <td class="col-date">2025-10-28</td>
+                  <td class="col-views">123</td>
+                </tr>
+                <tr>
+                  <td class="col-number">2</td>
+                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
+                  <td class="col-title">
+                    <div class="subject-content">
+                      <span class="subject-text">시제품을 개발해보고자 합니다. 어디에 문의를 드릴수 있을까요?</span>
+                      <div class="subject-status">
+                        <i class="icon icon-lock"></i>
+                        <span class="badge badge--filled badge--light">답변대기</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>홍길동</td>
+                  <td class="col-date">2025-11-06</td>
+                  <td class="col-views">45</td>
+                </tr>
+                <tr>
+                  <td class="col-number">3</td>
+                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
+                  <td class="col-title">
+                    <div class="subject-content">
+                      <span class="subject-text">문의드립니다문의드립니다문의드립니다문의드립니다문의드립니다문의드립니다</span>
+                      <div class="subject-status">
+                        <i class="icon icon-lock"></i>
+                        <span class="badge badge--filled badge--purple">답변완료</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>김철수</td>
+                  <td class="col-date">2025-11-05</td>
+                  <td class="col-views">78</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {{> layout/pagination }}
         </div>
-
-
-        <div class="board-list">
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="col-number">번호</th>
-                <th class="col-title">제목</th>
-                <th class="col-author">작성자</th>
-                <th class="col-date">작성일</th>
-                <th class="col-views">조회</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="col-number">1</td>
-                <td class="col-title">
-                  <a href="#">공지사항입니다</a>
-                  <span class="badge badge--primary">New</span>
-                </td>
-                <td>관리자</td>
-                <td class="col-date">2025-10-28</td>
-                <td class="col-views">123</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        {{> layout/pagination }}
       </main>
       <!-- // content -->
     </div>

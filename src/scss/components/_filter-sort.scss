@@ -1,15 +1,20 @@
 // Filter & Sort Bar Component
+.search-info-filter{
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
 .filter-sort-bar {
   display: flex;
   align-items: center;
   gap: 12px;
-
   // 768px 이하 모바일
   @media (max-width: 768px) {
-    flex-direction: column;
     align-items: stretch;
+    justify-content: space-between;
+    width: 100%;
     gap: 16px;
-    padding: 16px;
+    
   }
 }
 
@@ -18,9 +23,11 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: white;
+  color: #131416;
   font-size: 17px;
-
+  @media screen and (max-width: 1200px) {
+    font-size: 1.2rem;
+  }
   @media (max-width: 768px) {
     justify-content: space-between;
   }
@@ -29,23 +36,29 @@
 .filter-label {
   font-weight: 700;
   font-size: 1.7rem;
+  @media screen and (max-width: 1200px) {
+    font-size: 1.2rem;
+  }
 }
 
 .filter-select {
   border: 0;
   background-color: transparent;
-  color: white;
+  color: #131416;
   padding: 0 20px 0 4px;
   cursor: pointer;
   font-size: 15px;
   appearance: none;
-  background-image: url('/images/portal/ui-select-arrow.svg');
+  //background-image: url('/images/portal/ui-select-arrow.svg');
+  background-image: url('/images/portal/ui-select-arrow-black.svg');
   background-repeat: no-repeat;
   background-position: right 0 center;
-
   option {
-    background: #fff;
+    background: #131416;
     color: #333;
+  }
+  @media screen and (max-width: 1200px) {
+    font-size: 1.2rem;
   }
 }
 
@@ -53,10 +66,11 @@
 .divider {
   width: 1px;
   height: 16px;
-  background: rgba(255, 255, 255, 0.20);
+  //background: rgba(255, 255, 255, 0.20);
+  background: #E6E8EA;
   @media (max-width: 768px) {
     display: none;
-  }
+  }  
 }
 
 // Sort Section
@@ -71,9 +85,12 @@
 }
 
 .sort-label {
-  color: #fff;
+  color: #131416;
   font-weight: 700;
   font-size: 1.7rem;
+  @media screen and (max-width: 1200px) {
+    font-size: 1.2rem;
+  }
 }
 
 .sort-buttons {
@@ -83,10 +100,13 @@
   @media (max-width: 768px) {
     display: none;
   }
+  @media screen and (max-width: 1200px) {
+    font-size: 1.2rem;
+  }
 }
 
 .sort-btn {
-  color: #fff;
+  color: #131416;
   font-size: 15px;
   height: 26px;
   padding: 0 4px;
@@ -105,7 +125,7 @@
   display: none;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  color: #131416;
   padding: 8px 32px 8px 12px;
   border-radius: 6px;
   cursor: pointer;

@@ -28,7 +28,7 @@
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
-.header{border-bottom: 1px solid #CDD1D5;}
+.header{border-bottom: 1px solid #CDD1D5;z-index: 2;position: relative;}
 .header-top{
   background: #F4F5F6;
   height: 4rem;
@@ -131,6 +131,7 @@
       color: #58616A;
       width: 4rem;
       text-align: center;
+      font-size: 1.5rem;
     }
   }
 }
@@ -140,7 +141,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .8rem 0;
+    height: 5.6rem;
   }
   .logo{
     a{
@@ -151,13 +152,48 @@
     }
   }
   .nav{
-    
+    position: relative;
+    z-index: 2;
   }
   #gnb{
     display: flex;
     align-items: center;
   }
   .gnb-lv1{
+    position: relative;
+    &:hover,
+    &:has(a:focus){
+      .gnb-lv1-link{
+        background: var(--gr-1, linear-gradient(90deg, #2DA34F 0%, #1B5D88 100%));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+  
+  // 헤더 메뉴 영역 hover 시 모든 dropmenu와 bg 표시
+  &:hover,
+  &.is-active{
+    .dropmenu{
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .gnb-lv1:hover,
+    .gnb-lv1:has(a:focus){
+      .gnb-lv1-link{
+        background: var(--gr-1, linear-gradient(90deg, #2DA34F 0%, #1B5D88 100%));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .dropmenu ul{
+        border-color: var(--color-brand-primary);
+        background: #F4F5F6;
+      }
+    }
   }
   .gnb-lv1-link{
     display: flex;
@@ -166,12 +202,84 @@
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
     padding: 0 2.2rem;
+    height: 5.6rem;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    text-align: center;
+    justify-content: center;
+    width: 170px;
     .gnb-lv1-link-icon{
       display: inline-block;
       flex-shrink: 0;
       width: 14px;
       height: 14px;
       background: url('/images/portal/gnb-arrow-icon.svg') no-repeat center center;
+    }
+    
+  }
+
+  .allin-menu{
+    text-align: center;
+    padding-top: 20px !important;
+    a{
+      font-size: 0;
+      display: inline-block;
+      vertical-align: top;
+      width: 140px;
+      height: 197px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
+    .allin-menu-link1{
+      background-image: url('/images/portal/allin-menu-link1.svg');
+    }
+    .allin-menu-link2{
+      background-image: url('/images/portal/allin-menu-link2.svg');
+    }
+  }
+  .dropmenu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 312px;
+    padding-top: 1px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+    ul{
+      width: 100%;
+      padding-top: 20px;
+      border-top: 3px solid #fff;
+      height: 100%;
+      background-color: #fff;
+      li{
+        a{
+          display: block;
+          padding: 10px 0;
+          text-align: center;
+          font-size: 1.7rem;
+          &:hover,
+          &:focus{
+            color: var(--color-brand-primary);
+          }
+        }
+      }
+    }
+    .dropmenu-item{
+      a{
+        display: block;
+        padding: 0.8rem 2.2rem;
+        font-size: var(--font-size-base);
+        color: #333;
+        text-decoration: none;
+        &:hover{
+          background: #F4F5F6;
+        }
+      }
     }
   }
   .header-utils{
@@ -189,4 +297,25 @@
       background: url('/images/portal/gnb-open-icon.svg') no-repeat center center;
     }
   }
+}
+
+
+
+
+.header-bg{
+  position: absolute;
+  top: 97px;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #fff;
+  border-bottom: 1px solid #CDD1D5;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  z-index: 0;
+}
+
+.header.has-dropdown .header-bg,
+.header-menu:hover ~ .header-bg{
+  height: 312px;
 }

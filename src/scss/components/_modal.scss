@@ -34,30 +34,35 @@
   position: relative;
   z-index: var(--z-modal);
   //width: 100%;
-  max-width: 500px;
+  //max-width: 500px;
   border-radius: 12px;
   box-shadow: var(--shadow-xl);
   animation: slideInUp var(--transition-base);
   @include respond-to('md') {
-    max-width: 600px;
+    width: 600px;
   }
 }
 
 // 모달 크기
 .modal--sm .modal-content {
-  max-width: 400px;
+  width: 560px;
+  .modal-body{
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 20px;
+  }
 }
 
 .modal--md .modal-content {
-  max-width: 600px;
+  width: 600px;
 }
 
 .modal--lg .modal-content {
-  max-width: 800px;
+  width: 930px;
 }
 
 .modal--xl .modal-content {
-  max-width: 1000px;
+  width: 1000px;
 }
 
 .modal--full .modal-content {
@@ -69,7 +74,8 @@
 .modal-header {
   @include flex-between;
   border-radius: 12px 12px 0 0;
-  background: var(--gradient-1, linear-gradient(90deg, #2DA34F 0%, #1B5D88 100%));
+  //background: var(--gradient-1, linear-gradient(90deg, #2DA34F 0%, #1B5D88 100%));
+  background: linear-gradient(105deg, #4A1278 -10.99%, #6719A6 62.19%, #FF004E 135.37%), linear-gradient(90deg, #6719A6 0%, #FF004E 100%);
   overflow: hidden;
   padding: 24px 40px;
   h2, h3, h4 {
@@ -93,7 +99,7 @@
 
 // 모달 바디
 .modal-body {
-  padding: var(--spacing-lg);
+  padding: 20px 40px;
   max-height: 70vh;
   overflow-y: auto;
   background-color: #fff;
@@ -112,11 +118,46 @@
 
 // 모달 푸터
 .modal-footer {
-  @include flex(flex-end, center);
-  gap: var(--spacing-sm);
-  padding: var(--spacing-lg);
+  @include flex-between;
+  background-color: #fff;
   border-top: 1px solid var(--color-gray-200);
-  background-color: var(--color-gray-50);
-  border-bottom-left-radius: var(--radius-lg);
-  border-bottom-right-radius: var(--radius-lg);
+  padding: 24px 40px;
+  border-radius: 0 0 12px 12px;
+  .btn{
+    width: 78px;
+    height: 48px;
+    font-size: 17px;
+  }
+  > div{
+    display: flex;
+    gap: 8px;
+  }
+}
+
+/** 모달 검색 **/
+.modal-single-search{
+  display: flex;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--g-10, #E6E8EA);
+  background: var(--g-05, #F4F5F6);
+  width: 100%;
+  .note{
+    color: #464C53;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .search-bar{
+    width: 100%;
+    position: relative;
+    .input{
+      width: 464px;
+    }
+    .submit{
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
 }

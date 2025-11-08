@@ -8,38 +8,29 @@
   width: 100%;
   border-collapse: collapse;
   background-color: var(--color-white);
+  table-layout: fixed;
   
   thead {
-    background-color: var(--color-gray-50);
-    border-bottom: 2px solid var(--color-gray-200);
+    border-top: 2px solid var(--g-95, #131416);
+    background: var(--g-05, #F4F5F6);
   }
   
   th {
-    padding: var(--spacing-md);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    text-align: left;
-    color: var(--color-gray-700);
-    white-space: nowrap;
+    font-size: 17px;
+    padding: 15px 0;
+
   }
-  
+  tr{
+    border-bottom: 1px solid #B1B8BE;
+  }
   td {
-    padding: var(--spacing-md);
-    font-size: var(--font-size-sm);
-    color: var(--color-gray-900);
-    border-bottom: 1px solid var(--color-gray-200);
+    font-size: 17px;
+    padding: 12px 0;
+    text-align: center;
   }
   
   tbody tr {
-    transition: background-color var(--transition-fast);
-    
-    &:hover {
-      background-color: var(--color-gray-50);
-    }
-    
-    &:last-child td {
-      border-bottom: none;
-    }
+  
   }
   
   // 테이블 크기

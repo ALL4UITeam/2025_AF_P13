@@ -23,7 +23,10 @@
   <title>식품정보24</title>
   <script src="../lib/jquery/jquery-3.7.1.min.js"></script>
   <script src="../lib/swiper/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="../lib/swiper/swiper-bundle.min.css">  <script src="../assets/js/main.js"></script>
+  <link rel="stylesheet" href="../lib/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>  <script src="../assets/js/main.js"></script>
   <script src="../assets/js/portal.js"></script>
   <link rel="stylesheet" href="../assets/css/common3.css">
   <link rel="stylesheet" href="../assets/css/common2.css">
@@ -68,29 +71,84 @@
           <ul id="gnb" class="gnb">
             <li class="gnb-lv1">
               <a class="gnb-lv1-link" href="#" title="새창열림" target="_blank">
-                <span class="gnb-lv1-link-text">식품산업지도</span>
+                <span class="gnb-lv1-link-text">식품정보</span>
                 <i class="gnb-lv1-link-icon" aria-hidden="true"></i>
               </a>
+              <div class="dropmenu allin-menu">
+                <a href="#" class="allin-menu-link1">
+                  식품정보의 모든 데이터를 한눈에!식품정보24 바로가기
+                </a>
+              </div>
             </li>
             <li class="gnb-lv1">
               <a class="gnb-lv1-link" href="#">
-                <span class="gnb-lv1-link-text">분석서비스</span>
+                <span class="gnb-lv1-link-text">비즈니스 매칭</span>
+                <i class="gnb-lv1-link-icon" aria-hidden="true"></i>
               </a>
+              <div class="dropmenu allin-menu">
+                <a href="#" class="allin-menu-link2">식품산업 최적의  비즈니스 매칭은 디정플에서!! 비즈니스매칭 바로가기</a>
+              </div>
+            </li>
+            <!-- <li class="gnb-lv1">
+              <a class="gnb-lv1-link" href="#">
+                <span class="gnb-lv1-link-text">식품산업지도</span>
+              </a>
+              <div class="dropmenu">
+                <ul>
+                  <li><a href="#">식품산업지도</a></li>
+                </ul>
+              </div>
+            </li> -->
+            <li class="gnb-lv1">
+              <a class="gnb-lv1-link" href="#">
+                <span class="gnb-lv1-link-text">분석 서비스</span>
+              </a>
+              <div class="dropmenu">
+                <ul>
+                  <li><a href="#">트랜드 분석</a></li>
+                  <li><a href="#">융합데이터 분석</a></li>
+                  <li><a href="#">키워드 분석</a></li>
+                </ul>
+              </div>
             </li>
             <li class="gnb-lv1">
               <a class="gnb-lv1-link" href="#">
                 <span class="gnb-lv1-link-text">식품데이터 제공</span>
               </a>
+              <div class="dropmenu">
+                <ul>
+                  <li><a href="#">오픈 API</a></li>
+                  <li><a href="#">데이터 시각화</a></li>
+                  <li><a href="#">데이터 신청</a></li>
+                </ul>
+              </div>
             </li>
             <li class="gnb-lv1">
               <a class="gnb-lv1-link" href="#">
                 <span class="gnb-lv1-link-text">식품산업 정보</span>
               </a>
+              <div class="dropmenu">
+                <ul>
+                  <li><a href="#">식품산업 관련 정보</a></li>
+                  <li><a href="#">정책지원 사업</a></li>
+                  <li><a href="#">발간 보고서</a></li>
+                  <li><a href="#">법률/규제 알림</a></li>
+                </ul>
+              </div>
             </li>
             <li class="gnb-lv1">
               <a class="gnb-lv1-link" href="#">
                 <span class="gnb-lv1-link-text">서비스 소개</span>
               </a>
+              <div class="dropmenu">
+                <ul>
+                  <li><a href="#">서비스 소개</a></li>
+                  <li><a href="#">서비스 활용</a></li>
+                  <li><a href="#">공지사항</a></li>
+                  <li><a href="#">질문과 답변</a></li>
+                  <li><a href="#">자료실</a></li>
+                </ul>
+              </div>
             </li>
           </ul>
         </nav>
@@ -104,6 +162,7 @@
         </div>
       </div>
     </div>
+    <div class="header-bg"></div>
   </header>
 </body>
 </html>

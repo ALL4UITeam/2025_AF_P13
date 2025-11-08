@@ -23,7 +23,10 @@
   <title>식품정보24</title>
   <script src="../lib/jquery/jquery-3.7.1.min.js"></script>
   <script src="../lib/swiper/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="../lib/swiper/swiper-bundle.min.css">  <script src="../assets/js/main.js"></script>
+  <link rel="stylesheet" href="../lib/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>  <script src="../assets/js/main.js"></script>
   <script src="../assets/js/portal.js"></script>
   <link rel="stylesheet" href="../assets/css/common3.css">
   <link rel="stylesheet" href="../assets/css/common2.css">
@@ -188,14 +191,6 @@
     .pagination--center {
       justify-content: center
     }
-    .page-item {
-      background: #fff;
-      border: 1px solid var(--g-border);
-      border-radius: 8px;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-size: 14px
-    }
     .page-item.icon {
       display: flex;
       align-items: center;
@@ -296,7 +291,10 @@
             <li><a href="#typo">Typography & Text</a></li>
             <li><a href="#colors">Colors</a></li>
             <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#badges">Badges</a></li>
+            <li><a href="#icons">Icons</a></li>
             <li><a href="#forms">Forms</a></li>
+            <li><a href="#datepicker">Date Picker</a></li>
             <li><a href="#tables">Tables</a></li>
             <li><a href="#pagination">Pagination</a></li>
             <li><a href="#modal">Modal</a></li>
@@ -384,8 +382,7 @@
       <!-- BUTTONS -->
       <section id="buttons" class="guide-card">
         <div class="guide-card__head">
-          <h2 class="guide-card__title">Buttons (기본/사이즈/라운드/형태/아이콘/블록)</h2>
-          <div class="guide-actions"><button class="guide-btn" data-copy="code-buttons">📋 코드복사</button></div>
+          <h2 class="guide-card__title">Buttons</h2>
         </div>
         <div class="guide-preview vstack">
           <div class="guide-subtitle">기본</div>
@@ -404,18 +401,32 @@
             <button class="btn btn--primary btn--lg">LG</button>
             <button class="btn btn--primary btn--xl">XL</button>
           </div>
-          <div class="guide-subtitle">라운드</div>
+          <div class="guide-subtitle">Outline 형태</div>
           <div class="stack">
-            <button class="btn btn--success btn--rounded-sm">Rounded SM</button>
-            <button class="btn btn--success btn--rounded-md">Rounded MD</button>
-            <button class="btn btn--success btn--rounded-lg">Rounded LG</button>
-            <button class="btn btn--success btn--rounded-full">Rounded FULL</button>
+            <button class="btn btn--outline btn--primary">Outline Primary</button>
+            <button class="btn btn--outline btn--secondary">Outline Secondary</button>
+            <button class="btn btn--outline btn--success">Outline Success</button>
+            <button class="btn btn--outline btn--danger">Outline Danger</button>
+            <button class="btn btn--outline btn--tertiary">Outline Tertiary</button>
           </div>
-          <div class="guide-subtitle">형태</div>
+          <div class="guide-subtitle">Flat/Ghost 형태</div>
           <div class="stack">
-            <button class="btn btn--outline btn--primary">Outline</button>
-            <button class="btn btn--ghost btn--primary">Ghost</button>
-            <button class="btn btn--link">Link Button</button>
+            <button class="btn btn--flat btn--primary">Flat Primary</button>
+            <button class="btn btn--flat btn--secondary">Flat Secondary</button>
+            <button class="btn btn--flat btn--success">Flat Success</button>
+            <button class="btn btn--flat btn--danger">Flat Danger</button>
+            <button class="btn btn--ghost btn--primary">Ghost Primary</button>
+            <button class="btn btn--ghost btn--secondary">Ghost Secondary</button>
+            <button class="btn btn--ghost btn--success">Ghost Success</button>
+            <button class="btn btn--ghost btn--danger">Ghost Danger</button>
+          </div>
+          <div class="guide-subtitle">라운드 처리</div>
+          <div class="stack">
+            <button class="btn btn--primary btn--rounded">Rounded</button>
+            <button class="btn btn--primary btn--rounded-full">Rounded Full</button>
+            <button class="btn btn--primary btn--square">Square</button>
+            <button class="btn btn--outline btn--primary btn--rounded-full">Outline Rounded Full</button>
+            <button class="btn btn--flat btn--primary btn--rounded-full">Flat Rounded Full</button>
           </div>
           <div class="guide-subtitle">아이콘</div>
           <div class="stack">
@@ -433,6 +444,16 @@
                 <path d="M3 6h18M9 6V4h6v2m2 0v14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6h10z" />
               </svg>
             </button>
+          </div>
+          <div class="guide-subtitle">Icon Only</div>
+          <div class="stack">
+            <button class="btn btn--icon-only btn--primary" aria-label="검색">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
             <button class="btn btn--icon-only btn--outline btn--primary" aria-label="검색">
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -441,31 +462,31 @@
               </svg>
             </button>
           </div>
-          <div class="guide-subtitle">블록</div>
+          <div class="guide-subtitle">Block</div>
           <div class="stack" style="width:100%">
             <button class="btn btn--primary btn--block">가로 전체 버튼 (.btn--block)</button>
           </div>
+          <div class="guide-subtitle">Disabled</div>
+          <div class="stack">
+            <button class="btn btn--primary" disabled>Disabled</button>
+            <button class="btn btn--outline btn--primary" disabled>Disabled Outline</button>
+          </div>
         </div>
-        <pre class="guide-code" id="code-buttons"><code>&lt;button class="btn btn--primary btn--lg"&gt;Primary LG&lt;/button&gt;
-&lt;button class="btn btn--outline btn--primary"&gt;Outline&lt;/button&gt;
-&lt;button class="btn btn--icon-only btn--primary" aria-label="검색"&gt;...svg...&lt;/button&gt;
-&lt;button class="btn btn--success btn--rounded-full"&gt;Rounded FULL&lt;/button&gt;
-&lt;button class="btn btn--block btn--primary"&gt;전체 버튼&lt;/button&gt;</code></pre>
       </section>
       <section id="badges" class="guide-card">
         <div class="guide-card__head">
-          <h2 class="guide-card__title">Badges (기본/사이즈/형태/아이콘/블록)</h2>
-          <div class="guide-actions"><button class="guide-btn" data-copy="code-badges">📋 코드복사</button></div>
+          <h2 class="guide-card__title">Badges</h2>
         </div>
         <div class="guide-preview vstack">
-          <div class="guide-subtitle">기본</div>
-          <!-- ========== SIZES ========== -->
+          <!-- ========== 사이즈 ========== -->
+          <div class="guide-subtitle">사이즈</div>
           <div class="badge-group">
             <span class="badge badge--filled badge--primary badge--sm">Small</span>
             <span class="badge badge--filled badge--primary badge--md">Medium</span>
             <span class="badge badge--filled badge--primary badge--lg">Large</span>
           </div>
-          <!-- ========== FILLED VARIANTS (모든 색상) ========== -->
+          <!-- ========== Filled Variants ========== -->
+          <div class="guide-subtitle">Filled Variants</div>
           <div class="badge-group">
             <span class="badge badge--filled badge--primary">Primary</span>
             <span class="badge badge--filled badge--secondary">Secondary</span>
@@ -475,8 +496,11 @@
             <span class="badge badge--filled badge--info">Info</span>
             <span class="badge badge--filled badge--dark">Dark</span>
             <span class="badge badge--filled badge--light">Light</span>
+            <span class="badge badge--filled badge--light-green">Light Green</span>
+            <span class="badge badge--filled badge--purple">Purple</span>
           </div>
-          <!-- ========== OUTLINE VARIANTS (모든 색상) ========== -->
+          <!-- ========== Outline Variants ========== -->
+          <div class="guide-subtitle">Outline Variants</div>
           <div class="badge-group">
             <span class="badge badge--outline badge--primary">Primary</span>
             <span class="badge badge--outline badge--secondary">Secondary</span>
@@ -487,100 +511,210 @@
             <span class="badge badge--outline badge--dark">Dark</span>
             <span class="badge badge--outline badge--light">Light</span>
           </div>
-          <!-- ========== SHAPE VARIANTS ========== -->
+          <!-- ========== Shape Variants ========== -->
+          <div class="guide-subtitle">Shape Variants</div>
           <div class="badge-group">
             <span class="badge badge--filled badge--primary">Pill (기본)</span>
             <span class="badge badge--filled badge--primary badge--rounded">Rounded</span>
             <span class="badge badge--filled badge--primary badge--square">Square</span>
           </div>
           <!-- ========== 아이콘 포함 ========== -->
+          <div class="guide-subtitle">아이콘 포함</div>
           <div class="badge-group">
-            <span class="badge badge--filled badge--success badge--md">
+            <span class="badge badge--filled badge--success badge--sm">
               <span class="badge__icon">
-                <svg><!-- icon --></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
               </span>
-              With Icon
+              Small Icon
+            </span>
+            <span class="badge badge--filled badge--primary badge--md">
+              <span class="badge__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              </span>
+              Medium Icon
             </span>
             <span class="badge badge--outline badge--primary badge--lg">
+              <span class="badge__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              </span>
+              Large Icon
+            </span>
+            <span class="badge badge--filled badge--info badge--md">
               Right Icon
               <span class="badge__icon badge__icon--right">
-                <svg><!-- icon --></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
               </span>
             </span>
           </div>
           <!-- ========== 제거 가능한 배지 ========== -->
+          <div class="guide-subtitle">제거 가능한 배지</div>
           <div class="badge-group">
-            <span class="badge badge--filled badge--primary badge--removable">
-              Removable
+            <span class="badge badge--filled badge--primary badge--removable badge--sm">
+              Small Removable
               <span class="badge__close">
-                <svg><!-- X icon --></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
               </span>
+            </span>
+            <span class="badge badge--filled badge--danger badge--removable badge--md">
+              Medium Removable
+              <span class="badge__close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </span>
+            </span>
+            <span class="badge badge--outline badge--warning badge--removable badge--lg">
+              Large Removable
+              <span class="badge__close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </span>
+            </span>
           </div>
-          <!-- ========== BADGE GROUPS (간격 조절) ========== -->
+          <!-- ========== Badge Group 간격 ========== -->
+          <div class="guide-subtitle">Badge Group 간격</div>
           <div class="badge-group badge-group--gap-xs">
-            <span class="badge badge--filled badge--primary">Tag 1</span>
+            <span class="badge badge--filled badge--primary">Gap XS</span>
             <span class="badge badge--filled badge--primary">Tag 2</span>
+            <span class="badge badge--filled badge--primary">Tag 3</span>
           </div>
           <div class="badge-group badge-group--gap-sm">
-            <span class="badge badge--outline badge--success">Tag 1</span>
+            <span class="badge badge--outline badge--success">Gap SM</span>
             <span class="badge badge--outline badge--success">Tag 2</span>
+            <span class="badge badge--outline badge--success">Tag 3</span>
           </div>
           <div class="badge-group badge-group--gap-md">
-            <span class="badge badge--filled badge--info">Tag 1</span>
+            <span class="badge badge--filled badge--info">Gap MD</span>
             <span class="badge badge--filled badge--info">Tag 2</span>
+            <span class="badge badge--filled badge--info">Tag 3</span>
           </div>
           <div class="badge-group badge-group--gap-lg">
-            <span class="badge badge--outline badge--danger">Tag 1</span>
+            <span class="badge badge--outline badge--danger">Gap LG</span>
             <span class="badge badge--outline badge--danger">Tag 2</span>
+            <span class="badge badge--outline badge--danger">Tag 3</span>
           </div>
-          <!-- ========== BADGE GROUP 정렬 ========== -->
-          <div class="badge-group badge-group--start">
+          <!-- ========== Badge Group 정렬 ========== -->
+          <div class="guide-subtitle">Badge Group 정렬 (가로)</div>
+          <div class="badge-group badge-group--start" style="width: 100%; border: 1px dashed #ddd; padding: 1rem;">
+            <span class="badge badge--filled badge--primary">Start</span>
             <span class="badge badge--filled badge--primary">Left</span>
           </div>
-          <div class="badge-group badge-group--center">
+          <div class="badge-group badge-group--center" style="width: 100%; border: 1px dashed #ddd; padding: 1rem;">
             <span class="badge badge--filled badge--primary">Center</span>
           </div>
-          <div class="badge-group badge-group--end">
+          <div class="badge-group badge-group--end" style="width: 100%; border: 1px dashed #ddd; padding: 1rem;">
+            <span class="badge badge--filled badge--primary">End</span>
             <span class="badge badge--filled badge--primary">Right</span>
           </div>
+          <!-- ========== Badge Group 정렬 (세로) ========== -->
+          <div class="guide-subtitle">Badge Group 정렬 (세로)</div>
+          <div style="display: flex; gap: 2rem;">
+            <div class="badge-group badge-group--v-start" style="flex-direction: column; align-items: flex-start; border: 1px dashed #ddd; padding: 1rem; min-height: 150px;">
+              <span class="badge badge--filled badge--success">V-Start</span>
+              <span class="badge badge--filled badge--success">Top</span>
+            </div>
+            <div class="badge-group badge-group--v-center" style="flex-direction: column; align-items: flex-start; border: 1px dashed #ddd; padding: 1rem; min-height: 150px;">
+              <span class="badge badge--filled badge--info">V-Center</span>
+              <span class="badge badge--filled badge--info">Middle</span>
+            </div>
+            <div class="badge-group badge-group--v-end" style="flex-direction: column; align-items: flex-start; border: 1px dashed #ddd; padding: 1rem; min-height: 150px;">
+              <span class="badge badge--filled badge--warning">V-End</span>
+              <span class="badge badge--filled badge--warning">Bottom</span>
+            </div>
+          </div>
           <!-- ========== 복합 사용 예시 ========== -->
+          <div class="guide-subtitle">복합 사용 예시</div>
           <div class="badge-group badge-group--gap-sm badge-group--center">
             <span class="badge badge--filled badge--primary badge--sm">Small Filled</span>
             <span class="badge badge--outline badge--success badge--md">Medium Outline</span>
             <span class="badge badge--filled badge--danger badge--lg badge--rounded">Large Rounded</span>
             <span class="badge badge--outline badge--info badge--square">Square Outline</span>
-            <span class="badge badge--filled badge--warning badge--removable">
-              Removable
-              <span class="badge__close"><svg>×</svg></span>
+            <span class="badge badge--filled badge--light-green badge--md">
+              <span class="badge__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              </span>
+              With Icon
             </span>
+            <span class="badge badge--filled badge--purple badge--removable badge--md">
+              Removable
+              <span class="badge__close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </span>
+            </span>
+          </div>
+        </div>
+      </section>
+      <!-- ICONS -->
+      <section id="icons" class="guide-card">
+        <div class="guide-card__head">
+          <h2 class="guide-card__title">Icons</h2>
+        </div>
+        <div class="guide-preview vstack">
+          <div class="guide-subtitle">기본 아이콘</div>
+          <div class="stack">
+            <span class="icon-plus"></span>
+            <span class="icon-share"></span>
+            <span class="icon-print"></span>
+            <span class="icon-search"></span>
+            <span class="icon-time"></span>
+            <span class="icon-delete"></span>
+            <span class="icon-help"></span>
+            <span class="icon-arrow-right"></span>
+          </div>
+          <div class="guide-subtitle">사이즈</div>
+          <div class="stack">
+            <span class="icon icon--xs icon-search"></span>
+            <span class="icon icon--sm icon-search"></span>
+            <span class="icon icon--md icon-search"></span>
+            <span class="icon icon--lg icon-search"></span>
+            <span class="icon icon--xl icon-search"></span>
+            <span class="icon icon--2xl icon-search"></span>
+          </div>
+          <div class="guide-subtitle">색상</div>
+          <div class="stack">
+            <span class="icon icon--primary icon-delete"></span>
+            <span class="icon icon--secondary icon-delete"></span>
+            <span class="icon icon--success icon-delete"></span>
+            <span class="icon icon--danger icon-delete"></span>
+            <span class="icon icon--warning icon-delete"></span>
+            <span class="icon icon--info icon-delete"></span>
+            <span class="icon icon--muted icon-delete"></span>
+          </div>
+          <div class="guide-subtitle">Icon Button</div>
+          <div class="stack">
+            <button class="icon-btn icon-btn--sm icon-btn--primary icon-plus" aria-label="Small Primary"></button>
+            <button class="icon-btn icon-btn--md icon-btn--primary icon-plus" aria-label="Medium Primary"></button>
+            <button class="icon-btn icon-btn--lg icon-btn--primary icon-plus" aria-label="Large Primary"></button>
+            <button class="icon-btn icon-btn--md icon-btn--danger icon-delete" aria-label="Danger"></button>
+            <button class="icon-btn icon-btn--md icon-btn--success icon-search" aria-label="Success"></button>
+          </div>
+          <div class="guide-subtitle">Icon Badge</div>
+          <div class="stack">
+            <span class="icon-badge icon-help"></span>
+            <span class="icon-badge icon-badge--dot icon-help"></span>
           </div>
         </div>
       </section>
       <!-- FORMS -->
       <section id="forms" class="guide-card">
         <div class="guide-card__head">
-          <h2 class="guide-card__title">Forms (상태/사이즈/그룹/체크·라디오·스위치)</h2>
-          <div class="guide-actions"><button class="guide-btn" data-copy="code-forms">📋 코드복사</button></div>
+          <h2 class="guide-card__title">Forms</h2>
         </div>
         <div class="guide-preview vstack">
-          <div class="guide-subtitle">기본 & 헬퍼/에러</div>
+          <div class="guide-subtitle">기본</div>
           <div class="form-group">
             <label class="form-label form-label--required">이름</label>
             <input type="text" class="input" placeholder="이름을 입력하세요">
             <span class="form-helper">이름은 필수 항목입니다.</span>
           </div>
-          <div class="form-group">
-            <label class="form-label">에러 상태</label>
-            <input type="text" class="input input--error" placeholder="잘못된 값">
-            <span class="form-error">입력값이 잘못되었습니다.</span>
-          </div>
-          <div class="divider"></div>
           <div class="guide-subtitle">상태</div>
           <div class="stack">
             <input type="text" class="input input--success" placeholder="성공">
             <input type="text" class="input input--warning" placeholder="경고">
             <input type="text" class="input input--error" placeholder="에러">
             <input type="text" class="input input--readonly" value="읽기 전용" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">에러 상태</label>
+            <input type="text" class="input input--error" placeholder="잘못된 값">
+            <span class="form-error">입력값이 잘못되었습니다.</span>
           </div>
           <div class="guide-subtitle">사이즈</div>
           <div class="stack">
@@ -590,27 +724,37 @@
             <input type="text" class="input input--lg" placeholder="LG">
             <input type="text" class="input input--xl" placeholder="XL">
           </div>
-          <div class="guide-subtitle">Select / Textarea</div>
+          <div class="guide-subtitle">Select</div>
           <div class="stack">
             <select class="select">
               <option>선택하세요</option>
               <option>개발</option>
               <option>디자인</option>
             </select>
+          </div>
+          <div class="guide-subtitle">Textarea</div>
+          <div class="stack">
             <textarea class="textarea" placeholder="내용을 입력하세요" style="min-width:280px;height:90px"></textarea>
           </div>
-          <div class="guide-subtitle">체크박스 / 라디오 / 스위치</div>
+          <div class="guide-subtitle">Checkbox</div>
           <div class="form-group form-group--inline">
-            <input type="checkbox" class="checkbox" id="chk1"><label for="chk1">체크박스</label>
-            <input type="radio" class="radio" id="rad1" name="r"><label for="rad1">라디오1</label>
-            <input type="radio" class="radio" id="rad2" name="r"><label for="rad2">라디오2</label>
-            <label class="switch" style="margin-left:10px"><input type="checkbox" checked><span
-                class="switch-slider"></span></label>
+            <input type="checkbox" class="checkbox checkbox--sm" id="chk-sm"><label for="chk-sm">Small</label>
+            <input type="checkbox" class="checkbox" id="chk1"><label for="chk1">Medium (기본)</label>
+            <input type="checkbox" class="checkbox checkbox--lg" id="chk-lg"><label for="chk-lg">Large</label>
           </div>
-          <div class="guide-subtitle">Input Group</div>
+          <div class="guide-subtitle">Radio</div>
+          <div class="form-group form-group--inline">
+            <input type="radio" class="radio radio--sm" id="rad-sm" name="r-size"><label for="rad-sm">Small</label>
+            <input type="radio" class="radio" id="rad1" name="r-size"><label for="rad1">Medium (기본)</label>
+            <input type="radio" class="radio radio--lg" id="rad-lg" name="r-size"><label for="rad-lg">Large</label>
+          </div>
+          <div class="guide-subtitle">Switch</div>
+          <div class="form-group form-group--inline">
+            <label class="switch"><input type="checkbox" checked aria-label="Switch"><span class="switch-slider"></span></label>
+          </div>
+          <div class="guide-subtitle">Input Group - Icon Left</div>
           <div class="form-group">
-            <label class="form-label">아이콘/버튼 포함</label>
-            <div class="input-group input-group--icon-left" style="margin-bottom:10px">
+            <div class="input-group input-group--icon-left">
               <span class="input-icon">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -619,29 +763,71 @@
               </span>
               <input type="text" class="input" placeholder="검색어를 입력하세요">
             </div>
+          </div>
+          <div class="guide-subtitle">Input Group - Icon Right</div>
+          <div class="form-group">
+            <div class="input-group input-group--icon-right">
+              <input type="text" class="input" placeholder="검색어를 입력하세요">
+              <span class="input-icon">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" />
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div class="guide-subtitle">Input Group - Button Right</div>
+          <div class="form-group">
             <div class="input-group input-group--button-right">
               <input type="text" class="input" placeholder="이메일 입력">
               <button class="btn btn--primary">확인</button>
             </div>
           </div>
         </div>
-        <pre class="guide-code" id="code-forms"><code>&lt;div class="form-group"&gt;
-  &lt;label class="form-label form-label--required"&gt;이름&lt;/label&gt;
-  &lt;input type="text" class="input" placeholder="이름을 입력하세요"&gt;
-  &lt;span class="form-helper"&gt;이름은 필수 항목입니다.&lt;/span&gt;
+      </section>
+      <!-- DATE PICKER -->
+      <section id="datepicker" class="guide-card">
+        <div class="guide-card__head">
+          <h2 class="guide-card__title">Date Picker</h2>
+          <div class="guide-actions"><button class="guide-btn" data-copy="code-datepicker">📋 코드복사</button></div>
+        </div>
+        <div class="guide-preview vstack">
+          <div class="guide-subtitle">날짜 범위 선택 (Range)</div>
+          <div class="form-group">
+            <label class="form-label">등록일</label>
+            <div class="date-range-wrapper">
+              <input type="text" class="input date-input date-range-picker" placeholder="2025.11.06 ~ 2025.11.06" readonly>
+            </div>
+            <span class="form-helper">시작일과 종료일을 선택할 수 있습니다.</span>
+          </div>
+          <div class="guide-subtitle">월 선택 (Month Only)</div>
+          <div class="form-group">
+            <label class="form-label">기준연월</label>
+            <div class="date-range-wrapper">
+              <input type="text" class="input date-input date-month-picker" placeholder="2025.11" readonly>
+            </div>
+            <span class="form-helper">월만 선택할 수 있습니다. (keyword 페이지 전용)</span>
+          </div>
+          <div class="guide-subtitle">사용법</div>
+          <div class="vstack" style="gap: 8px;">
+            <p style="font-size: 14px; color: #666; margin: 0;"><strong>날짜 범위 선택:</strong> <code>.date-range-picker</code> 클래스를 사용합니다.</p>
+            <p style="font-size: 14px; color: #666; margin: 0;"><strong>월 선택:</strong> <code>.date-month-picker</code> 클래스를 사용합니다.</p>
+            <p style="font-size: 14px; color: #666; margin: 0;"><strong>주의:</strong> id 대신 class를 사용하여 여러 인스턴스를 지원합니다.</p>
+          </div>
+        </div>
+        <pre class="guide-code" id="code-datepicker"><code>&lt;!-- 날짜 범위 선택 --&gt;
+&lt;div class="date-range-wrapper"&gt;
+  &lt;input type="text" class="input date-input date-range-picker" placeholder="2025.11.06 ~ 2025.11.06" readonly&gt;
 &lt;/div&gt;
-&lt;input class="input input--success" placeholder="성공"&gt;
-&lt;input class="input input--xs" placeholder="XS"&gt;
-&lt;div class="input-group input-group--button-right"&gt;
-  &lt;input class="input" placeholder="이메일 입력"&gt;
-  &lt;button class="btn btn--primary"&gt;확인&lt;/button&gt;
+&lt;!-- 월 선택 (keyword 페이지 전용) --&gt;
+&lt;div class="date-range-wrapper"&gt;
+  &lt;input type="text" class="input date-input date-month-picker" placeholder="2025.11" readonly&gt;
 &lt;/div&gt;</code></pre>
       </section>
       <!-- TABLES -->
       <section id="tables" class="guide-card">
         <div class="guide-card__head">
-          <h2 class="guide-card__title">Tables (기본/보더/스트라이프/호버/정렬표시)</h2>
-          <div class="guide-actions"><button class="guide-btn" data-copy="code-tables">📋 코드복사</button></div>
+          <h2 class="guide-card__title">Tables</h2>
         </div>
         <div class="guide-preview vstack">
           <div class="guide-subtitle">기본</div>
@@ -671,9 +857,9 @@
               </tbody>
             </table>
           </div>
-          <div class="guide-subtitle">보더 + 스트라이프</div>
+          <div class="guide-subtitle">Bordered</div>
           <div class="table-wrapper">
-            <table class="table table--bordered table--striped">
+            <table class="table table--bordered">
               <thead>
                 <tr>
                   <th>상품명</th>
@@ -698,14 +884,14 @@
               </tbody>
             </table>
           </div>
-          <div class="guide-subtitle">Hover + 정렬 표시</div>
+          <div class="guide-subtitle">Striped</div>
           <div class="table-wrapper">
-            <table class="table table--hoverable table-sortable table--demo-hover table--demo-striped">
+            <table class="table table--striped table--demo-striped">
               <thead>
                 <tr>
-                  <th class="sort-asc">이름</th>
+                  <th>이름</th>
                   <th>부서</th>
-                  <th class="sort-desc">점수</th>
+                  <th>점수</th>
                 </tr>
               </thead>
               <tbody>
@@ -727,35 +913,59 @@
               </tbody>
             </table>
           </div>
+          <div class="guide-subtitle">Hover</div>
+          <div class="table-wrapper">
+            <table class="table table--hoverable table--demo-hover">
+              <thead>
+                <tr>
+                  <th>이름</th>
+                  <th>부서</th>
+                  <th>점수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>오승준</td>
+                  <td>개발</td>
+                  <td>98</td>
+                </tr>
+                <tr>
+                  <td>김하늘</td>
+                  <td>기획</td>
+                  <td>85</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <pre class="guide-code"
-          id="code-tables"><code>&lt;table class="table table--bordered table--striped"&gt;...&lt;/table&gt;</code></pre>
       </section>
       <!-- PAGINATION -->
       <section id="pagination" class="guide-card">
         <div class="guide-card__head">
-          <h2 class="guide-card__title">Pagination (기본/아웃라인/라운드/SM)</h2>
-          <div class="guide-actions"><button class="guide-btn" data-copy="code-pagination">📋 코드복사</button></div>
+          <h2 class="guide-card__title">Pagination</h2>
         </div>
         <div class="guide-preview vstack">
-          <ul class="pagination pagination--center">
-            <li><button class="page-item icon" aria-label="이전">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
+          <div class="guide-subtitle">기본</div>
+          <ul class="pagination">
+            <li>
+              <button class="page-item prev">
+                <span class="text">이전</span>
               </button></li>
             <li><button class="page-item">1</button></li>
             <li><button class="page-item active">2</button></li>
             <li><button class="page-item">3</button></li>
-            <li><button class="page-item icon" aria-label="다음">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </button></li>
+            <li><button class="page-item">3</button></li>
+            <li><button class="page-item">3</button></li>
+            <li><button class="page-item ellipsis">생략</button></li>
+            <li><button class="page-item">99</button></li>
+            <li>
+              <button class="page-item next">
+                <span class="text">다음</span>
+              </button>
+            </li>
           </ul>
-          <ul class="pagination pagination--center pagination--outline pagination--rounded">
+          <div class="guide-subtitle">Outline</div>
+          <ul class="pagination pagination--center pagination--outline">
             <li><button class="page-item icon" aria-label="이전">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -772,6 +982,25 @@
                 </svg>
               </button></li>
           </ul>
+          <div class="guide-subtitle">Rounded</div>
+          <ul class="pagination pagination--center pagination--rounded">
+            <li><button class="page-item icon" aria-label="이전">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button></li>
+            <li><button class="page-item">1</button></li>
+            <li><button class="page-item active">2</button></li>
+            <li><button class="page-item">3</button></li>
+            <li><button class="page-item icon" aria-label="다음">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </button></li>
+          </ul>
+          <div class="guide-subtitle">Small</div>
           <ul class="pagination pagination--sm pagination--center">
             <li><button class="page-item icon" aria-label="이전">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
@@ -790,23 +1019,21 @@
               </button></li>
           </ul>
         </div>
-        <pre class="guide-code"
-          id="code-pagination"><code>&lt;ul class="pagination pagination--center"&gt;...&lt;/ul&gt;</code></pre>
       </section>
       <!-- MODAL -->
       <section id="modal" class="guide-card">
         <div class="guide-card__head">
           <h2 class="guide-card__title">Modal</h2>
-          <div class="guide-actions"><button class="guide-btn" data-copy="code-modal">📋 코드복사</button></div>
         </div>
-        <div class="guide-preview">
+        <div class="guide-preview vstack">
+          <div class="guide-subtitle">기본</div>
           <button class="btn btn--primary" data-open="demoModal">모달 열기</button>
           <div id="demoModal" class="modal modal--md" aria-hidden="true" role="dialog" aria-modal="true">
             <div class="modal-backdrop" data-close="demoModal"></div>
             <div class="modal-content">
               <div class="modal-header">
                 <h3>모달 제목</h3>
-                <button class="modal-close btn btn--outline" aria-label="닫기" data-close="demoModal">닫기</button>
+                <button class="modal-close" aria-label="닫기" data-close="demoModal"></button>
               </div>
               <div class="modal-body">
                 모달 본문입니다. 크기는 <code>.modal--sm/md/lg/xl/full</code> 등으로 조절.
@@ -817,17 +1044,58 @@
               </div>
             </div>
           </div>
+          <div class="guide-subtitle">사이즈</div>
+          <div class="stack">
+            <button class="btn btn--outline" data-open="modal-sm">Small (.modal--sm)</button>
+            <button class="btn btn--outline" data-open="modal-md">Medium (.modal--md)</button>
+            <button class="btn btn--outline" data-open="modal-lg">Large (.modal--lg)</button>
+            <button class="btn btn--outline" data-open="modal-xl">XLarge (.modal--xl)</button>
+            <button class="btn btn--outline" data-open="modal-full">Full (.modal--full)</button>
+          </div>
+          <div id="modal-sm" class="modal modal--sm" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="modal-backdrop" data-close="modal-sm"></div>
+            <div class="modal-content">
+              <div class="modal-header"><h3>Small Modal</h3><button class="modal-close" data-close="modal-sm"></button></div>
+              <div class="modal-body">Small 사이즈 모달입니다.</div>
+            </div>
+          </div>
+          <div id="modal-md" class="modal modal--md" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="modal-backdrop" data-close="modal-md"></div>
+            <div class="modal-content">
+              <div class="modal-header"><h3>Medium Modal</h3><button class="modal-close" data-close="modal-md"></button></div>
+              <div class="modal-body">Medium 사이즈 모달입니다.</div>
+            </div>
+          </div>
+          <div id="modal-lg" class="modal modal--lg" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="modal-backdrop" data-close="modal-lg"></div>
+            <div class="modal-content">
+              <div class="modal-header"><h3>Large Modal</h3><button class="modal-close" data-close="modal-lg"></button></div>
+              <div class="modal-body">Large 사이즈 모달입니다.</div>
+            </div>
+          </div>
+          <div id="modal-xl" class="modal modal--xl" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="modal-backdrop" data-close="modal-xl"></div>
+            <div class="modal-content">
+              <div class="modal-header"><h3>XLarge Modal</h3><button class="modal-close" data-close="modal-xl"></button></div>
+              <div class="modal-body">XLarge 사이즈 모달입니다.</div>
+            </div>
+          </div>
+          <div id="modal-full" class="modal modal--full" aria-hidden="true" role="dialog" aria-modal="true">
+            <div class="modal-backdrop" data-close="modal-full"></div>
+            <div class="modal-content">
+              <div class="modal-header"><h3>Full Modal</h3><button class="modal-close" data-close="modal-full"></button></div>
+              <div class="modal-body">Full 사이즈 모달입니다.</div>
+            </div>
+          </div>
         </div>
-        <pre class="guide-code" id="code-modal"><code>&lt;button class="btn btn--primary" data-open="exampleModal"&gt;모달 열기&lt;/button&gt;
-&lt;div id="exampleModal" class="modal modal--md"&gt;...&lt;/div&gt;</code></pre>
       </section>
       <!-- TABS -->
       <section id="tabs" class="guide-card">
         <div class="guide-card__head">
           <h2 class="guide-card__title">Tabs</h2>
-          <div class="guide-actions"><button class="guide-btn" data-copy="code-tabs">📋 코드복사</button></div>
         </div>
-        <div class="guide-preview">
+        <div class="guide-preview vstack">
+          <div class="guide-subtitle">기본 Tabs</div>
           <div class="tabs" role="tablist" aria-label="콘텐츠 탭">
             <button class="tab" role="tab" aria-selected="true" aria-controls="p1" id="t1">탭 1</button>
             <button class="tab" role="tab" aria-selected="false" aria-controls="p2" id="t2">탭 2</button>
@@ -838,26 +1106,35 @@
             <div id="p2" class="tab-panel" role="tabpanel" aria-labelledby="t2">탭 2 내용</div>
             <div id="p3" class="tab-panel" role="tabpanel" aria-labelledby="t3">탭 3 내용</div>
           </div>
+          <div class="guide-subtitle">Scroll Tab</div>
+          <div class="scroll-tab-container">
+            <button class="scroll-tab-nav-btn prev" type="button" disabled>‹</button>
+            <div class="scroll-tab-wrapper">
+              <div class="scroll-tab-list">
+                <button class="scroll-tab-item active">전체</button>
+                <button class="scroll-tab-item">전자민원</button>
+                <button class="scroll-tab-item">시설/장비</button>
+                <button class="scroll-tab-item">전문가</button>
+                <button class="scroll-tab-item">일반</button>
+                <button class="scroll-tab-item">융합데이터</button>
+              </div>
+            </div>
+            <button class="scroll-tab-nav-btn next" type="button" disabled>›</button>
+          </div>
         </div>
-        <pre class="guide-code" id="code-tabs"><code>&lt;div class="tabs" role="tablist"&gt;...&lt;/div&gt;
-&lt;div class="tab-panels"&gt;...&lt;/div&gt;</code></pre>
       </section>
       <!-- POPOVER -->
       <section id="popover" class="guide-card">
         <div class="guide-card__head">
-          <h2 class="guide-card__title">Popover / Tooltip</h2>
-          <div class="guide-actions"><button class="guide-btn" data-copy="code-popover">📋 코드복사</button></div>
+          <h2 class="guide-card__title">Popover</h2>
         </div>
-        <div class="guide-preview">
+        <div class="guide-preview vstack">
+          <div class="guide-subtitle">기본</div>
           <div class="popover">
             <button class="popover-trigger btn btn--outline" aria-describedby="tip1">도움말</button>
             <div class="popover-content" id="tip1" role="tooltip">팝오버(툴팁) 내용입니다.</div>
           </div>
         </div>
-        <pre class="guide-code" id="code-popover"><code>&lt;div class="popover"&gt;
-  &lt;button class="popover-trigger" aria-describedby="tip1"&gt;도움말&lt;/button&gt;
-  &lt;div class="popover-content" id="tip1" role="tooltip"&gt;...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
       </section>
       <!-- DROPDOWN -->
       <section id="dropdown" class="guide-card">

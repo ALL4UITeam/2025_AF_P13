@@ -319,6 +319,16 @@ em{
   font-style: normal;
 }
 
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+legend {
+  display: none;
+}
+
 [hidden] {
   display: none;
 }

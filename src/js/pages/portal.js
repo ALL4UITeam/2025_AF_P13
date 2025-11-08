@@ -615,6 +615,65 @@ const portal = {
     },
   },
 
+  // ========================================
+  // Date Range Picker 기능
+  // ========================================
+  dateRangePicker: {
+    init() {
+      // Range 선택 (notice-list, library, providing-list 등)
+      const dateRangeInputs = document.querySelectorAll('.date-range-picker');
+      if (dateRangeInputs.length) {
+        dateRangeInputs.forEach(input => {
+          flatpickr(input, {
+            mode: 'range',
+            dateFormat: 'Y.m.d',
+            locale: 'ko',
+            defaultDate: [new Date(), new Date()],
+            onChange: function(selectedDates, dateStr, instance) {
+              console.log('선택된 날짜:', dateStr);
+            }
+          });
+        });
+      }
+
+      // 단일 월 선택 (keyword 페이지)
+      const dateMonthInputs = document.querySelectorAll('.date-month-picker');
+      if (dateMonthInputs.length) {
+        dateMonthInputs.forEach(input => {
+          flatpickr(input, {
+            mode: 'single',
+            dateFormat: 'Y.m',
+            locale: 'ko',
+            onChange: function(selectedDates, dateStr, instance) {
+              if (selectedDates.length) {
+                const selectedDate = selectedDates[0];
+                const year = selectedDate.getFullYear();
+                const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
+                const formattedDate = `${year}.${month}`;
+                instance.input.value = formattedDate;
+                console.log('선택된 월:', formattedDate);
+              }
+            },
+            onDayCreate: function(dObj, dStr, fp, dayElem) {
+              // 일 클릭 시 해당 월의 첫 날로 설정하고 닫기
+              dayElem.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (!dayElem.classList.contains('flatpickr-disabled') && dObj) {
+                  const date = new Date(dObj);
+                  const year = date.getFullYear();
+                  const month = date.getMonth();
+                  const firstDayOfMonth = new Date(year, month, 1);
+                  fp.setDate(firstDayOfMonth, false);
+                  fp.close();
+                }
+              });
+            }
+          });
+        });
+      }
+    }
+  },
+
   // portal 객체에 추가할 filterSort 모듈
   // ========================================
   // Filter & Sort 기능
@@ -656,6 +715,86 @@ const portal = {
     },
   },
   // ========================================
+  // 헤더 네비게이션 메뉴 기능
+  // ========================================
+  headerNav: {
+    header: null,
+    headerMenu: null,
+    hoverTimeout: null,
+
+    init() {
+      this.header = document.getElementById("header");
+      this.headerMenu = document.querySelector(".header-menu");
+      if (!this.header || !this.headerMenu) return;
+
+      this.bindEvents();
+    },
+
+    bindEvents() {
+      // 헤더 메뉴 영역 전체에 hover 이벤트
+      this.headerMenu.addEventListener("mouseenter", () => {
+        this.handleEnter();
+      });
+
+      this.headerMenu.addEventListener("mouseleave", () => {
+        this.handleLeave();
+      });
+
+      // 키보드 포커스 (접근성)
+      const menuLinks = this.headerMenu.querySelectorAll(".gnb-lv1-link");
+      menuLinks.forEach((link) => {
+        link.addEventListener("focus", () => {
+          this.handleEnter();
+        });
+      });
+
+      // dropmenu 내부 링크 포커스
+      const dropmenuLinks = this.headerMenu.querySelectorAll(".dropmenu a");
+      dropmenuLinks.forEach((link) => {
+        link.addEventListener("focus", () => {
+          this.handleEnter();
+        });
+      });
+
+      // 헤더 외부 클릭 시 닫기
+      document.addEventListener("click", (e) => {
+        if (!this.header.contains(e.target)) {
+          this.closeAll();
+        }
+      });
+    },
+
+    handleEnter() {
+      // 이전 타이머 취소
+      if (this.hoverTimeout) {
+        clearTimeout(this.hoverTimeout);
+        this.hoverTimeout = null;
+      }
+
+      // 모든 메뉴와 bg 표시
+      this.headerMenu.classList.add("is-active");
+      this.header.classList.add("has-dropdown");
+    },
+
+    handleLeave() {
+      // 약간의 지연을 두어 메뉴 간 이동 시 깜빡임 방지
+      this.hoverTimeout = setTimeout(() => {
+        this.closeAll();
+      }, 200);
+    },
+
+    closeAll() {
+      this.headerMenu.classList.remove("is-active");
+      this.header.classList.remove("has-dropdown");
+
+      if (this.hoverTimeout) {
+        clearTimeout(this.hoverTimeout);
+        this.hoverTimeout = null;
+      }
+    },
+  },
+
+  // ========================================
   // 초기화
   // ========================================
   init() {
@@ -672,6 +811,8 @@ const portal = {
     this.searchOverlay.init();
     this.scrollTab.init();
     this.filterSort.init();
+    this.headerNav.init();
+    this.dateRangePicker.init();
     this.initialized = true;
     console.log("Portal initialized");
   },
