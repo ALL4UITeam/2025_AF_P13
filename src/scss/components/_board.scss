@@ -207,9 +207,227 @@
 }
 
 // ========================================
-// 게시판 목록
+// 발간보고서
 // ========================================
-.board-wrap .search-board-info{
+.trend-card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.trend-card{
+  display: flex;
+  width: 1410px;
+  padding: 32px;
+  align-items: flex-start;
+  gap: 32px;
+  border-radius: 12px;
+  border: 1px solid #CDD1D5;
+  background: #FFF;
+  &__thumb{
+    width: 169px;
+    height: 240px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__body{
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 12px;
+  }
+  &__header{
+    
+  }
+  &__title{
+    line-height: 1;
+    font-size: 19px;
+    font-weight: 700;
+    a{
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      display: inline-block;
+    }
+  }
+  &__desc{
+    padding-bottom: 8px;
+    a{
+      color: #131416;
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      line-clamp: 2;
+      overflow: hidden;
+    }
+  }
+  &__meta{
+    display: flex;
+    align-items: center;
+    dt{
+      font-weight: 400;
+      color: var(--color-gray-400);
+      font-size: 15px;
+      padding-right: 4px;
+    }
+    dd{
+      color: var(--color-gray-600);
+      +dt{
+        margin-left: 52px;
+      }
+    }
+  }
+  &__preview{
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-gray-100);
+    display: flex;
+    justify-content: flex-end;
+    .btn{
+      padding: 11px 16px;
+      &:hover,
+      &:focus{
+        opacity: .9;
+        .icon{
+          background-color: #4A1278;
+        }
+      }
+    }
+  }
+}
+
+
+.card-news-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.card-news{
+  display: flex;
+  width: 330px;
+  min-width: 330px;
+  padding: 12px 12px 32px 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 12px;
+  border: 1px solid #CDD1D5;
+  background: #FFF;
+  &__thumb{
+    border-radius: 20px;
+    overflow: hidden;
+    background: #FFF;
+    height: 306px;
+    flex-shrink: 0;
+    a{
+      display: block;
+      &:hover,
+      &:focus{
+        img{
+          transform: scale(1.05);
+          transition: transform 5s ease;
+        }
+      }
+    }
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+      transform: scale(1);
+    }
+  }
+  &__body{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  &__title{
+    a{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      font-size: 19px;
+      height: 46px;
+      line-height: 1.2;
+    }
+  }
+  &__meta{
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #E6E8EA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .card-news__date{
+      color: var(--color-gray-400);
+      font-size: 15px;
+      em{
+        color: var(--color-gray-600);
+      }
+    }
+    .card-news__views{
+      color: var(--color-gray-600);
+      font-size: 15px;
+    }
+  }
+}
+
+#cardNewsViewer{
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  width: 880px;
+  margin: 0 auto;
+  position: relative;
+  .swiper-button-prev,
+  .swiper-button-next{
+    color: #000;
+    &::after{
+      font-size: 22px;
+    }
+  }
+  .swiper-button-prev{
+    left: -50px;
+  }
+  .swiper-button-next{
+    right: -50px;
+  }
+  .swiper-pagination{
+    
+    text-align: center;
+    .swiper-pagination-bullet{
+      background: none;
+      width: auto;
+      height: auto;
+    }
+    .swiper-pagination-bullet-active{
+      text-decoration: underline;
+      font-weight: 500;
+    }
+  }
+}
+
+.card-viewer{
+  
+  .swiper-wrapper{
+    
+  }
+  
+}
+ 
+ // ========================================
+ // 게시판 목록
+ // ========================================
+ .board-wrap .search-board-info{
   padding: 0;
   margin-bottom: 25px;
   position: relative;
@@ -424,12 +642,11 @@
       width: 6px;height: 6px;
     }
   }
-  
-  // ========================================
-  // 게시글 하단 액션
-  // ========================================
 }
 
+// ========================================
+// 게시글 하단 액션
+// ========================================
 .fab-actions{
   display: flex;
   justify-content: space-between;

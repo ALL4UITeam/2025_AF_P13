@@ -226,6 +226,9 @@
 .icon-download{
   @include icon('/images/portal/icon-download.svg', 20px, #000);
 }
+.icon-preview{
+  @include icon('/images/portal/icon-preview.svg', 24px, #4A1278);
+}
 
 .btn:hover .icon-download{
   background-color: #fff;

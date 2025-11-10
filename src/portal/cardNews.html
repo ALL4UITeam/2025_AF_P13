@@ -1,0 +1,96 @@
+<!-- @pageTitle 발간보고서-카드뉴스 -->
+<!-- @pageNote 완료 -->
+<!-- @pageCreated 2025-11-10 -->
+<!-- @pageUpdated 2025-11-10 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="발간보고서"
+      subtop-depth1-title="발간보고서"
+      subtop-depth1-link="##"
+      subtop-depth2-title="발간보고서"
+      }}
+
+      <main id="content" class="sub-layout">
+        <div class="board-wrap">
+          
+          <nav class="tabs">
+            <a href="#" class="tab">트렌드 보고서</a>
+            <a href="#" class="tab current">카드뉴스</a>
+          </nav>
+
+          <form action="#">
+            <fieldset>
+              <legend>검색 조건</legend>
+              <div class="board-search">
+                <div class="board-search__fields">
+
+                  <div class="board-search__field">
+                    <strong class="label">일자</strong>
+                    <input type="text" class="input date-input date-range-picker" placeholder="2025.11.06 ~ 2025.11.06">
+                  </div>
+                  <div class="board-search__field" style="grid-column: span 2;">
+                    <strong class="label">검색어</strong>
+                    <input type="text" class="input" title="검색어를 입력해주세요." placeholder="검색어를 입력해주세요.">
+                  </div>
+                </div>
+                <div class="board-search__actions">
+                  <button class="btn btn--outline btn--tertiary btn--sm"><i
+                      class="icon icon-reset"></i><span>초기화</span></button>
+                  <button class="btn btn--primary btn--sm"><i
+                      class="icon icon-input-search"></i><span>검색</span></button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
+          <div class="board-list">
+            <div class="search-info search-board-info">
+              <div class="search-info-inner">
+                검색 결과 <span class="search-result-count" aria-live="polite">341</span>개
+              </div>
+            </div>
+
+            <div class="card-news-grid">
+              <article class="card-news">
+                <div class="card-news__thumb">
+                  <a href="#"><img src="/images/portal/sample-cardnews.png" alt="식품품질안전센터 장비활용 가이드 카드뉴스"></a>
+                </div>
+                <div class="card-news__body">
+                  <h3 class="card-news__title"><a href="#">식품품질안전센터 장비활용가이드 &lt;전자혀&gt; 편</a></h3>
+                  <div class="card-news__meta">
+                    <span class="card-news__date">등록일 2025.08.04</span>
+                    <span class="card-news__views"><i class="icon icon-hit"></i>158</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+
+          {{> layout/pagination }}
+        </div>
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script type="module" src="../js/pages/portal.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!-- @pageTitle 발간보고서-카드뉴스 -->
+<!-- @pageNote 완료 -->
+<!-- @pageCreated 2025-11-10 -->
+<!-- @pageUpdated 2025-11-10 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="발간보고서"
+      subtop-depth1-title="발간보고서"
+      subtop-depth1-link="##"
+      subtop-depth2-title="발간보고서"
+      }}
+
+      <main id="content" class="sub-layout">
+        <div class="post">
+          <div class="post-header">
+            <div class="post-header-title">
+              <h1 class="post-title">식품품질안전센터 장비활용가이드 &lt;전자혀&gt; 편
+              </h1>
+            </div>
+            <div class="post-info">
+              <dl>
+                <dt>작성자</dt>
+                <dd>시스템관리자</dd>
+                <dt>등록일</dt>
+                <dd>2025.03.05</dd>
+                <dt>조회수</dt>
+                <dd>158</dd>
+              </dl>
+            </div>
+          </div>
+  
+          <div class="post-content">
+            <div id="cardNewsViewer">
+              <div class="card-viewer swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide card-viewer__slide">
+                    <img src="https://www.foodpolis.kr/fbip/co/display/bbs-atch/66bcf4c0-56c1-4ee7-ba4a-4e37655d8299_20241218152252.jpg" alt="슬라이드 1. 식품품질안전센터 장비활용 가이드 안내 카드">
+                  </div>
+                  <div class="swiper-slide card-viewer__slide">
+                    <img src="https://www.foodpolis.kr/fbip/co/display/bbs-atch/66bcf4c0-56c1-4ee7-ba4a-4e37655d8299_20241218152252.jpg" alt="슬라이드 1. 식품품질안전센터 장비활용 가이드 안내 카드">
+                  </div>
+                  <div class="swiper-slide card-viewer__slide">
+                    <img src="https://www.foodpolis.kr/fbip/co/display/bbs-atch/66bcf4c0-56c1-4ee7-ba4a-4e37655d8299_20241218152252.jpg" alt="슬라이드 1. 식품품질안전센터 장비활용 가이드 안내 카드">
+                  </div>
+                  <div class="swiper-slide card-viewer__slide">
+                    <img src="https://www.foodpolis.kr/fbip/co/display/bbs-atch/66bcf4c0-56c1-4ee7-ba4a-4e37655d8299_20241218152252.jpg" alt="슬라이드 1. 식품품질안전센터 장비활용 가이드 안내 카드">
+                  </div>
+                  <div class="swiper-slide card-viewer__slide">
+                    <img src="https://www.foodpolis.kr/fbip/co/display/bbs-atch/66bcf4c0-56c1-4ee7-ba4a-4e37655d8299_20241218152252.jpg" alt="슬라이드 1. 식품품질안전센터 장비활용 가이드 안내 카드">
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+  
+          <div class="post-nav">
+            <a href="#" class="post-nav-item prev">
+              <span class="text"><i class="icon icon-arrow-left"></i>이전글</span>
+              <span class="title empty">디지털 식품정보 플랫폼 기업지원 상담창구 운영 안내.</span>
+            </a>
+            <div class="divider"></div>
+            <a href="#" class="post-nav-item next">
+              <span class="title">디지털 식품정보 플랫폼 기업지원 상담창구 운영 안내</span>
+              <span class="text">다음글<i class="icon icon-arrow-right2"></i></span>
+            </a>
+          </div>
+  
+  
+          <div class="fab-actions align-center">
+            <a href="cardNews.html" class="btn btn--outline btn--tertiary">목록으로 가기</a>
+          </div>
+        </div>
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof Swiper !== 'function') return;
+
+      const viewer = new Swiper('#cardNewsViewer .swiper', {
+        slidesPerView: 1,
+        loop: false,
+        navigation: {
+          nextEl: '#cardNewsViewer .swiper-button-next',
+          prevEl: '#cardNewsViewer .swiper-button-prev',
+        },
+        pagination: {
+          el: '#cardNewsViewer .swiper-pagination',
+          clickable: true,
+          renderBullet(index, className) {
+            const num = (index + 1).toString().padStart(2, '0');
+            return `<button type="button" class="${className}">${num}</button>`;
+          },
+        },
+      });
+
+      document.getElementById('cardNewsViewer .swiper').swiper = viewer;
+    });
+  </script>
+  <script type="module" src="../js/pages/portal.js"></script>
+
+</body>
+
+</html>
