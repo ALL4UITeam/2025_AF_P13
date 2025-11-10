@@ -1,0 +1,217 @@
+<!-- @pageTitle 서비스소개-QNA-질문하기 -->
+<!-- @pageNote 종료 -->
+<!-- @pageCreated 2025-10-27 -->
+<!-- @pageUpdated 2025-11-10 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+    {{> layout/subtop
+    subtop-title="QNA"
+    subtop-depth1-title="서비스소개"
+    subtop-depth1-link="/portal/index.html"
+    subtop-depth2-title="질문하기"
+    }}
+    <main id="content" class="sub-layout">
+      <div class="board-form">
+
+        <div class="board-form-note">
+          <p><span class="required"></span> 필수입력 입니다.</p>
+        </div>
+        <form action="#">
+          <fieldset>
+            <legend>질문하기</legend>
+            <table class="table horizontal-table">
+              <colgroup>
+                <col style="width: 15%;">
+                <col style="width: 35%;">
+                <col style="width: 15%;">
+                <col style="width: 35%;">
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th scope="row">제목 <span class="required">필수입력</span></th>
+                  <td colspan="3">
+                    <div class="form-group">
+                      <input type="text" class="input input--error" placeholder="제목을 입력하세요">
+                      <span class="form-error">입력값이 잘못되었습니다.</span>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>등록자</th>
+                  <td>올포랜드</td>
+                  <th>등록일</th>
+                  <td>2025.11.10</td>
+                </tr>
+                <tr>
+                  <th>업무분류 <span class="required">필수입력</span></th>
+                  <td>
+                    <select class="select input--error">
+                      <option>전체</option>
+                    </select>
+                    <span class="form-error">입력값이 잘못되었습니다.</span>
+                  </td>
+                  <th>분류필수 <span class="required">필수입력</span></th>
+                  <td>
+                    <select class="select input--error">
+                      <option>전체</option>
+                    </select>
+                    <span class="form-error">입력값이 잘못되었습니다.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>비밀글여부 <span class="required">필수입력</span></th>
+                  <td colspan="3">
+                    <div class="form-group form-group--inline">
+                      <div class="form-radio">
+                        <input type="radio" class="radio" id="radio-secret-1" name="radio-secret">
+                        <label for="radio-secret-1">비밀글</label>
+                      </div>
+                      <div class="form-radio">
+                        <input type="radio" class="radio" id="radio-secret-2" name="radio-secret">
+                        <label for="radio-secret-2">공개글</label>
+                      </div>
+                      <input type="text" class="input" placeholder="비밀번호를 입력하세요" data-secret-password readonly>
+                      <span class="form-error">입력값이 잘못되었습니다.</span>
+                    </div>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  <th>내용 <span class="required">필수입력</span></th>
+                  <td colspan="3">
+                    에디터
+                  </td>
+                </tr>
+                <tr>
+                  <th>첨부파일</th>
+                  <td colspan="3">
+                     <div class="file-upload">
+                       <input type="file" class="file-input" id="file-input" multiple>
+                      <label for="file-input" class="file-label">파일 첨부</label>
+                      <span class="file-name" data-file-name>선택된 파일이 없습니다.</span>
+                    </div>
+                     <ul class="file-list" data-file-list></ul>
+                    <p class="file-note">첨부파일은 최대 10MB까지 업로드 가능합니다.</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </fieldset>
+        </form>
+
+        <div class="fab-actions align-center">
+          <a href="qna.html" class="btn btn--outline btn--tertiary">목록으로 가기</a>
+        </div>
+      </div>
+    </main>
+    <!-- // content -->
+
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+      const passwordInput = document.querySelector('[data-secret-password]');
+      const secretRadios = document.querySelectorAll('input[name="radio-secret"]');
+      const publicRadio = document.getElementById('radio-secret-2');
+      const fileInput = document.getElementById('file-input');
+      const fileNameText = document.querySelector('[data-file-name]');
+      const fileListContainer = document.querySelector('[data-file-list]');
+      let selectedFiles = [];
+
+      if (passwordInput && secretRadios.length && publicRadio) {
+        const syncPasswordState = () => {
+          const isPublic = publicRadio.checked;
+          passwordInput.readOnly = !isPublic;
+          if (passwordInput.readOnly) {
+            passwordInput.value = '';
+          }
+        };
+
+        secretRadios.forEach((radio) => {
+          radio.addEventListener('change', syncPasswordState);
+        });
+
+        syncPasswordState();
+      }
+
+      if (fileInput && fileNameText && fileListContainer) {
+        const formatSize = (bytes) => {
+          if (!bytes) return '0 B';
+          const units = ['B', 'KB', 'MB', 'GB'];
+          const power = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
+          const size = bytes / (1024 ** power);
+          return `${size % 1 === 0 ? size : size.toFixed(1)} ${units[power]}`;
+        };
+
+        const refreshInputFiles = () => {
+          const dataTransfer = new DataTransfer();
+          selectedFiles.forEach((file) => dataTransfer.items.add(file));
+          fileInput.files = dataTransfer.files;
+        };
+
+        const renderFileList = () => {
+          fileListContainer.innerHTML = '';
+
+          if (!selectedFiles.length) {
+            fileNameText.textContent = '선택된 파일이 없습니다.';
+            return;
+          }
+
+          selectedFiles.forEach((file, index) => {
+            const item = document.createElement('li');
+            item.className = 'file-item';
+            item.innerHTML = `
+              <span class="file-item__name">${file.name}</span>
+              <span class="file-item__size">${formatSize(file.size)}</span>
+              <button type="button" class="file-item__remove" data-remove-index="${index}" aria-label="파일 삭제">
+                &times;
+              </button>
+            `;
+            fileListContainer.appendChild(item);
+          });
+
+          fileNameText.textContent = `${selectedFiles.length}개 파일 선택됨`;
+        };
+
+        fileInput.addEventListener('change', () => {
+          if (!fileInput.files || !fileInput.files.length) return;
+          selectedFiles = selectedFiles.concat(Array.from(fileInput.files));
+          refreshInputFiles();
+          renderFileList();
+        });
+
+        fileListContainer.addEventListener('click', (event) => {
+          const removeButton = event.target.closest('[data-remove-index]');
+          if (!removeButton) return;
+
+          const index = Number(removeButton.getAttribute('data-remove-index'));
+          if (Number.isNaN(index)) return;
+
+          selectedFiles = selectedFiles.filter((_, fileIndex) => fileIndex !== index);
+          refreshInputFiles();
+          renderFileList();
+        });
+
+        renderFileList();
+      }
+    });
+  </script>
+  <script type="module" src="../js/pages/portal.js"></script>
+
+</body>
+
+</html> 

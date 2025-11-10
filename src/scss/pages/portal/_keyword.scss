@@ -132,25 +132,26 @@
     display: flex;
     gap: 0 10px;
     align-items: center;
-    li {
-      a {
-        display: flex;
-        padding: 8px 12px;
-        justify-content: center;
-        align-items: center;
-        gap: 2px;
-        line-height: 1;
-        border-radius: 1000px;
-        border: 1px solid #cdd1d5;
-        background: #fff;
-      }
-      em {
-        color: #c999f0;
-        font-weight: 700;
-      }
-    }
   }
 }
+
+.tags {
+  display: flex;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  line-height: 1;
+  border-radius: 1000px;
+  border: 1px solid #cdd1d5;
+  background: #fff;
+  em {
+    color: #c999f0;
+    font-weight: 700;
+  }
+}
+
+
 
 .keyword-category {
   display: none;
@@ -526,60 +527,8 @@
     }
   }
 }
-/* keyword-read */
-.read-wrap{
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  .read-patent{
-    padding: 40px;
-    background: url("/images/portal/keyword-read-patent-bg.svg") no-repeat center center;
-    border-radius: 32px 12px 52px 12px;
-    overflow: hidden;
-    h2{
-      color: var(--color-brand-primary);
-      font-size: 32px;
-      line-height: 150%; 
-    }
-    .link-area{
-      display: flex;
-      align-items: center;
-      text-decoration: underline;
-      margin-top: 15px;
-    }
-  }
-}
 
-.read-section{
-  display: flex;
-  padding: 40px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 32px;
-  align-self: stretch;
-  border-radius: 12px;
-  border: 1px solid #CDD1D5;
-}
 
-.read-section-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  border-bottom: 1px solid var(--g-10, #E6E8EA);
-  padding-bottom: 24px;
-  h3{
-    font-size: 24px;
-    line-height: 1;
-  }
-}
-
-.link-text{
-  text-decoration: underline;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
 
 // ========================================
 // 정보 카드 그리드

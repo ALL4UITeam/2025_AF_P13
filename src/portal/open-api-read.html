@@ -1,0 +1,199 @@
+<!-- @pageTitle 서비스소개-API-상세 -->
+<!-- @pageNote  -->
+<!-- @pageCreated 2025-11-03 -->
+<!-- @pageUpdated 2025-11-10 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="오픈 API"
+      subtop-depth1-title="서비스소개"
+      subtop-depth1-link="##"
+      subtop-depth2-title="오픈 API"
+      }}
+
+      <main id="content" class="sub-layout">
+
+        <div class="read-wrap">
+
+          <div class="read-header">
+            <div>
+              <em class="badge badge--outline badge--primary">일반문의</em>
+              <h2>한국식품산업클러스터진흥원_교육</h2>
+            </div>
+            <div class="utils">
+              <button class="btn btn--outline btn--secondary">
+                <span class="text">출력스키마 다운로드</span>
+                <i class="icon icon-download"></i>
+              </button>
+              <a href="#" class="btn btn--primary">
+                <span class="text">API 활용신청</span>
+                <i class="icon icon-monitor"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="read-patent-2">
+            <div class="read-patent-2-header">
+              <h2>일반사업공고_상세</h2>
+              <div class="utils">
+                <a href="#" class="btn btn--outline btn--secondary">복사</a>
+                <button class="btn btn--outline btn--secondary">보기</button>
+              </div>
+            </div>
+            <div class="read-links-detail">
+              https://www.foodpolis.kr/fbip/co/api/apVhdService/getInstCertArtcl?opapiAtkeyCn=(key)&numOfRows=10&pageNo=1&type=json
+            </div>
+          </div>
+          <!-- // read-section -->
+
+          <div class="read-section">
+            <div class="read-section-header">
+              <h3>API 정보</h3>
+            </div>
+            <div class="read-section-content">
+              <div>
+                <table class="table horizontal-table">
+                  <caption class="sr-only">API 정보 정보</caption>
+                  <colgroup>
+                    <col style="width: 160px;">
+                    <col style="width: calc(50% - 320px)">
+                    <col style="width: 160px;">
+                    <col style="width: calc(50% - 320px)">
+                  </colgroup>
+                  <tbody>
+                    <tr>
+                      <th scope="row">관리부서</th>
+                      <td>-</td>
+                      <th scope="row">데이터셋 형태</th>
+                      <td>분리저장 데이터</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">배포경로</th>
+                      <td>
+                        오프라인(공문)
+                      </td>
+                      <th scope="row">데이터 포맷</th>
+                      <td>
+                        
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">키워드</th>
+                      <td>
+                        
+                      </td>
+                      <th scope="row">반환하는 속성</th>
+                      <td>수식</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">등록일</th>
+                      <td>2021.11.08</td>
+                      <th scope="row">갱신일</th>
+                      <td>2021.11.08</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">제공 URL</th>
+                      <td colspan="3">
+                        <a href="#" target="_blank" title="새창으로 열기">
+                          https://www.foodpolis.kr/fbip/co/api/apVhdService/getInstCertArtcl?opapiAtkeyCn=(key)&numOfRows=10&pageNo=1&type=json
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- // read-section -->
+
+          <div class="read-section">
+            <div class="read-section-header">
+              <h3>관련 특허 목록</h3>
+            </div>
+            <div class="read-section-content">
+              <div>
+                <table class="table">
+                  <caption class="sr-only">관련 특허 목록</caption>
+                  <colgroup>
+                    <col style="width: 200px;">
+                    <col style="width: 200px;">
+                    <col style="width: 150px;">
+                    <col style="width: 150px">
+                    <col style="width: 200px">
+                    <col style="width: auto">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">항목명(국문)</th>
+                      <th scope="col">항목명(영문)</th>
+                      <th scope="col">크기</th>
+                      <th scope="col">구분</th>
+                      <th scope="col">샘플</th>
+                      <th scope="col">설명</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>OpenAPI 인증키 내용</td>
+                      <td>opapiAkeyCn</td>
+                      <td>500</td>
+                      <td>필수</td>
+                      <td>사용자 인증키</td>
+                      <td class="text-left">회원가입시 발급받은 인증키</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="fab-actions align-center">
+            <a href="#" class="btn btn--outline btn--secondary">목록으로 가기</a>
+          </div>
+
+          <div>
+            <button class="btn btn--outline btn--secondary" data-open="demoModal">모달 호출 테스트</button>
+          </div>
+        </div>
+
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+  {{> layout/floating }}
+
+  <div id="demoModal" class="modal modal--md" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close="demoModal"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>모달 제목</h3>
+        <button class="modal-close" aria-label="닫기" data-close="demoModal"></button>
+      </div>
+      <div class="modal-body">
+        모달 본문입니다. 크기는 <code>.modal--sm/md/lg/xl/full</code> 등으로 조절.
+      </div>
+      <div class="modal-footer">
+        <div class="l"><button class="btn btn--outline btn--secondary" data-close="demoModal">취소</button></div>
+        <div class="r">
+          <button class="btn btn--outline btn--primary">초기화</button>
+          <button class="btn btn--primary">검색</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/pages/portal.js"></script>
+</body>
+
+</html>

@@ -640,33 +640,163 @@ const portal = {
       const dateMonthInputs = document.querySelectorAll('.date-month-picker');
       if (dateMonthInputs.length) {
         dateMonthInputs.forEach(input => {
+          const hasMonthPlugin = typeof monthSelectPlugin === 'function';
+          const defaultValue = input.value && /^\d{4}\.\d{2}$/.test(input.value)
+            ? input.value.replace('.', '-') + '-01'
+            : null;
+
           flatpickr(input, {
-            mode: 'single',
             dateFormat: 'Y.m',
             locale: 'ko',
-            onChange: function(selectedDates, dateStr, instance) {
+            allowInput: false,
+            defaultDate: defaultValue ? new Date(defaultValue) : undefined,
+            plugins: hasMonthPlugin
+              ? [
+                  new monthSelectPlugin({
+                    shorthand: true,
+                    dateFormat: 'Y.m',
+                    altFormat: 'Y.m',
+                    theme: 'light'
+                  })
+                ]
+              : [],
+            onReady(selectedDates, dateStr, instance) {
+              if (!hasMonthPlugin) {
+                instance.calendarContainer.classList.add('flatpickr-month-fallback');
+              }
               if (selectedDates.length) {
-                const selectedDate = selectedDates[0];
-                const year = selectedDate.getFullYear();
-                const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
-                const formattedDate = `${year}.${month}`;
-                instance.input.value = formattedDate;
-                console.log('선택된 월:', formattedDate);
+                const year = selectedDates[0].getFullYear();
+                const month = String(selectedDates[0].getMonth() + 1).padStart(2, '0');
+                instance.input.value = `${year}.${month}`;
               }
             },
-            onDayCreate: function(dObj, dStr, fp, dayElem) {
-              // 일 클릭 시 해당 월의 첫 날로 설정하고 닫기
-              dayElem.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (!dayElem.classList.contains('flatpickr-disabled') && dObj) {
-                  const date = new Date(dObj);
-                  const year = date.getFullYear();
-                  const month = date.getMonth();
-                  const firstDayOfMonth = new Date(year, month, 1);
-                  fp.setDate(firstDayOfMonth, false);
-                  fp.close();
+            onValueUpdate(selectedDates, dateStr, instance) {
+              if (selectedDates.length) {
+                const year = selectedDates[0].getFullYear();
+                const month = String(selectedDates[0].getMonth() + 1).padStart(2, '0');
+                instance.input.value = `${year}.${month}`;
+              }
+            },
+            onChange(selectedDates) {
+              if (selectedDates.length) {
+                const year = selectedDates[0].getFullYear();
+                const month = String(selectedDates[0].getMonth() + 1).padStart(2, '0');
+                console.log('선택된 월:', `${year}.${month}`);
+              }
+            },
+            onDayCreate(dObj, dStr, fp, dayElem) {
+              if (hasMonthPlugin) return;
+              dayElem.addEventListener('click', (event) => {
+                event.preventDefault();
+                if (dayElem.classList.contains('flatpickr-disabled')) return;
+                const date = dayElem.dateObj || dObj;
+                if (!(date instanceof Date)) return;
+                const year = date.getFullYear();
+                const month = date.getMonth();
+                const firstDayOfMonth = new Date(year, month, 1);
+                fp.setDate(firstDayOfMonth, false);
+                fp.close();
+                input.value = `${year}.${String(month + 1).padStart(2, '0')}`;
+              });
+            }
+          });
+        });
+      }
+
+      const dateYearInputs = document.querySelectorAll('.date-year-picker');
+      if (dateYearInputs.length) {
+        dateYearInputs.forEach(input => {
+          const extractDefaultYear = () => {
+            if (!input.value) return null;
+            const parsed = parseInt(input.value, 10);
+            return Number.isNaN(parsed) ? null : parsed;
+          };
+
+          const defaultYear = extractDefaultYear();
+
+          flatpickr(input, {
+            dateFormat: 'Y',
+            locale: 'ko',
+            allowInput: false,
+            clickOpens: true,
+            defaultDate: defaultYear ? new Date(defaultYear, 0, 1) : undefined,
+            onReady(selectedDates, dateStr, instance) {
+              instance.calendarContainer.classList.add('flatpickr-year-only');
+
+              const hideElements = [
+                '.flatpickr-weekdays',
+                '.flatpickr-days',
+                '.flatpickr-prev-month',
+                '.flatpickr-next-month',
+                '.flatpickr-monthDropdown-months',
+                '.cur-month',
+                '.flatpickr-time'
+              ];
+
+              hideElements.forEach(selector => {
+                const elements = instance.calendarContainer.querySelectorAll(selector);
+                elements.forEach(el => {
+                  el.style.display = 'none';
+                });
+              });
+
+              const yearInput = instance.currentYearElement;
+              const applyYear = () => {
+                const year = parseInt(yearInput.value, 10);
+                if (Number.isNaN(year)) {
+                  return;
+                }
+                const targetDate = new Date(year, 0, 1);
+                instance.setDate(targetDate, false);
+                instance.input.value = String(year);
+              };
+
+              const arrowButtons = instance.calendarContainer.querySelectorAll('.numInputWrapper .arrowUp, .numInputWrapper .arrowDown');
+              arrowButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                  setTimeout(() => {
+                    applyYear();
+                    instance.close();
+                  }, 0);
+                });
+              });
+
+              yearInput.addEventListener('change', () => {
+                applyYear();
+                instance.close();
+              });
+
+              yearInput.addEventListener('keyup', (event) => {
+                if (event.key === 'Enter') {
+                  applyYear();
+                  instance.close();
                 }
               });
+
+              if (selectedDates.length) {
+                instance.input.value = String(selectedDates[0].getFullYear());
+              } else if (defaultYear) {
+                instance.input.value = String(defaultYear);
+              }
+            },
+            onYearChange(selectedDates, dateStr, instance) {
+              const year = instance.currentYear;
+              const targetDate = new Date(year, 0, 1);
+              instance.setDate(targetDate, false);
+              instance.input.value = String(year);
+            },
+            onClose(selectedDates, dateStr, instance) {
+              if (selectedDates.length) {
+                instance.input.value = String(selectedDates[0].getFullYear());
+              } else {
+                const fallbackYear = parseInt(instance.currentYearElement.value, 10);
+                if (!Number.isNaN(fallbackYear)) {
+                  instance.input.value = String(fallbackYear);
+                } else {
+                  instance.clear(false);
+                  instance.input.value = '';
+                }
+              }
             }
           });
         });

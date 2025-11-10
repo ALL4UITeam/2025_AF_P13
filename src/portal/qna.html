@@ -1,0 +1,208 @@
+<!-- @pageTitle 서비스소개-QNA-목록 -->
+<!-- @pageNote 종료 -->
+<!-- @pageCreated 2025-10-27 -->
+<!-- @pageUpdated 2025-11-10 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="공지사항"
+      subtop-depth1-title="서비스소개"
+      subtop-depth1-link="##"
+      subtop-depth2-title="공지사항"
+      }}
+
+      <main id="content" class="sub-layout">
+        <div class="board-wrap">
+
+          <div class="page-guide">
+            <div class="page-guide__header">
+              <div class="page-guide__icon">
+                <img src="/images/portal/icon-guide.svg" alt="아이콘">
+              </div>
+              <strong class="page-guide__title">질문과 답변 게시판은 시스템 관련 및 오류사항 등의<br>문의를 위한 게시판 입니다.</strong>
+            </div>
+            <div class="page-guide__content">
+              <ul class="page-guide__list">
+                <li>업무관련 문의(시험분석, 장비사용, 지원사업, 교육 등)는 <span class="link-area"><span>메뉴</span><span>전자인원 관리</span><a href="#">전자인원 신청 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <g clip-path="url(#clip0_2582_4758)">
+                  <path d="M1.33333 12C0.966667 12 0.652778 11.8694 0.391667 11.6083C0.130556 11.3472 0 11.0333 0 10.6667V1.33333C0 0.966667 0.130556 0.652778 0.391667 0.391667C0.652778 0.130556 0.966667 0 1.33333 0H6V1.33333H1.33333V10.6667H10.6667V6H12V10.6667C12 11.0333 11.8694 11.3472 11.6083 11.6083C11.3472 11.8694 11.0333 12 10.6667 12H1.33333ZM4.46667 8.46667L3.53333 7.53333L9.73333 1.33333H7.33333V0H12V4.66667H10.6667V2.26667L4.46667 8.46667Z" fill="#9940E2"/>
+                  </g>
+                  <defs>
+                  <clipPath id="clip0_2582_4758">
+                  <rect width="12" height="12" fill="white"/>
+                  </clipPath>
+                  </defs>
+                  </svg></a></span>을 통하여 문의해 주셔야 빠른 답변이 가능합니다.</span>
+              </ul>
+            </div>
+          </div>
+
+          <!-- 항목이 많을 때 -->
+          <form action="#">
+            <fieldset>
+              <legend>검색 조건</legend>
+              <div class="board-search">
+                <div class="board-search__fields">
+                  <div class="board-search__field">
+                    <label class="label">등록일</label>
+                    <div class="date-range-wrapper">
+                      <input type="text" class="input date-input date-range-picker"
+                        placeholder="2025.11.06 ~ 2025.11.06" readonly>
+                    </div>
+                  </div>
+                  <div class="board-search__field mix-field">
+                    <label class="label">직급</label>
+                    <div class="input-group">
+                      <select class="select">
+                        <option>전체</option>
+                      </select>
+                      <input type="text" placeholder="검색어를 입력하세요" class="input" title="검색어를 입력하세요">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="board-search__actions">
+                  <button class="btn btn--outline btn--tertiary btn--sm"><i
+                      class="icon icon-reset"></i><span>초기화</span></button>
+                  <button class="btn btn--primary btn--sm"><i
+                      class="icon icon-input-search"></i><span>검색</span></button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
+          <nav class="tabs">
+            <button class="tab">전체</button>
+            <button class="tab current">전자민원</button>
+            <button class="tab">시설/장비</button>
+            <button class="tab">전문가</button>
+            <button class="tab">일반</button>
+            <button class="tab">융합데이터</button>
+          </nav>
+          <div class="board-list">
+            <div class="search-info search-board-info">
+              <div class="search-info-inner">
+                검색 결과 <span class="search-result-count" aria-live="polite">341</span>개
+              </div>
+
+              <a href="#" class="btn btn--primary btn--outline utility-button">
+                <span>질문하기</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <g clip-path="url(#clip0_2761_32634)">
+                    <path d="M3 5C3 4.73478 3.10536 4.48043 3.29289 4.29289C3.48043 4.10536 3.73478 4 4 4H20C20.2652 4 20.5196 4.10536 20.7071 4.29289C20.8946 4.48043 21 4.73478 21 5V15C21 15.2652 20.8946 15.5196 20.7071 15.7071C20.5196 15.8946 20.2652 16 20 16H4C3.73478 16 3.48043 15.8946 3.29289 15.7071C3.10536 15.5196 3 15.2652 3 15V5Z" stroke="#4A1278" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 20H17" stroke="#4A1278" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 16V20" stroke="#4A1278" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 16V20" stroke="#4A1278" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7 10H9L11 13L13 7L14 10H17" stroke="#4A1278" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2761_32634">
+                      <rect width="24" height="24" fill="white"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+            <table class="table">
+              <colgroup>
+                <col style="width: 100px;">
+                <col style="width: 100px;">
+                <col style="width: auto;">
+                <col style="width: 100px;">
+                <col style="width: 100px;">
+                <col style="width: 100px;">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th class="col-number">번호</th>
+                  <th class="col-category">분야</th>
+                  <th class="col-title">제목</th>
+                  <th class="col-author">작성자</th>
+                  <th class="col-date">작성일</th>
+                  <th class="col-views">조회</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="col-number">
+                    <span class="badge badge--filled badge--lg badge--notice">
+                      주요공지
+                      <i class="icon icon-notice"></i>
+                    </span>
+                  </td>
+                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
+                  <td class="col-title">
+                    <div class="subject-content">
+                      <span class="subject-text">시제품을 개발해보고자 합니다. 어디에 문의를 드릴수 있을까요?</span>
+                      <div class="subject-status">
+                        <span class="badge badge--filled badge--warning">N</span>
+                        <i class="icon icon-lock"></i>
+                        <span class="badge badge--filled badge--light">답변대기</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>관리자</td>
+                  <td class="col-date">2025-10-28</td>
+                  <td class="col-views">123</td>
+                </tr>
+                <tr>
+                  <td class="col-number">2</td>
+                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
+                  <td class="col-title">
+                    <div class="subject-content">
+                      <span class="subject-text">시제품을 개발해보고자 합니다. 어디에 문의를 드릴수 있을까요?</span>
+                      <div class="subject-status">
+                        <i class="icon icon-lock"></i>
+                        <span class="badge badge--filled badge--light">답변대기</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>홍길동</td>
+                  <td class="col-date">2025-11-06</td>
+                  <td class="col-views">45</td>
+                </tr>
+                <tr>
+                  <td class="col-number">3</td>
+                  <td class="col-category"><span class="badge badge--outline badge--primary badge--lg">전자민원</span></td>
+                  <td class="col-title">
+                    <div class="subject-content">
+                      <span class="subject-text">문의드립니다문의드립니다문의드립니다문의드립니다문의드립니다문의드립니다</span>
+                      <div class="subject-status">
+                        <i class="icon icon-lock"></i>
+                        <span class="badge badge--filled badge--purple">답변완료</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td>김철수</td>
+                  <td class="col-date">2025-11-05</td>
+                  <td class="col-views">78</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          {{> layout/pagination }}
+        </div>
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script type="module" src="../js/pages/portal.js"></script>
+
+</body>
+
+</html>

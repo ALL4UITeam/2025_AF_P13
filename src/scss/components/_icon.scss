@@ -219,3 +219,14 @@
 .icon-arrow-left-w{
   @include icon('/images/portal/icon-arrow-left-w.svg', 16px, #58616A);
 }
+
+.icon-monitor{
+  @include icon('/images/portal/icon-monitor.svg', 24px, #fff);
+}
+.icon-download{
+  @include icon('/images/portal/icon-download.svg', 20px, #000);
+}
+
+.btn:hover .icon-download{
+  background-color: #fff;
+}

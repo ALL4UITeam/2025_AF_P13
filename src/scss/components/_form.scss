@@ -24,7 +24,8 @@
     border-color: var(--color-primary);
     box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
   }
-
+  &[readonly],
+  &[readonly]:focus,
   &:disabled {
     background-color: var(--color-gray-100);
     cursor: not-allowed;
@@ -330,6 +331,44 @@
   border-radius: var(--radius-md);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border: 1px solid #e5e7eb;
+}
+
+.flatpickr-calendar.monthSelectPlugin .flatpickr-monthSelect-months {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.flatpickr-calendar.flatpickr-year-only {
+  .flatpickr-months {
+    justify-content: center;
+  }
+
+  .flatpickr-months .flatpickr-prev-month,
+  .flatpickr-months .flatpickr-next-month,
+  .flatpickr-months .flatpickr-monthDropdown-months,
+  .flatpickr-months .flatpickr-current-month .cur-month,
+  .flatpickr-weekdays,
+  .flatpickr-days,
+  .flatpickr-time {
+    display: none !important;
+  }
+
+  .flatpickr-months .flatpickr-current-month {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .flatpickr-months .flatpickr-current-month .numInputWrapper {
+    width: 100%;
+    max-width: 120px;
+  }
+
+  .flatpickr-months .flatpickr-current-month .numInputWrapper input {
+    font-size: 20px;
+    text-align: center;
+  }
 }
 
 .flatpickr-day.selected,

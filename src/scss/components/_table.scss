@@ -28,7 +28,9 @@
     padding: 12px 0;
     text-align: center;
   }
-  
+  .col-title{
+    text-align: left;
+  }
   tbody tr {
   
   }
@@ -77,6 +79,17 @@
       }
     }
   }
+}
+
+.horizontal-table{
+  border-top: 2px solid #131416;
+  td{
+    text-align: left;
+    padding: 12px;
+  }
+  th{background-color: #F4F5F6;}
+  
+  
 }
 
 // 테이블 래퍼 (반응형)

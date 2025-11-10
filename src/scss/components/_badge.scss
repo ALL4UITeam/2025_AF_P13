@@ -111,12 +111,21 @@
     &.badge--purple {
       @include badge-variant-filled(#F5EEF7, #6B0080);
     }
+    &.badge--olive{
+      @include badge-variant-filled(#F8F8ED, #7A7A00);
+    }
+    &.badge--sky{
+      @include badge-variant-filled(#EBF5FF, #256EF4);
+    }
+    &.badge--mustard{
+      @include badge-variant-filled(#F7FFEA, #476912);
+    }
   }
 
   // Outline Variants
   &--outline {
     &.badge--primary {
-      @include badge-variant-outline(var(--color-brand-primary), var(--color-brand-primary));
+      @include badge-variant-outline(#E0C5F6, #6719A6);
     }
 
     &.badge--secondary {
@@ -146,6 +155,7 @@
     &.badge--light {
       @include badge-variant-outline(var(--color-gray-400), var(--color-gray-700));
     }
+    
   }
 
   &--notice {
