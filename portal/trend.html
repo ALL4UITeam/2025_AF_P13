@@ -1,7 +1,7 @@
-<!-- @pageTitle 서비스소개-공지사항-목록 -->
-<!-- @pageNote 종료 -->
-<!-- @pageCreated 2025-10-27 -->
-<!-- @pageUpdated 2025-10-27 -->
+<!-- @pageTitle 발간보고서-트렌드보고서 -->
+<!-- @pageNote 완료 -->
+<!-- @pageCreated 2025-11-10 -->
+<!-- @pageUpdated 2025-11-10 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -174,12 +174,12 @@
           <ol class="breadcrumb">
             <li><a href="/" title="홈으로 이동">홈</a></li>
             <li>
-                <a href="##" title="식품산업정보로 이동">식품산업정보</a>
+                <a href="##" title="발간보고서로 이동">발간보고서</a>
             </li>
             <li><span>발간보고서</span></li>
           </ol>
           <div class="subtop-title-wrap">
-            <h1 class="subtop-title">식품산업정보</h1>
+            <h1 class="subtop-title">발간보고서</h1>
             <div class="document-utils">
               <button class="document-utils-share" title="공유"><i class="icon-share icon"></i></button>
               <button class="document-utils-print" title="프린트"><i class="icon-print icon"></i></button>
@@ -189,27 +189,30 @@
       </section>
       <main id="content" class="sub-layout">
         <div class="board-wrap">
-          <!-- 항목이 많을 때 -->
+          <nav class="tabs">
+            <a href="#" class="tab current">트렌드 보고서</a>
+            <a href="#" class="tab">카드뉴스</a>
+          </nav>
           <form action="#">
             <fieldset>
               <legend>검색 조건</legend>
               <div class="board-search">
                 <div class="board-search__fields">
                   <div class="board-search__field">
-                    <label class="label">등록일</label>
-                    <div class="date-range-wrapper">
-                      <input type="text" class="input date-input date-range-picker"
-                        placeholder="2025.11.06 ~ 2025.11.06" readonly>
-                    </div>
+                    <strong class="label">분류</strong>
+                    <select class="select" title="분류">
+                      <option>전체</option>
+                    </select>
                   </div>
-                  <div class="board-search__field mix-field">
-                    <label class="label">직급</label>
-                    <div class="input-group">
-                      <select class="select">
-                        <option>전체</option>
-                      </select>
-                      <input type="text" placeholder="검색어를 입력하세요" class="input" title="검색어를 입력하세요">
-                    </div>
+                  <div class="board-search__field">
+                    <strong class="label">제공유형</strong>
+                    <select class="select" title="제공유형">
+                      <option>전체</option>
+                    </select>
+                  </div>
+                  <div class="board-search__field">
+                    <strong class="label">일자</strong>
+                    <input type="text" class="input date-input date-range-picker" placeholder="2025.11.06 ~ 2025.11.06">
                   </div>
                 </div>
                 <div class="board-search__actions">
@@ -221,15 +224,71 @@
               </div>
             </fieldset>
           </form>
-          <div class="board-card-list">
-            <div class="providing-card">
-              <div class="left-cont">
-                <div class="thumbnail">
-                  <img src="https://picsum.photos/530/740" alt="">
+          <div class="board-list">
+            <div class="search-info search-board-info">
+              <div class="search-info-inner">
+                검색 결과 <span class="search-result-count" aria-live="polite">341</span>개
+              </div>
+            </div>
+            <div class="trend-card-grid">
+              <article class="trend-card">
+                <div class="trend-card__thumb">
+                  <img src="../images/portal/sample-trend-book.png" alt="2025년 청년식품 창업지원 우수성과 사례집 표지">
                 </div>
-              </div>
-              <div class="right-cont">
-              </div>
+                <div class="trend-card__body">
+                  <div class="trend-card__header">
+                    <h3 class="trend-card__title"><a href="#">2025년 청년식품 창업지원 우수성과 사례집</a></h3>
+                  </div>
+                  <p class="trend-card__desc">
+                    <a href="#">2025년 청년식품 창업지원 우수성과 사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집 사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집내용, 2025년 청년식품 창업지원 우수성과 사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집 내용...</a>
+                  </p>
+                  <dl class="trend-card__meta">
+                    <dt>저작권</dt>
+                    <dd>전북특별자치도</dd>
+                    <dt>발간일</dt>
+                    <dd>2025.10.17</dd>
+                    <dt>간행물</dt>
+                    <dd>보존료와 착색료(색소)의 이해</dd>
+                    <dt>조회수</dt>
+                    <dd>888</dd>
+                  </dl>
+                  <div class="trend-card__preview">
+                    <button type="button" class="btn btn--outline btn--primary btn--md">
+                      <span>미리보기</span>
+                      <i class="icon icon-preview" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article class="trend-card">
+                <div class="trend-card__thumb">
+                  <img src="../images/portal/sample-trend-book.png" alt="2025년 청년식품 창업지원 우수성과 사례집 표지">
+                </div>
+                <div class="trend-card__body">
+                  <div class="trend-card__header">
+                    <h3 class="trend-card__title"><a href="#">2025년 청년식품 창업지원 우수성과 사례집</a></h3>
+                  </div>
+                  <p class="trend-card__desc">
+                    <a href="#">2025년 청년식품 창업지원 우수성과 사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집 사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집내용, 2025년 청년식품 창업지원 우수성과 사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집 내용, 2025년 청년식품 창업지원 우수성과 사례집 내용...</a>
+                  </p>
+                  <dl class="trend-card__meta">
+                    <dt>저작권</dt>
+                    <dd>전북특별자치도</dd>
+                    <dt>발간일</dt>
+                    <dd>2025.10.17</dd>
+                    <dt>간행물</dt>
+                    <dd>보존료와 착색료(색소)의 이해</dd>
+                    <dt>조회수</dt>
+                    <dd>888</dd>
+                  </dl>
+                  <div class="trend-card__preview">
+                    <button type="button" class="btn btn--outline btn--primary btn--md">
+                      <span>미리보기</span>
+                      <i class="icon icon-preview" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
           <ul class="pagination">

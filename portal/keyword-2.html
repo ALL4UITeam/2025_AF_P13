@@ -335,17 +335,17 @@
             <fieldset>
               <legend>검색 조건</legend>
               <div class="board-search mix">
-                <div class="board-search__fields">
+                <div class="board-search__fields three-field">
                   <div class="board-search__field">
                     <label class="label">분석방법</label>
                     <div class="form-group--inline">
                       <div class="form-radio">
-                        <input type="radio" id="radio-method-1" name="radio-method" class="radio">
-                        <label for="radio-method-1">분석방법1</label>
+                        <input type="radio" id="radio-location-1" name="radio-location" class="radio">
+                        <label for="radio-location-1">전체</label>
                       </div>
                       <div class="form-radio">
-                        <input type="radio" id="radio-method-2" name="radio-method" class="radio">
-                        <label for="radio-method-2">분석방법2</label>
+                        <input type="radio" id="radio-location-2" name="radio-location" class="radio">
+                        <label for="radio-location-2">최근 1주일</label>
                       </div>
                     </div>
                   </div>
@@ -355,12 +355,9 @@
                       <option>전체</option>
                     </select>
                   </div>
-                  <div class="board-search__field mix-field">
-                    <label class="label">분류</label>
+                  <div class="board-search__field">
+                    <label class="label">지역</label>
                     <div class="input-group">
-                      <select class="select">
-                        <option>전체</option>
-                      </select>
                       <select class="select">
                         <option>전체</option>
                       </select>
@@ -370,28 +367,107 @@
                     </div>
                   </div>
                 </div>
-                <div class="board-search__fields">
+                <div class="board-search__fields three-field">
                   <div class="board-search__field">
-                    <label class="label">기준연월</label>
+                    <label class="label">분석기간</label>
                     <div class="date-range-wrapper">
-                      <input type="text" class="input date-input date-month-picker" placeholder="2025.11" readonly>
+                      <input type="text" class="input date-input date-range-picker" placeholder="2025.11.06 ~ 2025.11.06">
                     </div>
                   </div>
                   <div class="board-search__field">
-                    <label class="label">기준년도</label>
-                    <div class="date-range-wrapper">
-                      <input type="text" class="input date-input date-year-picker" placeholder="2025" readonly>
-                    </div>
+                    <label class="label">분석항목</label>
+                    <select class="select">
+                      <option>전체</option>
+                    </select>
                   </div>
-                  <div class="board-search__field mix-field">
-                    <label class="label">지역</label>
-                    <div class="input-group">
-                      <select class="select">
-                        <option>전체</option>
-                      </select>
-                      <select class="select">
-                        <option>전체</option>
-                      </select>
+                  <div class="board-search__field">
+                    <label class="label">안/가구 특성정보</label>
+                    <select class="select">
+                      <option>전체</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="board-search__fields full-field">
+                  <div class="board-search__field">
+                    <label class="label">상품명</label>
+                    <div class="tags-controls">
+                      <button type="button" class="btn btn--outline btn--primary tags-control__adder">상품추가
+                        <i class="icon icon-add"></i>
+                      </button>
+                      <ul class="tags-control__list">
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                        <li>
+                          <span class="badge badge--outline badge--secondary badge--removable badge--lg">
+                            스니커즈 피넛바 1500
+                            <button type="button" class="badge__close">
+                              <i class="icon icon-badge-delete"></i>
+                            </button>
+                          </span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -404,173 +480,183 @@
               </div>
             </fieldset>
           </form>
-          <div class="search-info default">
-            <div class="search-info-inner">
-              <span class="search-keyword">식품</span>에 대해
-              <span class="search-result-count" aria-live="polite">999</span>건의 검색 결과가 있습니다.
-            </div>
-            <div class="search-info-filter">
-              <div class="filter-sort-bar" data-filter-sort-bar="">
-                <!-- 목록 표시 개수 -->
-                <div class="filter-group">
-                  <span class="filter-label">목록 표시 개수</span>
-                  <select class="filter-select" id="itemCount">
-                    <option value="12" selected="">12개</option>
-                    <option value="24">24개</option>
-                    <option value="36">36개</option>
-                    <option value="48">48개</option>
-                  </select>
-                </div>
-                <div class="divider"></div>
-                <!-- 정렬 기준 -->
-                <div class="sort-group">
-                  <span class="sort-label">정렬기준</span>
-                  <!-- PC용 버튼 -->
-                  <div class="sort-buttons">
-                    <button class="sort-btn active" data-sort="relevance">관련도순</button>
-                    <button class="sort-btn" data-sort="latest">최신순</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div class="search-result-wrap">
             <div class="section">
               <div class="section-header">
                 <h4>특허정보</h4>
                 <div class="section-header-right">
-                  검색결과 <span class="count" aria-live="polite">999</span>건
-                  <a href="#" class="more"><span>더보기</span><i class="icon icon-arrow-right-bold"></i></a>
+                  <button type="button" class="btn btn--outline btn--secondary">다운로드 <i class="icon icon-download"></i></button>
                 </div>
               </div>
               <!-- // section-header -->
               <div class="section-content">
-                <div class="keyword-card">
-                  <div class="logo-area"><a href="#"><img src="../images/portal/logo-test.svg" alt="logo"></a></div>
-                  <div class="subeject"><a href="#">인삼 유래의 엑소좀-유사 나노베지클의 제조 방법</a></div>
-                  <div class="info">
-                    <dl>
-                      <dt>작성기관</dt>
-                      <dd>경희대학교 산학협력단</dd>
-                      <dt>교육기간</dt>
-                      <dd>경희대학교 산학협력단</dd>
-                      <dt>공개여부</dt>
-                      <dd>경희대학교 산학협력단</dd>
-                    </dl>
-                  </div>
-                  <div class="link-area">
-                    <span>특허정보</span>
-                    <a href="#">KIPRIS 국내외특허 <i class="icon icon-blank"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="section">
-              <div class="section-header">
-                <h4>해외시장정보 <em>자세한 통계 정보는 ‘해외시장정보’에서 확인할 수 있습니다.</em></h4>
-                <div class="section-header-right">
-                  검색결과 <span class="count" aria-live="polite">999</span>건
-                  <a href="#" class="more"><span>더보기</span><i class="icon icon-arrow-right-bold"></i></a>
-                </div>
-              </div>
-              <!-- // section-header -->
-              <div class="section-content">
-                <div class="keyword-card">
-                  <div class="logo-area"><a href="#"><img src="../images/portal/logo-test.svg" alt="logo"></a></div>
-                  <div class="subeject"><a href="#">인삼 유래의 엑소좀-유사 나노베지클의 제조 방법</a></div>
-                  <div class="info">
-                    <dl>
-                      <dt>작성기관</dt>
-                      <dd>경희대학교 산학협력단</dd>
-                      <dt>교육기간</dt>
-                      <dd>경희대학교 산학협력단</dd>
-                      <dt>공개여부</dt>
-                      <dd>경희대학교 산학협력단</dd>
-                    </dl>
-                  </div>
-                  <div class="link-area">
-                    <span>특허정보</span>
-                    <a href="#">KIPRIS 국내외특허 <i class="icon icon-blank"></i></a>
-                  </div>
-                </div>
-                <div class="source-info"><a href="#">&lt;
+                <table class="table">
+                  <tr>
+                    <thead>
+                      <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="text-right">1000,1000</td>
+                        <td class="text-right">1000,1000</td>
+                        <td class="text-right">1000,1000</td>
+                        <td class="text-right">1000,1000</td>
+                      </tr>
+                    </tbody>
+                  </tr>
+                </table>
+                <div class="source-info mt-20"><a href="#">&lt;
                   <svg xmlns="http://www.w3.org/2000/svg" width="19" height="15" viewBox="0 0 19 15" fill="none">
                     <path d="M6.26925 14.846C5.85675 14.846 5.50358 14.6992 5.20975 14.4055C4.91608 14.1117 4.76925 13.7585 4.76925 13.346V10.8463H7.65375V8.096C7.04475 8.146 6.4425 8.07133 5.847 7.872C5.2515 7.67267 4.73708 7.35125 4.30375 6.90775V5.65375H3.01925L0 2.6345C0.587167 1.98967 1.28392 1.52333 2.09025 1.2355C2.89675 0.947668 3.71792 0.803751 4.55375 0.803751C5.09925 0.803751 5.6295 0.866 6.1445 0.9905C6.65967 1.11483 7.16275 1.31992 7.65375 1.60575V0H18.6538V12.346C18.6538 13.0448 18.4118 13.6362 17.9278 14.12C17.4438 14.604 16.8524 14.846 16.1538 14.846H6.26925ZM9.15375 10.8463H15.1538V12.346C15.1538 12.6293 15.2496 12.8668 15.4413 13.0585C15.6329 13.2502 15.8704 13.346 16.1538 13.346C16.4371 13.346 16.6746 13.2502 16.8663 13.0585C17.0579 12.8668 17.1538 12.6293 17.1538 12.346V1.5H9.15375V2.6L14.9038 8.35V9.40375H13.85L10.9038 6.45775L10.521 6.84025C10.307 7.05442 10.0884 7.24033 9.86525 7.398C9.64225 7.55567 9.40508 7.6845 9.15375 7.7845V10.8463ZM3.6575 4.15375H5.80375V6.20775C6.07425 6.37958 6.33708 6.49683 6.59225 6.5595C6.84742 6.62233 7.10258 6.65375 7.35775 6.65375C7.77692 6.65375 8.15667 6.58583 8.497 6.45C8.83733 6.31417 9.16392 6.08983 9.47675 5.777L9.85 5.40375L8.27675 3.83075C7.76775 3.32175 7.19725 2.94 6.56525 2.6855C5.93325 2.431 5.26275 2.30375 4.55375 2.30375C4.14342 2.30375 3.74825 2.348 3.36825 2.4365C2.98808 2.525 2.63192 2.64492 2.29975 2.79625L3.6575 4.15375ZM13.6538 12.346H6.26925V13.346H13.8808C13.7988 13.2025 13.7404 13.0463 13.7058 12.8775C13.6711 12.7088 13.6538 12.5317 13.6538 12.346Z" fill="#58616A"/>
                   </svg>
                   제공 출처 : 한국과학기술연구원(KISTI), 특허청(KIPRIS) &gt;</a>
                 </div>
               </div>
-            </div>
-            <ul class="pagination">
-              <li>
-                <button class="page-item prev">
-                  <span class="text">이전</span>
-                </button></li>
-              <li><button class="page-item">1</button></li>
-              <li><button class="page-item active">2</button></li>
-              <li><button class="page-item">3</button></li>
-              <li><button class="page-item">3</button></li>
-              <li><button class="page-item">3</button></li>
-              <li><button class="page-item ellipsis">생략</button></li>
-              <li><button class="page-item">99</button></li>
-              <li>
-                <button class="page-item next">
-                  <span class="text">다음</span>
-                </button>
-              </li>
-            </ul>           </div>
-          <div class="popular-container">
-            <div class="l popular-ranks">
-              <header class="popular-header">
-                <strong>인기키워드</strong>
-                <span class="date">10.02 기준</span>
-              </header>
-              <ol class="ranking-list keyword-ranking">
-                <li class="ranking-item"><button type="button"><span class="num">1</span><span class="word up">식품산업</span></button></li>
-                <li class="ranking-item"><button type="button"><span class="num">2</span><span class="word down">식품산업</span></button></li>
-                <li class="ranking-item"><button type="button"><span class="num">3</span><span class="word same">식품산업</span></button></li>
-                <li class="ranking-item"><button type="button"><span class="num">4</span><span class="word same">식품산업</span></button></li>
-                <li class="ranking-item"><button type="button"><span class="num">5</span><span class="word up">식품산업</span></button></li>
-              </ol>
-            </div>
-            <div class="r popular-hits">
-              <header class="popular-header">
-                <strong>인기키워드</strong>
-                <span class="date">10.02 기준</span>
-              </header>
-              <div class="popular-hits-list">
-                <ol class="popular-hits-rows">
-                  <li>
-                    <span class="num">1</span>
-                    <span class="tags">rydbrwldnjs</span>
-                    <a href="#" class="text">daajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklafdaajhsdfakldfjssklaf</a>
-                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                  </li>
-                  <li>
-                    <span class="num">1</span>
-                    <span class="tags">rydbrwldnjs</span>
-                    <a href="#" class="text">daajhsdfakldfjssklaf</a>
-                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                  </li>
-                  <li>
-                    <span class="num">1</span>
-                    <span class="tags">rydbrwldnjs</span>
-                    <a href="#" class="text">daajhsdfakldfjssklaf</a>
-                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                  </li>
-                  <li>
-                    <span class="num">1</span>
-                    <span class="tags">rydbrwldnjs</span>
-                    <a href="#" class="text">daajhsdfakldfjssklaf</a>
-                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                  </li>
-                  <li>
-                    <span class="num">1</span>
-                    <span class="tags">rydbrwldnjs</span>
-                    <a href="#" class="text">daajhsdfakldfjssklaf</a>
-                    <span class="hit"><i class="icon icon-hit"></i>5167</span>
-                  </li>
-                </ol>
+              <ul class="pagination">
+                <li>
+                  <button class="page-item prev">
+                    <span class="text">이전</span>
+                  </button></li>
+                <li><button class="page-item">1</button></li>
+                <li><button class="page-item active">2</button></li>
+                <li><button class="page-item">3</button></li>
+                <li><button class="page-item">3</button></li>
+                <li><button class="page-item">3</button></li>
+                <li><button class="page-item ellipsis">생략</button></li>
+                <li><button class="page-item">99</button></li>
+                <li>
+                  <button class="page-item next">
+                    <span class="text">다음</span>
+                  </button>
+                </li>
+              </ul>             </div>
+            <!-- // section -->
+            <div class="section">
+              <div class="section-header">
+                <h4>품목별 국가별 수출입 실적</h4>
+                <div class="section-header-right">
+                  <button type="button" class="btn btn--outline btn--secondary">다운로드 <i class="icon icon-download"></i></button>
+                </div>
+              </div>
+              <div class="section-content">
+                <div class="row-wrap">
+                  <div class="col-8 border-col p0">
+                    지도
+                  </div>
+                  <div class="col-4 border-col">
+                    <div class="col-header">
+                      <div class="left">
+                        <h5><em>판매 건수</em> 대분류</h5>
+                      </div>
+                      <div class="right">
+                        <div class="unit">(단위:건)</div>
+                      </div>
+                    </div>
+                    <div class="col-content">
+                      <div>차트영역</div>
+                      <div class="table-wrap">
+                        <table class="table sm">
+                          <thead>
+                            <tr>
+                              <th>판매채널</th>
+                              <th>판매건</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>온라인</td>
+                              <td>1000</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row-wrap">
+                  <div class="col-4 border-col">
+                    <div class="col-header">
+                      <div class="left">
+                        <h5>판매 건수 대분류</h5>
+                      </div>
+                      <div class="right">
+                        <div class="unit">(단위:건)</div>
+                      </div>
+                    </div>
+                    <div class="col-content">
+                      <ol class="number-list">
+                        <li class="number-item">
+                          <div class="number-item-title">
+                            <span class="num">1</span>
+                            <span class="text">음료류</span>
+                          </div>
+                          <div class="value">1000</div>
+                        </li>
+                        <li class="number-item">
+                          <div class="number-item-title">
+                            <span class="num">1</span>
+                            <span class="text">음료류</span>
+                          </div>
+                          <div class="value">1000</div>
+                        </li>
+                        <li class="number-item">
+                          <div class="number-item-title">
+                            <span class="num">1</span>
+                            <span class="text">음료류</span>
+                          </div>
+                          <div class="value">1000</div>
+                        </li>
+                        <li class="number-item">
+                          <div class="number-item-title">
+                            <span class="num">1</span>
+                            <span class="text">음료류</span>
+                          </div>
+                          <div class="value">1000</div>
+                        </li>
+                        <li class="number-item">
+                          <div class="number-item-title">
+                            <span class="num">1</span>
+                            <span class="text">음료류</span>
+                          </div>
+                          <div class="value">1000</div>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                  <!-- // col-4 -->
+                  <div class="col-4 border-col">
+                    <div class="col-header">
+                      <div class="left">
+                        <h5><em>갈비</em> <small>(HS코드 : 02012011000)</small></h5>
+                      </div>
+                      <div class="right">
+                        <div class="unit">(단위:건)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- // col-4 -->
+                  <div class="col-4 border-col">
+                    <div class="col-header">
+                      <div class="left">
+                        <h5><em>갈비</em></h5>
+                      </div>
+                      <div class="right">
+                        <div class="unit">(단위:건)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="source-info mt-20"><a href="#">&lt;
+                  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="15" viewBox="0 0 19 15" fill="none">
+                    <path d="M6.26925 14.846C5.85675 14.846 5.50358 14.6992 5.20975 14.4055C4.91608 14.1117 4.76925 13.7585 4.76925 13.346V10.8463H7.65375V8.096C7.04475 8.146 6.4425 8.07133 5.847 7.872C5.2515 7.67267 4.73708 7.35125 4.30375 6.90775V5.65375H3.01925L0 2.6345C0.587167 1.98967 1.28392 1.52333 2.09025 1.2355C2.89675 0.947668 3.71792 0.803751 4.55375 0.803751C5.09925 0.803751 5.6295 0.866 6.1445 0.9905C6.65967 1.11483 7.16275 1.31992 7.65375 1.60575V0H18.6538V12.346C18.6538 13.0448 18.4118 13.6362 17.9278 14.12C17.4438 14.604 16.8524 14.846 16.1538 14.846H6.26925ZM9.15375 10.8463H15.1538V12.346C15.1538 12.6293 15.2496 12.8668 15.4413 13.0585C15.6329 13.2502 15.8704 13.346 16.1538 13.346C16.4371 13.346 16.6746 13.2502 16.8663 13.0585C17.0579 12.8668 17.1538 12.6293 17.1538 12.346V1.5H9.15375V2.6L14.9038 8.35V9.40375H13.85L10.9038 6.45775L10.521 6.84025C10.307 7.05442 10.0884 7.24033 9.86525 7.398C9.64225 7.55567 9.40508 7.6845 9.15375 7.7845V10.8463ZM3.6575 4.15375H5.80375V6.20775C6.07425 6.37958 6.33708 6.49683 6.59225 6.5595C6.84742 6.62233 7.10258 6.65375 7.35775 6.65375C7.77692 6.65375 8.15667 6.58583 8.497 6.45C8.83733 6.31417 9.16392 6.08983 9.47675 5.777L9.85 5.40375L8.27675 3.83075C7.76775 3.32175 7.19725 2.94 6.56525 2.6855C5.93325 2.431 5.26275 2.30375 4.55375 2.30375C4.14342 2.30375 3.74825 2.348 3.36825 2.4365C2.98808 2.525 2.63192 2.64492 2.29975 2.79625L3.6575 4.15375ZM13.6538 12.346H6.26925V13.346H13.8808C13.7988 13.2025 13.7404 13.0463 13.7058 12.8775C13.6711 12.7088 13.6538 12.5317 13.6538 12.346Z" fill="#58616A"/>
+                  </svg>
+                  제공 출처 : 한국과학기술연구원(KISTI), 특허청(KIPRIS) &gt;</a>
+                </div>
               </div>
             </div>
           </div>
@@ -787,172 +873,6 @@
     <button class="button button-top" aria-label="맨 위로">
       <span class="icon">↑</span>
     </button>
-  </div>
-  <div id="subjectAddModal" class="modal modal--lg" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-backdrop" data-close="subjectAddModal"></div>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>주제 추가</h3>
-        <button class="modal-close" aria-label="닫기" data-close="subjectAddModal"></button>
-      </div>
-      <div class="modal-body">
-        <div class="category-selector">
-          <div class="category-column">
-            <div class="category-header">상품대분류</div>
-            <div class="category-list">
-              <div class="category-item selected">
-                <span>가공식품</span>
-                <i class="icon icon-arrow-brandly"></i>
-              </div>
-              <div class="category-item">
-                <span>신선식품</span>
-              </div>
-              <div class="category-item">
-                <span>기타 식품</span>
-              </div>
-            </div>
-          </div>
-          <div class="category-column">
-            <div class="category-header">상품중분류</div>
-            <div class="category-list">
-              <div class="category-item">
-                <span>중분류 1</span>
-              </div>
-              <div class="category-item">
-                <span>중분류 2</span>
-              </div>
-              <div class="category-item">
-                <span>중분류 중분류 3</span>
-              </div>
-              <div class="category-item">
-                <span>중분류 4</span>
-              </div>
-              <div class="category-item">
-                <span>중 분류 분류 5</span>
-              </div>
-              <div class="category-item">
-                <span>중분류 6</span>
-              </div>
-              <div class="category-item">
-                <span>중분류 7</span>
-              </div>
-              <div class="category-item">
-                <span>중분류 8</span>
-              </div>
-              <div class="category-item">
-                <span>중분류 9</span>
-              </div>
-            </div>
-          </div>
-          <div class="category-column">
-            <div class="category-header">상품소분류</div>
-            <div class="category-list">
-              <div class="category-placeholder">
-                <i class="icon icon-arrow-left-w"></i>
-                <span><em>중분류</em>를 먼저 선택하세요.</span>
-              </div>
-            </div>
-          </div>
-          <div class="category-column">
-            <div class="category-header">상품세분류</div>
-            <div class="category-list">
-              <div class="category-placeholder">
-                <i class="icon icon-arrow-left-w"></i>
-                <span>소분류를 먼저 선택하세요.</span>
-              </div>
-            </div>
-          </div>
-          <div class="category-column">
-            <div class="category-header">상품</div>
-            <div class="category-list">
-              <div class="category-placeholder">
-                <i class="icon icon-arrow-left-w"></i>
-                <span>세분류를 먼저 선택하세요.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="l"><button class="btn btn--outline btn--secondary" data-close="subjectAddModal">취소</button></div>
-        <div class="r">
-          <button class="btn btn--outline btn--primary">초기화</button>
-          <button class="btn btn--primary">검색</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="productAddModal" class="modal modal--sm is-active" aria-hidden="false" role="dialog" aria-modal="true">
-    <div class="modal-backdrop" data-close="productAddModal"></div>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>품목 추가</h3>
-        <button class="modal-close" aria-label="닫기" data-close="productAddModal"></button>
-      </div>
-      <div class="modal-body">
-        <div class="modal-single-search">
-          <form action="">
-            <fieldset>
-              <legend class="sr-only">품목 검색 폼</legend>
-              <p class="note">HS코드 10자리 하위 항목에 한하여 검색됩니다.</p>
-              <div class="search-bar">
-                <input type="text" class="input" placeholder="HS코드 또는 품목명.">
-                <button class="submit" type="submit">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M18 9C18 11.0153 17.335 12.8751 16.2158 14.375L19.2217 17.3809L19.3115 17.4795C19.6996 17.9559 19.6991 18.6437 19.3105 19.1201L19.2217 19.2188C18.714 19.7264 17.8905 19.7264 17.3828 19.2188L14.3779 16.2139C12.8775 17.3343 11.0165 18 9 18C4.02944 18 0 13.9706 0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9ZM15.4004 9C15.4004 5.46538 12.5346 2.59961 9 2.59961C5.46538 2.59961 2.59961 5.46538 2.59961 9C2.59961 12.5346 5.46538 15.4004 9 15.4004C10.6584 15.4004 12.166 14.7664 13.3037 13.7305C13.3565 13.6445 13.4209 13.5645 13.4941 13.4912L13.5713 13.4199C13.6233 13.3757 13.6776 13.3355 13.7344 13.3008C14.7682 12.1635 15.4004 10.6568 15.4004 9Z" fill="url(#paint0_linear_2393_33812)"/>
-                    <defs>
-                      <linearGradient id="paint0_linear_2393_33812" x1="0" y1="8.43609" x2="19.6023" y2="8.43609" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#6719A6"/>
-                        <stop offset="1" stop-color="#FF004E"/>
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-        <div class="product-selector">
-          <div class="product-selector-header"><h4>상품코드</h4></div>
-          <ol class="product-selector-list">
-            <li>
-              <div class="form-check">
-                <input type="checkbox" id="checkbox-1" name="checkbox-1" class="checkbox">
-                <label for="checkbox-1">
-                  <span class="code">1211203100</span>
-                  <span>품목명</span>
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="form-check">
-                <input type="checkbox" id="checkbox-2" name="checkbox-2" class="checkbox">
-                <label for="checkbox-2">
-                  <span class="code">1211203100</span>
-                  <span>품목명</span>
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="form-check">
-                <input type="checkbox" id="checkbox-3" name="checkbox-3" class="checkbox">
-                <label for="checkbox-3">
-                  <span class="code">1211203100</span>
-                  <span>품목명</span>
-                </label>
-              </div>
-            </li>
-          </ol>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <div class="l"><button class="btn btn--outline btn--secondary" data-close="productAddModal">취소</button></div>
-        <div class="r">
-          <button class="btn btn--outline btn--primary">초기화</button>
-          <button class="btn btn--primary">적용</button>
-        </div>
-      </div>
-    </div>
   </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
-<!-- @pageTitle 서비스소개-공지사항-목록 -->
-<!-- @pageNote 종료 -->
-<!-- @pageCreated 2025-10-27 -->
-<!-- @pageUpdated 2025-10-27 -->
+<!-- @pageTitle 발간보고서-카드뉴스 -->
+<!-- @pageNote 완료 -->
+<!-- @pageCreated 2025-11-10 -->
+<!-- @pageUpdated 2025-11-10 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -174,12 +174,12 @@
           <ol class="breadcrumb">
             <li><a href="/" title="홈으로 이동">홈</a></li>
             <li>
-                <a href="##" title="식품산업정보로 이동">식품산업정보</a>
+                <a href="##" title="발간보고서로 이동">발간보고서</a>
             </li>
             <li><span>발간보고서</span></li>
           </ol>
           <div class="subtop-title-wrap">
-            <h1 class="subtop-title">식품산업정보</h1>
+            <h1 class="subtop-title">발간보고서</h1>
             <div class="document-utils">
               <button class="document-utils-share" title="공유"><i class="icon-share icon"></i></button>
               <button class="document-utils-print" title="프린트"><i class="icon-print icon"></i></button>
@@ -189,27 +189,22 @@
       </section>
       <main id="content" class="sub-layout">
         <div class="board-wrap">
-          <!-- 항목이 많을 때 -->
+          <nav class="tabs">
+            <a href="#" class="tab">트렌드 보고서</a>
+            <a href="#" class="tab current">카드뉴스</a>
+          </nav>
           <form action="#">
             <fieldset>
               <legend>검색 조건</legend>
               <div class="board-search">
                 <div class="board-search__fields">
                   <div class="board-search__field">
-                    <label class="label">등록일</label>
-                    <div class="date-range-wrapper">
-                      <input type="text" class="input date-input date-range-picker"
-                        placeholder="2025.11.06 ~ 2025.11.06" readonly>
-                    </div>
+                    <strong class="label">일자</strong>
+                    <input type="text" class="input date-input date-range-picker" placeholder="2025.11.06 ~ 2025.11.06">
                   </div>
-                  <div class="board-search__field mix-field">
-                    <label class="label">직급</label>
-                    <div class="input-group">
-                      <select class="select">
-                        <option>전체</option>
-                      </select>
-                      <input type="text" placeholder="검색어를 입력하세요" class="input" title="검색어를 입력하세요">
-                    </div>
+                  <div class="board-search__field" style="grid-column: span 2;">
+                    <strong class="label">검색어</strong>
+                    <input type="text" class="input" title="검색어를 입력해주세요." placeholder="검색어를 입력해주세요.">
                   </div>
                 </div>
                 <div class="board-search__actions">
@@ -221,15 +216,25 @@
               </div>
             </fieldset>
           </form>
-          <div class="board-card-list">
-            <div class="providing-card">
-              <div class="left-cont">
-                <div class="thumbnail">
-                  <img src="https://picsum.photos/530/740" alt="">
+          <div class="board-list">
+            <div class="search-info search-board-info">
+              <div class="search-info-inner">
+                검색 결과 <span class="search-result-count" aria-live="polite">341</span>개
+              </div>
+            </div>
+            <div class="card-news-grid">
+              <article class="card-news">
+                <div class="card-news__thumb">
+                  <a href="#"><img src="../images/portal/sample-cardnews.png" alt="식품품질안전센터 장비활용 가이드 카드뉴스"></a>
                 </div>
-              </div>
-              <div class="right-cont">
-              </div>
+                <div class="card-news__body">
+                  <h3 class="card-news__title"><a href="#">식품품질안전센터 장비활용가이드 &lt;전자혀&gt; 편</a></h3>
+                  <div class="card-news__meta">
+                    <span class="card-news__date">등록일 2025.08.04</span>
+                    <span class="card-news__views"><i class="icon icon-hit"></i>158</span>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
           <ul class="pagination">
