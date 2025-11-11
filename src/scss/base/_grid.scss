@@ -15,7 +15,8 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 math.div(-$grid-gutter, 2);  // 이것도 수정
+  //margin: 0 math.div(-$grid-gutter, 2);  // 이것도 수정
+  width: 100%;
 }
 
 .col {
@@ -24,8 +25,8 @@
   @for $i from 1 through $grid-columns {
     &-#{$i} {
       $width: math.div($i, $grid-columns) * 100%;
-      flex: 0 0 $width;
-      max-width: $width;
+      //flex: 0 0 $width;
+      width: $width;
     }
   }
 }

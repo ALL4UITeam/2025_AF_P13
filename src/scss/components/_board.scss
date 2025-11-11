@@ -355,6 +355,7 @@
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;
+      line-clamp: 2;
       font-size: 19px;
       height: 46px;
       line-height: 1.2;
@@ -417,9 +418,8 @@
 }
 
 .card-viewer{
-  
   .swiper-wrapper{
-    
+    display: flex;
   }
   
 }
@@ -850,6 +850,12 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0 30px;
     padding-right: 120px;
+    &.full-field{
+      grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+    &.three-field{
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
     &.four-field{
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
@@ -884,6 +890,11 @@
         background-image: url('/images/portal/dot.svg');
         background-size: contain;
       }
+    }
+
+    .form-group--inline{
+      padding-top: 12px;
+      gap:0 24px;
     }
     
   }

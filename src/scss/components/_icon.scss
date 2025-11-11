@@ -233,3 +233,11 @@
 .btn:hover .icon-download{
   background-color: #fff;
 }
+
+.icon-badge-delete{
+  @include icon('/images/portal/icon-badge-delete.svg', 7px, #33363D);
+}
+
+.icon-add{
+  @include icon('/images/portal/icon-item-add.svg', 24px, #4A1278);
+}

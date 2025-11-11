@@ -81,6 +81,23 @@
   }
 }
 
+.table{
+  &.sm{
+    thead{
+      border-top: 1px solid #CDD1D5;
+      th{
+        padding: 10px 0;
+        font-size: 13px;
+      }
+    }
+    td{
+      padding: 15px 0;
+      font-size: 13px;
+    }
+  }
+}
+
+
 .horizontal-table{
   border-top: 2px solid #131416;
   td{
@@ -88,19 +105,13 @@
     padding: 12px;
   }
   th{background-color: #F4F5F6;}
-  
-  
 }
 
 // 테이블 래퍼 (반응형)
 .table-wrapper {
-  width: 100%;
   overflow-x: auto;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-gray-200);
-  
-  @include scrollbar(6px, var(--color-gray-300));
 }
+
 
 // 테이블 정렬
 .table {
@@ -164,26 +175,3 @@
     }
   }
 }
-
-// 테이블 셀 상태
-.table {
-  tr {
-    &.row-selected {
-      background-color: rgba(59, 130, 246, 0.1);
-    }
-    
-    &.row-success {
-      background-color: rgba(16, 185, 129, 0.1);
-    }
-    
-    &.row-danger {
-      background-color: rgba(239, 68, 68, 0.1);
-    }
-    
-    &.row-warning {
-      background-color: rgba(245, 158, 11, 0.1);
-    }
-  }
-}
-
-
