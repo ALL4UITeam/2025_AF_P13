@@ -28,6 +28,11 @@
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
+#header{
+  position: relative;
+  z-index: 100;
+}
+
 .header{border-bottom: 1px solid #CDD1D5;z-index: 2;position: relative;}
 .header-top{
   background: #F4F5F6;
