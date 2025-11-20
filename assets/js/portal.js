@@ -1,4 +1,4 @@
-import "./main.js";
+/* empty css     */
 console.log("Portal main page JS loaded");
 const portal = {
   initialized: false,
