@@ -1,5 +1,6 @@
-import "../main.js";
+import "../modulepreload-polyfill.js";
 import "../portal.js";
+/* empty css      */
 document.addEventListener("DOMContentLoaded", () => {
   const passwordInput = document.querySelector("[data-secret-password]");
   const secretRadios = document.querySelectorAll('input[name="radio-secret"]');

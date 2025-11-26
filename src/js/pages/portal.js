@@ -330,6 +330,8 @@ const portal = {
         formData.searchInput.value = "";
       }
     },
+    
+
   },
   // ========================================
   // 줌 컨트롤 기능
@@ -923,6 +925,83 @@ const portal = {
       }
     },
   },
+  topButton: {
+    init() {
+      const topButton = document.querySelector(".button-top");
+      topButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    },
+  },
+
+  // ========================================
+  // 마이페이지 팝업
+  // ========================================
+  mypagePopup: {
+    button: null,
+    popup: null,
+    isOpen: false,
+
+    init() {
+      this.button = document.getElementById("mypage-button");
+      this.popup = document.getElementById("mypage-popup");
+      
+      if (!this.button || !this.popup) return;
+      
+      this.bindEvents();
+    },
+
+    bindEvents() {
+      // 마이페이지 버튼 클릭
+      this.button.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.toggle();
+      });
+
+      // 외부 클릭 시 닫기
+      document.addEventListener("click", (e) => {
+        if (!this.isOpen) return;
+        
+        const isClickInside = this.popup.contains(e.target) || 
+                             this.button.contains(e.target);
+        
+        if (!isClickInside) {
+          this.close();
+        }
+      });
+
+      // ESC 키로 닫기
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && this.isOpen) {
+          this.close();
+        }
+      });
+    },
+
+    open() {
+      if (this.isOpen) return;
+      
+      this.popup.classList.add("is-open");
+      this.button.classList.add("active");
+      this.isOpen = true;
+    },
+
+    close() {
+      if (!this.isOpen) return;
+      
+      this.popup.classList.remove("is-open");
+      this.button.classList.remove("active");
+      this.isOpen = false;
+    },
+
+    toggle() {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+  },
 
   // ========================================
   // 초기화
@@ -942,7 +1021,9 @@ const portal = {
     this.scrollTab.init();
     this.filterSort.init();
     this.headerNav.init();
+    this.mypagePopup.init();
     this.dateRangePicker.init();
+    this.topButton.init();
     this.initialized = true;
     console.log("Portal initialized");
   },

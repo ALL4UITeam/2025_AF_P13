@@ -1,912 +1,726 @@
-<!-- @pageTitle 포털 메인 -->
-<!-- @pageNote 포털 메인 페이지 -->
-<!-- @pageCreated 2025-10-21 -->
-<!-- @pageUpdated 2025-10-21 -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <!-- 기본 -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=1410">
-  <meta name="description" content="PC 전용 웹사이트입니다">
-  <meta name="keywords" content="키워드1, 키워드2">
-  <meta name="author" content="작성자명">
-  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=1,user-scalable=yes,viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+  <meta name="Title" content="디지털식품정보플랫폼">
+  <meta name="Author" content="한국식품산업클러스터진흥원">
+  <meta name="Keywords" content="디정플, 디지털 식품 정보 플랫폼, 디지털식품정보플랫폼, 디지털 식품정보 플랫폼, 식품정보, 식품정보플랫폼, 푸드이음, 한국식품클러스터진흥원, 식품진흥원">
+  <meta name="Description" content="기업이 정보와 서비스를 손쉽게 활용할 수 있도록 One-Stop 지원체계를 구축하여 가상식품클러스터 활성화 기반 마련">
+  <meta property="og:title" content="디지털식품정보플랫폼">
+  <meta property="og:description" content="기업이 정보와 서비스를 손쉽게 활용할 수 있도록 One-Stop 지원체계를 구축하여 가상식품클러스터 활성화 기반 마련">
+  <meta property="og:url" content="https://www.foodpolis.krhttps://www.foodpolis.kr/dfip/fo/main.do">
+  <meta property="og:site_name" content="디지털식품정보플랫폼">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="사이트 제목">
-  <meta property="og:description" content="사이트 설명">
-  <meta property="og:image" content="https://example.com/image.jpg">
-  <meta property="og:url" content="https://example.com">
-  <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <title>식품정보24</title>
-  <script src="../lib/jquery/jquery-3.7.1.min.js"></script>
-  <script src="../lib/swiper/swiper-bundle.min.js"></script>
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="400">
+  <meta id="_csrf" name="_csrf" content="b2bf5c40-3691-4cae-b820-17c956c60fb8">
+  <meta id="_csrf_header" name="_csrf_header" content="X-XSRF-TOKEN">
+  <meta id="_csrf_parameterName" name="_csrf_parameterName" content="_csrf">
+  <link href="https://www.foodpolis.kr/dfip/favicon.ico" rel="shortcut icon">
+  <title>디지털 식품 정보 플랫폼</title>
+  <link rel="stylesheet" type="text/css" href="https://www.foodpolis.kr/dfip/static/front/common/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="https://www.foodpolis.kr/dfip/static/front/common/css/common.css">
+  <link rel="stylesheet" type="text/css" href="https://www.foodpolis.kr/dfip/static/front/common/css/content.css">
+  <!-- <link rel="stylesheet" type="text/css" href="https://www.foodpolis.kr/dfip/static/front/common/css/main.css"> -->
+  <!-- 챗봇추가 -->
+  <link rel="stylesheet" type="text/css" href="https://www.foodpolis.kr/dfip/lib/chatbot/main.css">
+  <!-- 2차사업 추가 -->
+  <link rel="stylesheet" type="text/css" href="https://www.foodpolis.kr/dfip/static/front/common/css/ng2025.css">
+  <link rel="stylesheet" type="text/css" href="https://www.foodpolis.kr/dfip/static/front/common/css/ng-style.css">
+  <link rel="stylesheet" type="text/css" href="https://www.foodpolis.kr/dfip/static/front/common/css/ng-main.css">
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/libjs/jquery.min.js"></script>
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/libjs/jquery-ui.min.js"></script>
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/js/datepicker.js"></script>
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/js/common.js"></script>
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/libjs/swiper.js"></script>
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/js/index.js"></script>
+  <script src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/rxJs.js'></script>
+  <script
+    src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/checkUtils.js'></script>
+  <script
+    src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/commUtils.js'></script>
+  <script
+    src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/popupUtils.js'></script>
+  <script
+    src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/compUtils.js'></script>
+  <script
+    src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/cmsUtils.js'></script>
+  <script
+    src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/tableUtils.js'></script>
+  <script src="https://www.foodpolis.kr/dfip/static/admin/js/moment.min.js"></script>
+  <script
+    src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/front/custom.js'></script>
+  <script
+    src='https://www.foodpolis.kr/dfip/js/egovframeworkhttps://www.foodpolis.kr/dfip/cms/cmm/front/FileUtils.js'></script>
+  <!-- 2차사업 추가 -->
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/libjs/gsap.min.js"></script>
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/libjs/ScrollToPlugin.min.js"></script>
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/libjs/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://www.foodpolis.kr/dfip/static/front/common/js/vendor/splide.min.css" />
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/js/vendor/splide.min.js"></script>
+  <!-- <script src="https://www.foodpolis.kr/dfip/static/front/common/js/main.js"></script>
+  <script src="https://www.foodpolis.kr/dfip/static/front/common/js/all.js"></script> -->
   <link rel="stylesheet" href="../lib/swiper/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>  <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/portal.js"></script>
-  <link rel="stylesheet" href="../assets/css/common3.css">
+  <script src="../lib/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/js/modulepreload-polyfill.js"></script>
   <link rel="stylesheet" href="../assets/css/common2.css">
 </head>
 <body>
-  <header id="header" class="header">
-    <div class="header-top">
+  <div id="wrap" class="main-page">
+    <div class="section-banner">
+      <div class="banner-image" style="background-image: url('../images/static/banner01.png');"></div>
       <div class="container">
-        <div class="mi-group">
-          <a href="#" class="mi-foodpolis" title="새창 열림"><span class="sr-only">푸드폴리스</span></a>
-          <span class="divider" aria-hidden="true"></span>
-          <a href="#" class="mi-dfip" title="새창 열림"><span class="sr-only">디지털식품정보플랫폼</span></a>
+        <div class="banner-carousel">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <h2><b>기업등록</b>부터 <b>비즈니스 매칭</b>까지 <br class="mobile-br"><b>원스톱으로 지원</b>합니다.</h2>
+                <div class="banner-carousel-content">
+                  <div class="banner-carousel-content-item">
+                    <div class="text">기업 정보 등록</div>
+                    <div class="text-2">
+                      기업정보 및 홍보자료 등록<br>
+                      제품 및 서비스 등록<br>
+                      식품산업지도에서 업체 검색 지원
+                    </div>
+                    <div class="btn-link">
+                      <a href="#">서비스 바로가기 <i><svg xmlns="http://www.w3.org/2000/svg" width="5" height="10"
+                            viewBox="0 0 5 10" fill="none">
+                            <path
+                              d="M4.2339 4.99711L0.119569 0.688264C0.0469769 0.612339 0.00892356 0.516658 0.00540953 0.401221C0.00180303 0.285687 0.0362959 0.189957 0.108888 0.114032C0.181388 0.0380106 0.2728 0 0.383122 0C0.493351 0 0.584762 0.0380106 0.657354 0.114032L4.78347 4.42389C4.86383 4.50805 4.92001 4.59816 4.95201 4.69423C4.984 4.79039 5 4.89135 5 4.99711C5 5.10286 4.984 5.20382 4.95201 5.29998C4.92001 5.39605 4.86383 5.48616 4.78347 5.57032L0.667897 9.88018C0.595397 9.9562 0.502229 9.99605 0.388393 9.99973C0.274557 10.0035 0.181388 9.96739 0.108888 9.89136C0.0362959 9.81544 0 9.71971 0 9.60418C0 9.48874 0.0362959 9.39301 0.108888 9.31699L4.2339 4.99711Z"
+                              fill="#299347" />
+                          </svg></i></a>
+                      <div class="icon"><img src="../images/static/banner-icon01.png" alt=""></div>
+                    </div>
+                  </div>
+                  <div class="banner-carousel-content-item">
+                    <div class="text">기업 비즈니스 매칭</div>
+                    <div class="text-2">
+                      OEM·ODM, 원료·소재, 인증분석 <br>
+                      업종·제품 별 기업 검색<br>
+                      기업 비즈니스 매칭 연결
+                    </div>
+                    <div class="btn-link">
+                      <a href="#">서비스 바로가기 <i><svg xmlns="http://www.w3.org/2000/svg" width="5" height="10"
+                            viewBox="0 0 5 10" fill="none">
+                            <path
+                              d="M4.2339 4.99711L0.119569 0.688264C0.0469769 0.612339 0.00892356 0.516658 0.00540953 0.401221C0.00180303 0.285687 0.0362959 0.189957 0.108888 0.114032C0.181388 0.0380106 0.2728 0 0.383122 0C0.493351 0 0.584762 0.0380106 0.657354 0.114032L4.78347 4.42389C4.86383 4.50805 4.92001 4.59816 4.95201 4.69423C4.984 4.79039 5 4.89135 5 4.99711C5 5.10286 4.984 5.20382 4.95201 5.29998C4.92001 5.39605 4.86383 5.48616 4.78347 5.57032L0.667897 9.88018C0.595397 9.9562 0.502229 9.99605 0.388393 9.99973C0.274557 10.0035 0.181388 9.96739 0.108888 9.89136C0.0362959 9.81544 0 9.71971 0 9.60418C0 9.48874 0.0362959 9.39301 0.108888 9.31699L4.2339 4.99711Z"
+                              fill="#299347" />
+                          </svg></i></a>
+                      <div class="icon"><img src="../images/static/banner-icon02.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <h2><b>기업등록</b>부터 <b>비즈니스 매칭</b>까지 <br class="mobile-br"><b>원스톱으로 지원</b>합니다.</h2>
+                <div class="banner-carousel-content">
+                  <div class="banner-carousel-content-item">
+                    <div class="text">기업 정보 등록</div>
+                    <div class="text-2">
+                      기업정보 및 홍보자료 등록<br>
+                      제품 및 서비스 등록<br>
+                      식품산업지도에서 업체 검색 지원
+                    </div>
+                    <div class="btn-link">
+                      <a href="#">서비스 바로가기 <i><svg xmlns="http://www.w3.org/2000/svg" width="5" height="10"
+                            viewBox="0 0 5 10" fill="none">
+                            <path
+                              d="M4.2339 4.99711L0.119569 0.688264C0.0469769 0.612339 0.00892356 0.516658 0.00540953 0.401221C0.00180303 0.285687 0.0362959 0.189957 0.108888 0.114032C0.181388 0.0380106 0.2728 0 0.383122 0C0.493351 0 0.584762 0.0380106 0.657354 0.114032L4.78347 4.42389C4.86383 4.50805 4.92001 4.59816 4.95201 4.69423C4.984 4.79039 5 4.89135 5 4.99711C5 5.10286 4.984 5.20382 4.95201 5.29998C4.92001 5.39605 4.86383 5.48616 4.78347 5.57032L0.667897 9.88018C0.595397 9.9562 0.502229 9.99605 0.388393 9.99973C0.274557 10.0035 0.181388 9.96739 0.108888 9.89136C0.0362959 9.81544 0 9.71971 0 9.60418C0 9.48874 0.0362959 9.39301 0.108888 9.31699L4.2339 4.99711Z"
+                              fill="#299347" />
+                          </svg></i></a>
+                      <div class="icon"><img src="../images/static/banner-icon01.png" alt=""></div>
+                    </div>
+                  </div>
+                  <div class="banner-carousel-content-item">
+                    <div class="text">기업 비즈니스 매칭</div>
+                    <div class="text-2">
+                      OEM·ODM, 원료·소재, 인증분석 <br>
+                      업종·제품 별 기업 검색<br>
+                      기업 비즈니스 매칭 연결
+                    </div>
+                    <div class="btn-link">
+                      <a href="#">서비스 바로가기 <i><svg xmlns="http://www.w3.org/2000/svg" width="5" height="10"
+                            viewBox="0 0 5 10" fill="none">
+                            <path
+                              d="M4.2339 4.99711L0.119569 0.688264C0.0469769 0.612339 0.00892356 0.516658 0.00540953 0.401221C0.00180303 0.285687 0.0362959 0.189957 0.108888 0.114032C0.181388 0.0380106 0.2728 0 0.383122 0C0.493351 0 0.584762 0.0380106 0.657354 0.114032L4.78347 4.42389C4.86383 4.50805 4.92001 4.59816 4.95201 4.69423C4.984 4.79039 5 4.89135 5 4.99711C5 5.10286 4.984 5.20382 4.95201 5.29998C4.92001 5.39605 4.86383 5.48616 4.78347 5.57032L0.667897 9.88018C0.595397 9.9562 0.502229 9.99605 0.388393 9.99973C0.274557 10.0035 0.181388 9.96739 0.108888 9.89136C0.0362959 9.81544 0 9.71971 0 9.60418C0 9.48874 0.0362959 9.39301 0.108888 9.31699L4.2339 4.99711Z"
+                              fill="#299347" />
+                          </svg></i></a>
+                      <div class="icon"><img src="../images/static/banner-icon02.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <h2><b>기업등록</b>부터 <b>비즈니스 매칭</b>까지 <br class="mobile-br"><b>원스톱으로 지원</b>합니다.</h2>
+                <div class="banner-carousel-content">
+                  <div class="banner-carousel-content-item">
+                    <div class="text">기업 정보 등록</div>
+                    <div class="text-2">
+                      기업정보 및 홍보자료 등록<br>
+                      제품 및 서비스 등록<br>
+                      식품산업지도에서 업체 검색 지원
+                    </div>
+                    <div class="btn-link">
+                      <a href="#">서비스 바로가기 <i><svg xmlns="http://www.w3.org/2000/svg" width="5" height="10"
+                            viewBox="0 0 5 10" fill="none">
+                            <path
+                              d="M4.2339 4.99711L0.119569 0.688264C0.0469769 0.612339 0.00892356 0.516658 0.00540953 0.401221C0.00180303 0.285687 0.0362959 0.189957 0.108888 0.114032C0.181388 0.0380106 0.2728 0 0.383122 0C0.493351 0 0.584762 0.0380106 0.657354 0.114032L4.78347 4.42389C4.86383 4.50805 4.92001 4.59816 4.95201 4.69423C4.984 4.79039 5 4.89135 5 4.99711C5 5.10286 4.984 5.20382 4.95201 5.29998C4.92001 5.39605 4.86383 5.48616 4.78347 5.57032L0.667897 9.88018C0.595397 9.9562 0.502229 9.99605 0.388393 9.99973C0.274557 10.0035 0.181388 9.96739 0.108888 9.89136C0.0362959 9.81544 0 9.71971 0 9.60418C0 9.48874 0.0362959 9.39301 0.108888 9.31699L4.2339 4.99711Z"
+                              fill="#299347" />
+                          </svg></i></a>
+                      <div class="icon"><img src="../images/static/banner-icon01.png" alt=""></div>
+                    </div>
+                  </div>
+                  <div class="banner-carousel-content-item">
+                    <div class="text">기업 비즈니스 매칭</div>
+                    <div class="text-2">
+                      OEM·ODM, 원료·소재, 인증분석 <br>
+                      업종·제품 별 기업 검색<br>
+                      기업 비즈니스 매칭 연결
+                    </div>
+                    <div class="btn-link">
+                      <a href="#">서비스 바로가기 <i><svg xmlns="http://www.w3.org/2000/svg" width="5" height="10"
+                            viewBox="0 0 5 10" fill="none">
+                            <path
+                              d="M4.2339 4.99711L0.119569 0.688264C0.0469769 0.612339 0.00892356 0.516658 0.00540953 0.401221C0.00180303 0.285687 0.0362959 0.189957 0.108888 0.114032C0.181388 0.0380106 0.2728 0 0.383122 0C0.493351 0 0.584762 0.0380106 0.657354 0.114032L4.78347 4.42389C4.86383 4.50805 4.92001 4.59816 4.95201 4.69423C4.984 4.79039 5 4.89135 5 4.99711C5 5.10286 4.984 5.20382 4.95201 5.29998C4.92001 5.39605 4.86383 5.48616 4.78347 5.57032L0.667897 9.88018C0.595397 9.9562 0.502229 9.99605 0.388393 9.99973C0.274557 10.0035 0.181388 9.96739 0.108888 9.89136C0.0362959 9.81544 0 9.71971 0 9.60418C0 9.48874 0.0362959 9.39301 0.108888 9.31699L4.2339 4.99711Z"
+                              fill="#299347" />
+                          </svg></i></a>
+                      <div class="icon"><img src="../images/static/banner-icon02.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <h2><b>기업등록</b>부터 <b>비즈니스 매칭</b>까지 <br class="mobile-br"><b>원스톱으로 지원</b>합니다.</h2>
+                <div class="banner-carousel-content">
+                  <div class="banner-carousel-content-item">
+                    <div class="text">기업 정보 등록</div>
+                    <div class="text-2">
+                      기업정보 및 홍보자료 등록<br>
+                      제품 및 서비스 등록<br>
+                      식품산업지도에서 업체 검색 지원
+                    </div>
+                    <div class="btn-link">
+                      <a href="#">서비스 바로가기 <i><svg xmlns="http://www.w3.org/2000/svg" width="5" height="10"
+                            viewBox="0 0 5 10" fill="none">
+                            <path
+                              d="M4.2339 4.99711L0.119569 0.688264C0.0469769 0.612339 0.00892356 0.516658 0.00540953 0.401221C0.00180303 0.285687 0.0362959 0.189957 0.108888 0.114032C0.181388 0.0380106 0.2728 0 0.383122 0C0.493351 0 0.584762 0.0380106 0.657354 0.114032L4.78347 4.42389C4.86383 4.50805 4.92001 4.59816 4.95201 4.69423C4.984 4.79039 5 4.89135 5 4.99711C5 5.10286 4.984 5.20382 4.95201 5.29998C4.92001 5.39605 4.86383 5.48616 4.78347 5.57032L0.667897 9.88018C0.595397 9.9562 0.502229 9.99605 0.388393 9.99973C0.274557 10.0035 0.181388 9.96739 0.108888 9.89136C0.0362959 9.81544 0 9.71971 0 9.60418C0 9.48874 0.0362959 9.39301 0.108888 9.31699L4.2339 4.99711Z"
+                              fill="#299347" />
+                          </svg></i></a>
+                      <div class="icon"><img src="../images/static/banner-icon01.png" alt=""></div>
+                    </div>
+                  </div>
+                  <div class="banner-carousel-content-item">
+                    <div class="text">기업 비즈니스 매칭</div>
+                    <div class="text-2">
+                      OEM·ODM, 원료·소재, 인증분석 <br>
+                      업종·제품 별 기업 검색<br>
+                      기업 비즈니스 매칭 연결
+                    </div>
+                    <div class="btn-link">
+                      <a href="#">서비스 바로가기 <i><svg xmlns="http://www.w3.org/2000/svg" width="5" height="10"
+                            viewBox="0 0 5 10" fill="none">
+                            <path
+                              d="M4.2339 4.99711L0.119569 0.688264C0.0469769 0.612339 0.00892356 0.516658 0.00540953 0.401221C0.00180303 0.285687 0.0362959 0.189957 0.108888 0.114032C0.181388 0.0380106 0.2728 0 0.383122 0C0.493351 0 0.584762 0.0380106 0.657354 0.114032L4.78347 4.42389C4.86383 4.50805 4.92001 4.59816 4.95201 4.69423C4.984 4.79039 5 4.89135 5 4.99711C5 5.10286 4.984 5.20382 4.95201 5.29998C4.92001 5.39605 4.86383 5.48616 4.78347 5.57032L0.667897 9.88018C0.595397 9.9562 0.502229 9.99605 0.388393 9.99973C0.274557 10.0035 0.181388 9.96739 0.108888 9.89136C0.0362959 9.81544 0 9.71971 0 9.60418C0 9.48874 0.0362959 9.39301 0.108888 9.31699L4.2339 4.99711Z"
+                              fill="#299347" />
+                          </svg></i></a>
+                      <div class="icon"><img src="../images/static/banner-icon02.png" alt=""></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- utils -->
-        <div class="header-utils">
-          <ul class="utils-list">
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">회원가입</a></li>
-            <li><a href="#">방문예약</a></li>
-          </ul>
-          <span class="divider" aria-hidden="true"></span>
-          <div class="zoom-controls">
-            <button type="button" class="zoom-btn" title="축소">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M3.81081 6.32432H8.18919C8.28162 6.32432 8.35878 6.29378 8.42068 6.2327C8.48257 6.17162 8.51351 6.09547 8.51351 6.00426C8.51351 5.91304 8.48257 5.83547 8.42068 5.77155C8.35878 5.70763 8.28162 5.67568 8.18919 5.67568H3.81081C3.71838 5.67568 3.64122 5.70622 3.57932 5.7673C3.51743 5.82838 3.48649 5.90453 3.48649 5.99574C3.48649 6.08696 3.51743 6.16453 3.57932 6.22845C3.64122 6.29236 3.71838 6.32432 3.81081 6.32432ZM1.1477 12C0.819054 12 0.545608 11.8909 0.327365 11.6726C0.109122 11.4544 0 11.1809 0 10.8523V1.1477C0 0.819054 0.109122 0.545609 0.327365 0.327365C0.545608 0.109122 0.819054 0 1.1477 0H10.8523C11.1809 0 11.4544 0.109122 11.6726 0.327365C11.8909 0.545609 12 0.819054 12 1.1477V10.8523C12 11.1809 11.8909 11.4544 11.6726 11.6726C11.4544 11.8909 11.1809 12 10.8523 12H1.1477ZM1.1477 11.3514H10.8523C10.9772 11.3514 11.0916 11.2994 11.1955 11.1955C11.2994 11.0916 11.3514 10.9772 11.3514 10.8523V1.1477C11.3514 1.02284 11.2994 0.908446 11.1955 0.804527C11.0916 0.700608 10.9772 0.648649 10.8523 0.648649H1.1477C1.02284 0.648649 0.908446 0.700608 0.804527 0.804527C0.700608 0.908446 0.648649 1.02284 0.648649 1.1477V10.8523C0.648649 10.9772 0.700608 11.0916 0.804527 11.1955C0.908446 11.2994 1.02284 11.3514 1.1477 11.3514Z" fill="#58616A"/>
-              </svg>
-            </button>
-            <span class="zoom-percentage">100%</span>
-            <button type="button" class="zoom-btn" title="확대">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                <path d="M5.67568 6.32432V9.16216C5.67568 9.25459 5.70622 9.33176 5.7673 9.39365C5.82838 9.45554 5.90453 9.48649 5.99574 9.48649C6.08696 9.48649 6.16453 9.45554 6.22845 9.39365C6.29236 9.33176 6.32432 9.25459 6.32432 9.16216V6.32432H9.16216C9.25459 6.32432 9.33176 6.29378 9.39365 6.2327C9.45554 6.17162 9.48649 6.09547 9.48649 6.00426C9.48649 5.91304 9.45554 5.83547 9.39365 5.77155C9.33176 5.70763 9.25459 5.67568 9.16216 5.67568H6.32432V2.83784C6.32432 2.74541 6.29378 2.66824 6.2327 2.60635C6.17162 2.54446 6.09547 2.51351 6.00426 2.51351C5.91304 2.51351 5.83547 2.54446 5.77155 2.60635C5.70763 2.66824 5.67568 2.74541 5.67568 2.83784V5.67568H2.83784C2.74541 5.67568 2.66824 5.70622 2.60635 5.7673C2.54446 5.82838 2.51351 5.90453 2.51351 5.99574C2.51351 6.08696 2.54446 6.16453 2.60635 6.22845C2.66824 6.29236 2.74541 6.32432 2.83784 6.32432H5.67568ZM1.1477 12C0.819054 12 0.545608 11.8909 0.327365 11.6726C0.109122 11.4544 0 11.1809 0 10.8523V1.1477C0 0.819054 0.109122 0.545609 0.327365 0.327365C0.545608 0.109122 0.819054 0 1.1477 0H10.8523C11.1809 0 11.4544 0.109122 11.6726 0.327365C11.8909 0.545609 12 0.819054 12 1.1477V10.8523C12 11.1809 11.8909 11.4544 11.6726 11.6726C11.4544 11.8909 11.1809 12 10.8523 12H1.1477ZM1.1477 11.3514H10.8523C10.9772 11.3514 11.0916 11.2994 11.1955 11.1955C11.2994 11.0916 11.3514 10.9772 11.3514 10.8523V1.1477C11.3514 1.02284 11.2994 0.908446 11.1955 0.804527C11.0916 0.700608 10.9772 0.648649 10.8523 0.648649H1.1477C1.02284 0.648649 0.908446 0.700608 0.804527 0.804527C0.700608 0.908446 0.648649 1.02284 0.648649 1.1477V10.8523C0.648649 10.9772 0.700608 11.0916 0.804527 11.1955C0.908446 11.2994 1.02284 11.3514 1.1477 11.3514Z" fill="#58616A"/>
-              </svg>
-            </button>
+        <!-- // banner-carousel -->
+        <div class="banner-carousel-bullets">
+          <button type="button" class="bullet active" title="선택 됨" aria-label="1번 슬라이드">
+            <span class="num">01</span>
+            <span class="text">기업등록 및 비즈니스 매칭</span>
+          </button>
+          <button type="button" class="bullet" title="선택 됨" aria-label="1번 슬라이드">
+            <span class="num">02</span>
+            <span class="text">시장분석 및 전문가 매칭</span>
+          </button>
+          <button type="button" class="bullet" title="선택 됨" aria-label="1번 슬라이드">
+            <span class="num">03</span>
+            <span class="text">기술 및 시설·장비 공동활용</span>
+          </button>
+          <button type="button" class="bullet" title="선택 됨" aria-label="1번 슬라이드">
+            <span class="num">04</span>
+            <span class="text">창업</span>
+          </button>
+        </div>
+        <!-- // banner-carousel-bullets -->
+      </div>
+      <!-- // container -->
+    </div>
+    <!-- // section-banner -->
+    <div class="section-site">
+      <div class="container">
+        <div class="search-grids">
+          <div class="search-input-section">
+            <label for="search-input">통합검색</label>
+            <input type="text" id="search-input" placeholder="기업명, 원재료, 식품분류 등 원하시는 정보를 입력하세요.">
+            <button class="search-btn">검색</button>
+          </div>
+          <div class="site-search-keyword">
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+            <button class="site-search-keyword-item"><em>#</em> 식품기업</button>
+          </div>
+        </div>
+        <!-- // search-grid -->
+        <div class="login-grid">
+          <!-- 로그인 전 -->
+          <div class="login-before">
+            <div class="text-content">
+              <p class="text-1">디지털식품정보플랫폼에 <b>로그인</b> 하시면</p>
+              <p class="text-2">
+                시험분석·시설장비·공유시설·창업지원 등 <br>
+                다양한 서비스를 이용하실 수 있습니다.
+              </p>
+            </div>
+            <div class="login-btn-group">
+              <button class="login-btn2" type="button">로그인<i></i></button>
+            </div>
+            <div class="login-after-foot">
+              <a href="#">
+                <span class="text">회원가입</span>
+                <i class="icon-arrow-right"></i>
+              </a>
+              <a href="#"><span class="text">아이디/비밀번호 찾기</span></a>
+            </div>
+          </div>
+        </div>
+        <!-- // login-grid -->
+      </div>
+    </div>
+    <div class="section-service">
+      <div class="container">
+        <h3>서비스 <em>바로가기</em></h3>
+        <div class="service-list">
+          <a href="#" class="service-list-item">
+            <div class="service-list-item-icon">
+              <img src="../images/static/service-icon01.png" alt="">
+            </div>
+            <div class="service-list-item-text">
+              시험분석 의뢰
+            </div>
+          </a>
+          <a href="#" class="service-list-item">
+            <div class="service-list-item-icon">
+              <img src="../images/static/service-icon02.png" alt="">
+            </div>
+            <div class="service-list-item-text">
+              시설장비 신청
+            </div>
+          </a>
+          <a href="#" class="service-list-item">
+            <div class="service-list-item-icon">
+              <img src="../images/static/service-icon03.png" alt="">
+            </div>
+            <div class="service-list-item-text">
+              전문가 신청
+            </div>
+          </a>
+          <a href="#" class="service-list-item">
+            <div class="service-list-item-icon">
+              <img src="../images/static/service-icon04.png" alt="">
+            </div>
+            <div class="service-list-item-text">
+              실무교육 신청
+            </div>
+          </a>
+          <a href="#" class="service-list-item">
+            <div class="service-list-item-icon">
+              <img src="../images/static/service-icon05.png" alt="">
+            </div>
+            <div class="service-list-item-text">
+              식품산업 지도
+            </div>
+          </a>
+          <a href="#" class="service-list-item">
+            <div class="service-list-item-icon">
+              <img src="../images/static/service-icon06.png" alt="">
+            </div>
+            <div class="service-list-item-text">
+              데이터 분석
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- // section-service -->
+    <div class="section-flatfood">
+      <div class="container">
+        <div class="section-hgroup">
+          <h3>지금 <b>플랫폼</b>에서는?</h3>
+        </div>
+        <div class="flatfood-grid">
+          <div class="company-maxhit company-item">
+            <div class="company-item-header">
+              <strong>가장 많이 조회된 기업은?</strong>
+            </div>
+            <div class="company-maxhit-content">
+              <ol class="company-maxhit-list">
+                <li>
+                  <div>
+                    <p>1. 락토 코리아(주)</p>
+                    <p>부침가루, 부침가루 외 50개</p>
+                  </div>
+                  <span class="category type1">원료/소재</span>
+                </li>
+                <li>
+                  <div>
+                    <p>1. 락토 코리아(주)</p>
+                    <p>부침가루, 부침가루 외 50개</p>
+                  </div>
+                  <span class="category type1">원료/소재</span>
+                </li>
+                <li>
+                  <div>
+                    <p>1. 락토 코리아(주)</p>
+                    <p>부침가루, 부침가루 외 50개</p>
+                  </div>
+                  <span class="category type2">OEM</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+          <div class="company-status company-item">
+            <div class="company-item-header">
+              <strong>공급 기업 현황</strong>
+            </div>
+            <div class="company-status-content">
+              <div class="company-status-item">
+                <div class="text-box" style="background-color: #70AD47;">
+                  <span>원료<br>소재</span>
+                </div>
+                <div class="counter">
+                  <div class="value">3,048</div>
+                  <div class="rank-changed up">208</div>
+                </div>
+              </div>
+              <div class="company-status-item">
+                <div class="text-box" style="background-color: #00B050;">
+                  <span>원료<br>소재</span>
+                </div>
+                <div class="counter">
+                  <div class="value">3,048</div>
+                  <div class="rank-changed down">208</div>
+                </div>
+              </div>
+              <div class="company-status-item">
+                <div class="text-box" style="background-color: #5B9BD5;">
+                  <span>원료<br>소재</span>
+                </div>
+                <div class="counter">
+                  <div class="value">3,048</div>
+                  <div class="rank-changed same">208</div>
+                </div>
+              </div>
+            </div>
+            <!-- // company-status-content -->
+          </div>
+          <div class="business-status company-item">
+            <div class="company-item-header">
+              <strong>비즈니스 매칭 현황</strong>
+            </div>
+            <div class="business-status-content">
+              <div class="business-status-item">
+                <span class="label type1">상담</span>
+                <span class="count"><b>105</b>건</span>
+                <div class="rank-changed-wrapper">
+                  <span class="rank-changed up">208</span>
+                </div>
+              </div>
+              <div class="business-status-item">
+                <span class="label type2">견적</span>
+                <span class="count"><b>105</b>건</span>
+                <div class="rank-changed-wrapper">
+                  <span class="rank-changed down">208</span>
+                </div>
+              </div>
+              <div class="business-status-item">
+                <span class="label type3">공개요청</span>
+                <span class="count"><b>105</b>건</span>
+                <div class="rank-changed-wrapper">
+                  <span class="rank-changed same">208</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="header-menu">
+    <!-- // section-flatfood -->
+    <div class="section-announcement">
       <div class="container">
-        <h2 class="logo"><a href="#" title="홈으로 이동"><span class="sr-only">식품정보24</span></a></h2>
-        <nav id="nav" class="nav">
-          <ul id="gnb" class="gnb">
-            <li class="gnb-lv1">
-              <a class="gnb-lv1-link" href="#" title="새창열림" target="_blank">
-                <span class="gnb-lv1-link-text">식품정보</span>
-                <i class="gnb-lv1-link-icon" aria-hidden="true"></i>
-              </a>
-              <div class="dropmenu allin-menu">
-                <a href="#" class="allin-menu-link1">
-                  식품정보의 모든 데이터를 한눈에!식품정보24 바로가기
-                </a>
-              </div>
-            </li>
-            <li class="gnb-lv1">
-              <a class="gnb-lv1-link" href="#">
-                <span class="gnb-lv1-link-text">비즈니스 매칭</span>
-                <i class="gnb-lv1-link-icon" aria-hidden="true"></i>
-              </a>
-              <div class="dropmenu allin-menu">
-                <a href="#" class="allin-menu-link2">식품산업 최적의  비즈니스 매칭은 디정플에서!! 비즈니스매칭 바로가기</a>
-              </div>
-            </li>
-            <!-- <li class="gnb-lv1">
-              <a class="gnb-lv1-link" href="#">
-                <span class="gnb-lv1-link-text">식품산업지도</span>
-              </a>
-              <div class="dropmenu">
-                <ul>
-                  <li><a href="#">식품산업지도</a></li>
-                </ul>
-              </div>
-            </li> -->
-            <li class="gnb-lv1">
-              <a class="gnb-lv1-link" href="#">
-                <span class="gnb-lv1-link-text">분석 서비스</span>
-              </a>
-              <div class="dropmenu">
-                <ul>
-                  <li><a href="#">트랜드 분석</a></li>
-                  <li><a href="#">융합데이터 분석</a></li>
-                  <li><a href="#">키워드 분석</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="gnb-lv1">
-              <a class="gnb-lv1-link" href="#">
-                <span class="gnb-lv1-link-text">식품데이터 제공</span>
-              </a>
-              <div class="dropmenu">
-                <ul>
-                  <li><a href="#">오픈 API</a></li>
-                  <li><a href="#">데이터 시각화</a></li>
-                  <li><a href="#">데이터 신청</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="gnb-lv1">
-              <a class="gnb-lv1-link" href="#">
-                <span class="gnb-lv1-link-text">식품산업 정보</span>
-              </a>
-              <div class="dropmenu">
-                <ul>
-                  <li><a href="#">식품산업 관련 정보</a></li>
-                  <li><a href="#">정책지원 사업</a></li>
-                  <li><a href="#">발간 보고서</a></li>
-                  <li><a href="#">법률/규제 알림</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="gnb-lv1">
-              <a class="gnb-lv1-link" href="#">
-                <span class="gnb-lv1-link-text">서비스 소개</span>
-              </a>
-              <div class="dropmenu">
-                <ul>
-                  <li><a href="#">서비스 소개</a></li>
-                  <li><a href="#">서비스 활용</a></li>
-                  <li><a href="#">공지사항</a></li>
-                  <li><a href="#">질문과 답변</a></li>
-                  <li><a href="#">자료실</a></li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </nav>
-        <div class="header-utils">
-          <button type="button" id="search-button" class="search-button" title="검색 창 열림">
-            <i><span class="sr-only">검색</span></i>
-          </button>
-          <button type="button" id="menu-button" class="menu-button" title="메뉴 열림">
-            <i><span class="sr-only">메뉴</span></i>
-          </button>
+        <div class="section-hgroup">
+          <h3>기업지원사업 공고목록</h3>
+          <div class="control-list">
+            <button class="active" title="선택 됨">전체</button>
+            <button>접수중</button>
+            <button>접수예정</button>
+            <button>접수마감</button>
+          </div>
+          <a href="#" class="more"></a>
         </div>
+        <ul class="announcement-list">
+          <li>
+            <a href="#" class="announcement-list-item">
+              <div class="announcement-list-item-header">
+                <span class="badge on">접수중</span>
+                <span class="arrow">자세히보기 <i></i></span>
+              </div>
+              <div class="subject">중소, 중견 식품기업 경영자를 위한 노동법 실무</div>
+              <div class="text">지원대상: '24년도, '25년도 고충처리자문 및 전문코디네이터 기술애로 해결지원에서 도출된 기업애로사항 중 '후속지원연계'로 판정된 기업</div>
+              <div class="date">2025-09-12 09:00 ~ 2025-09-21 23:59</div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="announcement-list-item">
+              <div class="announcement-list-item-header">
+                <span class="badge off">접수중</span>
+                <span class="arrow">자세히보기 <i></i></span>
+              </div>
+              <div class="subject">중소, 중견 식품기업 경영자를 위한 노동법 실무</div>
+              <div class="text">지원대상: '24년도, '25년도 고충처리자문 및 전문코디네이터 기술애로 해결지원에서 도출된 기업애로사항 중 '후속지원연계'로 판정된 기업</div>
+              <div class="date">2025-09-12 09:00 ~ 2025-09-21 23:59</div>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="header-bg"></div>
-  </header>
-  <div id="content" class="home">
-    <!-- Hero Section - 메인 카드 슬라이더 -->
-    <section class="hero-visual">
-      <div class="hero-container">
-        <div class="hero-cards-wrapper">
-          <button class="btn-prev"></button>
-          <div class="carousel">
-            <div class="carousel-card"><div class="card-image"><img src="../images/portal/home/slider1.png" alt=""></div></div>
-            <div class="carousel-card"><div class="card-image"><img src="../images/portal/home/slider2.png" alt=""></div></div>
-            <div class="carousel-card"><div class="card-image"><img src="../images/portal/home/slider3.png" alt=""></div></div>
-          </div>
-          <button class="btn-next"></button>
+    <!-- // section-announcement -->
+    <div class="section-published">
+      <div class="container">
+        <div class="section-hgroup">
+          <h3><b>발간</b> 보고서</h3>
+          <a href="#" class="more"></a>
         </div>
-        <div class="hero-search-container">
-          <div class="hero-search-box">
-            <div class="label">융합데이터</div>
-            <input type="text" placeholder="기업명, 원재료, 식품분류 등 관심있는 식품 분야를 입력하세요." class="search-input">
-            <button class="hero-search-button">검색</button>
-          </div>
-          <div class="hero-search-tags">
-            <a href="#" class="tag"># 건강기능식품</a>
-            <a href="#" class="tag"># K-Food</a>
-            <a href="#" class="tag"># 식품 시험항목</a>
-            <a href="#" class="tag"># 식품기업 분포</a>
-            <a href="#" class="tag"># 인기 원료</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Dashboard Section - 주요 분석 대시보드 -->
-    <section class="hero-dashboard">
-      <div class="hero-dashboard-container">
-        <div class="hero-dashboard-card">
-          <div class="hgroup">
-            <div class="hgroup-title">
-              <h3>일반 가공식품 현황</h3>
-              <a href="#" class="link-more">자세히보기</a>
-            </div>
-            <p class="period">품목보고일 : 25/01/01 ~ 25/06/30</p>
-          </div>
-          <div class="tab-buttons">
-            <button class="tab-btn current">식품 분류별</button>
-            <button class="tab-btn">식품 유형별</button>
-          </div>
-          <div class="chart-placeholder">
-            <!-- 차트 영역 -->
-            [차트 자리]
-          </div>
-        </div>
-        <div class="hero-dashboard-card">
-          <div class="hgroup">
-            <div class="hgroup-title">
-              <h3>건강기능식품 품목</h3>
-              <a href="#" class="link-more">자세히보기</a>
-            </div>
-            <p class="period">품목보고일 : 25/01/01 ~ 25/06/30</p>
-          </div>
-          <div class="tab-buttons">
-            <button class="tab-btn current">원재로 top 20</button>
-            <button class="tab-btn">생리활성 기능별(성능)</button>
-          </div>
-          <div class="chart-placeholder">
-            <!-- 차트 영역 -->
-            [차트 자리]
-          </div>
-        </div>
-        <!-- 판매 제품 TOP 5 -->
-        <div class="hero-dashboard-card">
-          <div class="hgroup">
-            <div class="hgroup-title">
-              <h3>판매 제품 TOP 5</h3>
-              <a href="#" class="link-more">자세히보기</a>
-            </div>
-            <p class="period">품목보고일 : 25/01/01 ~ 25/06/30</p>
-          </div>
-          <div class="tab-buttons">
-            <button class="tab-btn current">판매 건수</button>
-            <button class="tab-btn">판매 금액</button>
-          </div>
-          <div class="table-placeholder">
-            <!-- 테이블 영역 -->
-            <table>
-              <colgroup>
-                <col style="width: 40px;">
-                <col style="width: 205px;">
-                <col style="width: 85px;">
-                <col style="width: 100px;">
-              </colgroup>
-              <tbody>
-                <tr>
-                  <td><span class="num">1</span></td>
-                  <td class="text-left">헤태 에이스</td>
-                  <td><span class="price">4,500</span></td>
-                  <td class="text-right"><span class="rate up">2.9%</span></td>
-                </tr>
-                <tr>
-                  <td><span class="num">2</span></td>
-                  <td class="text-left">헤태 에이스</td>
-                  <td><span class="price">4,500</span></td>
-                  <td class="text-right"><span class="rate down">2.9%</span></td>
-                </tr>
-                <tr>
-                  <td><span class="num">3</span></td>
-                  <td class="text-left">헤태 에이스</td>
-                  <td><span class="price">4,500</span></td>
-                  <td class="text-right"><span class="rate same">2.9%</span></td>
-                </tr>
-                <tr>
-                  <td><span class="num">4</span></td>
-                  <td class="text-left">헤태 에이스</td>
-                  <td><span class="price">4,500</span></td>
-                  <td class="text-right"><span class="rate same">2.9%</span></td>
-                </tr>
-                <tr>
-                  <td><span class="num">5</span></td>
-                  <td class="text-left">헤태 에이스</td>
-                  <td><span class="price">4,500</span></td>
-                  <td class="text-right"><span class="rate same">2.9%</span></td>
-                </tr>
-                <!-- 나머지 행들 -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <!-- 판매 채널 비교 -->
-        <div class="hero-dashboard-card">
-          <div class="hgroup">
-            <div class="hgroup-title">
-              <h3>판매 채널 비교</h3>
-              <a href="#" class="link-more">자세히보기</a>
-            </div>
-            <p class="period">품목보고일 : 25/01/01 ~ 25/06/30</p>
-          </div>
-          <div class="hero-dashboard-filters">
-            <select class="filter-select">
-              <option>가공 식품</option>
-            </select>
-            <select class="filter-select">
-              <option>과자 류</option>
-            </select>
-            <select class="filter-select">
-              <option>비스킷</option>
-            </select>
-            <select class="filter-select">
-              <option>쿠키 류</option>
-            </select>
-            <button class="filter-search">검색</button>
-          </div>
-          <div class="channel-comparison">
-            <div class="channel-comparison__item v1">
-              <div class="channel-comparison__label">
-                <span>마트</span>
-              </div>
-              <div class="channel-comparison__data">
-                <div class="channel-comparison__metric">
-                  <span class="text">유통제품 수</span>
-                  <strong class="value">325개</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">총 판매 금액</span>
-                  <strong class="value">2,023억원</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">총 판매 건수</span>
-                  <strong class="value">135천건</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">평균 판매단가</span>
-                  <strong class="value">25,389원</strong>
-                </div>
-              </div>
-            </div>
-            <div class="channel-comparison__item v2">
-              <div class="channel-comparison__label">
-                <span>수퍼<br>마켓</span>
-              </div>
-              <div class="channel-comparison__data">
-                <div class="channel-comparison__metric">
-                  <span class="text">유통제품 수</span>
-                  <strong class="value">325개</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">총 판매 금액</span>
-                  <strong class="value">2,023억원</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">총 판매 건수</span>
-                  <strong class="value">135천건</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">평균 판매단가</span>
-                  <strong class="value">25,389원</strong>
-                </div>
-              </div>
-            </div>
-            <div class="channel-comparison__item v3">
-              <div class="channel-comparison__label">
-                <span>편의점</span>
-              </div>
-              <div class="channel-comparison__data">
-                <div class="channel-comparison__metric">
-                  <span class="text">유통제품 수</span>
-                  <strong class="value">325개</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">총 판매 금액</span>
-                  <strong class="value">2,023억원</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">총 판매 건수</span>
-                  <strong class="value">135천건</strong>
-                </div>
-                <div class="channel-comparison__metric">
-                  <span class="text">평균 판매단가</span>
-                  <strong class="value">25,389원</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Import/Export Section - 수출입 현황 -->
-    <section class="hero-trade">
-      <div class="trade-container">
-        <h2 class="section-title">수출입현황</h2>
-        <p class="section-subtitle">국가 및 품목에 대한 수출입 현황을 제공합니다</p>
-        <div class="trade-content">
-          <div class="trade-filters">
-            <select class="trade-select">
-              <option>선택</option>
-            </select>
-            <select class="trade-select">
-              <option>토마토케찹과 그 밖의 토마토소스</option>
-            </select>
-          </div>
-          <div class="hero-trade-display">
-            <div class="hero-trade-map">
-              <!-- 지도 영역 -->
-              [지도 자리]
-            </div>
-            <div class="hero-trade-table">
-              <div class="hero-trade-tabs">
-                <button class="hero-trade-tab active">수출</button>
-                <button class="hero-trade-tab">수입</button>
-              </div>
-              <p class="hero-trade-period">품목보고일 : 25/01/01 ~ 25/06/30</p>
-              <table>
-                <thead>
-                  <tr>
-                    <th>순위</th>
-                    <th>국가명</th>
-                    <th>중량 (kg)</th>
-                    <th>금액 (천$)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>미국</td>
-                    <td>111,222</td>
-                    <td>210,000</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>미국</td>
-                    <td>111,222</td>
-                    <td>210,000</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>미국</td>
-                    <td>111,222</td>
-                    <td>210,000</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>미국</td>
-                    <td>111,222</td>
-                    <td>210,000</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>미국</td>
-                    <td>111,222</td>
-                    <td>210,000</td>
-                  </tr>
-                  <!-- 나머지 행들 -->
-                </tbody>
-              </table>
-              <div class="table-detail">
-                <a href="#" class="table-detail-link">서비스 바로가기</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="mix-background">
-      <!-- Regulations Section - 식품규제정보 -->
-      <section class="hero-regulations">
-        <div class="regulations-container">
-          <h2 class="section-title">식품규제정보</h2>
-          <p class="section-subtitle">법령 및 행정규칙에대한 알림 정보를 제공합니다</p>
-          <div class="regulation-tabs">
-            <button class="reg-tab active">전체</button>
-            <button class="reg-tab">법령</button>
-            <button class="reg-tab">행정규칙</button>
-          </div>
-          <div class="regulation-grid">
-            <div class="regulation-card">
-              <div class="regulation-card-header">
-                <div class="badge badge--filled badge--success">법령</div>
-                <div class="switch-group">
-                  <label class="switch"><input type="checkbox" checked="" aria-label="Switch"><span
-                      class="switch-slider"></span></label>
-                </div>
-              </div>
-              <h3 class="regulation-title"><a href="#">식품위생법 시행령</a></h3>
-              <div class="regulation-info">
-                <div class="regulation-info-item">
-                  <span class="label">공포번호</span>
-                  <span class="value">제93837 호</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">시행일자</span>
-                  <span class="value">25.12.31</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">소관부처</span>
-                  <span class="value">식품의약품안내서</span>
-                </div>
-              </div>
-            </div>
-            <div class="regulation-card">
-              <div class="regulation-card-header">
-                <div class="badge badge--filled badge--danger">행정규칙</div>
-                <div class="switch-group">
-                  <label class="switch"><input type="checkbox" checked="" aria-label="Switch"><span
-                      class="switch-slider"></span></label>
-                </div>
-              </div>
-              <h3 class="regulation-title"><a href="#">식품위생법 시행령</a></h3>
-              <div class="regulation-info">
-                <div class="regulation-info-item">
-                  <span class="label">공포번호</span>
-                  <span class="value">제93837 호</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">시행일자</span>
-                  <span class="value">25.12.31</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">소관부처</span>
-                  <span class="value">식품의약품안내서</span>
-                </div>
-              </div>
-            </div>
-            <div class="regulation-card">
-              <div class="regulation-card-header">
-                <div class="badge badge--filled badge--danger">행정규칙</div>
-                <div class="switch-group">
-                  <label class="switch"><input type="checkbox" checked="" aria-label="Switch"><span
-                      class="switch-slider"></span></label>
-                </div>
-              </div>
-              <h3 class="regulation-title"><a href="#">식품위생법 시행령</a></h3>
-              <div class="regulation-info">
-                <div class="regulation-info-item">
-                  <span class="label">공포번호</span>
-                  <span class="value">제93837 호</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">시행일자</span>
-                  <span class="value">25.12.31</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">소관부처</span>
-                  <span class="value">식품의약품안내서</span>
-                </div>
-              </div>
-            </div>
-            <div class="regulation-card">
-              <div class="regulation-card-header">
-                <div class="badge badge--filled badge--success">법령</div>
-                <div class="switch-group">
-                  <label class="switch"><input type="checkbox" checked="" aria-label="Switch"><span
-                      class="switch-slider"></span></label>
-                </div>
-              </div>
-              <h3 class="regulation-title"><a href="#">식품위생법 시행령</a></h3>
-              <div class="regulation-info">
-                <div class="regulation-info-item">
-                  <span class="label">공포번호</span>
-                  <span class="value">제93837 호</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">시행일자</span>
-                  <span class="value">25.12.31</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">소관부처</span>
-                  <span class="value">식품의약품안내서</span>
-                </div>
-              </div>
-            </div>
-            <div class="regulation-card">
-              <div class="regulation-card-header">
-                <div class="badge badge--filled badge--danger">행정규칙</div>
-                <div class="switch-group">
-                  <label class="switch"><input type="checkbox" checked="" aria-label="Switch"><span
-                      class="switch-slider"></span></label>
-                </div>
-              </div>
-              <h3 class="regulation-title"><a href="#">식품위생법 시행령</a></h3>
-              <div class="regulation-info">
-                <div class="regulation-info-item">
-                  <span class="label">공포번호</span>
-                  <span class="value">제93837 호</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">시행일자</span>
-                  <span class="value">25.12.31</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">소관부처</span>
-                  <span class="value">식품의약품안내서</span>
-                </div>
-              </div>
-            </div>
-            <div class="regulation-card">
-              <div class="regulation-card-header">
-                <div class="badge badge--filled badge--danger">행정규칙</div>
-                <div class="switch-group">
-                  <label class="switch"><input type="checkbox" checked="" aria-label="Switch"><span
-                      class="switch-slider"></span></label>
-                </div>
-              </div>
-              <h3 class="regulation-title"><a href="#">식품위생법 시행령</a></h3>
-              <div class="regulation-info">
-                <div class="regulation-info-item">
-                  <span class="label">공포번호</span>
-                  <span class="value">제93837 호</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">시행일자</span>
-                  <span class="value">25.12.31</span>
-                </div>
-                <div class="regulation-info-item">
-                  <span class="label">소관부처</span>
-                  <span class="value">식품의약품안내서</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="regulation-more">
-            <button class="more-btn">
-              <span class="text">식품규제정보 펼쳐보기</span>
-              <span class="icon-arrow-down"></span>
-            </button>
-          </div>
-        </div>
-      </section>
-      <!-- Support Section - 궁금증을 해결해 드립니다 -->
-      <section class="hero-support">
-        <div class="support-container">
-          <div class="support-content">
-            <h2 class="section-title">궁금증을 <br>해결해 드립니다</h2>
-            <div class="support-grid">
-              <div class="support-card">
-                <div class="support-icon v1"></div>
-                <p class="support-label">문의 답하기</p>
-              </div>
-              <div class="support-card">
-                <div class="support-icon v2"></div>
-                <p class="support-label">자주하는 질문</p>
-              </div>
-              <div class="support-card">
-                <div class="support-icon v3"></div>
-                <p class="support-label">자료실</p>
-              </div>
-              <div class="support-card">
-                <div class="support-icon v4"></div>
-                <p class="support-label">최신식품정보</p>
-              </div>
-            </div>
-          </div>
-          <div class="notice-content">
-            <h3 class="notice-title">공지사항</h3>
-            <ul class="notice-list">
-              <li class="notice-item">
-                <a href="#">
-                  <span class="notice-text">2025년 고충처리자문단 운영안내</span>
-                  <span class="notice-date">25/11/18</span>
+        <div class="published-list-wrapper">
+          <div class="published-swiper swiper">
+            <ul class="published-list swiper-wrapper">
+              <li class="swiper-slide">
+                <a href="#" class="published-list-item">
+                  <div class="image-container">
+                    <img src="../images/static/4126037a-4f00-4194-b577-b3956f2c550a_20241108090341.png" alt="수출을 위한 진환경 식품포장 트렌드">
+                  </div>
+                  <div class="info-section">
+                    <h2>식품성 대체식품 제조공정의 이해</h2>
+                    <div class="info-list">
+                      <div class="info-item">
+                        <strong>발행기관</strong>
+                        <span>한국농수산식품유통공사(aT)</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>저자명</strong>
+                        <span>한국식품산업협회(식품진흥원)</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>발간일</strong>
+                        <span>2024-12-18</span>
+                      </div>
+                    </div>
+                  </div>
                 </a>
               </li>
-              <li class="notice-item">
-                <a href="#">
-                  <span class="notice-text">2025년 고충처리자문단 운영안내</span>
-                  <span class="notice-date">25/11/18</span>
+              <li class="swiper-slide">
+                <a href="#" class="published-list-item">
+                  <div class="image-container">
+                    <img src="../images/static/0a543148-080e-4656-b9c7-b635b52c2f26_20241206100054.png" alt="수출을 위한 진환경 식품포장 트렌드">
+                  </div>
+                  <div class="info-section">
+                    <h2>식품성 대체식품 제조공정의 이해</h2>
+                    <div class="info-list">
+                      <div class="info-item">
+                        <strong>발행기관</strong>
+                        <span>한국농수산식품유통공사(aT)</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>저자명</strong>
+                        <span>한국식품산업협회(식품진흥원)</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>발간일</strong>
+                        <span>2024-12-18</span>
+                      </div>
+                    </div>
+                  </div>
                 </a>
               </li>
-              <li class="notice-item">
-                <a href="#">
-                  <span class="notice-text">2025년 고충처리자문단 운영안내</span>
-                  <span class="notice-date">25/11/18</span>
+              <li class="swiper-slide">
+                <a href="#" class="published-list-item">
+                  <div class="image-container">
+                    <img src="../images/static/4126037a-4f00-4194-b577-b3956f2c550a_20241108090341.png" alt="수출을 위한 진환경 식품포장 트렌드">
+                  </div>
+                  <div class="info-section">
+                    <h2>식품성 대체식품 제조공정의 이해</h2>
+                    <div class="info-list">
+                      <div class="info-item">
+                        <strong>발행기관</strong>
+                        <span>한국농수산식품유통공사(aT)</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>저자명</strong>
+                        <span>한국식품산업협회(식품진흥원)</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>발간일</strong>
+                        <span>2024-12-18</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </li>
+              <li class="swiper-slide">
+                <a href="#" class="published-list-item">
+                  <div class="image-container">
+                    <img src="../images/static/0a543148-080e-4656-b9c7-b635b52c2f26_20241206100054.png" alt="수출을 위한 진환경 식품포장 트렌드">
+                  </div>
+                  <div class="info-section">
+                    <h2>식품성 대체식품 제조공정의 이해</h2>
+                    <div class="info-list">
+                      <div class="info-item">
+                        <strong>발행기관</strong>
+                        <span>한국농수산식품유통공사(aT)</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>저자명</strong>
+                        <span>한국식품산업협회(식품진흥원)</span>
+                      </div>
+                      <div class="info-item">
+                        <strong>발간일</strong>
+                        <span>2024-12-18</span>
+                      </div>
+                    </div>
+                  </div>
                 </a>
               </li>
             </ul>
           </div>
         </div>
-      </section>
-    </div>
-  </div>
-  <div class="related-sites">
-    <div class="container">
-      <button type="button" class="related-sites-button">
-        <span>관련 사이트</span>
-        <i class="icon icon-plus" aria-hidden="true"></i>
-      </button>
-    </div>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <!-- 로고 영역 -->
-      <div class="footer-logos">
-        <div class="mi-group">
-          <a href="#" class="mi-dfip" title="새창 열림"><span class="sr-only">디지털식품정보플랫폼</span></a>
-          <a href="#" class="mi-foodpolis" title="새창 열림"><span class="sr-only">푸드폴리스</span></a>
-          <a href="#" class="mi-food-e" title="새창 열림"><span class="sr-only">푸드올</span></a>
-        </div>
-      </div>
-      <!-- 회사 정보 -->
-      <div class="footer-info">
-        <div class="info-row">
-          <span class="info-label">상호</span>
-          <span>한국식품산업클러스터진흥원</span>
-          <span class="divider" aria-hidden="true"></span>
-          <span class="info-label">주소</span>
-          <span>(50112) 전라북도 익산시 왕궁로 국가식품로 100</span>
-          <span class="divider" aria-hidden="true"></span>
-          <span class="info-label">사업자등록번호</span>
-          <span>138-82-05887</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">대표전화</span>
-          <span>063-720-0500</span>
-          <span class="divider" aria-hidden="true"></span>
-          <span class="info-label">저작심의 및 기타 문의</span>
-          <span>063-720-0500 (평일, 평일 9시 - 18시)</span>
-          <span class="divider" aria-hidden="true"></span>
-          <span class="info-label">시스템 기술문의</span>
-          <span>1551-0511 (평일, 평일 9시 - 18시)</span>
-        </div>
-      </div>
-      <!-- 링크 영역 -->
-      <div class="footer-last">
-        <div class="footer-links">
-          <a href="#" class="link-green">개인정보처리방침</a>
-          <span class="divider" aria-hidden="true"></span>
-          <a href="#">이용약관</a>
-          <span class="divider" aria-hidden="true"></span>
-          <a href="#">이메일주소무단수집거부</a>
-          <span class="divider" aria-hidden="true"></span>
-          <a href="#">홈페이지개선</a>
-          <span class="divider" aria-hidden="true"></span>
-          <a href="#">사이트맵</a>
-          <span class="divider" aria-hidden="true"></span>
-          <a href="#">원격지원</a>
-        </div>
-        <div class="footer-copyright">
-          <p>© FOODPOLIS. All rights reserved.</p>
-        </div>
+        <!-- // published-list -->
       </div>
     </div>
-  </footer>
-  <!-- 통합 검색 모달 - BODY 맨 아래 -->
-  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
-    <div class="search-modal__overlay"></div>
-    <div class="search-modal__container">
-      <div class="search-modal__header">
-        <h2 id="searchTitle" class="search-modal__title">통합 검색 <i></i></h2>
-      </div>
-      <div class="search-modal__search-bar">
-        <div class="search-header">
-          <!-- 검색 오버레이 -->
-          <div class="search-section">
-            <!-- 검색 입력 영역 -->
-            <div class="search-input-section">
-              <div class="search-input-wrapper">
-                <input type="text" class="search-input" placeholder="식품" value="식품">
-                <button type="button" class="search-btn" aria-label="검색">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    aria-hidden="true">
-                    <path
-                      d="M19.8984 10.8984C19.8984 12.9138 19.2334 14.7736 18.1143 16.2734L21.1201 19.2793L21.21 19.3779C21.598 19.8544 21.5975 20.5421 21.209 21.0186L21.1201 21.1172C20.6124 21.6249 19.7889 21.6249 19.2812 21.1172L16.2764 18.1123C14.7759 19.2327 12.915 19.8984 10.8984 19.8984C5.92787 19.8984 1.89844 15.869 1.89844 10.8984C1.89844 5.92787 5.92787 1.89844 10.8984 1.89844C15.869 1.89844 19.8984 5.92787 19.8984 10.8984ZM17.2988 10.8984C17.2988 7.36382 14.4331 4.49805 10.8984 4.49805C7.36382 4.49805 4.49805 7.36382 4.49805 10.8984C4.49805 14.4331 7.36382 17.2988 10.8984 17.2988C12.5568 17.2988 14.0644 16.6648 15.2021 15.6289C15.255 15.5429 15.3193 15.4629 15.3926 15.3896L15.4697 15.3184C15.5217 15.2742 15.576 15.234 15.6328 15.1992C16.6667 14.062 17.2988 12.5553 17.2988 10.8984Z"
-                      fill="url(#paint0_linear_2059_7289)" />
-                    <defs>
-                      <linearGradient id="paint0_linear_2059_7289" x1="1.89844" y1="11.6982" x2="21.5007" y2="11.6982"
-                        gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#2DA34F" />
-                        <stop offset="1" stop-color="#1B5D88" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <!-- is-active -->
-            <div class="search-dropdown">
-              <!-- 자동완성 제안 -->
-              <div class="search-suggestions">
-                <div class="suggestion-item">
-                  <i class="icon-search" aria-hidden="true"></i>
-                  <span class="suggestion-text"><b class="highlight">식품</b>산업</span>
-                </div>
-                <div class="suggestion-item">
-                  <i class="icon-search" aria-hidden="true"></i>
-                  <span class="suggestion-text"><b class="highlight">식품</b>산업기업</span>
-                </div>
-                <div class="suggestion-item">
-                  <i class="icon-search" aria-hidden="true"></i>
-                  <span class="suggestion-text"><b class="highlight">식품</b>안전</span>
-                </div>
-              </div>
-              <!-- 자동완성 설정 -->
-              <div class="search-settings">
-                <div class="setting-item">
-                  <span class="setting-label">
-                    <label for="search-autocomplete-toggle" class="setting-label-text">자동완성</label>
-                    <label class="switch"><input type="checkbox" id="search-autocomplete-toggle" checked><span
-                        class="switch-slider"></span></label>
-                  </span>
-                  <button type="button" class="close-btn" data-close="searchOverlay">닫기</button>
-                </div>
-              </div>
-              <!-- 검색 기록 -->
-              <div class="search-history">
-                <div class="setting-item">
-                  <span class="setting-label">
-                    <label for="search-history-toggle" class="setting-label-text">검색기록</label>
-                    <label class="switch"><input type="checkbox" id="search-history-toggle" checked><span
-                        class="switch-slider"></span></label>
-                  </span>
-                  <button type="button" class="clear-btn">전체삭제</button>
-                </div>
-                <div class="history-item">
-                  <i class="icon-time" aria-hidden="true"></i>
-                  <span class="history-text">식품</span>
-                  <button type="button" class="delete-btn">
-                    <i class="icon-delete" aria-hidden="true"></i>
-                    <span class="sr-only">삭제</span>
-                  </button>
-                </div>
-                <div class="history-item">
-                  <i class="icon-time" aria-hidden="true"></i>
-                  <span class="history-text">식품</span>
-                  <button type="button" class="delete-btn">
-                    <i class="icon-delete" aria-hidden="true"></i>
-                    <span class="sr-only">삭제</span>
-                  </button>
-                </div>
-                <div class="history-item">
-                  <i class="icon-time" aria-hidden="true"></i>
-                  <span class="history-text">식품</span>
-                  <button type="button" class="delete-btn">
-                    <i class="icon-delete" aria-hidden="true"></i>
-                    <span class="sr-only">삭제</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="search-modal__content">
-        <div class="search-modal__section">
-          <div class="search-modal__section-title">
-            <h3>최근 검색어</h3>
-          </div>
-          <div class="search-modal__list">
-            <div class="search-modal__list-item"><button type="button"><i class="hash">#</i><span class="search-modal__list-item-text">식품</span></button></div>
-          </div>
-        </div>
-        <div class="search-modal__section">
-          <div class="search-modal__section-title">
-            <h3>인기 검색어</h3>
-          </div>
-          <ol class="search-modal__ranking-list ranking-list">
-            <li class="ranking-item"><button type="button"><span class="num">1</span><span class="word up">식품산업</span></button></li>
-            <li class="ranking-item"><button type="button"><span class="num">2</span><span class="word down">식품산업</span></button></li>
-            <li class="ranking-item"><button type="button"><span class="num">3</span><span class="word same">식품산업</span></button></li>
-            <li class="ranking-item"><button type="button"><span class="num">4</span><span class="word same">식품산업</span></button></li>
-            <li class="ranking-item"><button type="button"><span class="num">5</span><span class="word up">식품산업</span></button></li>
-          </ol>
-        </div>
-      </div>
-      <button class="search-modal__close-btn">
-        <span class="sr-only">검색 닫기</span>
-      </button>
-    </div>
+    <!-- // section-published -->
   </div>
   <script>
-    const cards = document.querySelectorAll(".carousel-card");
-    // 3개의 카드의 원형 위치
-    let index = 0;
-    function render() {
-      cards.forEach((card, i) => {
-        const pos = (i - index + 3) % 3;
-        if (pos === 0) {
-          // 중앙
-          card.style.transform = "translateX(0px) translateZ(200px) scale(1)";
-          card.style.opacity = "1";
-          card.style.zIndex = "3";
-        } else if (pos === 1) {
-          // 오른쪽
-          card.style.transform = "translateX(420px) translateZ(0px) rotateY(-35deg) scale(0.9)";
-          card.style.opacity = "0.95";
-          card.style.zIndex = "2";
-        } else {
-          // 왼쪽
-          card.style.transform = "translateX(-420px) translateZ(0px) rotateY(35deg) scale(0.9)";
-          card.style.opacity = "0.95";
-          card.style.zIndex = "2";
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Swiper === 'undefined') {
+        console.error('Swiper is not loaded');
+        return;
+      }
+      const bannerCarouselEl = document.querySelector(".banner-carousel .swiper");
+      const bannerImageEl = document.querySelector(".banner-image");
+      const bannerBullets = document.querySelectorAll(".banner-carousel-bullets .bullet");
+      if (bannerCarouselEl) {
+        const bannerCarousel = new Swiper(bannerCarouselEl, {
+          loop: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          on: {
+            slideChange: function() {
+              const realIndex = this.realIndex;
+              const imageNumber = String(realIndex + 1).padStart(2, '0');
+              if (bannerImageEl) {
+                bannerImageEl.style.backgroundImage = "url('/images/static/banner" + imageNumber + ".png')";
+              }
+              bannerBullets.forEach((bullet, index) => {
+                if (index === realIndex) {
+                  bullet.classList.add('active');
+                } else {
+                  bullet.classList.remove('active');
+                }
+              });
+            }
+          }
+        });
+        bannerBullets.forEach((bullet, index) => {
+          bullet.addEventListener('click', function() {
+            bannerCarousel.slideToLoop(index);
+          });
+        });
+      }
+      // Published list Swiper 초기화
+      let publishedSwiper = null;
+      function initPublishedSwiper() {
+        const swiperEl = document.querySelector('.published-list-wrapper .published-swiper');
+        if (!swiperEl) {
+          console.warn('Swiper element not found');
+          return;
         }
+        const windowWidth = window.innerWidth;
+        const isDesktop = windowWidth >= 1024;
+        // 1024px 이상에서는 Swiper를 사용하지 않음
+        if (isDesktop) {
+          if (publishedSwiper) {
+            publishedSwiper.destroy(true, true);
+            publishedSwiper = null;
+          }
+          return;
+        }
+        // 1024px 미만에서만 Swiper 초기화
+        if (!publishedSwiper) {
+          try {
+            publishedSwiper = new Swiper(swiperEl, {
+              slidesPerView: 1,
+              spaceBetween: 30,
+              allowTouchMove: true,
+              breakpoints: {
+                // 500px부터: 1개
+                500: {
+                  slidesPerView: 1,
+                  spaceBetween: 30,
+                },
+                // 768px부터: 2개
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 30,
+                },
+                // 1024px 미만까지: 3개 (처음엔 3개 표시)
+                900: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                }
+              },
+            });
+            console.log('Published Swiper initialized');
+          } catch (error) {
+            console.error('Swiper initialization error:', error);
+          }
+        } else {
+          publishedSwiper.update();
+        }
+      }
+      // 초기화 (약간의 지연을 두어 DOM이 완전히 준비되도록)
+      setTimeout(function() {
+        initPublishedSwiper();
+      }, 100);
+      // 리사이즈 이벤트
+      let resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          initPublishedSwiper();
+        }, 250);
       });
-    }
-    render();
-    document.querySelector(".btn-next").onclick = () => {
-      index = (index + 1) % 3;
-      render();
-    };
-    document.querySelector(".btn-prev").onclick = () => {
-      index = (index - 1 + 3) % 3;
-      render();
-    };
-    // Auto play
-    setInterval(() => {
-      index = (index + 1) % 3;
-      render();
-    }, 3000);
-    </script>
+    });
+  </script>
 </body>
 </html>

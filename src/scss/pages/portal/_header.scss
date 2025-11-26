@@ -3,6 +3,9 @@
 @forward '../../abstracts/mixin';
 @forward '../../abstracts/functions';
 
+:root{
+  --dropmenu-height: 232px;
+}
 .skip-nav {
   position: absolute;
   left: -9999px;
@@ -86,10 +89,8 @@
     display: flex;
     align-items: center;
     gap: 1.6rem;
-    
     li {
       position: relative;
-      
       &:not(:last-child)::after {
         content: '';
         position: absolute;
@@ -106,7 +107,6 @@
       font-size: 1.4rem;
       text-decoration: none;
       transition: color 0.3s ease;
-      
       &:hover {
         color: #333;
       }
@@ -166,13 +166,21 @@
   }
   .gnb-lv1{
     position: relative;
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4){
+      .dropmenu{
+        background: url('/images/portal/line.svg') no-repeat right 3px;
+      }
+    }
     &:hover,
     &:has(a:focus){
       .gnb-lv1-link{
-        background: var(--gr-1, linear-gradient(90deg, #2DA34F 0%, #1B5D88 100%));
+        background: var(--gr-1, linear-gradient(90deg, #6719A6 0%, #FF004E 100%));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        transition: background 0.3s ease;
       }
     }
   }
@@ -185,18 +193,24 @@
       visibility: visible;
       transform: translateY(0);
       pointer-events: auto;
+      transition: opacity 0.3s ease 0.24s, visibility 0s linear 0s, transform 0.3s ease 0.24s;
+    }
+    .gnb-lv1-link{
+      padding: 0 45px;
+      transition: padding 0.3s ease;
     }
     .gnb-lv1:hover,
     .gnb-lv1:has(a:focus){
       .gnb-lv1-link{
-        background: var(--gr-1, linear-gradient(90deg, #2DA34F 0%, #1B5D88 100%));
+        background: var(--gr-1, linear-gradient(90deg, #6719A6 0%, #FF004E 100%));
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        transition: background 0.3s ease;
       }
+      
       .dropmenu ul{
-        border-color: var(--color-brand-primary);
-        background: #F4F5F6;
+        background: url('/images/portal/gnb-line.png') no-repeat center 0;
       }
     }
   }
@@ -206,13 +220,14 @@
     gap: 0.8rem;
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
-    padding: 0 2.2rem;
     height: 5.6rem;
-    transition: all 0.3s ease;
     background-color: transparent;
     text-align: center;
     justify-content: center;
-    width: 170px;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    max-width:210px;
     .gnb-lv1-link-icon{
       display: inline-block;
       flex-shrink: 0;
@@ -230,16 +245,13 @@
       font-size: 0;
       display: inline-block;
       vertical-align: top;
-      width: 140px;
-      height: 197px;
+      width: 187px;
+      height: 180px;
       background-repeat: no-repeat;
       background-position: 0 0;
     }
     .allin-menu-link1{
       background-image: url('/images/portal/allin-menu-link1.svg');
-    }
-    .allin-menu-link2{
-      background-image: url('/images/portal/allin-menu-link2.svg');
     }
   }
   .dropmenu{
@@ -247,29 +259,48 @@
     top: 100%;
     left: 0;
     width: 100%;
-    height: 312px;
+    height: var(--dropmenu-height);
     padding-top: 1px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     pointer-events: none;
     z-index: 1;
+    
+    transform: translateY(-10px);
     ul{
       width: 100%;
       padding-top: 20px;
-      border-top: 3px solid #fff;
+      background: transparent;
+      transition: all 0.3s ease;
       height: 100%;
-      background-color: #fff;
       li{
+        text-align: center;
         a{
-          display: block;
+          display: inline-block;
+          position: relative;
           padding: 10px 0;
           text-align: center;
           font-size: 1.7rem;
+          transition: all 0.2s ease;
           &:hover,
           &:focus{
+            font-weight: 700;
             color: var(--color-brand-primary);
+            &::after{
+              opacity: 1;
+              left: -8px;
+            }
+          }
+          &::after{
+            content: '';
+            position: absolute;
+            background: url('/images/portal/dropmenu-dot.svg') no-repeat center 0;
+            width: 6px;height: 6px;
+            left: 0px;
+            top: 10px;
+            display: block;
+            opacity: 0;
+            transition: all 0.3s ease;
           }
         }
       }
@@ -278,6 +309,7 @@
       a{
         display: block;
         padding: 0.8rem 2.2rem;
+        border-radius: 100px;
         font-size: var(--font-size-base);
         color: #333;
         text-decoration: none;
@@ -290,16 +322,218 @@
   .header-utils{
     display: flex;
     align-items: center;
-    gap:2rem;
+    gap:1.6rem;
+    position: relative;
+    
+    .mypage-wrapper {
+      position: relative;
+    }
+    
+    #mypage-button{
+      width: 3.2rem;
+      height: 3.2rem;
+      background: url('/images/portal/gnb_icon_mypage.svg') no-repeat center center;
+      display: block;
+      
+      &.active {
+        border-radius: 100px;
+        border: 1px solid var(--24-24_p-40, #9940E2);
+        background-color: var(--24-24_p-30, #B16DE9);
+        background-image: url('/images/portal/gnb_icon_mypage-white.svg');
+        & + .mypage-popup {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+    }
+    
     #search-button{
       width: 3.2rem;
       height: 3.2rem;
-      background: url('/images/portal/gnb-search-icon.svg') no-repeat center center;
+      background: url('/images/portal/gnb_icon_search.svg') no-repeat center center;
     }
     #menu-button{
       width: 3.2rem;
       height: 3.2rem;
-      background: url('/images/portal/gnb-open-icon.svg') no-repeat center center;
+      background: url('/images/portal/gnb_icon_menu.svg') no-repeat center center;
+    }
+  }
+}
+
+// ========================================
+// 마이페이지 팝업
+// ========================================
+.mypage-popup {
+  position: absolute;
+  top: calc(100% + 12px);
+  left:-162px;
+  width: 354px;
+  border-radius: 12px;
+  border-radius: 20px 40px 20px 40px;
+  border: 1px solid var(--24-24_p-40, #9940E2);
+  background: #FFF;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05), 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  
+  // 위쪽 화살표
+  &::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 12px;
+    background: url('/images/portal/mpyage-arrow.svg') no-repeat center center;
+  }
+  
+  
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    padding-bottom: 8px;
+  }
+  
+  &__welcome {
+    font-size: 21px;
+    font-weight: 400;
+    color: #131416;
+    line-height: 1.4;
+    b{
+      font-weight: 900;
+    }
+  }
+  
+  &__logout {
+    display: flex;
+    height: 32px;
+    min-width: 78px;
+    padding: 0 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: #464C53;
+    font-size: 14px;
+    border-radius: 100px;
+    border: 1px solid var(--g-10, #E6E8EA);
+    background: var(--g-00, #FFF);
+    i{
+      background: url('/images/portal/icon-logout.svg') no-repeat center center;
+      width: 15px;
+      height: 15px;
+      display: inline-block;
+      vertical-align: top;
+      flex-shrink: 0;
+    }
+  }
+  
+  &__notifications {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 0 24px;
+  }
+  
+  &__notification-card {
+    padding: 8px 12px;
+    flex: 1 0 0;
+    border-radius: 8px;
+    background: var(--g-05, #F4F5F6);
+    
+    .notification-label {
+      font-size: 15px;
+      color: #131416;
+      line-height: 1.4;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      padding-left: 20px;
+      &.message{
+        background-image: url('/images/portal/icon-msg.svg');
+      }
+      &.note{
+        background-image: url('/images/portal/icon-note.svg');
+      }
+    }
+    
+    .notification-count {
+      font-size: 15px;
+      font-weight: 400;
+      color: #131416;
+      line-height: 1.2;
+      text-align: right;
+      b{
+        font-weight: 700;
+        font-size: 25px;
+      }
+    }
+  }
+  
+  &__info {
+    padding: 16px 24px;
+    border-radius: 32px 32px 23px 39px;
+    background: linear-gradient(90deg, #F4F5F6 0%, #F8F2FD 100%);
+    div {
+      margin: 0;
+      font-size: 15px;
+      color: #33363D;
+      line-height: 1.6;
+      text-align: center;
+      i{
+        width: 6px;
+        height: 10px;
+        background: url('/images/portal/icon-black-arrow.svg') no-repeat center center;
+        display: inline-block;
+        vertical-align: middle;
+        transform: translateY(-2px);
+      }
+      a {
+        color: #131416;
+        text-decoration: underline;
+        &:hover {
+          color: #811FD0;
+        }
+      }
+    }
+  }
+  
+  .mypage-popup__link {
+    margin-top: 15px;
+    display: flex;
+    height: 40px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    align-self: stretch;
+    border-radius: 100px;
+    background: var(--24-24_p-60, #6719A6);
+    font-size: 15px;
+    font-weight: 900;
+    color: #fff;
+    span{
+      font-weight: 600;
+      padding-right: 2px;
+    }
+    i{
+      display: inline-block;
+      vertical-align: top;
+      flex-shrink: 0;
+      width: 12px;
+      height: 12px;
+      background: url('/images/portal/mypage-popup-link.png') no-repeat center center;
     }
   }
 }
@@ -313,14 +547,19 @@
   left: 0;
   width: 100%;
   height: 0;
-  background: #fff;
-  border-bottom: 1px solid #CDD1D5;
+  background: url('/images/portal/dropmenu-bg.svg') no-repeat center center;
   overflow: hidden;
-  transition: height 0.3s ease;
   z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: height 0.3s ease 0s, opacity 0.3s ease 0s, visibility 0s linear 0.3s;
 }
 
 .header.has-dropdown .header-bg,
 .header-menu:hover ~ .header-bg{
-  height: 312px;
+  height: var(--dropmenu-height);
+  opacity: 1;
+  visibility: visible;
+  transition: height 0.3s ease 0.24s, opacity 0.3s ease 0.24s, visibility 0s linear 0s;
 }
+

@@ -1,0 +1,861 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="decorator"
+	uri="http://www.opensymphony.com/sitemesh/decorator"%>
+<%@ taglib prefix="file" uri="http://dfip.fileUpload.com"%>
+<%@ taglib prefix="cms" uri="http://dfip.cmsEl.com"%>
+<%@ page import="egovframework.dfip.cms.cmm.utils.CmsCode"%>
+<html>
+<body>
+
+	<!-- main visual -->
+	<div class="main-visual">
+		<div class="container">
+		</div>
+	</div>
+	<div class="main-hero hero-search">
+		<div class="row">
+			<div class="container">
+				<div class="banner-slider">
+					<div class="splide" aria-label="메인 슬라이드">
+						<div class="splide__track">
+							<ul class="splide__list">
+								<c:forEach var="banrList" items="${banrList}">
+								<c:choose>
+									<c:when
+										test="${fn:substring(banrList.banrLnkgUrlAddr, fn:length(banrList.banrLnkgUrlAddr) - 5, fn:length(banrList.banrLnkgUrlAddr)) == 'popup'}">
+										<li class="splide__slide">
+											<a href="#"
+												onclick="increaseInqCnt({ banrGroupSn: ${banrList.banrGroupSn}, banrSn: ${banrList.banrSn} }); fnCmnEvntIc('${banrList.banrLnkgUrlAddr}');"
+											>
+												<img src="<c:url value="/cms/cmm/cmsUntyAtch/image.do?fileId=${cms:toUrlEncode(banrList.untyFileId)}"/>" alt="<c:out value="${banrList.banrCn}" />">
+
+											</a>
+										</li>
+									</c:when>
+									<c:otherwise>
+										<li class="splide__slide">
+											<a href="<c:out value="${banrList.banrLnkgUrlAddr}"/>"
+												onclick="increaseInqCnt({ banrGroupSn: ${banrList.banrGroupSn}, banrSn: ${banrList.banrSn} });"
+												<c:out value="${banrList.banrKindSeCd eq 'BAKISE0002'?'target=\"_blank\"':''}" escapeXml="false" />
+											>
+												<img src="<c:url value="/cms/cmm/cmsUntyAtch/image.do?fileId=${cms:toUrlEncode(banrList.untyFileId)}"/>" alt="<c:out value="${banrList.banrCn}" />">
+											</a>
+										</li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							</ul>
+						</div>
+						<div class="banner-slider-control">
+							<p>알려드립니다.</p>
+							<span class="current-slide">1</span>
+							<span class="dash">-</span>
+							<span class="total-slides"></span>
+							<button class="prev-btn">이전</button>
+							<button class="splide__toggle">정지</button>
+							<button class="next-btn">다음</button>
+						</div>
+					</div>
+				</div>
+				<div class="hero-search-container">
+					<form id="searchIndexForm" action="/dfip/fo/totalsearch/main.do" method="get">
+						<label class="search-title" for="keyword">SEARCH</label>
+						<span class="search-window">
+							<input type="text" id="keyword" name="keyword" placeholder="궁금한 식품정보를 찾아보세요" autocomplete="off" data-maxByteLength="150" title="검색어 입력">
+							<input type="hidden" id="beKeyword" name="beKeyword" value="" autocomplete="off">
+							<button id="iSearchIndex" title="검색"><span class="sr-only">검색</span></button>
+						</span>
+					</form>
+					<div class="search-list">
+						<strong>이런 정보는 어떠세요?</strong>
+						<ul></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- e: hero-search -->
+
+	<div class="main-hero hero-service">
+		<div class="row">
+			<div class="container">
+				<nav class="hero-service-menu">
+					<div>
+						<button class="tab-btn selected" data-target="hero-service-slider">기업 지원 서비스</button>
+						<button class="tab-btn" data-target="hero-service-slider2">기업 지원 데스크</button>
+						<span aria-hidden="true"></span>
+					</div>
+				</nav>
+
+				<div class="hero-service-slider">
+					<div class="splide" aria-label="기업 지원 서비스 슬라이드">
+						<div class="splide__track">
+							<ul class="splide__list">
+								<li class="splide__slide">
+									<a href="/dfip/fo/ecs/daemin/selectTeanCommAnno.do">
+										<strong>시험·분석 의뢰</strong>
+										<div class="desc">
+											식품 개발을 위한 다양한 식품 시험검사(개방형 장비 지원, KOLAS, ISTA, GLP 등)를 지원합니다.
+										</div>
+										<i><img src="/dfip/static/front/common/images/bss/main/icon-service-01.png" aria-hidden="true" alt="아잌톤"></i>
+									</a>
+								</li>
+								<li class="splide__slide">
+									<a href="/dfip/fo/ecs/selectFaeqUseAnno.do">
+										<strong>시설·장비 신청
+										</strong>
+										<div class="desc">
+											시제품 및 소량 제품 생산 등을 위한 식품진흥원이 보유한 생산장비 활용을 지원합니다.
+										</div>
+										<i><img src="/dfip/static/front/common/images/bss/main/icon-service-02.png" aria-hidden="true" alt="아잌톤"></i>
+									</a>
+								</li>
+								<li class="splide__slide">
+									<a href="/dfip/fo/eps/een/rcmt/viewRcmtList.do">
+										<strong>전문가 신청</strong>
+										<div class="desc">
+											식품산업 발전과 기업 경쟁력 강화 지원을 위해 지식과 경험을 갖춘 식품 분야 전문가를 모집합니다.
+										</div>
+										<i><img src="/dfip/static/front/common/images/bss/main/icon-service-03.png" aria-hidden="true" alt="아잌톤"></i>
+									</a>
+								</li>
+								<%--
+								<li class="splide__slide">
+									<a href="/dfip/fo/fac/selectFcltList.do">
+										<strong>공유시설 활용</strong>
+										<div class="desc">
+											식품 기업 업무지원을 위해 식품진흥원 회의실, 세미나실, 기숙사, 교육장 등을 활용할 수 있습니다.
+										</div>
+										<i><img src="/dfip/static/front/common/images/bss/main/icon-service-04.png" aria-hidden="true" alt="아잌톤"></i>
+									</a>
+								</li>
+								--%>
+								<li class="splide__slide">
+									<a href="/dfip/fo/edu/selectEduList.do">
+										<strong>실무교육 신청</strong>
+										<div class="desc">
+											농·식품산업 실무형 인재양성을 위해 식품진흥원 보유 인프라를 활용한 현장 맞춤형 교육을 지원합니다.
+										</div>
+										<i><img src="/dfip/static/front/common/images/bss/main/icon-service-05.png" aria-hidden="true" alt="아잌톤"></i>
+									</a>
+								</li>
+								<li class="splide__slide">
+<!-- 									<a href="/dfip/fo/men/intro.do">
+										<strong>식품창업 지원</strong>
+										<div class="desc">
+											청년 창업·사업화 및 일자리 창출 지원을 위해 기술/경영 멘토링 및 시제품 제작 등을 지원합니다.
+										</div>
+										<i><img src="/dfip/static/front/common/images/bss/main/icon-service-06.png" aria-hidden="true" alt="아잌톤"></i>
+									</a> -->
+									<a href="#" onclick="event.preventDefault(); PopupUtils.alert('멘토링 신청은 현재 준비중입니다. <br>빠른 시일안에 기능을 지원하도록 하겠습니다.')">
+										<strong>식품창업 지원</strong>
+										<div class="desc">
+											청년 창업·사업화 및 일자리 창출 지원을 위해 기술/경영 멘토링 및 시제품 제작 등을 지원합니다.
+										</div>
+										<i><img src="/dfip/static/front/common/images/bss/main/icon-service-06.png" aria-hidden="true" alt="아잌톤"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="hero-service-slider2 hidden">
+					<div class="splide" aria-label="기업 지원 서비스 슬라이드">
+						<div class="splide__track">
+							<ul class="splide__list">
+								<li class="splide__slide">
+									<a href="/dfip/fo/ecs/Geco/selectGecoAnno.do">
+										<strong>일반민원</strong>
+										<div class="text">불편사항이 있으세요?</div>
+										<div class="text2 color-1">경중을 가리지 않고 다 듣겠습니다. </div>
+										<i class="icon-1"></i>
+									</a>
+								</li>
+								<li class="splide__slide">
+									<a href="/dfip/fo/ent/selectTechProbAply.do">
+										<strong>기술고충 접수</strong>
+										<div class="text">기술고민이 있으세요?</div>
+										<div class="text2 color-2">안심 Partner를 지금 만나세요.</div>
+										<i class="icon-2"></i>
+									</a>
+								</li>
+								<li class="splide__slide">
+									<a href="/dfip/fo/ent/selectMgmtProbAply.do">
+										<strong>경영고충 접수</strong>
+										<div class="text">경영 어려움 혼자 고민하지 마세요!</div>
+										<div class="text2 color-3">전문가를 매칭해 드리겠습니다.</div>
+										<i class="icon-3"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- e: hero-service-->
+
+	<div class="main-hero hero-business">
+		<div class="row">
+			<div class="container">
+				<div class="item">
+
+					<a href="https://www.foodpolis.kr/fbip/co/main.do" target="_blank" title="새창열림" class="item-card item-card-1">
+						<div class="item-details">
+							<div class="img"><img src="/dfip/static/front/common/images/bss/main/thumb1.png" alt="비지니스 이미지"></div>
+							<div class="desc">
+								<strong><b>비즈니스</b> 창출</strong>
+								<div>
+									민관이 보유한 식품 데이터를 통합·공유하여 기업 간 서비스 연계를 촉진하고, 혁신 서비스를 통해 식품산업 전·후방 산업을 연결하여 민간 비즈니스 창출을 지원하는 서비스
+								</div>
+								<div class="links">바로가기<i></i></div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="item">
+
+					<a href="/dfip/fo/cvd/main/fdGuide.do" class="item-card  item-card-2">
+						<div class="item-details">
+							<div class="img"><img src="/dfip/static/front/common/images/bss/main/thumb2.png" alt="융합데이터 이미지"></div>
+							<div class="desc">
+								<strong><b>융합데이터</b> 활용</strong>
+								<div>
+									비즈니스 성장과 성공을 위해 제품 개발, 식품 트렌드 분석, 해외 식품 시장 확인 등의 데이터 기반 인사이트 도출을 지원하는 서비스
+								</div>
+								<div class="links">바로가기<i></i></div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- e: hero-business-->
+
+	<div class="main-hero hero-affiliate">
+        <div class="row">
+            <div class="container">
+                <div class="affiliate-item" role="button" <c:choose><c:when test="${sessionScope.DFIP_USER.hasAuthority('WAG000000003') or sessionScope.DFIP_USER.hasAuthority('WAG000000004')}">onClick="window.open('https://www.dona.kr/bbs/dona_contents.php?bo_table=dona_video_contents&key=Rk9PRA==')"</c:when><c:otherwise>onClick="PopupUtils.alert('해당 기능은 기업회원, 기업소속회원에게만 <br>  지원하는 제휴서비스입니다.')"</c:otherwise></c:choose> >
+                    <div class="affiliate-logo"><img src="/dfip/static/front/common/images/bss/main/affiliate-logo.png" alt=""></div>
+                    <div class="affiliate-content">
+                        <h3>(사)도전과 나눔과의 제휴 서비스</h3>
+                        <p>
+                            기업가 정신 함양을 위한 포럼, 워크샵 등 강연 자료 제공<br>
+                            창업 생태계 육성을 위한 멘토링, 창업지원, 글로벌 시장개척 관련 자료 제공
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- e: hero-affiliate -->
+
+
+
+	<div class="main-hero hero-apply">
+		<div class="row">
+			<div class="container">
+				<h3>글로벌 식품시장의 중심. <b>한국식품산업클러스터 진흥원</b>은<br>다양한 분야의 사업을 지원합니다.</h3>
+				<nav class="hero-apply-menu">
+					<div>
+						<button data-code="all" class="mBtn all selected">전체</button>
+						<button data-code="ing" class="mBtn ing">접수중</button>
+						<button data-code="yet" class="mBtn yet">접수예정</button>
+						<button data-code="end" class="mBtn end">접수마감</button>
+						<span aria-hidden="true"></span>
+					</div>
+				</nav>
+				<form id="frmPbancDetail" method="post">
+					<input type="hidden" id="sprtPbancNo" name="sprtPbancNo" value=""/>
+				</form>
+				<div class="hero-apply-list all">
+					<c:choose>
+						<c:when test="${empty notiAll}">
+							<div class="no-data">목록이 없습니다.</div>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="list" items="${notiAll}">
+								<a href="javascript:void(0);" onclick="postViewNoti('${list.sprtPbancNo}')" class="apply-list-card">
+									<div class="card-header">
+		                              <c:choose>
+		                                  <c:when test="${list.leftDay eq 'end'}"><span class="status type3">접수마감</span></c:when>
+		                                  <c:when test="${today >= list.rcptPrdBgngDt and today <= list.rcptPrdEndDt}"><span class="status type1">접수중</span></c:when>
+		                                  <c:when test="${today <= list.rcptPrdBgngDt}"><span class="status type2">접수예정</span></c:when>
+	                                  </c:choose>
+ 										<span class="links">자세히 보기 &gt;</span>
+									</div>
+									<div class="subject">${fn:replace(fn:replace(list.sprtPbancNm, '<script', '&lt;script'), '</script>', '&lt;/script>')}</div>
+									<div class="desc html-empty">지원대상:
+		                              <c:choose>
+		                                  <c:when test="${empty list.usrEnsSprtPbancQlfctVO}">
+		                                      <dd>제한 없음</dd>
+		                                  </c:when>
+		                                  <c:otherwise>
+		                                      <c:set var="hasMatchingData" value="false" />
+		                                      <c:forEach items="${list.usrEnsSprtPbancQlfctVO}" var="Qlf">
+		                                          <c:if test="${Qlf.sprtPbancNo eq list.sprtPbancNo}">
+		                                              <c:set var="hasMatchingData" value="true" />
+		                                          </c:if>
+		                                      </c:forEach>
+		                                      <c:choose>
+		                                          <c:when test="${!hasMatchingData}">
+		                                              <dd>제한 없음</dd>
+		                                          </c:when>
+		                                          <c:otherwise>
+		                                              <dd>
+		                                                  <c:forEach items="${list.usrEnsSprtPbancQlfctVO}" var="Qlf" varStatus="status">
+		                                                      <c:if test="${Qlf.sprtPbancNo eq list.sprtPbancNo}">${Qlf.sprtPbancCn}<c:if test="${!status.last}">, </c:if>
+		                                                      </c:if>
+		                                                  </c:forEach>
+		                                              </dd>
+		                                          </c:otherwise>
+		                                      </c:choose>
+		                                  </c:otherwise>
+		                              </c:choose>
+		                              </div>
+									<div class="date">${list.rcptPrdRange}</div>
+								</a>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</div>
+
+				<div class="hero-apply-list ing disNone">
+					<c:choose>
+						<c:when test="${empty notiIng}">
+							<div class="no-data">목록이 없습니다.</div>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="list" items="${notiIng}">
+								<a href="javascript:void(0);" onclick="postViewNoti('${list.sprtPbancNo}')" class="apply-list-card">
+									<div class="card-header">
+		                              <c:choose>
+		                                  <c:when test="${list.leftDay eq 'end'}"><span class="status type3">접수마감</span></c:when>
+		                                  <c:when test="${today >= list.rcptPrdBgngDt and today <= list.rcptPrdEndDt}"><span class="status type1">접수중</span></c:when>
+		                                  <c:when test="${today <= list.rcptPrdBgngDt}"><span class="status type2">접수예정</span></c:when>
+	                                  </c:choose>
+										<span class="links">자세히 보기 &gt;</span>
+									</div>
+									<div class="subject">${fn:replace(fn:replace(list.sprtPbancNm, '<script', '&lt;script'), '</script>', '&lt;/script>')}</div>
+
+									<div class="desc html-empty">지원대상:
+		                              <c:choose>
+		                                  <c:when test="${empty list.usrEnsSprtPbancQlfctVO}">
+		                                      <dd>제한 없음</dd>
+		                                  </c:when>
+		                                  <c:otherwise>
+		                                      <c:set var="hasMatchingData" value="false" />
+		                                      <c:forEach items="${list.usrEnsSprtPbancQlfctVO}" var="Qlf">
+		                                          <c:if test="${Qlf.sprtPbancNo eq list.sprtPbancNo}">
+		                                              <c:set var="hasMatchingData" value="true" />
+		                                          </c:if>
+		                                      </c:forEach>
+		                                      <c:choose>
+		                                          <c:when test="${!hasMatchingData}">
+		                                              <dd>제한 없음</dd>
+		                                          </c:when>
+		                                          <c:otherwise>
+		                                              <dd>
+		                                                  <c:forEach items="${list.usrEnsSprtPbancQlfctVO}" var="Qlf" varStatus="status">
+		                                                      <c:if test="${Qlf.sprtPbancNo eq list.sprtPbancNo}">${Qlf.sprtPbancCn}<c:if test="${!status.last}">, </c:if>
+		                                                      </c:if>
+		                                                  </c:forEach>
+		                                              </dd>
+		                                          </c:otherwise>
+		                                      </c:choose>
+		                                  </c:otherwise>
+		                              </c:choose>
+		                              </div>
+									<div class="date">${list.rcptPrdRange}</div>
+								</a>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</div>
+
+				<div class="hero-apply-list yet disNone">
+					<c:choose>
+						<c:when test="${empty notiYet}">
+							<div class="no-data">목록이 없습니다.</div>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="list" items="${notiYet}">
+								<a href="javascript:void(0);" onclick="postViewNoti('${list.sprtPbancNo}')" class="apply-list-card">
+									<div class="card-header">
+		                              <c:choose>
+		                                  <c:when test="${list.leftDay eq 'end'}"><span class="status type3">접수마감</span></c:when>
+		                                  <c:when test="${today >= list.rcptPrdBgngDt and today <= list.rcptPrdEndDt}"><span class="status type1">접수중</span></c:when>
+		                                  <c:when test="${today <= list.rcptPrdBgngDt}"><span class="status type2">접수예정</span></c:when>
+	                                  </c:choose>
+ 										<span class="links">자세히 보기 &gt;</span>
+									</div>
+									<div class="subject">${fn:replace(fn:replace(list.sprtPbancNm, '<script', '&lt;script'), '</script>', '&lt;/script>')}</div>
+
+									<div class="desc html-empty">지원대상:
+		                              <c:choose>
+		                                  <c:when test="${empty list.usrEnsSprtPbancQlfctVO}">
+		                                      <dd>제한 없음</dd>
+		                                  </c:when>
+		                                  <c:otherwise>
+		                                      <c:set var="hasMatchingData" value="false" />
+		                                      <c:forEach items="${list.usrEnsSprtPbancQlfctVO}" var="Qlf">
+		                                          <c:if test="${Qlf.sprtPbancNo eq list.sprtPbancNo}">
+		                                              <c:set var="hasMatchingData" value="true" />
+		                                          </c:if>
+		                                      </c:forEach>
+		                                      <c:choose>
+		                                          <c:when test="${!hasMatchingData}">
+		                                              <dd>제한 없음</dd>
+		                                          </c:when>
+		                                          <c:otherwise>
+		                                              <dd>
+		                                                  <c:forEach items="${list.usrEnsSprtPbancQlfctVO}" var="Qlf" varStatus="status">
+		                                                      <c:if test="${Qlf.sprtPbancNo eq list.sprtPbancNo}">${Qlf.sprtPbancCn}<c:if test="${!status.last}">, </c:if>
+		                                                      </c:if>
+		                                                  </c:forEach>
+		                                              </dd>
+		                                          </c:otherwise>
+		                                      </c:choose>
+		                                  </c:otherwise>
+		                              </c:choose>
+		                              </div>
+									<div class="date">${list.rcptPrdRange}</div>
+								</a>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</div>
+
+				<div class="hero-apply-list end disNone">
+					<c:choose>
+						<c:when test="${empty notiEnd}">
+							<div class="no-data">목록이 없습니다.</div>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="list" items="${notiEnd}">
+								<a href="javascript:void(0);" onclick="postViewNoti('${list.sprtPbancNo}')" class="apply-list-card">
+									<div class="card-header">
+										<c:choose>
+											<c:when test="${list.leftDay eq 'end'}">
+												<span class="status type3">접수마감</span>
+											</c:when>
+											<c:when test="${today >= list.rcptPrdBgngDt and today <= list.rcptPrdEndDt}">
+												<span class="status type1">접수중</span>
+											</c:when>
+											<c:when test="${today <= list.rcptPrdBgngDt}">
+												<span class="status type2">접수예정</span>
+											</c:when>
+										</c:choose>
+										<span class="links">자세히 보기 &gt;</span>
+									</div>
+									<div class="subject">
+										${fn:replace(fn:replace(list.sprtPbancNm, '<script', '&lt;script'), '</script>', '&lt;/script>')}
+									</div>
+
+									<div class="desc html-empty">지원대상:
+		                              <c:choose>
+		                                  <c:when test="${empty list.usrEnsSprtPbancQlfctVO}">
+		                                      <dd>제한 없음</dd>
+		                                  </c:when>
+		                                  <c:otherwise>
+		                                      <c:set var="hasMatchingData" value="false" />
+		                                      <c:forEach items="${list.usrEnsSprtPbancQlfctVO}" var="Qlf">
+		                                          <c:if test="${Qlf.sprtPbancNo eq list.sprtPbancNo}">
+		                                              <c:set var="hasMatchingData" value="true" />
+		                                          </c:if>
+		                                      </c:forEach>
+		                                      <c:choose>
+		                                          <c:when test="${!hasMatchingData}">
+		                                              <dd>제한 없음</dd>
+		                                          </c:when>
+		                                          <c:otherwise>
+		                                              <dd>
+		                                                  <c:forEach items="${list.usrEnsSprtPbancQlfctVO}" var="Qlf" varStatus="status">
+		                                                      <c:if test="${Qlf.sprtPbancNo eq list.sprtPbancNo}">${Qlf.sprtPbancCn}<c:if test="${!status.last}">, </c:if>
+		                                                      </c:if>
+		                                                  </c:forEach>
+		                                              </dd>
+		                                          </c:otherwise>
+		                                      </c:choose>
+		                                  </c:otherwise>
+		                              </c:choose>
+		                              </div>
+									<div class="date">${list.rcptPrdRange}</div>
+								</a>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+				</div>
+
+				<div class="hero-apply-more">
+					<a href="/dfip/fo/bss/bns/usr/viewNotiList.do"><i>+</i>더보기</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- e: hero-apply-->
+
+
+	<div class="main-hero hero-issue">
+		<div class="row">
+			<div class="container">
+				<div class="hero-issue-text">
+					<h3><b>홍보 동영상</b></h3>
+					<p>
+						지금 만나보세요! <br>
+						다양한 소식을 영상으로 확인하세요
+					</p>
+					<div class="issue-slider-controls">
+						<button type="button" title="이전" class="issue-slider-prev"></button>
+						<button type="button" title="다음" class="issue-slider-next"></button>
+						<div class="issue-slider-fraction">
+							<b class="issue-slider-current">1</b>
+							<i>-</i>
+							<span class="issue-slider-total">1</span>
+						</div>
+					</div>
+				</div>
+				<div class="hero-issue-slider">
+					<div class="splide">
+						<div class="splide__track">
+							<ul class="splide__list">
+								<c:forEach var="vdoList" items="${vdoList}">
+								<li class="splide__slide">
+									<div class="hero-issue-item">
+										<a href="#"
+											onclick="movePageSubmit('/fo/cms/cmn/cmnDtachVdoDetail.do', {dtachSn: ${vdoList.dtachSn}})">
+											<c:set var="loop_flag" value="true" />
+											<c:set var="hasImage" value="false" />
+											<c:forEach var="fileList" items="${vdoList.cmnDtachAtchFileList}">
+												<c:if test="${loop_flag and fileList.dtachAtchFileTypeSeCd eq CmsCode.DTACH_ATCH_FILE_TYPE_SE_CD_0002}">
+													<div class="thumb">
+														<img src="<c:url value='/cms/cmm/cmsUntyAtch/image.do?fileId=${cms:toUrlEncode(fileList.untyFileId)}'/>" alt="">
+													</div>
+													<c:set var="hasImage" value="true" />
+													<c:set var="loop_flag" value="false" />
+												</c:if>
+											</c:forEach>
+
+											<c:if test="${not hasImage}">
+												<div class="thumb no-image">
+
+												</div>
+											</c:if>
+
+											<div class="subject">
+												<c:out value="${vdoList.dtachTtl}" escapeXml="false" />
+											</div>
+											<div class="date">
+												<c:out value="${vdoList.dtachRegYmd}" />
+											</div>
+											</a>
+									</div>
+								</li>
+							</c:forEach>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- e: hero-issue-->
+
+	<div class="main-hero hero-support">
+		<div class="row">
+			<div class="container">
+				<div class="hero-support-item">
+					<div class="hgroup">
+						<h3><b>궁금증</b>을 해결해 드릴게요!</h3>
+					</div>
+					<div class="hero-support-link">
+						<a href="/dfip/fo/ent/entSprt.do" class="link1">
+							<i></i>
+							<span>Q&A</span>
+						</a>
+						<span class="line"></span>
+						<a href="/dfip/fo/cms/cmn/cmnQstnAns.do" class="link2">
+							<i></i>
+							<span>FAQ</span>
+						</a>
+						<span class="line"></span>
+						<a href="/dfip/fo/cms/cmn/cmnDtach.do" class="link3">
+							<i></i>
+							<span>자료실</span>
+						</a>
+					</div>
+				</div>
+				<div class="hero-support-item">
+					<div class="hgroup">
+						<h3>공지사항</h3>
+						<a href="/dfip/fo/cms/cmn/cmnNtcMttr.do" class="more">+ 더보기</a>
+					</div>
+					<ul class="hero-support-notice">
+						<c:choose>
+							<c:when test="${not empty ntcList}">
+								<c:forEach var="ntcList" items="${ntcList}" varStatus="status">
+									<c:if test="${status.index < 3}">
+
+										<li>
+											<a href="#" onclick="movePageSubmit('/fo/cms/cmn/cmnNtcMttrDetail.do', {ntcMttrSn: ${ntcList.ntcMttrSn}})">
+												<strong class="html-empty"><c:out value="${cms:deEscapeHtml(ntcList.ntcMttrTtl)}"
+													escapeXml="false" /></strong>
+												<span class="date"><c:out value="${ntcList.ntcMttrRegYmd}" /></span>
+											</a>
+										</li>
+									</c:if>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<li class="no-data">목록이 없습니다.</li>
+							</c:otherwise>
+						</c:choose>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- e: hero-support-->
+	<script>
+
+		document.addEventListener("DOMContentLoaded", () => {
+			document.querySelectorAll(".html-empty").forEach(desc => {
+				desc.innerHTML = desc.textContent; // 태그 제거 후 텍스트만 유지
+			});
+		})
+
+
+
+    // const foMainPopup = {
+    //     data: ${cms:toArray(popupList)},
+    //     // 스토리지에 데이터 쓰기(이름, 만료일)
+    //     setStorage: function (name, exp) {
+    //         // 만료 시간 구하기(exp를 ms단위로 변경)
+    //         var date = new Date();
+    //         date = date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+
+    //         // 로컬 스토리지에 저장하기
+    //         // (값을 따로 저장하지 않고 만료 시간을 저장)
+    //         localStorage.setItem(name, date)
+    //     },
+    //     // 스토리지 읽어오기
+    //     getStorage: function (name) {
+    //         var now = new Date();
+    //         // 현재 시각과 스토리지에 저장된 시각을 각각 비교하여
+    //         // 시간이 남아 있으면 true, 아니면 false 리턴
+    //         return parseInt(localStorage.getItem(name)) > now
+    //     },
+    //     // 닫기
+    //     close: function(obj, id) {
+    //         let exp = 1;
+    //         if(id.indexOf('POENTY0002') > -1) exp = 1000;
+    //         this.setStorage(id, exp);
+    //         noticeModal.close(obj);
+    //     }
+    // };
+    // foMainPopup.data.forEach(item => {
+    //     let id = 'foMainPopup_'+item.popupSn+'_'+item.popupEndTypeSeCd;
+    //     if(!foMainPopup.getStorage(id)) $('#'+id).show();
+    // });
+
+    // const foNtcEmergencyPop = {
+    //     data: ${cms:toArray(ntcEmergencyList)},
+    //     // 스토리지에 데이터 쓰기(이름, 만료일)
+    //     setStorage: function (name, exp) {
+    //         // 만료 시간 구하기(exp를 ms단위로 변경)
+    //         var date = new Date();
+    //         date = date.setTime(date.getTime() + exp * 24 * 60 * 60 * 1000);
+
+    //         // 로컬 스토리지에 저장하기
+    //         // (값을 따로 저장하지 않고 만료 시간을 저장)
+    //         localStorage.setItem(name, date)
+    //     },
+    //     // 스토리지 읽어오기
+    //     getStorage: function (name) {
+    //         var now = new Date();
+    //         // 현재 시각과 스토리지에 저장된 시각을 각각 비교하여
+    //         // 시간이 남아 있으면 true, 아니면 false 리턴
+    //         return parseInt(localStorage.getItem(name)) > now
+    //     },
+    //     // 닫기
+    //     close: function(obj, id) {
+    //         let exp = 1;
+    //         this.setStorage(id, exp);
+    //         noticeModal.close(obj);
+    //     }
+    // };
+    // foNtcEmergencyPop.data.forEach(item => {
+    //     let id = 'foNtcEmergencyPop_'+item.ntcMttrSn;
+    //     if(!foMainPopup.getStorage(id)) $('#'+id).show();
+    // });
+
+    // // 팝업이 열린항목이 없는 경우 none처리
+    // if (noticeModal.counter() < 1) {
+    //     $('.noticemodal-wrap').css('display','none');
+    // }
+
+    // $('#btnMain01').click(function () {
+    //     window.location.href = '<c:url value="/fo/bss/bns/usr/viewNotiList.do"/>';
+    // });
+    // $('#btnMain02').click(function () {
+    //     window.location.href = '<c:url value="/fo/bss/bns/usr/viewNotiList.do"/>';
+    // });
+    // $('#btnMain03').click(function () {
+    //     window.location.href = '<c:url value="/fo/ecs/selectFaeqUseAnno.do"/>';
+    // });
+    // $('#btnMain04').click(function () {
+	// 	let user = '${sessionScope.DFIP_USER}';
+	// 	if(!user){
+	// 		PopupUtils.alert("로그인 이후 사용이 가능합니다.");
+	// 		return false;
+	// 	} else {
+    //     	var emsFcltyUseAplyRegist = $('#emsFcltyUseAplyRegist');
+    //     	emsFcltyUseAplyRegist.attr("action", CommUtils.setContextPath('/fo/ems/emsFcltyUseAplyRegist.do'));
+    //     	emsFcltyUseAplyRegist.submit();
+	// 	}
+    // });
+
+    // $('#btnMain05').click(function () {
+    //     window.location.href = '<c:url value="/fo/ecs/daemin/selectTeanCommAnno.do"/>';
+    // });
+    // $('#btnMain06').click(function () {
+    //     window.location.href = '<c:url value="/fo/ecs/teanCommReis/selectTeanCommReisAnno.do"/>';
+    // });
+
+    // $('#btnMain07').click(function () {
+    // 	window.location.href = '<c:url value="/fo/eps/een/rcmt/viewRcmtList.do"/>';
+    // });
+    // $('#btnMain08').click(function () {
+    //     window.location.href = '<c:url value="/fo/eps/eea/outEpsAply/viewSelectOutEpsAplyList.do"/>';
+    // });
+
+    // 통합검색 엔터
+	$('#keyword').on('keypress', function(event) {
+        if (event.keyCode === 13) {
+            var keyword = $('#searchIndexForm [name="keyword"]').val().trim();
+            var beKeyword = $('#searchIndexForm [name="beKeyword"]').val();
+
+            if (keyword.length < 1) {
+                PopupUtils.alert("검색어는 한 글자 이상이어야 합니다.", {
+                    callbackFunc: (res) => {
+                        //console.log(res);
+                    }
+                });
+                return false;
+            }
+
+            $('#searchIndexForm').submit();
+        }
+    });
+
+    //통합검색 버튼 클릭
+    $('#iSearchIndex').on('click', function() {
+        var keyword = $('#searchIndexForm [name="keyword"]').val();
+        var beKeyword = $('#searchIndexForm [name="beKeyword"]').val();
+
+        if (keyword.length < 1) {
+			PopupUtils.alert("검색어는 한 글자 이상이어야 합니다.", {
+	   		callbackFunc: (res) => {
+	        	//console.log(res);
+			}});
+            return false;
+        }
+        $('#searchIndexForm').submit();
+    });
+
+    // 통합검색 인기검색어 가져오기
+	$.ajax({
+		type: 'GET',
+		url: '/dfip/fo/ecs/searchPopular.do',
+		data: {},
+		success: function(response) {
+			var container = document.querySelector('.search-list ul');
+			container.innerHTML = '';
+			response.forEach(function(item) {
+				var li = document.createElement('li');
+				var a = document.createElement('a');
+				a.href = '#';
+				a.textContent = item.category;
+				li.appendChild(a);
+				container.appendChild(li);
+			});
+
+		},
+		error: function(error) {
+			//console.log(error)
+		}
+
+	});
+
+    // 통합검색 인기검색어 이벤트 추가
+	var popularContainer = document.querySelector('.search-list ul');
+    if(popularContainer){
+		popularContainer.addEventListener('click', function (event) {
+            var target = event.target;
+            if (target.tagName === 'A') {
+                var keyword = target.textContent.trim().replace(/^\d+\.\s/, '');
+
+                var searchInput = document.querySelector('#searchIndexForm #keyword');
+                var searchForm = document.querySelector('#searchIndexForm');
+
+                if (searchInput && searchForm) {
+                    searchInput.value = keyword;
+                    searchForm.submit();
+                } else {
+                    //console.error("검색 폼 또는 입력 필드를 찾을 수 없습니다.");
+                }
+            }
+        });
+    }
+
+
+	var increaseInqCnt = function({banrGroupSn, banrSn, banrLnkgUrlAddr} = {}){
+		var banrData = {
+				banrGroupSn : banrGroupSn,
+				banrSn : banrSn,
+				banrLnkgUrlAddr : banrLnkgUrlAddr
+		}
+		CommUtils.sendJson({
+				url:"/dfip/bo/cms/mpm/increaseInqCnt.do",
+				type : 'POST',
+				data: banrData,
+				success:function(res){
+				}
+			});
+	}
+
+	var fnCmnEvntIc = function(url){
+		var paramVal = {};
+		PopupUtils.sendPopup({
+	        url: url,
+	        id:"cmnEvntIc",
+	        data: paramVal,
+	        zIndex : 2000,
+	        title: "국제 콘퍼런스 신청",
+	        width: 1000,
+	        height: 1000,
+	        callbackFunc: (data) => {
+
+	        }
+		});
+	}
+
+	var postViewNoti = function(sprtPbancNo){
+		$("#sprtPbancNo").val(sprtPbancNo);
+		$("#frmPbancDetail").attr({ "action": "/dfip/fo/bss/bns/usr/viewNoti.do", "method": "post" }).submit();
+	}
+</script>
+
+</body>
+</html>

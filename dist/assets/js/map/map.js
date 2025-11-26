@@ -1,4 +1,5 @@
-import "../main.js";
+import "../modulepreload-polyfill.js";
+/* empty css      */
 console.log("Map main page JS loaded");
 const map = {
   initialized: false,

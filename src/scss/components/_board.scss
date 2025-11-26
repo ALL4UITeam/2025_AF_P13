@@ -1,3 +1,4 @@
+
 .api-card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -831,70 +832,39 @@
 // ========================================
 .board-search {
   display: flex;
-  border-radius: 12px;
-  border: 1px solid var(--g-10, #E6E8EA);
+  flex-direction: column;
+  gap: 12px 0;
+  padding: 20px 32px;
+  border-radius: 20px;
   background: var(--g-05, #F4F5F6);
-  padding: 24px 32px;
-  &.mix{
-    flex-direction: column;
-    gap: 16px;
-    .board-search__fields{
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      padding-right: 0;
-    }
-  }
-  // 검색 필드 영역 (좌측, 유연하게 늘어남)
   &__fields {
-    flex: 1;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0 30px;
-    padding-right: 120px;
-    &.full-field{
-      grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-    }
-    &.three-field{
-      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    }
-    &.four-field{
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 40px;
+    width: 100%;
+    min-height: 48px;
   }
   
   // 검색 필드 항목
   &__field {
     display: flex;
-    flex-direction: column;
-    gap:8px;
-    
-    &.mix-field{
-      grid-column: span 2;
-      .input-group{
-        gap: 0 12px;
-      }
-    }
+    align-items: center;
     .label {
       font-weight: var(--font-weight-semibold);
       color: var(--color-gray-700);
       position: relative;
-      padding-left: 20px;
-      &::after{
-        display: block;
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 12px;
-        height: 12px;
-        background-image: url('/images/portal/dot.svg');
-        background-size: contain;
-      }
+      padding-left: 8px;
+      flex-shrink: 0;
+      min-width: 155px;
+      background: url('/images/portal/bullet.svg') no-repeat left center;
+    }
+    &.full-field{
+      grid-column: span 2;
     }
 
     .form-group--inline{
-      padding-top: 12px;
-      gap:0 24px;
+      gap:0 16px;
+      width: 100%;
     }
     
   }
@@ -903,26 +873,19 @@
   &__actions {
     display: flex;
     gap:0 16px;
-    margin-left: auto;
-    flex-shrink: 0;
+    width: 100%;
+    padding-top: 24px;
+    border-top: 1px solid #CDD1D5;
+    justify-content: center;
+    margin-top: 8px;
     .btn{
       flex-direction: column;
-      width: 8rem;
+      flex-direction: row;
+      height: 48px;
+      width: 77px;
       span{
         font-size: 1.7rem;
         line-height: 150%;
-      }
-    }
-    &.footer-sticky{
-      margin-left: 0;
-      width: 100%;
-      padding-top: 24px;
-      border-top: 1px solid #E6E8EA;
-      justify-content: center;
-      .btn{
-        flex-direction: row;
-        height: 48px;
-        width: 97px;
       }
     }
   }

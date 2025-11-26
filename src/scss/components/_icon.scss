@@ -138,12 +138,19 @@
     background-color: #000;
   }
 }
-
+.icon-source{
+  background: url('/images/portal/system-info.png') no-repeat center center;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: top;
+  flex-shrink: 0;
+}
 .icon-share{
-  @include icon('/images/portal/icon-share.svg', 24px, #fff);
+  @include icon('/images/portal/icon-share.svg', 14px, #fff, 16px);
 }
 .icon-print{
-  @include icon('/images/portal/icon-print.svg', 24px, #fff);
+  @include icon('/images/portal/icon-print.svg', 16px, #fff);
 }
 
 .icon-search{
