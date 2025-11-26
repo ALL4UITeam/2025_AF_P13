@@ -639,7 +639,7 @@
               const realIndex = this.realIndex;
               const imageNumber = String(realIndex + 1).padStart(2, '0');
               if (bannerImageEl) {
-                bannerImageEl.style.backgroundImage = `url('/images/static/banner${imageNumber}.png')`;
+                bannerImageEl.style.backgroundImage = "url('/images/static/banner" + imageNumber + ".png')";
               }
               bannerBullets.forEach((bullet, index) => {
                 if (index === realIndex) {

@@ -749,6 +749,65 @@ const portal = {
       }
     }
   },
+  topButton: {
+    init() {
+      const topButton = document.querySelector(".button-top");
+      topButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    }
+  },
+  // ========================================
+  // 마이페이지 팝업
+  // ========================================
+  mypagePopup: {
+    button: null,
+    popup: null,
+    isOpen: false,
+    init() {
+      this.button = document.getElementById("mypage-button");
+      this.popup = document.getElementById("mypage-popup");
+      if (!this.button || !this.popup) return;
+      this.bindEvents();
+    },
+    bindEvents() {
+      this.button.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.toggle();
+      });
+      document.addEventListener("click", (e) => {
+        if (!this.isOpen) return;
+        const isClickInside = this.popup.contains(e.target) || this.button.contains(e.target);
+        if (!isClickInside) {
+          this.close();
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && this.isOpen) {
+          this.close();
+        }
+      });
+    },
+    open() {
+      if (this.isOpen) return;
+      this.popup.classList.add("is-open");
+      this.button.classList.add("active");
+      this.isOpen = true;
+    },
+    close() {
+      if (!this.isOpen) return;
+      this.popup.classList.remove("is-open");
+      this.button.classList.remove("active");
+      this.isOpen = false;
+    },
+    toggle() {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
+      }
+    }
+  },
   // ========================================
   // 초기화
   // ========================================
@@ -766,7 +825,9 @@ const portal = {
     this.scrollTab.init();
     this.filterSort.init();
     this.headerNav.init();
+    this.mypagePopup.init();
     this.dateRangePicker.init();
+    this.topButton.init();
     this.initialized = true;
     console.log("Portal initialized");
   }
