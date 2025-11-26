@@ -4876,9 +4876,7 @@
   transition: opacity 0.3s ease 0.24s, visibility 0s linear 0s, transform 0.3s ease 0.24s;
 }
 .header-menu:hover .gnb-lv1-link, .header-menu.is-active .gnb-lv1-link {
-  max-width: 210px;
-  padding: 0 50px;
-  white-space: nowrap;
+  padding: 0 45px;
   transition: padding 0.3s ease;
 }
 .header-menu:hover .gnb-lv1:hover .gnb-lv1-link,
@@ -5010,6 +5008,12 @@
   background: url("../../images/portal/gnb_icon_mypage.svg") no-repeat center center;
   display: block;
 }
+.header-menu .header-utils #mypage-button.active {
+  border-radius: 100px;
+  border: 1px solid var(--24-24_p-40, #9940E2);
+  background-color: var(--24-24_p-30, #B16DE9);
+  background-image: url("../../images/portal/gnb_icon_mypage-white.svg");
+}
 .header-menu .header-utils #mypage-button.active + .mypage-popup {
   opacity: 1;
   visibility: visible;
@@ -5029,7 +5033,7 @@
 .mypage-popup {
   position: absolute;
   top: calc(100% + 12px);
-  right: 0;
+  left: -162px;
   width: 354px;
   border-radius: 12px;
   border-radius: 20px 40px 20px 40px;
@@ -5045,24 +5049,12 @@
 .mypage-popup::before {
   content: "";
   position: absolute;
-  top: -8px;
-  right: 24px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid #6719A6;
-}
-.mypage-popup::after {
-  content: "";
-  position: absolute;
-  top: -6px;
-  right: 24px;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-bottom: 7px solid #fff;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 12px;
+  background: url("../../images/portal/mpyage-arrow.svg") no-repeat center center;
 }
 .mypage-popup.is-open {
   opacity: 1;
@@ -5114,36 +5106,35 @@
   padding: 0 24px;
 }
 .mypage-popup__notification-card {
-  display: flex;
   padding: 8px 12px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   flex: 1 0 0;
   border-radius: 8px;
   background: var(--g-05, #F4F5F6);
 }
-.mypage-popup__notification-card .notification-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-}
-.mypage-popup__notification-card .notification-icon svg {
-  width: 24px;
-  height: 24px;
-}
 .mypage-popup__notification-card .notification-label {
   font-size: 15px;
-  color: #58616A;
+  color: #131416;
   line-height: 1.4;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  padding-left: 20px;
+}
+.mypage-popup__notification-card .notification-label.message {
+  background-image: url("../../images/portal/icon-msg.svg");
+}
+.mypage-popup__notification-card .notification-label.note {
+  background-image: url("../../images/portal/icon-note.svg");
 }
 .mypage-popup__notification-card .notification-count {
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 400;
   color: #131416;
   line-height: 1.2;
+  text-align: right;
+}
+.mypage-popup__notification-card .notification-count b {
+  font-weight: 700;
+  font-size: 25px;
 }
 .mypage-popup__info {
   padding: 16px 24px;
@@ -5153,12 +5144,20 @@
 .mypage-popup__info div {
   margin: 0;
   font-size: 15px;
-  color: #58616A;
+  color: #33363D;
   line-height: 1.6;
   text-align: center;
 }
+.mypage-popup__info div i {
+  width: 6px;
+  height: 10px;
+  background: url("../../images/portal/icon-black-arrow.svg") no-repeat center center;
+  display: inline-block;
+  vertical-align: middle;
+  transform: translateY(-2px);
+}
 .mypage-popup__info div a {
-  color: #6719A6;
+  color: #131416;
   text-decoration: underline;
 }
 .mypage-popup__info div a:hover {
@@ -7329,6 +7328,15 @@
   border-radius: 12px;
   border: 1px solid #CDD1D5;
   background: #FFF;
+  transition: all var(--transition-fast);
+}
+.keyword-card:hover, .keyword-card:focus {
+  border: 1px solid #9940E2;
+  background: #FFF;
+  box-shadow: 0 8px 8px 0 rgba(74, 18, 120, 0.2);
+}
+.keyword-card:hover .subeject a, .keyword-card:focus .subeject a {
+  color: #6719A6;
 }
 .keyword-card .subeject a {
   font-size: 19px;
@@ -7341,7 +7349,6 @@
   max-width: 100%;
   vertical-align: middle;
   line-height: 1;
-  text-decoration: underline;
   color: #131416;
 }
 .keyword-card .info dl {
