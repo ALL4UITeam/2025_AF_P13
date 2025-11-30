@@ -1,0 +1,544 @@
+<!-- @pageTitle 키워드검색 -->
+<!-- @pageNote 기능 구현 완료 -->
+<!-- @pageCreated 2025-11-03 -->
+<!-- @pageUpdated 2025-11-03 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- 기본 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=1410">
+  <meta name="description" content="PC 전용 웹사이트입니다">
+  <meta name="keywords" content="키워드1, 키워드2">
+  <meta name="author" content="작성자명">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="사이트 제목">
+  <meta property="og:description" content="사이트 설명">
+  <meta property="og:image" content="https://example.com/image.jpg">
+  <meta property="og:url" content="https://example.com">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <title>식품정보24</title>
+  <script src="../lib/jquery/jquery-3.7.1.min.js"></script>
+  <script src="../lib/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="../lib/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/monthSelect/index.js"></script>  <script src="../assets/js/modulepreload-polyfill.js"></script>
+  <script src="../assets/js/portal.js"></script>
+  <link rel="stylesheet" href="../assets/css/common3.css">
+  <link rel="stylesheet" href="../assets/css/common4.css">
+</head>
+<body>
+  <div id="main" class="portal">
+    <header id="header" class="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="mi-group">
+            <a href="#" class="mi-foodpolis" title="새창 열림"><span class="sr-only">푸드폴리스</span></a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#" class="mi-dfip" title="새창 열림"><span class="sr-only">디지털식품정보플랫폼</span></a>
+          </div>
+          <!-- utils -->
+          <div class="header-utils">
+            <ul class="utils-list">
+              <li><a href="#">로그인</a></li>
+              <li><a href="#">회원가입</a></li>
+              <li><a href="#">방문예약</a></li>
+            </ul>
+            <span class="divider" aria-hidden="true"></span>
+            <div class="zoom-controls">
+              <button type="button" class="zoom-btn" title="축소">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M3.81081 6.32432H8.18919C8.28162 6.32432 8.35878 6.29378 8.42068 6.2327C8.48257 6.17162 8.51351 6.09547 8.51351 6.00426C8.51351 5.91304 8.48257 5.83547 8.42068 5.77155C8.35878 5.70763 8.28162 5.67568 8.18919 5.67568H3.81081C3.71838 5.67568 3.64122 5.70622 3.57932 5.7673C3.51743 5.82838 3.48649 5.90453 3.48649 5.99574C3.48649 6.08696 3.51743 6.16453 3.57932 6.22845C3.64122 6.29236 3.71838 6.32432 3.81081 6.32432ZM1.1477 12C0.819054 12 0.545608 11.8909 0.327365 11.6726C0.109122 11.4544 0 11.1809 0 10.8523V1.1477C0 0.819054 0.109122 0.545609 0.327365 0.327365C0.545608 0.109122 0.819054 0 1.1477 0H10.8523C11.1809 0 11.4544 0.109122 11.6726 0.327365C11.8909 0.545609 12 0.819054 12 1.1477V10.8523C12 11.1809 11.8909 11.4544 11.6726 11.6726C11.4544 11.8909 11.1809 12 10.8523 12H1.1477ZM1.1477 11.3514H10.8523C10.9772 11.3514 11.0916 11.2994 11.1955 11.1955C11.2994 11.0916 11.3514 10.9772 11.3514 10.8523V1.1477C11.3514 1.02284 11.2994 0.908446 11.1955 0.804527C11.0916 0.700608 10.9772 0.648649 10.8523 0.648649H1.1477C1.02284 0.648649 0.908446 0.700608 0.804527 0.804527C0.700608 0.908446 0.648649 1.02284 0.648649 1.1477V10.8523C0.648649 10.9772 0.700608 11.0916 0.804527 11.1955C0.908446 11.2994 1.02284 11.3514 1.1477 11.3514Z"
+                    fill="#58616A" />
+                </svg>
+              </button>
+              <span class="zoom-percentage">100%</span>
+              <button type="button" class="zoom-btn" title="확대">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M5.67568 6.32432V9.16216C5.67568 9.25459 5.70622 9.33176 5.7673 9.39365C5.82838 9.45554 5.90453 9.48649 5.99574 9.48649C6.08696 9.48649 6.16453 9.45554 6.22845 9.39365C6.29236 9.33176 6.32432 9.25459 6.32432 9.16216V6.32432H9.16216C9.25459 6.32432 9.33176 6.29378 9.39365 6.2327C9.45554 6.17162 9.48649 6.09547 9.48649 6.00426C9.48649 5.91304 9.45554 5.83547 9.39365 5.77155C9.33176 5.70763 9.25459 5.67568 9.16216 5.67568H6.32432V2.83784C6.32432 2.74541 6.29378 2.66824 6.2327 2.60635C6.17162 2.54446 6.09547 2.51351 6.00426 2.51351C5.91304 2.51351 5.83547 2.54446 5.77155 2.60635C5.70763 2.66824 5.67568 2.74541 5.67568 2.83784V5.67568H2.83784C2.74541 5.67568 2.66824 5.70622 2.60635 5.7673C2.54446 5.82838 2.51351 5.90453 2.51351 5.99574C2.51351 6.08696 2.54446 6.16453 2.60635 6.22845C2.66824 6.29236 2.74541 6.32432 2.83784 6.32432H5.67568ZM1.1477 12C0.819054 12 0.545608 11.8909 0.327365 11.6726C0.109122 11.4544 0 11.1809 0 10.8523V1.1477C0 0.819054 0.109122 0.545609 0.327365 0.327365C0.545608 0.109122 0.819054 0 1.1477 0H10.8523C11.1809 0 11.4544 0.109122 11.6726 0.327365C11.8909 0.545609 12 0.819054 12 1.1477V10.8523C12 11.1809 11.8909 11.4544 11.6726 11.6726C11.4544 11.8909 11.1809 12 10.8523 12H1.1477ZM1.1477 11.3514H10.8523C10.9772 11.3514 11.0916 11.2994 11.1955 11.1955C11.2994 11.0916 11.3514 10.9772 11.3514 10.8523V1.1477C11.3514 1.02284 11.2994 0.908446 11.1955 0.804527C11.0916 0.700608 10.9772 0.648649 10.8523 0.648649H1.1477C1.02284 0.648649 0.908446 0.700608 0.804527 0.804527C0.700608 0.908446 0.648649 1.02284 0.648649 1.1477V10.8523C0.648649 10.9772 0.700608 11.0916 0.804527 11.1955C0.908446 11.2994 1.02284 11.3514 1.1477 11.3514Z"
+                    fill="#58616A" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-menu">
+        <div class="container">
+          <h2 class="logo"><a href="#" title="홈으로 이동"><span class="sr-only">식품정보24</span></a></h2>
+          <nav id="nav" class="nav">
+            <ul id="gnb" class="gnb">
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#" title="새창열림" target="_blank">
+                  <span class="gnb-lv1-link-text">식품지도</span>
+                  <i class="gnb-lv1-link-icon" aria-hidden="true"></i>
+                </a>
+                <div class="dropmenu allin-menu">
+                  <a href="#" class="allin-menu-link1">
+                    지도 바로가기
+                  </a>
+                </div>
+              </li>
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">분석 서비스</span>
+                </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">트랜드 분석</a></li>
+                    <li><a href="#">융합데이터 분석</a></li>
+                    <li><a href="#">키워드 분석</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">식품데이터 제공</span>
+                </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">오픈 API</a></li>
+                    <li><a href="#">데이터 시각화</a></li>
+                    <li><a href="#">데이터 신청</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">식품산업 정보</span>
+                </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">식품산업 관련 정보</a></li>
+                    <li><a href="#">정책지원 사업</a></li>
+                    <li><a href="#">발간 보고서</a></li>
+                    <li><a href="#">법률/규제 알림</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="gnb-lv1">
+                <a class="gnb-lv1-link" href="#">
+                  <span class="gnb-lv1-link-text">서비스 소개</span>
+                </a>
+                <div class="dropmenu">
+                  <ul>
+                    <li><a href="#">서비스 소개</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">질문과 답변</a></li>
+                    <li><a href="#">자료실</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </nav>
+          <div class="header-utils">
+            <div class="mypage-wrapper">
+              <a href="#" id="mypage-button" class="mypage-button" title="마이페이지">
+                <i><span class="sr-only">마이페이지</span></i>
+              </a>
+              <!-- 마이페이지 팝업 -->
+              <div id="mypage-popup" class="mypage-popup">
+                <div class="mypage-popup__header">
+                  <strong class="mypage-popup__welcome"><b>홍길동</b>님 환영합니다.</strong>
+                  <button type="button" class="mypage-popup__logout">
+                    <span>로그아웃</span>
+                    <i class="icon"></i>
+                  </button>
+                </div>
+                <div class="mypage-popup__notifications">
+                  <div class="mypage-popup__notification-card">
+                    <span class="notification-label note">쪽지</span>
+                    <div class="notification-count"><b>35</b>개</div>
+                  </div>
+                  <div class="mypage-popup__notification-card">
+                    <span class="notification-label message">메시지</span>
+                    <div class="notification-count"><b>35</b>개</div>
+                  </div>
+                </div>
+                <div class="mypage-popup__info">
+                  <div>
+                    개인화 메뉴는 <br>
+                    <a href="#">디지털식품정보플랫폼</a>
+                    <i></i>
+                    <a href="#">마이페이지</a>에서<br>
+                    확인하실 수 있습니다.
+                  </div>
+                  <a href="#" class="mypage-popup__link">디정플 마이페이지 <span>바로가기</span> <i></i></a>
+                </div>
+              </div>
+            </div>
+            <button type="button" id="search-button" class="search-button" title="검색 창 열림">
+              <i><span class="sr-only">검색</span></i>
+            </button>
+            <button type="button" id="menu-button" class="menu-button" title="메뉴 열림">
+              <i><span class="sr-only">메뉴</span></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="header-bg"></div>
+    </header>    <!-- // header -->
+    <div class="layout-sub">
+      <section class="subtop">
+        <div class="container">
+          <ol class="breadcrumb">
+            <li><a href="/" title="홈으로 이동">홈</a></li>
+            <li>
+                <a href="##" title="키워드검색로 이동">키워드검색</a>
+            </li>
+            <li><span>키워드검색</span></li>
+          </ol>
+          <h1 class="subtop-title">키워드검색</h1>
+          <div class="document-utils">
+            <button class="document-utils-share">공유<i class="icon-share icon"></i></button>
+            <span class="divider"></span>
+            <button class="document-utils-print">프린터<i class="icon-print icon"></i></button>
+          </div>
+        </div>
+      </section>
+      <main id="content" class="sub-layout">
+        <div class="read-wrap">
+          <div class="read-header-2">
+            <span><b>[Consumer Health] Adult Acetaminophen</b></span>
+          </div>
+          <div class="read-filters">
+            <form action="#">
+              <fieldset>
+                <legend>검색 조건</legend>
+                <div class="board-search">
+                  <div class="board-search__fields">
+                    <div class="board-search__field full-field">
+                      <span class="label">분석기간</span>
+                      <div class="form-group--inline">
+                        <div class="period-wrapper">
+                          <button type="button" class="period-btn selected">전체</button>
+                          <button type="button" class="period-btn">1개월</button>
+                          <button type="button" class="period-btn">3개월</button>
+                          <button type="button" class="period-btn">6개월</button>
+                          <button type="button" class="period-btn">1년</button>
+                        </div>
+                        <div class="date-range-wrapper">
+                          <input type="text" class="input date-input date-range-picker" placeholder="2025.11" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="board-search__actions">
+                    <button class="btn btn--outline btn--tertiary btn--sm"><span>초기화</span></button>
+                    <button class="btn btn--primary btn--sm"><span>검색</span></button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="read-section">
+            <!-- // 차트 -->
+            <div class="read-section-content">
+              <div class="row-wrap">
+                <div class="col-6 border-col">
+                  <div class="chart-map"></div>
+                </div>
+                <div class="col-6 border-col">
+                  <div class="col-header">
+                    <div class="left">
+                      <h5>국가별 순위 목록</h5>
+                    </div>
+                    <div class="right">
+                      <div class="unit">(단위:건)</div>
+                    </div>
+                  </div>
+                  <div class="col-content">
+                    <ol class="number-list overflow-y" style="height: 520px;">
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- // read-section -->
+          <div class="fab-actions align-center">
+            <a href="#" class="btn btn--outline btn--secondary">목록으로 가기</a>
+          </div>
+        </div>
+      </main>
+      <!-- // content -->
+    </div>
+    <div class="related-sites">
+      <div class="container">
+        <button type="button" class="related-sites-button">
+          <span>관련 사이트</span>
+          <i class="icon icon-plus" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <!-- 로고 영역 -->
+        <div class="footer-logos">
+          <div class="mi-group">
+            <a href="#" class="mi-dfip" title="새창 열림"><span class="sr-only">디지털식품정보플랫폼</span></a>
+            <a href="#" class="mi-foodpolis" title="새창 열림"><span class="sr-only">푸드폴리스</span></a>
+            <a href="#" class="mi-food-e" title="새창 열림"><span class="sr-only">푸드올</span></a>
+          </div>
+        </div>
+        <!-- 회사 정보 -->
+        <div class="footer-info">
+          <div class="info-row">
+            <span class="info-label">상호</span>
+            <span>한국식품산업클러스터진흥원</span>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="info-label">주소</span>
+            <span>(50112) 전라북도 익산시 왕궁로 국가식품로 100</span>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="info-label">사업자등록번호</span>
+            <span>138-82-05887</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">대표전화</span>
+            <span>063-720-0500</span>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="info-label">저작심의 및 기타 문의</span>
+            <span>063-720-0500 (평일, 평일 9시 - 18시)</span>
+            <span class="divider" aria-hidden="true"></span>
+            <span class="info-label">시스템 기술문의</span>
+            <span>1551-0511 (평일, 평일 9시 - 18시)</span>
+          </div>
+        </div>
+        <!-- 링크 영역 -->
+        <div class="footer-last">
+          <div class="footer-links">
+            <a href="#" class="link-green">개인정보처리방침</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">이용약관</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">이메일주소무단수집거부</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">홈페이지개선</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">사이트맵</a>
+            <span class="divider" aria-hidden="true"></span>
+            <a href="#">원격지원</a>
+          </div>
+          <div class="footer-copyright">
+            <p>© FOODPOLIS. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- 통합 검색 모달 - BODY 맨 아래 -->
+    <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+      <div class="search-modal__overlay"></div>
+      <div class="search-modal__container">
+        <div class="search-modal__header">
+          <h2 id="searchTitle" class="search-modal__title">통합 검색 <i></i></h2>
+        </div>
+        <div class="search-modal__search-bar">
+          <div class="search-header">
+            <!-- 검색 오버레이 -->
+            <div class="search-section">
+              <!-- 검색 입력 영역 -->
+              <div class="search-input-section">
+                <div class="search-input-wrapper">
+                  <input type="text" class="search-input" placeholder="식품" value="식품">
+                  <button type="button" class="search-btn" aria-label="검색">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      aria-hidden="true">
+                      <path
+                        d="M19.8984 10.8984C19.8984 12.9138 19.2334 14.7736 18.1143 16.2734L21.1201 19.2793L21.21 19.3779C21.598 19.8544 21.5975 20.5421 21.209 21.0186L21.1201 21.1172C20.6124 21.6249 19.7889 21.6249 19.2812 21.1172L16.2764 18.1123C14.7759 19.2327 12.915 19.8984 10.8984 19.8984C5.92787 19.8984 1.89844 15.869 1.89844 10.8984C1.89844 5.92787 5.92787 1.89844 10.8984 1.89844C15.869 1.89844 19.8984 5.92787 19.8984 10.8984ZM17.2988 10.8984C17.2988 7.36382 14.4331 4.49805 10.8984 4.49805C7.36382 4.49805 4.49805 7.36382 4.49805 10.8984C4.49805 14.4331 7.36382 17.2988 10.8984 17.2988C12.5568 17.2988 14.0644 16.6648 15.2021 15.6289C15.255 15.5429 15.3193 15.4629 15.3926 15.3896L15.4697 15.3184C15.5217 15.2742 15.576 15.234 15.6328 15.1992C16.6667 14.062 17.2988 12.5553 17.2988 10.8984Z"
+                        fill="url(#paint0_linear_2059_7289)" />
+                      <defs>
+                        <linearGradient id="paint0_linear_2059_7289" x1="1.89844" y1="11.6982" x2="21.5007" y2="11.6982"
+                          gradientUnits="userSpaceOnUse">
+                          <stop stop-color="#2DA34F" />
+                          <stop offset="1" stop-color="#1B5D88" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <!-- is-active -->
+              <div class="search-dropdown">
+                <!-- 자동완성 제안 -->
+                <div class="search-suggestions">
+                  <div class="suggestion-item">
+                    <i class="icon-search" aria-hidden="true"></i>
+                    <span class="suggestion-text"><b class="highlight">식품</b>산업</span>
+                  </div>
+                  <div class="suggestion-item">
+                    <i class="icon-search" aria-hidden="true"></i>
+                    <span class="suggestion-text"><b class="highlight">식품</b>산업기업</span>
+                  </div>
+                  <div class="suggestion-item">
+                    <i class="icon-search" aria-hidden="true"></i>
+                    <span class="suggestion-text"><b class="highlight">식품</b>안전</span>
+                  </div>
+                </div>
+                <!-- 자동완성 설정 -->
+                <div class="search-settings">
+                  <div class="setting-item">
+                    <span class="setting-label">
+                      <label for="search-autocomplete-toggle" class="setting-label-text">자동완성</label>
+                      <label class="switch"><input type="checkbox" id="search-autocomplete-toggle" checked><span
+                          class="switch-slider"></span></label>
+                    </span>
+                    <button type="button" class="close-btn" data-close="searchOverlay">닫기</button>
+                  </div>
+                </div>
+                <!-- 검색 기록 -->
+                <div class="search-history">
+                  <div class="setting-item">
+                    <span class="setting-label">
+                      <label for="search-history-toggle" class="setting-label-text">검색기록</label>
+                      <label class="switch"><input type="checkbox" id="search-history-toggle" checked><span
+                          class="switch-slider"></span></label>
+                    </span>
+                    <button type="button" class="clear-btn">전체삭제</button>
+                  </div>
+                  <div class="history-item">
+                    <i class="icon-time" aria-hidden="true"></i>
+                    <span class="history-text">식품</span>
+                    <button type="button" class="delete-btn">
+                      <i class="icon-delete" aria-hidden="true"></i>
+                      <span class="sr-only">삭제</span>
+                    </button>
+                  </div>
+                  <div class="history-item">
+                    <i class="icon-time" aria-hidden="true"></i>
+                    <span class="history-text">식품</span>
+                    <button type="button" class="delete-btn">
+                      <i class="icon-delete" aria-hidden="true"></i>
+                      <span class="sr-only">삭제</span>
+                    </button>
+                  </div>
+                  <div class="history-item">
+                    <i class="icon-time" aria-hidden="true"></i>
+                    <span class="history-text">식품</span>
+                    <button type="button" class="delete-btn">
+                      <i class="icon-delete" aria-hidden="true"></i>
+                      <span class="sr-only">삭제</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="search-modal__content">
+          <div class="search-modal__section">
+            <div class="search-modal__section-title">
+              <h3>최근 검색어</h3>
+            </div>
+            <div class="search-modal__list">
+              <div class="search-modal__list-item"><button type="button"><i class="hash">#</i><span class="search-modal__list-item-text">식품</span></button></div>
+            </div>
+          </div>
+          <div class="search-modal__section">
+            <div class="search-modal__section-title">
+              <h3>인기 검색어</h3>
+            </div>
+            <ol class="search-modal__ranking-list ranking-list">
+              <li class="ranking-item"><button type="button"><span class="num">1</span><span class="word up">식품산업</span></button></li>
+              <li class="ranking-item"><button type="button"><span class="num">2</span><span class="word down">식품산업</span></button></li>
+              <li class="ranking-item"><button type="button"><span class="num">3</span><span class="word same">식품산업</span></button></li>
+              <li class="ranking-item"><button type="button"><span class="num">4</span><span class="word same">식품산업</span></button></li>
+              <li class="ranking-item"><button type="button"><span class="num">5</span><span class="word up">식품산업</span></button></li>
+            </ol>
+          </div>
+        </div>
+        <button class="search-modal__close-btn">
+          <span class="sr-only">검색 닫기</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="floating-buttons">
+    <!-- 챗봇 버튼 -->
+    <button class="button button-chatbot" aria-label="챗봇">
+      <span class="icon"></span>
+    </button>
+    <!-- Top 버튼 -->
+    <button class="button button-top" aria-label="맨 위로">
+      <span class="icon"></span>
+    </button>
+  </div>
+</body>
+</html>

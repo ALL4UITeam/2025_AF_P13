@@ -496,7 +496,7 @@ const portal = {
         dateRangeInputs.forEach((input) => {
           flatpickr(input, {
             mode: "range",
-            dateFormat: "Y.m.d",
+            dateFormat: "Y-m-d",
             locale: "ko",
             defaultDate: [/* @__PURE__ */ new Date(), /* @__PURE__ */ new Date()],
             onChange: function(selectedDates, dateStr, instance) {
