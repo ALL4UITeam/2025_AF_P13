@@ -1,0 +1,119 @@
+<!-- @pageTitle 서비스소개-공지사항-목록 -->
+<!-- @pageNote 종료 -->
+<!-- @pageCreated 2025-10-27 -->
+<!-- @pageUpdated 2025-10-27 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="사이트맵"
+      subtop-depth1-title="포털"
+      subtop-depth1-link="##"
+      subtop-depth2-title="사이트맵"
+      }}
+
+      <main id="content" class="sub-layout">
+        <div class="sitemap-wrap">
+
+          <div class="sitemap-list">
+            <div class="sitemap-column">
+              <h3 class="sitemap-column__title">분석서비스</h3>
+              <ul class="sitemap-column__list">
+                <li><a href="#">키워드 분석</a></li>
+                <li><a href="#">트렌드 분석</a></li>
+                <li><a href="#">융합데이터 분석</a></li>
+              </ul>
+            </div>
+
+            <div class="sitemap-column">
+              <h3 class="sitemap-column__title">식품데이터 제공</h3>
+              <ul class="sitemap-column__list">
+                <li><a href="#">데이터 검색</a></li>
+                <li>
+                  <a href="#">오픈 API</a>
+                  <ul class="sitemap-column__sublist">
+                    <li><a href="#">식품 오픈 API 목록</a></li>
+                    <li><a href="#">API 활용 신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">데이터 시각화</a>
+                  <ul class="sitemap-column__sublist">
+                    <li><a href="#">시각화 안내</a></li>
+                    <li><a href="#">신청</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">데이터 신청</a>
+                  <ul class="sitemap-column__sublist">
+                    <li><a href="#">데이터 신청 목록</a></li>
+                    <li><a href="#">데이터 제공 신청</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div class="sitemap-column">
+              <h3 class="sitemap-column__title">식품산업정보</h3>
+              <ul class="sitemap-column__list">
+                <li>
+                  <a href="#">식품산업 관련 정보</a>
+                  <ul class="sitemap-column__sublist">
+                    <li><a href="#">식품산업 관련 통계</a></li>
+                    <li><a href="#">농작물 재배 분포도</a></li>
+                    <li><a href="#">식품원료 사용량 및 도소매 가격정보</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">정책지원사업</a></li>
+                <li>
+                  <a href="#">발간 보고서</a>
+                  <ul class="sitemap-column__sublist">
+                    <li><a href="#">트렌드 보고서</a></li>
+                    <li><a href="#">카드뉴스</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">법률/규제 알림</a>
+                  <ul class="sitemap-column__sublist">
+                    <li><a href="#">모집 공고 목록</a></li>
+                    <li><a href="#">알림 신청</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div class="sitemap-column">
+              <h3 class="sitemap-column__title">서비스 안내</h3>
+              <ul class="sitemap-column__list">
+                <li><a href="#">서비스 소개</a></li>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">질문과답변</a></li>
+                <li><a href="#">자료실</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+
+  {{> layout/floating }}
+
+  <script type="module" src="../js/pages/portal.js"></script>
+
+</body>
+
+</html>

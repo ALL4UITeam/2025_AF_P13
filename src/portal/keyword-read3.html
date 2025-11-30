@@ -1,0 +1,173 @@
+<!-- @pageTitle 키워드검색 -->
+<!-- @pageNote 기능 구현 완료 -->
+<!-- @pageCreated 2025-11-03 -->
+<!-- @pageUpdated 2025-11-03 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="키워드검색"
+      subtop-depth1-title="키워드검색"
+      subtop-depth1-link="##"
+      subtop-depth2-title="키워드검색"
+      }}
+
+      <main id="content" class="sub-layout">
+
+        <div class="read-wrap">
+          <div class="read-header-3">
+            <h3>회사명</h3>
+            <button type="button" class="download-btn" title="다운로드">사업소개서 다운로드 <i class="icon icon-download"></i></button>
+          </div>
+         
+
+          <div class="read-section">
+            <div class="read-section-header">
+              <h3>기본정보</h3>
+            </div>
+            <div class="read-section-content">
+              <div class="read-list">
+                <div class="read-list-group">
+                  <div class="read-list-item">
+                    <div class="read-list-item-label">회사명</div>
+                    <div class="read-list-item-content">성북 성북구 숭인로 8길 101동 1605호</div>
+                  </div>
+                  <div class="read-list-item">
+                    <div class="read-list-item-label">회사명</div>
+                    <div class="read-list-item-content">성북 성북구 숭인로 8길 101동 1605호</div>
+                  </div>
+                </div>
+                <div class="read-list-group">
+                  <div class="read-list-item">
+                    <div class="read-list-item-label">회사명</div>
+                    <div class="read-list-item-content">성북 성북구 숭인로 8길 101동 1605호</div>
+                  </div>
+                  <div class="read-list-item">
+                    <div class="read-list-item-label">회사명</div>
+                    <div class="read-list-item-content">성북 성북구 숭인로 8길 101동 1605호</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- // read-section -->
+
+          <div class="read-section">
+            <div class="read-section-header">
+              <h3>등급 정보</h3>
+            </div>
+            <div class="read-section-content">
+              <div class="full-chart" style="min-height: 260px;">
+                <div class="period-wrapper absolute">
+                  <button type="button" class="period-btn selected">전체</button>
+                  <button type="button" class="period-btn">1개월</button>
+                  <button type="button" class="period-btn">3개월</button>
+                  <button type="button" class="period-btn">6개월</button>
+                  <button type="button" class="period-btn">1년</button>
+                </div>
+              </div>
+
+              <div class="row-wrap">
+                <div class="col-12 border-col">
+                  d
+                </div>
+              </div>
+
+              <div class="row-wrap">
+                <div class="col-12 border-col p0">
+                  <div class="info-card-split">
+                    <div class="info-card-split__aside">
+                      <div class="info-card-split__label">특서건수</div>
+                      <div class="info-card-split__value">999</div>
+                    </div>
+                    <div class="info-card-split__main">
+                      <h4 class="info-card-split__title">특허진단 의견 내용</h4>
+                      <div class="info-card-split__content">
+                        동사의 신용도는 보통(E6)수준이고, 경쟁력 수준이 상위 62.06%로 사업이 비교적 안정적입니다. 모형별 진단결과, 사업안정성 및 재무상태 건전도는 상위 56.43%로 경쟁력을 보유하고 있습니다. 판매처와의 종합적인 거래위험도 및 거래처 다각화 수준이 상위 6.78%로 판매 안정성이 우수하고 원활한 사업운영을 위한 구매 안정성을 보유하고 있습니다. 경영자 금융거래 건전도 및 고용 활동성 등 영업 외 활동을 검토한 결과 경영관리능력은 동종업계 내 평균수준입니다
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="read-section">
+            <div class="read-section-header">
+              <h3>특허정보</h3>
+            </div>
+            <div class="read-section-content">
+              <div class="row-wrap">
+                <div class="col-6 border-col">
+                  <div class="col-header"><h5>신용도별 판매처</h5></div>
+                  <div class="col-content" style="height: 100px;">
+                    <div class="overflow-y">
+                      <table class="table">
+                      <caption class="sr-only">신용도별 판매처</caption>
+                      <colgroup>
+                        <col style="width: 10%;">
+                        <col style="width: 40%;">
+                        <col style="width: auto;">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th scope="col">신용도</th>
+                          <th scope="col">
+                            판매처 수
+                            <div class="table-sort">
+                              <button class="table-sort-btn up">
+                                <span class="sr-only">오름차순</span>
+                              </button>
+                              <button class="table-sort-btn down">
+                                <span class="sr-only">내림차순</span>
+                              </button>
+                            </div>
+                          </th>
+                          <th scope="col">구성비</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>기업거래</td>
+                          <td>25,727</td>
+                          <td>100%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 border-col">
+                  차트
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fab-actions align-center">
+            <a href="#" class="btn btn--outline btn--secondary">목록으로 가기</a>
+          </div>
+        </div>
+
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+  {{> layout/floating }}
+
+
+  <script type="module" src="../js/pages/portal.js"></script>
+</body>
+</html>

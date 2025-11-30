@@ -72,13 +72,13 @@
   &__section {
     padding: 32px;
     border-radius: 12px;
-    background: #DBF5E2;
+    background: #E0C5F6;
     box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.20);
     margin-top: 24px;
   }
   
   &__section-title {
-    color: var(--primary, #2DA34F);
+    color: #6719A6;
     font-family: var(--font-family-secondary);
     font-size: 17px;
     font-weight: 700;
@@ -117,7 +117,7 @@
       font-size: 15px;
     }
     .hash{
-      color: #81C895;
+      color: #C999F0;
     }
 
   }
@@ -192,7 +192,8 @@
   background: white;
   border-radius: 50px;
   padding: 3px;
-  background: linear-gradient(to right, #2d7a5e, #4a9d7e);
+  background: linear-gradient(to right, #6719A6, #FC0050 );
+  
   .search-input-wrapper {
     background-color: #fff;
     border-radius: 48px;

@@ -1,0 +1,178 @@
+<!-- @pageTitle 키워드검색 -->
+<!-- @pageNote 기능 구현 완료 -->
+<!-- @pageCreated 2025-11-03 -->
+<!-- @pageUpdated 2025-11-03 -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  {{> layout/meta }}
+</head>
+
+<body>
+
+  <div id="main" class="portal">
+    {{> layout/header }}
+    <!-- // header -->
+    <div class="layout-sub">
+      {{> layout/subtop
+      subtop-title="키워드검색"
+      subtop-depth1-title="키워드검색"
+      subtop-depth1-link="##"
+      subtop-depth2-title="키워드검색"
+      }}
+
+      <main id="content" class="sub-layout">
+
+        <div class="read-wrap">
+          <div class="read-header-2">
+            <span><b>[Consumer Health] Adult Acetaminophen</b></span>
+          </div>
+          
+          <div class="read-filters">
+            <form action="#">
+              <fieldset>
+                <legend>검색 조건</legend>
+                <div class="board-search">
+                  <div class="board-search__fields">
+                    <div class="board-search__field full-field">
+                      <span class="label">분석기간</span>
+                      <div class="form-group--inline">
+                        <div class="period-wrapper">
+                          <button type="button" class="period-btn selected">전체</button>
+                          <button type="button" class="period-btn">1개월</button>
+                          <button type="button" class="period-btn">3개월</button>
+                          <button type="button" class="period-btn">6개월</button>
+                          <button type="button" class="period-btn">1년</button>
+                        </div>
+                        <div class="date-range-wrapper">
+                          <input type="text" class="input date-input date-range-picker" placeholder="2025.11" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <div class="board-search__actions">
+                    <button class="btn btn--outline btn--tertiary btn--sm"><span>초기화</span></button>
+                    <button class="btn btn--primary btn--sm"><span>검색</span></button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+
+
+          <div class="read-section">
+            <!-- // 차트 -->
+            <div class="read-section-content">
+              <div class="row-wrap">
+                <div class="col-6 border-col">
+                  <div class="chart-map"></div>
+                </div>
+                <div class="col-6 border-col">
+                  <div class="col-header">
+                    <div class="left">
+                      <h5>국가별 순위 목록</h5>
+                    </div>
+                    <div class="right">
+                      <div class="unit">(단위:건)</div>
+                    </div>
+                  </div>
+                  <div class="col-content">
+                    <ol class="number-list overflow-y" style="height: 520px;">
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                      <li class="number-item">
+                        <div class="number-item-title">
+                          <span class="num">1</span>
+                          <span class="text">음료류</span>
+                        </div>
+                        <div class="value">1000</div>
+                      </li>
+                    </ol>
+                  </div>
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- // read-section -->
+
+          <div class="fab-actions align-center">
+            <a href="#" class="btn btn--outline btn--secondary">목록으로 가기</a>
+          </div>
+        </div>
+
+      </main>
+      <!-- // content -->
+    </div>
+    {{> layout/footer }}
+  </div>
+  {{> layout/floating }}
+
+
+  <script type="module" src="../js/pages/portal.js"></script>
+</body>
+</html>

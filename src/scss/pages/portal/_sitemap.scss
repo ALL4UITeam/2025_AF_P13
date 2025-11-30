@@ -1,0 +1,108 @@
+@forward "../../abstracts/variables";
+@forward "../../abstracts/mixin";
+@forward "../../abstracts/functions";
+
+.sitemap-wrap {
+  width: 100%;
+}
+
+.sitemap-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+
+.sitemap-column {
+  display: flex;
+  flex-direction: column;
+  
+
+  &__title {
+    border-radius: 12px;
+    border: 1px solid var(--24-24_p-20, #C999F0);
+    background: var(--24-24_p-05, #F8F2FD);
+    display: flex;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    color: var(--24-24_p-80, #2F0B4B);
+    text-align: center;
+    font-family: "Pretendard GOV";
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    > li {
+      border-bottom: 1px solid #E6E8EA;
+      position: relative;
+
+      > a {
+        display: flex;
+        height: 48px;
+        padding: 10px 10px 10px 20px;
+        align-items: center;
+        gap: 10px;
+        align-self: stretch;
+        transition: color 0.4s ease;
+        font-size: 17px;
+        color: #131416;
+        &:hover,
+        &:focus{
+          color: #2F0B4B;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  &__sublist {
+    display: flex;
+    padding: 16px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    border-top: 1px solid #E6E8EA;
+    background: #F4F5F6;
+    li {
+      position: relative;
+      padding-left: 12px;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        background: url('/images/portal/sitemap-dot.svg') no-repeat center center;
+        line-height: 1;
+        width: 4px;
+        height: 4px;
+      }
+
+      a {
+        display: block;
+        font-size: 17px;
+        color: #464C53;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        &:hover,
+        &:focus{
+          color: #6719A6;
+        }
+      }
+    }
+  }
+}
+
